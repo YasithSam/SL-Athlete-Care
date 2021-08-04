@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    
+}
+*{
+    border-radius: border-box;
+}
+
+.imagebox{
+    width: 55%;
+    float: left;
+    height: 500px;
+    position: relative;
+
+}
+.imagebox img{
+    position: absolute;
+    top: 10%; 
+    transform: traslateY(-50%);
+    overflow: hidden;
+    
+}
+
+.textbox-cont{
+    width: 45%;
+    height: 500px;
+    float: right;
+    overflow: hidden;
+    position: relative;
+}
+
+.textbox{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    position: absolute;
+    width: 80%;
+    padding: 20px;
+    top: 10%;
+    transform: traslateY(-50%);
+}
+
+.textbox .main{
+    text-align: left;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.textbox .main_line{
+    float: left;
+    display: block;
+    width: 15%;
+    height: 3px;
+    margin: auto;
+    border: none;
+    background: #000000;
+}
+.textbox .para{
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: left;
+    font-weight: 800;
+    color: rgb(56, 56, 56);
+    margin-bottom: 30px;
+    line-height: 30px;
+}
+
+.main-btn{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 50px;
+    transition: 0.5s;
+    
+    border: 2px solid #01a1f9;
+    color: #08beff;
+}
+.main-btn:hover{
+    background: #08beff;
+    border: 2px solid #57f8f8;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+@media screen and (max-width: 1024px){
+    
+    .imagebox{
+        width: 55%;
+        height: 500px;
+    }
+
+    .imagebox img{
+        top: 10px;
+    }
+
+    .textbox{
+        top: 0%;
+    }
+
+    .textbox-cont{
+        width: 45%;
+        height: 500px;
+        
+    }
+
+    .textbox .main_line{
+        width: 10%;
+    }
+
+    .textbox .main{
+        margin-top: 0px;
+        font-size: 28px;
+    }
+
+    .textbox .para{
+        margin-top: 10px;
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .main-btn{
+        font-size: 18px;
+    }
+
+}
+ 
+
+@media screen and (max-width: 768px){
+    
+    .imagebox{
+        width: 50%;
+        height: 500px;
+    }
+
+    .imagebox img{
+        top: 10%;
+    }
+
+    .textbox{
+        top: 0%;
+    }
+
+    .textbox-cont{
+        width: 50%;
+        height: 500px;
+        
+    }
+
+    .textbox .main_line{
+        width: 15%;
+    }
+
+    .textbox .main{
+        font-size: 22px;
+    }
+
+    .textbox .para{
+        font-weight: 700;
+        margin-top: 5px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .main-btn{
+        font-size: 16px;
+    }
+
+}
+    
+
+
+@media screen and (max-width: 568px){
+
+    .imagebox{
+        width: 100%;
+        height: 350px;
+    }
+
+    .imagebox img{
+        top: 5px;
+    }
+
+    .textbox-cont{
+        width: 100%;
+        height: 400px;
+        
+    }
+
+    .textbox .main{
+        font-size: 20px;
+    }
+
+    .textbox .para{
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .main-btn{
+        font-size: 14px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 420px){
+
+    .imagebox{
+        width: 100%;
+        height: 250px;
+    }
+
+    .imagebox img{
+        top: 5px;
+    }
+
+    .textbox-cont{
+        width: 100%;
+        height: 400px;
+        
+    }
+
+    .textbox .main{
+        font-size: 20px;
+    }
+
+    .textbox .para{
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .main-btn{
+        font-size: 14px;
+    }
+
+}
+
+
+@media screen and (max-width: 320px){
+
+    .imagebox{
+        width: 100%;
+        height: 200px;
+    }
+
+    .textbox-cont{
+        width: 100%;
+        height: 350px;
+        
+    }
+
+    .textbox .main{
+        font-size: 18px;
+    }
+
+    .textbox .para{
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .main-btn{
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (max-width: 280px){
+    .imagebox{
+        height: 180px;
+    }
+
+}
