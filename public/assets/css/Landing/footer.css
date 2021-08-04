@@ -31,7 +31,7 @@ body{
 
 .footer{
     padding-top: 8rem;
-    background:url(../img/footerbg.jpg) no-repeat;
+    background:url(../../img/footerbg.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     /*background:#0965ee;*/
