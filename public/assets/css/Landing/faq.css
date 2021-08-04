@@ -11,7 +11,7 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #c5cae9;
+    background: #ffffff;
     padding: 40px;
 }
 
@@ -21,7 +21,7 @@ body{
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    background: #fff;
+    background: #bbdefb;
     border-radius: 25px;
     padding: 45px 90px 45px 60px;
 }
@@ -44,7 +44,7 @@ body{
 .accordion .accordion-text .title{
     font-size: 35px;
     font-weight: 600;
-    color: #002f6c;
+    color: #000051;
 }
 
 .accordion .accordion-text .faq-text{
@@ -72,25 +72,27 @@ body{
     font-size: 18px;
     font-weight: 500;
     color: #595959;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
-.accordion-text li .question-arrow img{
-    transition: all 0.3s ease;
+.accordion-text li .question-arrow .arrow{
+    font-size: 20px;
+    color: #595959;
+    transition: all 0.5s ease;
 }
 
-.accordion-text li.showAnswer .question-arrow img {
+.accordion-text li.showAnswer .question-arrow .arrow{
     transform: rotate(-180deg);
 }
 
 .accordion-text li:hover .question-arrow .question, 
-.accordion-text li:hover .question-arrow .img{
-    color: #01579b;
+.accordion-text li:hover .question-arrow .arrow{
+    color: #0562cc;
 }
 
 .accordion-text li.showAnswer .question-arrow .question, 
-.accordion-text li.showAnswer .question-arrow .img{
-    color: #01579b;
+.accordion-text li.showAnswer .question-arrow .arrow{
+    color: #0562cc;
 }
 
 .accordion-text li .line{
@@ -138,7 +140,7 @@ body{
     .accordion .image-box{
         height: 360px;
         width: 300px;
-        background: #c5cae9;
+        background: #ffffff;
         width: 100%;
         border-radius: 25px;
         padding: 30px;        
