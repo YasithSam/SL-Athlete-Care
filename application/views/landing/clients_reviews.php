@@ -15,7 +15,7 @@
                     <!--first--->
                     <div class="swiper-slide">
                         <div class="testi-item">
-                            <div class="testi-avatar"><img src="../../../public/assets/img/b.jpg"></div>
+                            <div class="testi-avatar"><img src="../../public/assets/img/b.jpg"></div>
                             <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
                             <div class="testimonials-text">
                                 <div class="listing-rating">
@@ -39,7 +39,7 @@
                     <!--second--->
                     <div class="swiper-slide">
                         <div class="testi-item">
-                            <div class="testi-avatar"><img src="../../../public/assets/img/c.jpg"></div>
+                            <div class="testi-avatar"><img src="../../public/assets/img/c.jpg"></div>
                             <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
                             <div class="testimonials-text">
                                 <div class="listing-rating">
@@ -63,7 +63,7 @@
 
                     <div class="swiper-slide">
                         <div class="testi-item">
-                            <div class="testi-avatar"><img src="../../../public/assets/img/d.jpg"></div>
+                            <div class="testi-avatar"><img src="../../public/assets/img/d.jpg"></div>
                             <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
                             <div class="testimonials-text">
                                 <div class="listing-rating">
@@ -87,7 +87,7 @@
                     <!--fourth-->
                     <div class="swiper-slide">
                         <div class="testi-item">
-                            <div class="testi-avatar"><img src="../../../public/assets/img/e.jpg"></div>
+                            <div class="testi-avatar"><img src="../../public/assets/img/e.jpg"></div>
                             <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
                             <div class="testimonials-text">
                                 <div class="listing-rating">
@@ -111,7 +111,7 @@
                     <!--fifth-->
                     <div class="swiper-slide">
                         <div class="testi-item">
-                            <div class="testi-avatar"><img src="../../../public/assets/img/f.jpg"></div>
+                            <div class="testi-avatar"><img src="../../public/assets/img/f.jpg"></div>
                             <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
                             <div class="testimonials-text">
                                 <div class="listing-rating">
@@ -135,7 +135,7 @@
                     <!--sixth-->
                     <div class="swiper-slide">
                         <div class="testi-item">
-                            <div class="testi-avatar"><img src="../../../public/assets/img/g.jpg"></div>
+                            <div class="testi-avatar"><img src="../../public/assets/img/g.jpg"></div>
                             <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
                             <div class="testimonials-text">
                                 <div class="listing-rating">

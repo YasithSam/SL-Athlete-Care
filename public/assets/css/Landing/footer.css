@@ -29,7 +29,7 @@ html{
 .footer{
    /*/ width: 100%;*/
     /*padding-top: 10rem;*/
-    background:url(footerbg.jpg) no-repeat;
+    background:url('../../img/footerbg.jpg') no-repeat;
     background-size: cover;
     /*background-position: center;*/
     /*background:#0965ee;*/

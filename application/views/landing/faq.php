@@ -1,6 +1,6 @@
     <div class="accordion">
         <div class="image-box">
-        <img src="../../../public/assets/img/a.png">
+        <img src="../../public/assets/img/a.png">
         </div>
         <div class="accordion-text">
             <div class="title">FAQ</div>

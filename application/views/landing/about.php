@@ -1,6 +1,6 @@
 <div class="fullbox">
 <div class="imagebox">
-    <img src="../../../public/assets/img/about1.png" alt="" width="100%">
+    <img src="../../public/assets/img/about1.png" alt="" width="100%">
 </div>
     
 <div class="textbox-cont">
