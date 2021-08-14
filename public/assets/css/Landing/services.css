@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
 
+
 *{
     margin: 0;
     padding: 0;
@@ -7,15 +8,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body{
-    background: #fff;
-
-}
 
 .wrapper .header{
+    padding-top: 20px;
     width: 100%;
     height: 100px;
-    background: rgb(255, 255, 255);
+    background: rgb(255, 254, 254);
     color: rgb(0, 0, 0);
     text-align: center; 
 }
@@ -26,7 +24,7 @@ body{
     height: 3px;
     margin: auto;
     border: none;
-    background: #000000;
+    background: #007aff;
 }
 .wrapper .header .main{
     margin-bottom: 10px;
@@ -51,7 +49,7 @@ body{
 
 
 .cards_wrap{
-    padding: 20px;
+    padding: 50px;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -124,6 +122,7 @@ body{
 }
 
 
+/*Services*/
 
 @media screen and (max-width: 1024px){
 
@@ -150,7 +149,7 @@ body{
     }
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 810px){
 
     .cards_wrap .card_item{
         width: 50%;
@@ -160,13 +159,13 @@ body{
     }
     
     .wrapper .header{
-        height: 100px;
+        height: 150px;
     }
 
     .wrapper .header .main{
         margin-bottom: 5px;
         font-size: 18px;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         font-weight: 900;
     }
     
@@ -202,14 +201,28 @@ body{
 }
 
 @media screen and (max-width: 340px){
+
+    .wrapper .header{
+        height: 150px;
+    }
+    
     .wrapper .header .main{
         font-size: 18px;
         font-weight: 800;
     }
+    
+    .cards_wrap{
+        padding: 10px;
+        }
+    
+    .cards_wrap .card_item{
+        padding: 15px 25px;
+       }
 
     .cards_wrap .card_inner .title_name{
         font-size: 14px;
         letter-spacing: 0.5px;
+
     }
 }
 

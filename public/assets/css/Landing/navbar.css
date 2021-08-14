@@ -66,8 +66,8 @@ header .navbar a{
 }
 
 header .navbar a:hover{
-    color:var(--dblue);
-    text-decoration: underline;
+    color:rgb(204, 201, 201);
+    /*text-decoration: underline;*/
 }
 
 header input{
@@ -103,13 +103,11 @@ header label{
         position: absolute;
         top:100%; left: 0;
         width:100%;
-        background:#fff;
+        background:rgba(0, 0, 0, 0.7);
         padding:1rem 2rem;
         border-top: .1rem solid rgba(0,0,0,.2);
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
         transform-origin: top;
         transform: scaleY(0);
-        opacity: 0;
         transition: .2s linear;
     }
 
@@ -117,6 +115,12 @@ header label{
         display: block;
         margin:2rem 0;
         font-size: 2rem;
+    }
+
+    header .navbar a:hover{
+        color:rgb(185, 185, 190);
+        font-size: 2.2rem;
+        /*text-decoration: underline;*/
     }
 
     header input:checked ~ .navbar{
