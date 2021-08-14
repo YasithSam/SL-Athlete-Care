@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Services</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../../public/assets/css/Landing/services.css">
-</head>
-<body>
- 
 <div class="wrapper">
     <div class="header">
         <div class="main">Our Services</div>
@@ -71,10 +60,9 @@
 
     
     <div class="end-button">
-        <a href="#" class="end-btn">Learn More</a>
+        <a href="#" class="end-btn">Contact Us
+        </a>
     </div>
 
 </div>
 
-</body>
-</html>

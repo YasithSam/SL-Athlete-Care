@@ -8,36 +8,47 @@ body{
     border-radius: border-box;
 }
 
+.fullbox{
+    height: 700px;
+    width: 100%;
+    background-color: #ffffff;
+}
 .imagebox{
-    width: 55%;
+    width: 50%;
     float: left;
-    height: 500px;
+    height: 700px;
     position: relative;
 
 }
 .imagebox img{
+    top: 50px;
+    bottom: 50px;
+    height: 600px;
     position: absolute;
-    top: 10%; 
     transform: traslateY(-50%);
     overflow: hidden;
     
 }
 
 .textbox-cont{
-    width: 45%;
-    height: 500px;
+    width: 50%;
+    height: 700px;
     float: right;
     overflow: hidden;
     position: relative;
 }
 
 .textbox{
+    left: 15%;
+    right: 15%;
+    top: 100px;
+    bottom: 100px;
+    height: 500px;
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     position: absolute;
-    width: 80%;
-    padding: 20px;
-    top: 10%;
+    width: 70%;
+    
     transform: traslateY(-50%);
 }
 
@@ -56,7 +67,7 @@ body{
     height: 3px;
     margin: auto;
     border: none;
-    background: #000000;
+    background: #007aff;
 }
 .textbox .para{
     margin-top: 20px;
@@ -77,7 +88,6 @@ body{
     padding: 8px 28px;
     border-radius: 50px;
     transition: 0.5s;
-    
     border: 2px solid #01a1f9;
     color: #08beff;
 }
@@ -88,27 +98,31 @@ body{
     color: white;
 }
 
-
-
+/*About*/
 @media screen and (max-width: 1024px){
-    
-    .imagebox{
-        width: 55%;
+   
+    .fullbox{
         height: 500px;
     }
+    .imagebox{
+        height: 500px;
 
-    .imagebox img{
-        top: 10px;
     }
-
-    .textbox{
-        top: 0%;
+    .imagebox img{
+        top: 25px;
+        bottom: 25px;
+        height: 450px;
+        
     }
 
     .textbox-cont{
-        width: 45%;
         height: 500px;
-        
+    }
+
+    .textbox{
+        top: 50px;
+        bottom: 50px;
+        height: 400px;
     }
 
     .textbox .main_line{
@@ -131,27 +145,65 @@ body{
     }
 
 }
- 
 
-@media screen and (max-width: 768px){
-    
-    .imagebox{
-        width: 50%;
+@media screen and (max-width: 868px){
+    .fullbox{
         height: 500px;
     }
+    .imagebox{
+        height: 500px;
 
-    .imagebox img{
-        top: 10%;
     }
-
-    .textbox{
-        top: 0%;
+    .imagebox img{
+        top: 50px;
+        bottom: 50px;
+        height: 400px;
+        
     }
 
     .textbox-cont{
-        width: 50%;
         height: 500px;
+    }
+
+    .textbox{
+        left: 10%;
+        bottom: 10%;
+        width: 80%;
+        top: 50px;
+        bottom: 50px;
+        height: 400px;
+    }
+
+
+}
+
+@media screen and (max-width: 768px){
+    
+    .fullbox{
+        height: 400px;
+    }
+    .imagebox{
+        height: 400px;
+
+    }
+    .imagebox img{
+        top: 50px;
+        bottom: 50px;
+        height: 300px;
         
+    }
+
+    .textbox-cont{
+        height: 400px;
+    }
+
+    .textbox{
+        left: 10%;
+        bottom: 10%;
+        width: 80%;
+        top: 50px;
+        bottom: 50px;
+        height: 300px;
     }
 
     .textbox .main_line{
@@ -159,13 +211,13 @@ body{
     }
 
     .textbox .main{
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .textbox .para{
         font-weight: 700;
         margin-top: 5px;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 20px;
     }
 
@@ -175,32 +227,53 @@ body{
 
 }
     
-
-
 @media screen and (max-width: 568px){
-
+    
+    .fullbox{
+        height: 700px;
+    }
     .imagebox{
         width: 100%;
         height: 350px;
-    }
 
+    }
     .imagebox img{
-        top: 5px;
+        top: 25px;
+        bottom: 25px;
+        height: 300px;   
     }
 
     .textbox-cont{
         width: 100%;
-        height: 400px;
-        
+        height: 350px;
+    }
+
+    .textbox{
+        left: 10%;
+        bottom: 10%;
+        width: 80%;
+        top: 25px;
+        bottom: 25px;
+        height: 300px;
     }
 
     .textbox .main{
         font-size: 20px;
+        text-align: center;
+    }
+    .main_line{
+        left: 45%;
+        position: absolute;
     }
 
     .textbox .para{
+        text-align: center;
         font-size: 14px;
         line-height: 20px;
+    }
+
+    .main-button{
+        text-align: center;
     }
 
     .main-btn{
@@ -213,23 +286,41 @@ body{
 
 @media screen and (max-width: 420px){
 
+    .fullbox{
+        height: 700px;
+    }
     .imagebox{
         width: 100%;
-        height: 250px;
-    }
+        height: 350px;
 
+    }
     .imagebox img{
-        top: 5px;
+        top: 25px;
+        bottom: 25px;
+        height: 300px;   
     }
 
     .textbox-cont{
         width: 100%;
-        height: 400px;
-        
+        height: 350px;
+    }
+
+    .textbox{
+        left: 10%;
+        bottom: 10%;
+        width: 80%;
+        top: 25px;
+        bottom: 25px;
+        height: 300px;
     }
 
     .textbox .main{
         font-size: 20px;
+        text-align: center;
+    }
+    .main_line{
+        left: 45%;
+        position: absolute;
     }
 
     .textbox .para{
@@ -246,21 +337,42 @@ body{
 
 @media screen and (max-width: 320px){
 
+    .fullbox{
+        height: 700px;
+    }
     .imagebox{
         width: 100%;
-        height: 200px;
+        height: 300px;
+
+    }
+    .imagebox img{
+        top: 25px;
+        bottom: 25px;
+        height: 250px;   
     }
 
     .textbox-cont{
         width: 100%;
+        height: 400px;
+    }
+
+    .textbox{
+        left: 10%;
+        bottom: 10%;
+        width: 80%;
+        top: 25px;
+        bottom: 25px;
         height: 350px;
-        
     }
 
     .textbox .main{
-        font-size: 18px;
+        font-size: 20px;
+        text-align: center;
     }
-
+    .main_line{
+        left: 45%;
+        position: absolute;
+    }
     .textbox .para{
         font-size: 14px;
         line-height: 20px;
@@ -273,8 +385,13 @@ body{
 }
 
 @media screen and (max-width: 280px){
-    .imagebox{
-        height: 180px;
+
+    .imagebox img{
+        top: 35px;
+        bottom: 35px;
+        height: 230px;   
     }
 
 }
+
+
