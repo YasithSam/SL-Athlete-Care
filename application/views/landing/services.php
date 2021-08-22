@@ -1,9 +1,9 @@
 <div class="wrapper">
-    <div class="header">
-        <div class="main">Our Services</div>
-        <hr class="main_line">
-    <div class="para">Expert doctors in the field of sports medicine are ready to serve the nation's athletes to thrive for their best </div>
-    </div>
+
+    <center><h1>Our Services</h1></center>
+    <hr class="main_line">
+
+
     <div class="cards_wrap">
         <div class="card_item">
             <div class="card_inner">

@@ -9,14 +9,7 @@
 }
 
 
-.wrapper .header{
-    padding-top: 20px;
-    width: 100%;
-    height: 100px;
-    background: rgb(255, 254, 254);
-    color: rgb(0, 0, 0);
-    text-align: center; 
-}
+
 
 .main_line{
     display: block;

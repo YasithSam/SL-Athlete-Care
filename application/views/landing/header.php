@@ -1,10 +1,6 @@
     <section class="about" id="about">
         <div class="column">
-    
-            <div class="image">
-                <img src="../../public/assets/img/header2.png" alt="">
-            </div>
-    
+
             <div class="content">
                 <h1 class="heading"> sl athlete care mobile app </h1>
                 <h3>We solve Your medical needs</h3>
@@ -14,6 +10,9 @@
                     <a href="#" class="btn"> <i class="fab fa-apple"></i> App store </a>
                     <a href="#" class="btn"> <i class="fab fa-google-play"></i> Google-play </a>
                 </div>
+            </div>
+            <div class="image">
+                <img src="../../public/assets/img/header2.png" alt="">
             </div>
     
         </div>
