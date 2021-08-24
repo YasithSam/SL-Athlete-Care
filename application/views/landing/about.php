@@ -11,8 +11,10 @@
         </div>
           
         <div class="main-button">
-        <a href="#" class="main-btn">Learn More</a>
+        <a href="#" class="main-btn">Contact Us</a>
         </div>
     </div>
 </div>
 </div>
+
+    
