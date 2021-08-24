@@ -25,6 +25,15 @@ html{
     overflow-x: hidden;
 }
 
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
 section{
     min-height: 100vh;
     padding:0 6%;
@@ -72,7 +81,7 @@ section{
 }
 
 .about{
-    background:url(../../img/headerbg.jpg) no-repeat;
+    background:url(../../img/headerbg.jpg) ;
     background-size: cover;
     background-position: center;
     padding-bottom: 3rem;
@@ -88,7 +97,7 @@ section{
 .about .column .image{
     height: 40rem ;
     width: 40rem;
-    padding-left: 10rem;
+    padding-left: 15rem;
 }
 
 .about .column .image img{
@@ -98,7 +107,8 @@ section{
 
 .about .column .content{
     flex:1 1 40rem;
-    padding-right: 15rem;
+    padding-right: 0rem;
+    padding-left: 5rem;
     
 }
 
@@ -161,6 +171,11 @@ section{
         font-size: 3.5rem;
     }
 
+    .about .column{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
     .about .column .content h3{
         font-size: 2.5rem;
         text-align: center;
@@ -168,6 +183,7 @@ section{
 
     .about .column .content {
         padding-right: 1rem;
+        padding-left: 3rem;
         text-align: justify;
     }
 
@@ -202,6 +218,11 @@ section{
         font-size: 2.98rem;
     }
 
+    .about .column{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
     .about .column .content h3{
         font-size: 2.4rem;
         text-align: center;
@@ -209,6 +230,7 @@ section{
 
     .about .column .content {
         padding-right: 1rem;
+        padding-left: 2rem;
         text-align: justify;
     }
 
