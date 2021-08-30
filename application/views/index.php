@@ -6,22 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link rel="stylesheet" href="../../public/assets/css/Landing/navbar.css">
+        <link rel="stylesheet" href="./assets/css/Landing/navbar.css">
 
-        <link rel="stylesheet" href="../../public/assets/css/Landing/about.css">
+        <link rel="stylesheet" href="./assets/css/Landing/about.css">
 
-        <link rel="stylesheet" type="text/css" href="../../public/assets/css/Landing/services.css">
+        <link rel="stylesheet" type="text/css" href="./assets/css/Landing/services.css">
 
         <link rel="stylesheet" type="text/css" href="../../public/assets/css/Landing/clients_reviews.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css"/>
         <script src="https://kit.fontawesome.com/4e3a3a38a1.js" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="../../public/assets/css/Landing/faq.css">
+        <link rel="stylesheet" href="./assets/css/Landing/faq.css">
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
-        <link rel="stylesheet" href="../../public/assets/css/Landing/footer.css">
+        <link rel="stylesheet" href="./assets/css/Landing/footer.css">
 
-        <link rel="stylesheet" href="../../public/assets/css/Landing/header.css">
+        <link rel="stylesheet" href="./assets/css/Landing/header.css">
 
     </head>
      <body>   
