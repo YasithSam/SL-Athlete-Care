@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    /*align-items: center;
+    justify-content: center;*/
+    /*min-height: 100vh;*/
+    background: #ffffff;
+    /*padding: 40px;*/
+}
+
+.accordion{
+    margin: auto;
+    display: flex;
+    max-width: 1010px;
+    width: 70%;
+    align-items: center;
+    justify-content: space-between;
+    background: #bbdefb;
+    border-radius: 25px;
+    padding: 45px 90px 45px 60px;
+}
+
+.accordion .image-box{
+    height: 360px;
+    width: 300px;
+}
+
+.accordion .image-box img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.accordion .accordion-text {
+    width: 60%;
+}
+
+.accordion .accordion-text .title{
+    text-align: left;
+    font-size: 35px;
+    font-weight: 600;
+    color: #000051;
+}
+
+.accordion .accordion-text .faq-text{
+    margin-top: 25px;
+    height: 263px;
+    overflow-y: auto;
+}
+
+.faq-text::-webkit-scrollbar{
+    display: none;
+}
+
+.accordion .accordion-text li{
+    list-style: none;
+    cursor: pointer;
+}
+
+.accordion-text li .question-arrow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.accordion-text li .question-arrow .question{
+    font-size: 18px;
+    font-weight: 500;
+    color: #595959;
+    transition: all 0.5s ease;
+}
+
+.accordion-text li .question-arrow .arrow{
+    font-size: 20px;
+    color: #595959;
+    transition: all 0.5s ease;
+}
+
+.accordion-text li.showAnswer .question-arrow .arrow{
+    transform: rotate(-180deg);
+}
+
+.accordion-text li:hover .question-arrow .question, 
+.accordion-text li:hover .question-arrow .arrow{
+    color: #0562cc;
+}
+
+.accordion-text li.showAnswer .question-arrow .question, 
+.accordion-text li.showAnswer .question-arrow .arrow{
+    color: #0562cc;
+}
+
+.accordion-text li .line{
+    display: block;
+    height: 2px;
+    width: 100%;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0.1);
+
+}
+
+.accordion-text li p{
+    text-align: left;
+    width: 92%;
+    font-size: 15px;
+    font-weight: 500;
+    color: #595959;
+    display: none;
+}
+
+.accordion-text li.showAnswer p{
+    display: block;
+}
+
+@media (max-width: 994px) {
+    body{
+        padding: 0px 0px;/*bla bla*/
+    }
+    .accordion{
+        max-width: 100%;
+        padding: 45px 60px 45px 60px;
+    }
+    .accordion .image-box {
+        height: 360px;
+        width: 220px;
+    }
+    .accordion .accordion-text {
+        width: 63%;
+    }
+}
+
+@media (max-width: 820px) {
+    .accordion{
+        flex-direction: column;
+    }
+    .accordion .image-box{
+        height: 360px;
+        width: 300px;
+        background: #ffffff;
+        width: 100%;
+        border-radius: 25px;
+        padding: 30px;        
+    }
+    .accordion .accordion-text {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 538px){
+    .accordion{
+        padding: 25px;
+    }
+    .accordion-text li p{
+        width: 98%;
+    }
+}
+
+::selection{
+    color: #ffffff;
+    background-color: #252525;
+}

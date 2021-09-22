@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+.main_line{
+    display: block;
+    width: 5%;
+    height: 3px;
+    margin: auto;
+    border: none;
+    background: #007aff;
+}
+.wrapper .header .main{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.wrapper .header .para{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin: 15px;
+    color: rgb(56, 56, 56);
+}
+
+
+.cards_wrap{
+    padding: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    }
+
+.cards_wrap .card_item{
+    padding: 15px 25px;
+    width: 30%;
+   }
+
+.cards_wrap .card_inner{
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 35px 20px;
+    min-width: 225px;
+    min-height: 315px;
+    width: 100%;
+    box-shadow: 0px 20px 30px rgb(161, 159, 159);
+}
+
+.cards_wrap .card_inner img{
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+}
+
+.cards_wrap .card_inner .title_name{
+    color: #000000;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 18px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cards_wrap .card_inner .content_part{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: bold;
+    color: rgb(56, 56, 56);
+}
+
+
+.end-button{
+    text-align: center;
+}
+.end-btn{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px;
+    border: 2px solid #01a1f9;
+    color: #08beff;
+}
+.end-btn:hover{
+    background: #08beff;
+    border: 2px solid #57f8f8;
+    text-decoration: none;
+    color: white;
+}
+
+
+/*Services*/
+
+@media screen and (max-width: 1024px){
+
+    .cards_wrap .card_item{
+        padding: 15px 25px;
+        width: 30%;
+    } 
+
+    .cards_wrap .card_inner .title_name{
+        font-size: 14px;
+    }
+    
+    .wrapper .header .main{
+        margin-bottom: 5px;
+        font-size: 20px;
+        letter-spacing: 3px;
+        font-weight: 900;
+    }
+    
+    .wrapper .header .para{
+        font-size: 18px;
+        letter-spacing: 1px;
+        font-weight: 700;
+    }
+}
+
+@media screen and (max-width: 810px){
+
+    .cards_wrap .card_item{
+        width: 50%;
+    }
+    .cards_wrap .card_inner .title_name{
+        font-size: 14px;
+    }
+    
+    .wrapper .header{
+        height: 150px;
+    }
+
+    .wrapper .header .main{
+        margin-bottom: 5px;
+        font-size: 18px;
+        letter-spacing: 1px;
+        font-weight: 900;
+    }
+    
+    .wrapper .header .para{
+        font-size: 15px;
+        letter-spacing: 1px;
+        font-weight: 700;
+    }
+    
+}
+
+@media screen and (max-width: 568px){
+
+    .cards_wrap .card_item{
+        width: 100%;
+    }
+    
+    .wrapper .header{
+        height: 100px;
+    }
+    .wrapper .header .main{
+        margin-bottom: 5px;
+        font-size: 22px;
+        font-weight: 900;
+    }
+    
+    .wrapper .header .para{
+        font-size: 14px;
+        font-weight: 700;
+    }
+    
+
+}
+
+@media screen and (max-width: 340px){
+
+    .wrapper .header{
+        height: 150px;
+    }
+    
+    .wrapper .header .main{
+        font-size: 18px;
+        font-weight: 800;
+    }
+    
+    .cards_wrap{
+        padding: 10px;
+        }
+    
+    .cards_wrap .card_item{
+        padding: 15px 25px;
+       }
+
+    .cards_wrap .card_inner .title_name{
+        font-size: 14px;
+        letter-spacing: 0.5px;
+
+    }
+}
+
+
+@media screen and (max-width: 280px){
+    .wrapper .header .main{
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+    .cards_wrap .card_inner .title_name{
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+}

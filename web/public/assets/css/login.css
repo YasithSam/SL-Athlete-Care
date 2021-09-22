@@ -1,0 +1,190 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root{
+    /*===== Colores =====*/
+    --first-color-dark: rgb(0, 0, 81);
+    --first-color-light: #A49EAC;
+    --first-color-lighten: #F2F2F2;
+
+    /*===== Font and typography =====*/
+    --body-font: 'Open Sans', sans-serif;
+    --h1-font-size: 1.5rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+}
+
+@media screen and (min-width: 768px){
+    :root{
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+    }
+}
+
+/*===== BASE =====*/
+*,::before,::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    color: var(--first-color-dark);
+}
+
+hr{
+    height: 1px;
+    border: var(--first-color-dark);
+    background-color: var(--first-color-dark);
+    color: var(--first-color-dark);
+}
+
+a{
+    text-decoration: none;
+}
+
+/*===== LOGIN =====*/
+.upper{
+    height: fit-content;
+    text-align: center;
+    padding-top: 10px;
+}
+.login__forms{
+    padding-top: 10px;
+    position: relative;
+    height: 380px;
+}
+.login{
+    display: grid;
+    grid-template-columns: 100%;
+    height: fit-content;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.login__registre{
+    justify-self: center;
+    position: absolute;
+    width: 100%;
+    background-color: var(--first-color-lighten);
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(55, 51, 59, 0.2);
+    animation-duration: .4s;
+    animation-name: animate-login;
+}
+
+@keyframes animate-login{
+    0%{
+        transform: scale(1,1);
+    }
+    50%{
+        transform: scale(1.1,1.1);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+.brand-logo {
+    margin: 0px auto auto auto;
+    height: 100px;
+    width: 100px;
+    background: url("https://img.icons8.com/color/100/000000/twitter--v2.png");
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+.login__title{
+    font-size: var(--h1-font-size);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.login__box{
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: .5rem;
+    padding: 0.5rem 0.5rem;
+    background-color: #FFF;
+    margin-top: 0.7rem;
+    border-radius: .5rem;
+}
+
+.login__icon{
+    font-size: 1.5rem;
+    color: var(--first-color-dark);
+}
+
+.login__input{
+    border: none;
+    outline: none;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--first-color-dark);
+}
+
+.login__input::placeholder{
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    color: var(--first-color-light);
+}
+
+.login__forgot{
+    display: block;
+    width: max-content;
+    margin-left: auto;
+    margin-top: .5rem;
+    font-size: var(--small-font-size);
+    font-weight: 600;
+    color: var(--first-color-light);
+}
+.login__forgot:hover{
+    text-decoration: underline;
+
+}
+.login__button button{
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin: 2rem 0;
+    background-color: var(--first-color-dark);
+    border:  var(--first-color-dark);
+    color: #FFF;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    border-radius: .5rem;
+    transition: .3s;
+}
+
+.login__button button:hover{
+    background-color: blue
+}
+
+
+/*Show login*/
+.block{
+    display: block;
+}
+
+/*Hidden login*/
+.none{
+    display: none;
+}
+
+/* ===== MEDIA QUERIES =====*/
+
+@media screen and (max-width: 310px){
+    .login__forms{
+        height: 588px;
+    }
+}
+@media screen and (min-width: 576px){
+    .login__forms{
+        width: 348px;
+        justify-self: center;
+    }
+}
+
