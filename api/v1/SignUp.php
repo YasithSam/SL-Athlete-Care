@@ -20,9 +20,9 @@ if (isset($_REQUEST['name']) && isset($_REQUEST['phone']) && isset($_REQUEST['pa
             $user = $db->addUser($name,$password,$phone);
             if ($user) {
                 // user stored successfully
-                $response["error"] = FALSE;
-                $response["message"]="User added";
-                echo json_encode($response);
+                /*$response["error"] = FALSE;
+                $response["message"]="User added";*/
+                echo ("Success");
             } else {
                 // user failed to store
                 $response["error"] = TRUE;
@@ -43,6 +43,9 @@ if (isset($_REQUEST['name']) && isset($_REQUEST['phone']) && isset($_REQUEST['pa
     $response["error_msg"] = "Required parameters (name, phone or password) is missing!";
     echo json_encode($response);
 }
+
+
+
 
 
 
