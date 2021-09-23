@@ -44,6 +44,11 @@ class database {
         return $this->result->fetch(PDO::FETCH_OBJ);
 
     }
+    public function fetchall(){
+
+        return $this->result->fetchAll(PDO::FETCH_OBJ);
+
+    }
 
 
 }
