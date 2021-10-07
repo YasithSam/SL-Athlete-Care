@@ -59,14 +59,14 @@ class accountController extends main{
                 $this->redirect('admin');
                 break;
             case 2:
-                $this->redirect('application/views/doctor/home.php');
+                $this->redirect('doctor/dashboard');
                 break;
                 
             case 3:
-                $this->redirect('application/views/paramedical/home.php');
+                $this->redirect('paramedical');
 
             default:
-                $this->redirect('application/views/login.php');
+                $this->redirect('accountController');
                  
                    
         }
