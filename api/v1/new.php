@@ -1,4 +1,5 @@
 <?php
-$code="123456";
-echo ($code);
+$code="yasit sam - colombo";
+$x=explode('-',$code);
+print_r($x[0]);
 
