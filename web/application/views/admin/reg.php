@@ -6,6 +6,11 @@
         <!-- ===== CSS ===== -->
         
           <?php linkCSS("assets/css/reg.css") ?>
+          <?php linkCSS("assets/css/dashboard.css") ?>
+          <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+        <title></title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     
       
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +22,9 @@
         </style>
    </head>
    <body>
-     
+     <?php include "sidebar.php";?>
+   
+   
       <div class="description">
          Register Users<br>Register doctors, physiotherpists and nutritionists 
       </div>
@@ -191,6 +198,7 @@
             </div>
          </div>
       </div>
+     </div>
    
       <script>
          /*const loginText = document.querySelector(".title-text .login");*/
