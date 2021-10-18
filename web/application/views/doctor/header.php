@@ -1,7 +1,5 @@
 <header>
-   <div class="register-wrapper">
-     <a href="3.html" target="myiFrame"><button>Register User <span class="ti-plus"></span></button></a>
-    </div>
+  
 
     <div class="social-icons">
         <span class="ti-bell"></span>
