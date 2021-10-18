@@ -10,6 +10,37 @@ class caseStudyController extends main{
        $this->caseStudyModel = $this->model('caseStudyModel');
 
     }
+    public function index(){
+        if($this->getSession('userRole')==2){
+            
+               $this->view("casestudy/main");
+                  
+         }
+         else{
+                $this->view('404');
+        }
+
+    }
+    public function pre(){
+       if($this->getSession('userRole')==2){     
+            $this->view("casestudy/pre");
+               
+        }
+        else{
+             $this->view('404');
+        }
+
+    }
+    public function post(){
+        if($this->getSession('userRole')==2){     
+             $this->view("casestudy/post");
+                
+         }
+         else{
+              $this->view('404');
+         }
+ 
+     }
     public function item($id){
         // $userId = $this->getSession('userId');
         // // check which user has access to the specific case study
