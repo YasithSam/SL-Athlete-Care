@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  /*display: inline-grid;*/
+  /*height: 100%;*/
+  width: 100%;
+  place-items: center;
+  background:rgb(8, 190, 255);
+}
+.container{
+    margin-top: 90px;
+    margin-left: 20%;
+    margin-bottom: 2%;
+    margin-right: 20%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+  color: #000a99;
+  padding-top: 20px;
+}
+.form-inner{
+    padding-top: 3%;
+    padding-bottom: 5%;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+.form-inner form{
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+  }
+  .form-inner form .row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-inner form .field{
+    height: 50px;
+    width: 100%;
+    margin-top: 1px;
+  }
+  .form-inner form .field input,
+  .form-inner form .field select{
+    height: 80%;
+    width: 100%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    font-size: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  .form-inner form .field input:focus,
+  .form-inner form .field select:focus{
+    border-color: rgb(5, 98, 204);
+  }
+  .form-inner form .field input::placeholder,
+  .form-inner form .field select:invalid{
+    color: #999;
+    transition: all 0.3s ease;
+  }
+  
+  form .field input:focus::placeholder,
+  .form-inner form .field select:invalid{
+    color: #b3b3b3;
+    transition: all 0.3s ease;
+  }
+  
+  form .btn{
+  height: 50px;
+  width: 50%;
+  border-radius: 5px;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 25%;
+  position: relative;
+  overflow: hidden;
+  /*background: rgb(0, 0, 81);*/
+  background-color: rgb(0, 0, 81);
+}
+form .btn input[type="submit"]{
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  /*background: rgb(8, 190, 255,);*/
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding-left: 0;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+form .btn:hover{
+    background-color: rgb(8, 190, 255);
+}
+
+.home .box .button a:hover{
+  background:  #0d3073;
+}
