@@ -1,30 +1,39 @@
 <?php
-
+session_start();
+include "../../web/config/config.php";
+include "../../web/system/classes/database.php";
 class adminModel extends database
 {
     public function createAccountDoctor($data){
         $role=2;
-        $uuid=1213;
-        $phone=1212312;
-        $address="heymyaddress";
-        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-       
-        if($this->Query("INSERT INTO application_user (uuid,role_id,username,phone,password,login_status,is_disabled) VALUES (?,?,?,?,?,?,?)",[$uuid,$role,$data['username'],$phone,$data['password'],0,0])){
-            if($this->Query("INSERT INTO doctor_profile (uuid,full_name,province,district,email,sex,hospital,nic,doctor_number,address) VALUES (?,?,?,?,?,?,?,?,?,?)", [$uuid,$data['fullName'],$data['province'],$data['district'],$data['email'],$data['sex'],$data['hospital'],$data['nic'],$data['doctorId'],$address])){
-                return true;
+        $uuid=uniqid("sl-ac-");
+        $ps = password_hash($data['password'], PASSWORD_DEFAULT);
+        $x=[$uuid,$role,$data['username'],null,$ps,0,0];
+  
+        $y=[$uuid,$data['fullName'],$data['province'],$data['district'],$data['email'],$data['gender'],$data['hospital'],$data['nic'],$data['doctorId']];
+   
+        if($this->Query("INSERT INTO application_user (uuid,role_id,username,phone,password,login_status,is_disabled) VALUES (?,?,?,?,?,?,?)",$x)){
+            if($this->Query("INSERT INTO doctor_profile (uuid,full_name,province,district,email,sex,hospital,nic,doctor_number) VALUES (?,?,?,?,?,?,?,?,?)",$y)){
+                 return true;
             }
             else{
-                return false;
+
             }
-            
         }
         else{
             
-            return false;
+             return false;
         }
 
     }
     public function createAccountPara($data){
+        $role=3;
+        $uuid=uniqid("sl-ac-");
+        $ps = password_hash($data['password'], PASSWORD_DEFAULT);
+        $x=[$uuid,$role,$data['username'],null,$ps,0,0];
+  
+        $y=[$uuid,$data['fullName'],$data['province'],$data['district'],$data['email'],$data['gender'],$data['hospital'],$data['nic'],$data['doctorId']];
+   
 
         if($this->Query("INSERT INTO users (fullName, email, password) VALUES (?,?,?)", $data)){
             return true;
