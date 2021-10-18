@@ -1,0 +1,399 @@
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  height: 100%;
+  width: 100%;
+  background: rgb(8, 190, 255);
+}
+.home{
+  position: relative;
+  padding-top: 70px;
+  background: rgb(8, 190, 255);
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  transition: all 0.5s ease;
+}
+.home .right{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+}
+/* left box */
+.home .profile{
+  width: 40%;
+  height: auto;
+  background: rgb(8, 190, 255);
+  padding: 20px 30px;
+  margin: 0 20px 0 0;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: blue;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+/* right box */
+.home .about{
+  width: 97%;
+  background: #fff;
+  padding: 20px 30px;
+  margin-bottom: 2%;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.home .profile .img{
+  text-align: center;
+  overflow: hidden;
+}
+.home .profile .img .prof{
+  display: inline-block;
+  font-size: 100px;
+  height: 150px;
+  width: 150px;
+  background: #cce5ff;
+  line-height: 150px;
+  text-align: center;
+  color: #66b0ff;
+  border-radius: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+}
+/*.img:hover .edit{
+  opacity: 1;
+}
+.img:hover .prof{
+  opacity: 5;
+}
+.edit{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+}
+.cam{
+  color: white;
+  padding-bottom: 8px;
+  font-size: 20px;
+}
+*/
+.home .profile .updt .user{
+  font-size: 25px;
+  width: fit-content;
+  text-align: center;
+  color: #065ebd;
+  margin-left: 15px;
+  margin-right: 20px;
+}
+.home .right .about .user{
+  font-size: 35px;
+  width: fit-content;
+  text-align: center;
+  color: #065ebd;
+  margin-left: 15px;
+  margin-right: 20px;
+}
+
+.home .profile .updt{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 55px;
+  background: #cce5ff;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #585858;
+}
+.home .about .card{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 65px;
+  background: rgb(241, 241, 241);
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 10px;
+  margin-bottom: 15px;
+  font-size: 13px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.home .about .card .qual{
+  width: 86%;
+  font-size: 15px;
+  font-weight: 500; 
+}
+.home .about .card .qual .txt{
+  font-size: 12px;
+  font-weight: 0;
+  color: #6d6b6b;
+}
+
+.home .box .title{
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px; 
+  text-align: center;
+  color: #0d3073;
+  display: flex;
+  justify-content: left;
+  
+}
+.home .box .title .edit{
+  margin-left: auto;
+}
+.home .about .card .editicon{
+  padding-left: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  justify-content: right;
+  color: #065ebd;
+}
+.home .about .card .addicon{
+  cursor: pointer;
+  font-size: 20px;
+  justify-content: right;
+}
+
+.addicon:hover{
+  color: #66b0ff;
+}
+.editicon:hover{
+  color: #00040c;
+}
+.home .box .button{
+  display: flex;
+  justify-content: right;
+}
+.home .box .button a{
+  color: #fff;
+  background: rgb(2, 87, 185);
+  padding: 4px 12px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.home .box .button a:hover{
+  background:  #0d3073;
+}
+/*Modal CSS*/
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+
+/* Modal Content */
+.mcontainer{
+  width: 350px;
+  height: 360px;
+  background: #fff;
+  margin-left: 33%;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.top{
+  background: rgb(19, 5, 216);
+  height: 60px;
+}
+
+.top h3{
+  padding-top: 15px;
+  padding-right: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+.texticon{
+  display: flex;
+  justify-content: space-around;
+}
+
+.texticon i{
+  margin-top: 40px;
+  color: #eb0c0c;
+}
+
+.texticon h3{
+  padding-top: 70px;
+  margin-right: 40px;
+}
+
+.mbtn{
+  display: flex;
+  justify-content: space-around;
+}
+
+.mbutton , .mbuttonno{
+  position: relative;
+  background-color: #ffffff;
+  border: none;
+  font-size: 18px;
+  color: rgb(19, 5, 216);
+  margin-top: 70px;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mbutton:hover {
+  background: rgb(19, 5, 216);
+  color: #fff;
+ 
+}
+
+.mbutton:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+.mbuttonno:hover {
+  background: rgb(19, 5, 216);
+  color: #fff;
+ 
+}
+
+.mbuttonno:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+/*End Modal CSS*/
+
+
+/* Responsive Media Query */
+@media (max-width: 1240px) {
+  .home-section{
+    width: calc(100% - 60px);
+    left: 60px;
+  }
+}
+@media (max-width: 1000px) {
+  .home .profile .updt .user{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  .home .profile .updt{
+    font-size: 13px;
+  }
+}
+@media (max-width: 800px) {
+  .home .profile{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (max-width: 756px){
+  .home .about .card{
+    height: 75px;
+  }
+}
+@media (max-width: 780px){
+.home .about .card .qual .txt{
+  display: none;
+}
+.home .about .card{
+  height: 50px;
+}
+.home .about .card .qual{
+  font-size: 13px;
+}
+.home .right .about .user{
+  font-size: 30px;
+}
+}
+@media (max-width: 600px){
+  .home{
+    flex-direction: column;
+  }
+  .home .profile{
+    width: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .home .profile .updt .user{
+    margin-left: 10px;
+    margin-right: 20px;
+    font-size: 30px;
+  }
+  .home .profile .updt{
+    font-size: 15px;
+  }
+  .home .right{
+    width: auto;
+  }
+  .home .about .card .qual{
+    font-size: 15px;
+  }
+}
+@media (max-width: 420px){
+  .home .box .title{
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .home .about{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 20px;
+  }
+}
+
