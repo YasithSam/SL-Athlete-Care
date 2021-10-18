@@ -66,7 +66,7 @@ class main{
 }
   public function redirect($path){
 
-    header("location:" . BASEURL . "/".$path);
+    header("location:" . BASEURL . "/".$path,true,303);
  
    }
 
