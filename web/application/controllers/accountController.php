@@ -64,6 +64,7 @@ class accountController extends main{
                 
             case 3:
                 $this->redirect('paramedical');
+                break;
 
             default:
                 $this->redirect('accountController');
@@ -71,7 +72,15 @@ class accountController extends main{
                    
         }
 
+
     }
+    public function logout(){
+        unset($_SESSION["userId"]);
+        unset($_SESSION["userRole"]);
+        header("location:" . BASEURL . "/"."accountController/index");
+ 
+    }
+   
 
 
 
