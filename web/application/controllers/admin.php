@@ -23,7 +23,36 @@ class admin extends main{
         }
     }
     public function register(){
-        $this->view('admin/reg');
+       if($this->getSession('userRole')==1){
+         $this->view('admin/reg');
+       } 
+       else{
+        $this->view('404');
+    } 
+    }
+    public function casestudy(){
+        if($this->getSession('userRole')==1){
+          $this->view('admin/casestudy');
+        }  
+        else{
+            $this->view('404');
+        }
+    }
+    public function profile(){
+        if($this->getSession('userRole')==1){
+           $this->view('admin/casestudy');
+        }  
+        else{
+            $this->view('404');
+        } 
+    }
+    public function settings(){
+        if($this->getSession('userRole')==1){ 
+          $this->view('admin/casestudy');
+        }  
+        else{
+            $this->view('404');
+        }
     }
     public function registerDoc(){
        
@@ -62,13 +91,12 @@ class admin extends main{
            && empty($userData['districtError']))
            {   
                if($this->adminModel->createAccountDoctor($userData)){
-                   echo "na na";
+                   $this->redirect('admin');
                 
                 }
                 else{
-                    // $userData['otherError']="Couldn't register the user";
-                    echo "pissud";
-                    // $this->view('admin/reg');
+                    $userData['otherError']="Couldn't register the user";
+                    $this->view('admin/reg');
                      
                 }
    
