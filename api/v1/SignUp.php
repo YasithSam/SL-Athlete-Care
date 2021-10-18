@@ -1,5 +1,5 @@
 <?php
-require_once '../../application/models/AthleteAPI.php';
+require_once '../../web/application/models/AthleteAPI.php';
 $db=new AthleteAPI();
 $response = array("error" => FALSE);
 if (isset($_REQUEST['name']) && isset($_REQUEST['phone']) && isset($_REQUEST['password'])) {
@@ -18,6 +18,7 @@ if (isset($_REQUEST['name']) && isset($_REQUEST['phone']) && isset($_REQUEST['pa
             // create a new user
 
             $user = $db->addUser($name,$password,$phone);
+          
             if ($user) {
                 // user stored successfully
                 /*$response["error"] = FALSE;
