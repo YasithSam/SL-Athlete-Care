@@ -14,10 +14,10 @@ class doctor extends main{
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==2){
             $data = $this->doctorModel->getCounts($userId);   
-            //$data2= $this->doctorModel->getForumItems($userId);    
+            $x= $this->doctorModel->getForumItems($userId);    
             //$data3= $this->doctorModel->getUpdates($userId);   
-            //$dataArray=[$data,$data2,$data3];
-            $this->view("doctor/home",$data);
+            $dataArray=[$data,$x];
+            $this->view("doctor/home",$dataArray);
               
         }
         else{
@@ -25,11 +25,90 @@ class doctor extends main{
         }
     }
     public function patients(){
-        $this->view('doctor/patients');
+        if($this->getSession('userRole')==2){
+            $this->view('doctor/patients');
+        }
+        else{
+            $this->view('404');
+        }
+      
+    }
+
+    public function profile(){
+        $userId = $this->getSession('userId');
+        if($this->getSession('userRole')==2){
+            $data=$this->doctorModel->getProfile($userId);   
+            $data2=$this->doctorModel->getCaseStudy($userId);   
+            //$data3= $this->doctorModel->getArticles($userId); 
+          
+            $this->view('doctor/profile',[$data,$data2]);
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
+
+    public function athlete(){
+        if($this->getSession('userRole')==2){
+            $this->view('doctor/athlete');
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
+    public function addcasestudy(){
+        if($this->getSession('userRole')==2){
+            $this->view('doctor/addCS');
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
+    public function addq(){
+        if($this->getSession('userRole')==2){
+            $this->view('doctor/addQualification');
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
+    public function editprofile(){
+        if($this->getSession('userRole')==2){
+            $this->view('doctor/editprofile');
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
+    public function messages(){
+        if($this->getSession('userRole')==2){
+          $this->view('chat');
+        }
+        else{
+            $this->view('404');
+        }
     }
     
     public function casestudy(){
-        $this->view('doctor/casestudy');
+        if($this->getSession('userRole')==2){
+          $this->view('doctor/casestudy');
+        } 
+        else{
+            $this->view('404');
+        } 
+    }
+    public function settings(){
+        if($this->getSession('userRole')==2){
+          $this->view("settings");
+        }
+        else{
+            $this->view('404');
+        }  
     }
     
    
