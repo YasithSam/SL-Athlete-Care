@@ -18,21 +18,25 @@ class AthleteAPI extends database
         }
 
     }
+   
     public function addUser($username,$password,$phone){
-        $uuid="saaa";
+        $uuid=uniqid('sl-ac-');
         $role=1;
         $isDisabled=0;
         /* Secure password hash. */
         $hash = password_hash($password, PASSWORD_DEFAULT);
-        if($this->Query("INSERT INTO application_user VALUES (?,?,?,?,?,?)",[$uuid,$role,$username,$phone,$hash,$isDisabled])){
+        $x=[$uuid,$role,$username,$phone,$hash,1,$isDisabled];
+        if($this->Query("INSERT INTO application_user (uuid,role_id,username,phone,password,login_status,is_disabled) VALUES (?,?,?,?,?,?,?)",$x)){
             return true;
         }else{
+            echo "noo";
             return false;
         }
     }
-    public function validateUser($username,$password,$phone){
+    public function validateUser($name,$password,$phone){
         return true;
     }
+   
     public function LoginUser($phone,$password){
         if($this->Query("SELECT * FROM application_user WHERE phone = ? ", [$phone])){
             if($this->rowCount() > 0 ){
