@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+body{
+	font-family: Arial;
+	margin:0;
+	background-color: #f1f1f1;
+}
+*{
+	box-sizing: border-box;
+}
+.row:after{
+	content: '';
+	display: table;
+	clear: both;
+}
+/* header{
+	background-color: #ffffff;
+	padding:30px;
+}
+header h1{
+	text-align: center;
+	font-size:60px;
+	color:#000000;
+	margin:1.5 0px;
+} */
+
+.row .left-column .card p{
+    font-size:12px;
+}
+
+h2{
+	color:#ffffff;
+margin:1.5 0px;	
+}
+.left-column{
+float: left;
+width: 75%;	
+}
+
+.right-column{
+ width: 25%;
+ float: right;
+ padding-left:20px;
+}
+.card{
+	padding: 20px;
+	background-color: #ffffff;
+    margin-top:20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+/* .card img{
+	width: 100%;
+} */
+
+
+.right-column .card img{
+	margin-bottom: 10px;
+}
+
+
+
+
+/*responsive */
+@media only screen and (max-width:1200px){
+	.main-content header{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 801px){
+    .user-wrapper2 .condition{
+        display: none;
+
+    }
+    .user-wrapper2 .injury{
+        display: none;
+    }
+
+}
+
+@media(max-width:800px){
+	.left-column,.right-column{
+    width: 100%;
+    padding: 0px;
+	}
+    
+
+}
+
+
+
+/* @media(max-width:320px){
+	.left-column,.right-column{
+    width: 100%;
+    padding: 0px;
+	}
+    .user-wrapper1 .user-name{
+        font-size: small;
+    }
+
+    .user-wrapper1 .sport-name{
+        font-size: small;
+    }
+    .user-wrapper1 .condition{
+        font-size: small;
+    }
+    .user-wrapper1 .injury{
+        font-size: small;
+    }
+
+    .user-wrapper2 .user-name{
+        font-size: small;
+    }
+
+    .user-wrapper2 .sport-name{
+        font-size: small;
+    }
+    .user-wrapper2 .condition{
+        font-size: small;
+    }
+    .user-wrapper2 .injury{
+        font-size: small;
+    }
+
+   
+}
+ */
+@media(max-width:280px){
+        .user-wrapper1 .condition{
+            display: none;
+
+        }
+        .user-wrapper1 .injury{
+            display: none;
+        }
+        .user-wrapper2 .condition{
+            display: none;
+
+        }
+        .user-wrapper2 .injury{
+            display: none;
+        }
+}
+
+.user-wrapper {
+	height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.user-wrapper img {
+	width: 40px;
+	height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.user-wrapper1 {
+	height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.user-wrapper1 img {
+	width: 40px;
+	height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.user-wrapper1 .sport-name{
+	margin-left: 1rem;
+	color: #a7a7a7;
+}
+.user-wrapper1 .condition{
+	margin-left: 1rem;
+	color: #a7a7a7;
+}
+.user-wrapper1 .injury{
+	margin-left: 1rem;
+	color: #a7a7a7;
+}
+
+.user-wrapper2 {
+	height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.user-wrapper2 img {
+	width: 40px;
+	height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.user-wrapper2 .sport-name{
+	margin-left: 1rem;
+	color: #a7a7a7;
+}
+.user-wrapper2 .condition{
+	margin-left: 1rem;
+	color: #a7a7a7;
+}
+.user-wrapper2 .injury{
+	margin-left: 1rem;
+	color: #a7a7a7;
+}
+
+
+.decision-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.decision-wrapper .button1 {
+    background: #3131c9;
+    border-radius: 10px;
+    color: #fff;
+    font-size: .8rem;
+    padding: .5rem 1rem;
+    border: 1px solid var(--main-color);
+
+}
+.decision-wrapper .button2 {
+	margin-left: 10px;
+    background: #eb4242;
+    border-radius: 10px;
+    color: #fff;
+    font-size: .8rem;
+    padding: .5rem 1rem;
+    border: 1px solid var(--main-color);
+
+}
+.decision-wrapper .button3 {
+    background: #3131c9;
+    border-radius: 10px;
+    color: #fff;
+    font-size: .8rem;
+    padding: .5rem 1rem;
+    border: 1px solid var(--main-color);
+
+}
+
+
+.decision-wrapper button:hover{
+    background-color: #000051;
+}
+
+.main-content{
+    position: relative;
+/*     margin-left: 240px;
+ */    transition: margin-left 500ms;
+}
+
+header{
+    position: fixed;
+/*     left: 240;
+ */    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: #0562cc   ;
+    height: 60px;
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    transition: left 500ms;
+}
+.main-content header h3{
+    color: white;
+}
+
+.social-icons{
+    display: flex;
+    align-items: center;
+}
+
+.social-icons span,
+.social-icons .user-wrapper{
+    margin-left: 1.2rem;
+}
+main{
+    margin-top: 60px; 
+    background: #f5f5f5;
+    min-height: 90vh;
+    padding: 1rem;
+}
+
+.ifr{
+    margin-top: 85px;
+    /*padding: 2rem 1.5rem;*/
+    /* background: #f1f5f9; */
+    width: 100%;
+    height: 565px;
+    border: none;
+    place-content: center;
+}
+
+.user-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.user-wrapper img {
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+:root{
+    --lblue:#0791bb;
+    --dblue:#031e79;
+    --gradient:linear-gradient(90deg, var(--dblue), var(--lblue));
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border:none;
+    text-transform: capitalize;
+}
+
+*::selection{
+    background:var(--lblue);
+    color:#fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+
+.footer{
+   /*/ width: 100%;*/
+    /*padding-top: 10rem;*/
+    background:url('../img/footerbg.jpg') no-repeat;
+    background-size: cover;
+    /*background-position: center;*/
+    /*background:#0965ee;*/
+}
+
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box{
+    flex:3 1 25rem;
+    margin:2rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    padding:1rem 0;
+    color:#fff;
+    /*text-decoration: underline;
+    text-underline-offset: 1rem;*/
+}
+
+.footer .box-container .box p{
+    font-size: 1.5rem;
+    padding:.5rem 0;
+    color:#eee;
+    text-align: left;
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    padding:.5rem 0;
+    color:#eee;
+}
+
+.footer .box-container .box a:hover{
+    text-decoration: underline;
+}
+
+.footer .box-container .box .info{
+    display: flex;
+    align-items: center;
+}
+
+.footer .box-container .box .info i{
+    margin:.5rem 0;
+    margin-right: 1rem;
+    border-radius: 50%;
+    background:#fff;
+    color:var(--lblue);
+    font-size: 2rem;
+    height:4.5rem;
+    width:4.5rem;
+    line-height: 4.5rem;
+    text-align: center;
+}
+
+.footer .credit{
+    font-size: 2rem;
+    font-weight: normal;
+    letter-spacing: .1rem;
+    color:#fff;
+    border-top: .1rem solid #fff5;
+    padding:2.5rem 1rem;
+    text-align: center;
+}
+
+.Comments-box .comments {
+	float: right;
+    background: #8d8d8d;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1 rem;
+    padding: .5rem 1rem;
+    border: 1px solid var(--main-color);
+	cursor: pointer;
+
+}
+
+.view button:hover{
+    background-color: #000051;
+}
+
+.comments-wrapper {
+	height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+
+.comments-wrapper .condition{
+    margin-left: calc(100% - 22%);
+	color: #a7a7a7;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: rgb(5, 98, 204);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #000000;
+  }
+  
+  h2{
+    text-align: center;
+  }
+
+  .container {
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .col-25 {
+    float: left;
+    width: 100%;
+    margin-top: 6px;
+  }
+  
+
+
+    
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
