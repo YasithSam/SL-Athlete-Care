@@ -28,31 +28,31 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo BASEURL;?>/doctor/messages">
                             <span class="ti-comments"></span>
                             <span>Messages</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo BASEURL;?>/forumController/">
                             <span class="ti-agenda"></span>
                             <span>Forum</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo BASEURL;?>/doctor/profile">
                             <span class="ti-user"></span>
                             <span>Profile</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo BASEURL;?>/commonController/settings">
                             <span class="ti-settings"></span>
                             <span>Settings</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo BASEURL;?>/accountController/logout">
                             <span class="ti-power-off"></span>
                             <span>Logout</span>
                         </a>
