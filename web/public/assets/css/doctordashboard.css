@@ -8,6 +8,7 @@
 }
 
 .home-section{
+  padding-top: 60px;
   position: relative;
   background: #ffffff;
   /*min-height: 100vh;*/
@@ -65,7 +66,7 @@
   color: #66b0ff;
   border-radius: 12px;
   margin-bottom: 8px;
-  margin-right: 80px;
+  margin-right: 60px;
   /*margin: -15px 0 0 6px;*/
 }
 .home-content .forum .forum-injury .injury .user{
@@ -83,11 +84,33 @@
   border-style: solid;
   border-color: #0d3073;
 }
-
-/*.home-content .total-order{
-  font-size: 20px;
+.updates .injury .med{
+  font-size: 35px;
+  width: fit-content;
+  text-align: center;
+  color: #065ebd;
+  margin-left: 15px;
+  margin-right: 20px;
+  display: none;
+}
+.updates .injury .qual{
+  width: 60%;
+  font-size: 15px;
   font-weight: 500;
-}*/
+  padding-left: 10px; 
+}
+.updates .injury .qual .txt{
+  font-size: 12px;
+  font-weight: 0;
+  color: #6d6b6b;
+}
+.updates .injury .qual .txt1{
+  font-size: 12px;
+  font-weight: 0;
+  color: #6d6b6b;
+  display: none;
+}
+
 .home-content .forum{
   display: flex;
   justify-content: space-between;
@@ -103,7 +126,7 @@
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-.home-content .forum .updates .updt,
+.home-content .forum .updates .injury,
 .home-content .forum .forum-injury .injury{
   display: flex;
   align-items: center;
@@ -169,21 +192,12 @@
 
 /* Responsive Media Query */
 @media (max-width: 1200px) {
-  /*.sidebar{
-    width: 60px;
-  }
-  .sidebar.active{
-    width: 220px;
-  }*/
+  
   .home-section{
     width: calc(100% - 60px);
     left: 10px;
   }
-  /*.sidebar.active ~ .home-section{
-    width: calc(100% - 220px); 
-    overflow: hidden;
-    left: 220px;
-  }*/
+  
   .overview-boxes .box{
     width: calc(100% / 3 - 12px);
     padding: 10px 14px;
@@ -225,14 +239,16 @@
   margin-right: 0%;
   font-size: 13px;
 }
-  /*.home-section nav{
-    width: calc(100% - 60px);
-    left: 60px;
-  }
-  .sidebar.active ~ .home-section nav{
-    width: calc(100% - 220px);
-    left: 220px;
-  }*/
+.updates .injury .med{
+  display: unset;
+}
+.updates .injury .qual{
+  width: 40%;
+}
+.updates .injury .qual .txt1{
+  display: unset;
+}
+
 }
 @media (max-width: 1150px) {
   .home-content{
@@ -253,6 +269,7 @@
   }
   .home-content .forum .updates.updt{
     width: 100%;
+    height: fit-content;
   }
   .overview-boxes .box .right-side{
     padding-right: 5px;
@@ -264,6 +281,7 @@
   .home-content .box .number{
     font-size: 25px;
   }
+  
 }
 @media (max-width: 1000px) {
   .overview-boxes .box{
@@ -280,6 +298,7 @@
     padding-right: 5px;
     padding-left: 5px;
   }
+  
 }
 @media (max-width: 900px){
   .home-content .box .icon{
@@ -327,18 +346,9 @@
   .des3{
     width: 20px;
   }
-  /*nav .sidebar-button .dashboard,
-  nav .profile-details .admin_name,
-  nav .profile-details i{
+  .updates .injury .qual .txt1{
     display: none;
   }
-  .home-section nav .profile-details{
-    height: 50px;
-    min-width: 40px;
-  }
-  .home-content .sales-boxes .sales-details{
-    width: 560px;
-  }*/
 }
 @media (max-width: 650px){
   .home-content .box .icon{
@@ -391,5 +401,13 @@
     border-radius: 4px;
     text-decoration: none;
     transition: all 0.3s ease;
+  }
+  .updates .injury .qual .txt1,
+  .updates .injury .qual .txt,
+  .updates .injury .med{
+    display: none;
+  }
+  .updates .injury .qual{
+   width: auto;
   }
 }

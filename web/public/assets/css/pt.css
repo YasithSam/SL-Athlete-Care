@@ -7,6 +7,22 @@
   font-family: 'Poppins', sans-serif;
   cursor: default;
 }
+.title{
+  text-align: center;
+  color: #0d3073;
+  font-size: 27px;
+  font-weight: 500;
+  margin-top: 70px;
+}
+.target_box{
+  padding-left: 50px;
+  color: #0d3073;
+  font-size: 20px;
+  font-weight: 500;
+  height: 32px;
+  overflow: hidden;
+  background: transparent;
+}
 .pt{
     align-self: center;
     text-align: center;
@@ -18,7 +34,7 @@
     background: #fff;
     padding: 20px 30px;
     margin-left: 8%;
-    margin-top: 3%;
+    /*margin-top: 1.5%;*/
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   }
@@ -37,12 +53,12 @@
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   }
-.pt .pages{
+.pages{
     text-align: center;
     padding-bottom: 20px;
-    padding-top: 10px;
+    /*padding-top: 10px;*/
 }
-.pt .pages .num{
+.pages .num{
     display: inline-block;
     font-size: 20px;
     height: 30px;
@@ -60,10 +76,14 @@
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     cursor: pointer;
 }
-.pt .pages .num:hover{
-  background:  #0d3073;
-  color:#ffffff;
+.pages .num:hover{
+  background-color:  rgb(8, 190, 255) !important;
+  /*color:#ffffff;*/
 }  
+
+button:focus {
+  background-color: #0d3073;
+}
 .pt .injury .user{
     display: inline-block;
     font-size: 40px;
@@ -93,12 +113,12 @@
     font-weight: 500;
     margin-bottom: 10px; 
   }
-  .box .button{
+  .box .btn{
     width: 40%;
     display: flex;
     justify-content: flex-end;
   }
-  .box .button a{
+  .box .btn a{
     color: #fff;
     background: rgb(2, 87, 185);
     padding: 4px 12px;
@@ -109,7 +129,7 @@
     transition: all 0.3s ease;
     cursor: pointer;
   }
-  .box .button a:hover{
+  .box .btn a:hover{
     background:  #0d3073;
   }  
 
@@ -145,7 +165,7 @@
     .pt{
       padding-left: 5px;
     }
-    .box .button{
+    .box .btn{
       width: 50px;
       display: flex;
       text-align: end;
@@ -153,7 +173,7 @@
     }
   }
   @media (max-width: 400px){
-    .box .button{
+    .box .btn{
       padding-left: 90px;
     }
     .des3{
