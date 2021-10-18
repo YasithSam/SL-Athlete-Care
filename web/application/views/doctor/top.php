@@ -2,7 +2,7 @@
 $arr=[];
 $i=0;
 
-foreach ($data as $obj)
+foreach ($data[0] as $obj)
 {
   $arr[$i]=$obj->COUNT1;
   $i++;
