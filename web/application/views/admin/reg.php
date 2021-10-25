@@ -25,10 +25,10 @@
      <?php include "sidebar.php";?>
    
    
-      <div class="description">
-         Register Users<br>Register doctors, physiotherpists and nutritionists 
+      <div class="description" style="margin-left:10%">
+      <p style="font-size: 25px; font-weight: bold;"> Register Users </p>Register doctors, physiotherpists and nutritionists 
       </div>
-      <div class="wrapper">
+      <div class="wrapper" style="margin-left:25%">
          <div class="form-container">
             <!--slide starts-->
             <div class="slide-controls">
@@ -45,6 +45,7 @@
                <form action="<?php echo BASEURL;?>/admin/registerDoc" class="login" method="POST">              
                   <!--name-->
                   <div class="field">
+                  <label>*</label>
                      <input type="text" placeholder="Full Name" name="fullName" required>
                   </div>
                   <div class="error">
@@ -52,6 +53,7 @@
                   </div>
                   <!--email-->
                   <div class="field">
+                  <label>*</label>
                      <input type="email" placeholder="Email Address" name="email" required>
                   </div>
                   <div class="error">
@@ -59,6 +61,7 @@
                   </div>
                   <!--username-->
                   <div class="field">
+                  <label>*</label>
                      <input type="text" placeholder="Username" name="username" required>
                   </div>
                   <div class="error">
@@ -66,38 +69,60 @@
                    </div>
                     <!--password-->
                   <div class="field">
+                  <label>*</label>
                      <input type="password" placeholder="Password" name="password" required>
                   </div>
                   <div class="error">
                       <?php if(!empty($data['passwordError'])): echo $data['passwordError']; endif; ?>
                   </div>
-                   <!--nic-->
+                   
                   <div class="row">
+                     <!--nic-->
                      <div class="field" style="margin-right: 10px;">
+                     <label>*</label>
                         <input type="text" placeholder="NIC" name="nic" required>
                      </div>
-                  <!--gender-->
-                  <div class="field"  style="margin-left: 10px;">
-                     <select name="gender" id="gender" required>
+                     <div class="error">
+                      <?php if(!empty($data['nicError'])): echo $data['nicError']; endif; ?>
+                     </div>
+                     <!--gender-->
+                     <div class="field"  style="margin-left: 10px;">
+                     <label>*</label>
+                        <select name="gender" id="gender" required>
                         <option value="" disabled selected hidden>Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
-                     </select>
+                        </select>
+                     </div>
+                     <div class="error">
+                      <?php if(!empty($data['genderError'])): echo $data['genderError']; endif; ?>
+                     </div>
                   </div>
-                  </div>
+
                   <div class="row">
-                 <!--hospital-->
+                     <!--hospital-->
                      <div class="field" style="margin-right: 10px;">
+                     <label>*</label>
                         <input type="text" placeholder="Hospital" name="hospital" required>
                      </div>
-                  <!--id-->
+                     <div class="error">
+                      <?php if(!empty($data['hospitalError'])): echo $data['hospitalError']; endif; ?>
+                     </div>
+
+                      <!--id-->
                      <div class="field" style="margin-left: 10px;">
+                     <label>*</label>
                         <input type="text" placeholder="Doctor ID" name="doctorId" required>
                      </div>
+                     <div class="error">
+                      <?php if(!empty($data['doctorIdError'])): echo $data['doctorIdError']; endif; ?>
+                     </div>
                   </div>                              
-                  <!--province-->
+                  
                   <div class="row">
+                     <!--province-->
                   <div class="field" style="margin-right: 10px;">
+                  <label>*</label>
                      <select name="province" id="province" required>
                         <option value="" disabled selected hidden>Province</option>
                         <option value="western">Western</option>
@@ -111,9 +136,17 @@
                         <option value="sabaragamuwa">Sabaragamuwa</option>
                      </select>
                   </div>
+                  <div class="error">
+                      <?php if(!empty($data['provinceError'])): echo $data['provinceError']; endif; ?>
+                  </div>
+
                   <!--district-->
                   <div class="field" style="margin-left: 10px;">
-                     <input type="text" placeholder="District" name="district">
+                  <label>*</label>
+                     <input type="text" placeholder="District" name="district" required>
+                  </div>
+                  <div class="error">
+                      <?php if(!empty($data['districtError'])): echo $data['districtError']; endif; ?>
                   </div>
                   </div>
                   <!--submit-->
@@ -121,9 +154,7 @@
                      <div class="btn-layer"></div>
                      <input type="submit" value="Submit">
                   </div>
-                  <!--<div class="signup-link">
-                     Already a member? <a href="">Login</a>
-                  </div>-->
+                  
                </form>
                <!--doctor signup endss-->
 
@@ -131,43 +162,94 @@
                <form action="<?php echo BASEURL;?>/admin/regPara" class="signup">
                   
                   <div class="field">
-                     <input type="text" placeholder="Full Name" required>
+                  <label>*</label>
+                     <input type="text" placeholder="Full Name" name="fullName" required>
                   </div>
-                  <div class="field">
-                     <input type="text" placeholder="Email Address" required>
+                  <div class="error">
+                    <?php if(!empty($data['fullNameError'])): echo $data['fullNameError']; endif; ?>
                   </div>
+
                   <div class="field">
+                  <label>*</label>
+                     <input type="text" placeholder="Email Address" name="email" required>
+                  </div>
+                  <div class="error">
+                    <?php if(!empty($data['emailError'])): echo $data['fullNameError']; endif; ?>
+                  </div>
+
+                  <div class="field">
+                  <label>*</label>
                      <select name="para" id="para" required>
                         <option value="" disabled selected hidden>Pramedical User Type</option>
                         <option value="physiotherapist">Physiotherapist</option>
                         <option value="nutritionist">Nutritionist</option>
                      </select>
                   </div>
+                  <div class="error">
+                    <?php if(!empty($data['paraError'])): echo $data['paraError']; endif; ?>
+                  </div>
+
+                  <!--username-->
+                  <div class="field">
+                  <label>*</label>
+                     <input type="text" placeholder="Username" name="username" required>
+                  </div>
+                  <div class="error">
+                     <?php if(!empty($data['usernameError'])): echo $data['usernameError']; endif; ?>
+                   </div>
+
+                    <!--password-->
+                  <div class="field">
+                  <label>*</label>
+                     <input type="password" placeholder="Password" name="password" required>
+                  </div>
+                  <div class="error">
+                      <?php if(!empty($data['passwordError'])): echo $data['passwordError']; endif; ?>
+                  </div>
 
                   <div class="row">
                      <div class="field" style="margin-right: 10px;">
-                        <input type="text" placeholder="NIC" required>
+                     <label>*</label>
+                        <input type="text" placeholder="NIC" name="nic" required>
                      </div>
-                  <div class="field" style="margin-left: 10px;">
-                     <select name="gender" id="gender" required>
+                     <div class="error">
+                      <?php if(!empty($data['nicError'])): echo $data['nicError']; endif; ?>
+                     </div>
+
+                     <div class="field" style="margin-left: 10px;">
+                     <label>*</label>
+                        <select name="gender" id="gender" required>
                         <option value="" disabled selected hidden>Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
-                     </select>
-                  </div>
+                        </select>
+                     </div>
+                     <div class="error">
+                      <?php if(!empty($data['genderError'])): echo $data['genderError']; endif; ?>
+                     </div>
                   </div>
                
                   <div class="row">
                      <div class="field" style="margin-right: 10px;">
-                        <input type="text" placeholder="Hospital" required>
+                     <label>*</label>
+                        <input type="text" placeholder="Hospital" name="hospital" required>
                      </div>
+                     <div class="error">
+                      <?php if(!empty($data['hospitalError'])): echo $data['hospitalError']; endif; ?>
+                     </div>
+
                   <div class="field" style="margin-left: 10px;">
-                     <input type="text" placeholder="Doctor ID" required>
+                  <label>*</label>
+                     <input type="text" placeholder="Doctor ID" name="doctorId" required>
+                  </div>
+                  <div class="error">
+                      <?php if(!empty($data['doctorIdError'])): echo $data['doctorIdError']; endif; ?>
                   </div>
                   </div>
                  
                   <div class="row">
                      <div class="field" style="margin-right: 10px;">
+                     <label>*</label>
                      <select name="province" id="province" required>
                         <option value="" disabled selected hidden>Province</option>
                         <option value="western">Western</option>
@@ -180,9 +262,17 @@
                         <option value="north-central">North-Central</option>
                         <option value="sabaragamuwa">Sabaragamuwa</option>
                      </select>
-                  </div>
+                     </div>
+                     <div class="error">
+                      <?php if(!empty($data['provinceError'])): echo $data['provinceError']; endif; ?>
+                     </div>
+
                   <div class="field" style="margin-left: 10px;">
-                     <input type="text" placeholder="District" required>
+                  <label>*</label>
+                     <input type="text" placeholder="District" name="district" required>
+                  </div>
+                  <div class="error">
+                      <?php if(!empty($data['districtError'])): echo $data['districtError']; endif; ?>
                   </div>
                   </div>
 
@@ -190,9 +280,7 @@
                      <div class="btn-layer"></div>
                      <input type="submit" value="Submit">
                   </div>
-                  <!--<div class="signup-link">
-                     Already a member? <a href="">Login</a>
-                  </div>-->
+                  
                </form>
                <!--paramedical signup ends-->
             </div>

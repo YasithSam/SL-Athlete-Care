@@ -5,12 +5,10 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-html,body{
-  display: inline-grid;
+body{
+  /*display: inline-grid;*/
   height: 100%;
   width: 100%;
-  place-items: center;
-  background: #ffffff;
 }
 /*::selection{
   background: #fa4299;
@@ -18,16 +16,18 @@ html,body{
 }*/
 
 .description{
-  display: flex;
   color: rgb(0, 0, 81);
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .wrapper{
+  margin: auto;
   overflow: hidden;
   width: 800px;
   height: 90%;
   background: #F2F2F2;
-  padding-top: 10px;
+  /*padding-top: 10px;*/
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0 8px 20px rgba(35,0,77,.2);
@@ -123,9 +123,15 @@ input[type="radio"]{
 }
 
 .form-inner form .field{
+  display: flex;
   height: 40px;
   width: 100%;
   margin-top: 1px;
+}
+.field label{
+  padding-right: 5px;
+  padding-top: 5px;
+  color: red;
 }
 .form-inner form .field input,
 .form-inner form .field select{
@@ -153,23 +159,6 @@ form .field input:focus::placeholder,
 .form-inner form .field select:invalid{
   color: #b3b3b3;
   transition: all 0.3s ease;
-}
-
-/*.form-inner form .pass-link{
-  margin-top: 5px;
-}*/
-.form-inner form .signup-link{
-  text-align: center;
-  margin-top: 30px;
-}
-/*.form-inner form .pass-link a,*/
-.form-inner form .signup-link a{
-  color: rgb(5, 98, 204);
-  text-decoration: none;
-}
-/*.form-inner form .pass-link a:hover,*/
-.form-inner form .signup-link a:hover{
-  text-decoration: underline;
 }
 form .btn,
 form .btn0{

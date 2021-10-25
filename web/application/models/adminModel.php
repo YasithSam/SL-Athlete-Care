@@ -27,7 +27,12 @@ class adminModel extends database
 
     }
     public function createAccountPara($data){
-        $role=3;
+        if($data['para']=='physiotherapist'){
+            $role=3;
+        }
+        else{
+            $role=4;
+        }
         $uuid=uniqid("sl-ac-");
         $ps = password_hash($data['password'], PASSWORD_DEFAULT);
         $x=[$uuid,$role,$data['username'],null,$ps,0,0];
@@ -35,8 +40,17 @@ class adminModel extends database
         $y=[$uuid,$data['fullName'],$data['province'],$data['district'],$data['email'],$data['gender'],$data['hospital'],$data['nic'],$data['doctorId']];
    
 
-        if($this->Query("INSERT INTO users (fullName, email, password) VALUES (?,?,?)", $data)){
-            return true;
+        if($this->Query("INSERT INTO application_user (uuid,role_id,username,phone,password,login_status,is_disabled) VALUES (?,?,?,?,?,?,?)",$x)){
+            if($this->Query("INSERT INTO paramedical_profile (uuid,full_name,province,district,email,sex,hospital,nic,paramedical_number) VALUES (?,?,?,?,?,?,?,?,?)",$y)){
+                 return true;
+            }
+            else{
+
+            }
+        }
+        else{
+            
+             return false;
         }
 
     }
