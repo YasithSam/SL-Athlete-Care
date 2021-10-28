@@ -104,13 +104,13 @@ class admin extends main{
             'emailError'      => '',
             'usernameError'   => '' ,
             'passowrdError'   => '',
-            'nicError'      => '',
-            'genderError'   => '' ,
+            'nicError'        => '',
+            'genderError'     => '' ,
             'hospitalError'   => '',
-            'doctorIdError'      => '',
+            'doctorIdError'   => '',
             'provinceError'   => '' ,
             'districtError'   => '' ,
-            'otherError'=>'',
+            'otherError'      =>'',
    
         ];
         
@@ -119,7 +119,7 @@ class admin extends main{
         
            if(empty($userData['fullNameError']) && empty($userData['emailError']) && empty($userData['passwordError'])
            && empty($userData['usernameError']) && empty($userData['nicError']) && empty($userData['genderError'])
-           && empty($userData['hospitalError']) && empty($userData['doctorError']) && empty($userData['provinceError'])
+           && empty($userData['hospitalError']) && empty($userData['doctorIdError']) && empty($userData['provinceError'])
            && empty($userData['districtError']))
            {   
                if($this->adminModel->createAccountDoctor($userData)){
@@ -141,7 +141,60 @@ class admin extends main{
        
     }
     public function regPara(){
+       
+        $userData = [
 
+            'fullName'        => $this->input('fullName'),
+            'email'           => $this->input('email'),
+            'para'            => $this->input('para'),
+            'username'        => $this->input('username'),
+            'password'        => $this->input('password'),
+            'nic'             => $this->input('nic'),
+            'gender'          => $this->input('gender'),
+            'hospital'        => $this->input('hospital'),
+            'doctorId'        => $this->input('doctorId'),
+            'province'        => $this->input('province'),
+            'district'        => $this->input('district'),
+            'fullNameError'   => '',
+            'emailError'      => '',
+            'paraError'       => '',
+            'usernameError'   => '' ,
+            'passowrdError'   => '',
+            'nicError'        => '',
+            'genderError'     => '' ,
+            'hospitalError'   => '',
+            'doctorIdError'   => '',
+            'provinceError'   => '' ,
+            'districtError'   => '' ,
+            'otherError'      =>'',
+   
+        ];
+        
+        $userData=$this->validateUser($userData);    
+     
+        
+           if(empty($userData['fullNameError']) && empty($userData['emailError']) && empty($userData['paraError']) 
+           && empty($userData['passwordError']) && empty($userData['usernameError']) && empty($userData['nicError']) 
+           && empty($userData['genderError']) && empty($userData['hospitalError']) && empty($userData['doctorIdError']) 
+           && empty($userData['provinceError']) && empty($userData['districtError']))
+           {   
+               if($this->adminModel->createAccountPara($userData)){
+                   $this->redirect('admin');
+                
+                }
+                else{
+                    $userData['otherError']="Couldn't register the user";
+                    $this->view('admin/reg');
+                     
+                }
+   
+           } else {
+              
+               $this->view('admin/reg',$userData);
+              
+           }
+   
+       
     }
     public function validateUser($userData){
 
@@ -161,6 +214,10 @@ class admin extends main{
             //  $userData['emailError'] = "Sorry this email is already exist";
 
             // }
+        }
+        if(empty($userData['para'])){
+            $userData['paraError'] = 'Paramedical User Type is required';
+
         }
         if(empty($userData['username'])){
             $userData['usernameError'] = 'Username is required';
