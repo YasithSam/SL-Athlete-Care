@@ -29,6 +29,7 @@ class adminModel extends database
     public function createAccountPara($data){
         $role=3;
         $uuid=uniqid("sl-ac-");
+       
         $ps = password_hash($data['password'], PASSWORD_DEFAULT);
         $x=[$uuid,$role,$data['username'],null,$ps,0,0];
   

@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+
+.container1 .input{
+    background: #ffffff;
+	border: 0;
+	outline: none;
+	color: #8b7d77;
+}
+
+.search_wrap{
+	width: auto;
+	margin: 25px auto;
+}
+
+.search_wrap .search_box{
+	position: relative;
+	width: 280px;
+	height: 45px;
+}
+
+.search_wrap .search_box .input{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 10px 20px;
+	border-radius: 3px;
+	font-size: 15px;
+}
+
+.search_wrap .search_box .btn{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 49.2px;
+	height: 100%;
+	background: #007aff;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.search_wrap .search_box .btn:hover{
+	background: #708bd2;	
+}
+
+.search_wrap .search_box .btn.btn_common .fas{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: #fff;
+	font-size: 20px;
+}
+
+.search_wrap.search_wrap_3 .search_box .input{
+	padding-right: 80px;
+}
+
+
+
+.search_wrap.search_wrap_3 .search_box .input{
+	border-radius: 50px;
+}
+
+.search_wrap.search_wrap_3 .search_box .btn{
+	right: 0px;
+	border-radius: 50%;
+}
+
+.wrapper .tabs_wrap{
+	padding: 25px 20px 0px 0px;
+}
+.wrapper .tabs_wrap ul{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.wrapper .tabs_wrap ul li{
+	width: 118px;
+	text-align: center;
+	background-color: #ffffff;
+	border-right: 1px solid #0046b8;
+	padding: 10px 15px;
+	cursor: pointer;
+	transition: all 0.4s ease;
+}
+.wrapper .tabs_wrap ul li:first-child{
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+.wrapper .tabs_wrap ul li:last-child{
+	border-right: 0;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+
+.wrapper .tabs_wrap ul li:hover,
+.wrapper .tabs_wrap ul li.active{
+	background-color: #007aff;
+	color: #fff;
+}
+
+
+*{
+	list-style: none;
+}
+
+.wrapper .tabs_wrap ul li a{
+    text-decoration: none;
+}
+
+.filter-search-box{
+    display: flex;
+    float: none;
+    justify-content: center;
+}

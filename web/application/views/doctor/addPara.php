@@ -24,28 +24,30 @@
                         <div class="title">Add Paramedical User</div>
                     
                       <div class="form-inner">
-                          <form action="#" class="login">              
+                          <form action="<?php echo BASEURL;?>/doctor/addpara" class="login" method="POST">              
                              <div class="field">
-                                <input type="text" name="" placeholder="Case study Id" required readonly>
+                                <input type="text" name="cid" value="#C00<?php echo($data[2])?>" placeholder="Case study Id" required readonly>
+                              
+                
                              </div>
                             
-              
                               <div class="row">
                                <div class="field" style="margin-right: 10px;">
-                                <select name="issued month" id="month" required>
+                                <select name="phy" id="month">
                                    <option value="" disabled selected hidden>Physiotherapist</option>
-                                   <option value="january">January</option>
-                                   <option value="february">February</option>
+                                   <?php foreach($data[1] as $item): ?>
+                                    <option value="<?php print_r($item->uuid);?>"><?php print_r($item->username);?></option>
+                                   <?php endforeach;?>
                                 </select>
                                </div>
                               </div>
                               <div class="row">
                                   <div class="field" style="margin-right: 10px;">
-                                   <select name="Expiration month" id="month" required>
+                                   <select name="nut" id="month">
                                       <option value="" disabled selected hidden>Nutritionist</option>
-                                      <option value="january">January</option>
-                                      <option value="february">February</option>
-                                      <option value="none">None</option>
+                                      <?php foreach($data[0] as $item): ?>
+                                         <option value="<?php print_r($item->uuid);?>"><?php print_r($item->username);?></option>
+                                     <?php endforeach;?>
                                    </select>
                                   </div>
                                  

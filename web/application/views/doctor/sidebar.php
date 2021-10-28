@@ -40,12 +40,19 @@
                         </a>
                     </li>
                     <li>
+                        <a href="<?php echo BASEURL;?>/doctor/articles">
+                            <span class="ti-agenda"></span>
+                            <span>Articles</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="<?php echo BASEURL;?>/doctor/profile">
                             <span class="ti-user"></span>
                             <span>Profile</span>
                         </a>
                     </li>
                     <li>
+                        
                         <a href="<?php echo BASEURL;?>/commonController/settings">
                             <span class="ti-settings"></span>
                             <span>Settings</span>

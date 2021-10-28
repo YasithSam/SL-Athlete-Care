@@ -38,6 +38,38 @@ class admin extends main{
             $this->view('404');
         }
     }
+    public function notices(){
+        if($this->getSession('userRole')==1){
+          $this->view('admin/notices');
+        }  
+        else{
+            $this->view('404');
+        }
+    }
+    public function users(){
+        if($this->getSession('userRole')==1){
+          $this->view('admin/users');
+        }  
+        else{
+            $this->view('404');
+        }
+    }
+    public function articles(){
+        if($this->getSession('userRole')==1){
+          $this->view('admin/articles');
+        }  
+        else{
+            $this->view('404');
+        }
+    }
+    public function comments(){
+        if($this->getSession('userRole')==1){
+          $this->view('admin/comments');
+        }  
+        else{
+            $this->view('404');
+        }
+    }
     public function profile(){
         if($this->getSession('userRole')==1){
            $this->view('admin/casestudy');
@@ -82,7 +114,7 @@ class admin extends main{
    
         ];
         
-        $userData=$this->validateUser($userData);    
+          $userData=$this->validateUser($userData);    
      
         
            if(empty($userData['fullNameError']) && empty($userData['emailError']) && empty($userData['passwordError'])
@@ -107,6 +139,9 @@ class admin extends main{
            }
    
        
+    }
+    public function regPara(){
+
     }
     public function validateUser($userData){
 

@@ -3,169 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/view-more-horizontal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <?php linkCSS("assets/css/cs/view-more-horizonta.css") ?>
     <script src="https://kit.fontawesome.com/4e3a3a38a1.js" crossorigin="anonymous"></script></head>
 <body>
 
+ 
+<div class="header_section">
+        <div class="header">
+            <a href="#">SL ATHLETE CARE</a>
+        </div>
+        <div class="profile">
+            <i class="fas fa-bell"></i>
+            <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i>My Profile</button>
+        </div>
+    </div>
+    <!--header ends-->
 
-<?php include "component.php"?>
+    <!--end of details-->
+
+    <!--buttons-->
+    <div id="btn-group">
+      
+        <button class="btn active" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/index/<?php echo($data[1])?>';">
+          Updates 
+        </button>
+        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1])?>';">
+            Pre
+        </button>
+        <button class="btn" onclick="window.location.href='';">
+            Post
+        </button>
+    </div>
+
+<!--Medicine-->
 <!--Medicine-->
 <div class="container-2">
     <div class="title">
     <h3>Medicine</h3>
     </div>
-    <div class="card-2">
-        <div id="textbox">
-            <h3 class="alignleft">Medical update - 1</h3>
-            <h3 class="alignright">03/10/2021</h3>
-          </div>
-          <div style="clear: both;">
-            <h3>This card has supporting text below as a natural lead-in to additional</h3>
-        </div>
-    </div>
+    <?php if(!empty($data[0])): ?>
+        
+        <?php foreach($data[0] as $item): ?>
+                <div class="card-2">
+                    <div class="imgbox">
+                        <img src="./images/medicine.png" alt="">
+                    </div>
+                    <div class="textbox1">
+                    <div id="textbox">
+                        <h2 class="alignleft"><b><?php echo ucwords($item->heading)?></b></h2>
+                        <?php $d=explode(" ",$item->datetime)?>
+                        <h3 class="alignright">Time: <?php echo ucwords($d[1])?></h3>
+                        <h3 class="alignright">Date: <?php echo ucwords($d[0])?></h3>
+                    </div>
+                    <div style="clear: both;">
+                        <h3><?php echo ucwords($item->description)?></h3>
+                    </div>
+                </div>
+                </div>
+  
+    
+            <div class="endbtn">
+                <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
+               
+            </div>
+        <?php endforeach;?>
+     <?php else: ?>
+            <h1>No data </h1>
+    <?php endif; ?> 
 
-    <div class="endbtn">
-        <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
-        <button class="deletebtn" onclick="window.location.href='./forms/update-medicine.html';"><i class="fa fa-edit"></i>Edit</button>
-    </div>
-
-
-    <div class="card-2">
-        <div id="textbox">
-            <h3 class="alignleft"> Medical update - 2</h3>
-            <h3 class="alignright">02/10/2021</h3>
-          </div>
-          <div style="clear: both;">
-            <h3>This card has supporting text below as a natural lead-in to additional</h3>
-        </div>
-    </div>
-
-    <div class="endbtn">
-        <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
-        <button class="deletebtn" onclick="window.location.href='./forms/update-medicine.html';"><i class="fa fa-edit"></i>Edit</button>
-    </div>
-
-    <div class="card-2">
-        <div id="textbox">
-            <h3 class="alignleft">Medical update - 3</h3>
-            <h3 class="alignright">01/10/2021</h3>
-          </div>
-          <div style="clear: both;">
-            <h3>This card has supporting text below as a natural lead-in to additional</h3>
-        </div>
-    </div>
-
-    <div class="endbtn">
-        <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
-        <button class="deletebtn" onclick="window.location.href='./forms/update-medicine.html';"><i class="fa fa-edit"></i>Edit</button>
-    </div>
-
-    <div class="card-2">
-        <div id="textbox">
-            <h3 class="alignleft">Medical update - 4</h3>
-            <h3 class="alignright">31/09/2021</h3>
-          </div>
-          <div style="clear: both;">
-            <h3>This card has supporting text below as a natural lead-in to additional</h3>
-        </div>
-    </div>
-
-    <div class="endbtn">
-        <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
-        <button class="deletebtn" onclick="window.location.href='./forms/update-medicine.html';"><i class="fa fa-edit"></i>Edit</button>
-    </div>
-
-    <div class="card-2">
-        <div id="textbox">
-            <h3 class="alignleft">Medical update - 5</h3>
-            <h3 class="alignright">31/09/2021</h3>
-          </div>
-          <div style="clear: both;">
-            <h3>This card has supporting text below as a natural lead-in to additional</h3>
-        </div>
-    </div>
-
-    <div class="endbtn">
-        <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
-        <button class="deletebtn" onclick="window.location.href='./forms/update-medicine.html';"><i class="fa fa-edit"></i>Edit</button>
-    </div>
-
-    <div class="card-2">
-        <div id="textbox">
-            <h3 class="alignleft">Medical update - 6</h3>
-            <h3 class="alignright">28/09/2021</h3>
-          </div>
-          <div style="clear: both;">
-            <h3>This card has supporting text below as a natural lead-in to additional</h3>
-        </div>
-    </div>
-
-    <div class="endbtn">
-        <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
-        <button class="deletebtn" onclick="window.location.href='./forms/update-medicine.html';"><i class="fa fa-edit"></i>Edit</button>
-    </div>
-
-    <div class="card-2">
-        <div id="textbox">
-            <h3 class="alignleft">Medical update - 7</h3>
-            <h3 class="alignright">28/09/2021</h3>
-          </div>
-          <div style="clear: both;">
-            <h3>This card has supporting text below as a natural lead-in to additional</h3>
-        </div>
-    </div>
-
-    <div class="endbtn">
-        <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
-        <button class="deletebtn" onclick="window.location.href='./forms/update-medicine.html';"><i class="fa fa-edit"></i>Edit</button>
-    </div>
-
-    <div class="card-2">
-        <div id="textbox">
-            <h3 class="alignleft">Medical update - 8</h3>
-            <h3 class="alignright">26/09/2021</h3>
-          </div>
-          <div style="clear: both;">
-            <h3>This card has supporting text below as a natural lead-in to additional</h3>
-        </div>
-    </div>
-
-    <div class="endbtn">
-        <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
-        <button class="deletebtn" onclick="window.location.href='./forms/update-medicine.html';"><i class="fa fa-edit"></i>Edit</button>
-    </div>
-
-    <div class="card-2">
-        <div id="textbox">
-            <h3 class="alignleft">Medical update - 9</h3>
-            <h3 class="alignright">26/09/2021</h3>
-          </div>
-          <div style="clear: both;">
-            <h3>This card has supporting text below as a natural lead-in to additional</h3>
-        </div>
-    </div>
-
-    <div class="endbtn">
-        <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
-        <button class="deletebtn" onclick="window.location.href='./forms/update-medicine.html';"><i class="fa fa-edit"></i>Edit</button>
-    </div>
-
-    <div class="card-2">
-        <div id="textbox">
-            <h3 class="alignleft">Medical update - 10</h3>
-            <h3 class="alignright">25/09/2021</h3>
-          </div>
-          <div style="clear: both;">
-            <h3>This card has supporting text below as a natural lead-in to additional</h3>
-        </div>
-    </div>
-
-    <div class="endbtn">
-        <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
-        <button class="deletebtn" onclick="window.location.href='./forms/update-medicine.html';"><i class="fa fa-edit"></i>Edit</button>
-    </div>
-
+   
 </div>
 
 <!--end-->

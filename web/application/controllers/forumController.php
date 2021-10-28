@@ -58,6 +58,23 @@ class forumController extends main{
         
 
     }
+    public function grid(){
+        $this->view('grid');
+
+    }
+    public function articleitem(){
+        $this->view('articleitem');
+
+    }
+    public function questionitem(){
+        $this->view('questionitem');
+
+    }
+    public function noticeitem(){
+        $this->view('noticeitem');
+
+    }
+
     public function reject($id){
         if($this->getSession('userRole')==2){
             $data=$this->forumModel->updateForumbyId($id,"Rejected");

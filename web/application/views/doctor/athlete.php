@@ -11,20 +11,26 @@
     </head>
 
 <body>
+<header>
+  
+
+  <div class="social-icons">
+      <span class="ti-bell"></span>
+      <div class="user-wrapper">
+           <img src="../../web/public/assets/img/avatar.png" width="40px" height="40px" alt="">    
+           <div>
+               <h4>Doctor</h4>
+               <div class="button" style="justify-content: center;"><a href="<?php echo BASEURL;?>/doctor/">Back to Home</a></div>
+          </div>   
+        
+                 
+      </div>                                  
+  </div>   
+
+            
+</header>
         <div class="main-content">
-            <header>
-                <div class="social-icons">
-                    <span class="ti-bell"></span>
-                    <div class="user-wrapper">
-                        <img src="avatar.jpg" width="40px" height="40px" alt="">
-                        <div>
-                            <h4>Doctor</h4>
-                            <small>Doctor</small>
-                        </div>
-                    </div>                
-                </div>
-            </header>
-<!--Body section-->
+         
             <main>  
               <div class="home">
               <!--Profile box-->
@@ -90,7 +96,7 @@
                         <!--card-->
                         <div class="card" style="width: 50%;">
                           <i class="fas fa-heartbeat user"></i>
-                          <div class="qual">Blood pressure<br><p class="txt">something </p></div>
+                          <div class="qual">Body Fat<br><p class="txt">54</p></div>
                         </div>
                       </div>
                   </div>

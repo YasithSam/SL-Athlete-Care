@@ -12,7 +12,7 @@
                 <ul>
                     <li>
                         <a href="<?php echo BASEURL;?>/paramedical/">
-                            <span class="ti-dashboard"></span>
+                            <span class="ti-user"></span>
                             <span>Dashboard</span>
                         </a>
                     </li>
@@ -29,13 +29,26 @@
                         </a>
                     </li>
                     <li>
+                        <a href="<?php echo BASEURL;?>/paramedical/articles">
+                            <span class="ti-agenda"></span>
+                            <span>Articles</span>
+                        </a>
+                    </li>
+                    <li>
+                        <?php ?>
                         <a href="<?php echo BASEURL;?>/paramedical/schedule">
+                            <span class="ti-agenda"></span>
+                            <span>Schedules</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo BASEURL;?>/paramedical/casestudy">
                             <span class="ti-files"></span>
                             <span>Case Studies</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo BASEURL;?>/commonController/settings">
+                        <a href="<?php echo BASEURL;?>/paramedical/settings">
                             <span class="ti-settings"></span>
                             <span>Settings</span>
                         </a>

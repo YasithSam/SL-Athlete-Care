@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+body{
+	font-family: Arial;
+	margin:0;
+	background-color: #f1f1f1;
+}
+*{
+	box-sizing: border-box;
+}
+.row:after{
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.row .left-column .card p{
+    font-size:12px;
+}
+
+h2{
+	color:#ffffff;
+margin:1.5 0px;	
+}
+
+.card{
+	padding: 20px;
+	background-color: #ffffff;
+    margin-top:20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.in-card{
+	padding: 20px;
+	background-color: #ffffff;
+}
+
+
+/*responsive */
+@media only screen and (max-width:1200px){
+	.main-content header{
+        width: 100%;
+    }
+}
+
+
+.notice {
+	height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.card .in-card img {
+    padding: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+
+
+.decision-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.decision-wrapper .button3 {
+    background: #3131c9;
+    border-radius: 10px;
+    color: #fff;
+    font-size: .8rem;
+    padding: .5rem 1rem;
+    border: 1px solid var(--main-color);
+
+}
+
+
+.decision-wrapper button:hover{
+    background-color: #000051;
+}
+
+.main-content{
+    position: relative;
+    transition: margin-left 500ms;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: #0562cc   ;
+    height: 60px;
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    transition: left 500ms;
+}
+.main-content header h3{
+    color: white;
+}
+
+.social-icons{
+    display: flex;
+    align-items: center;
+}
+
+.social-icons span,
+.social-icons .user-wrapper{
+    margin-left: 1.2rem;
+}
+main{
+    margin-top: 60px; 
+    background: #f5f5f5;
+    min-height: 90vh;
+    padding: 1rem;
+}
+
+
+.user-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.user-wrapper img {
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+:root{
+    --lblue:#0791bb;
+    --dblue:#031e79;
+    --gradient:linear-gradient(90deg, var(--dblue), var(--lblue));
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border:none;
+    text-transform: capitalize;
+}
+
+*::selection{
+    background:var(--lblue);
+    color:#fff;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+
+.footer{
+    background:url('../img/footerbg.jpg') no-repeat;
+    background-size: cover;
+}
+
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box{
+    flex:3 1 25rem;
+    margin:2rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    padding:1rem 0;
+    color:#fff;
+    /*text-decoration: underline;
+    text-underline-offset: 1rem;*/
+}
+
+.footer .box-container .box p{
+    font-size: 1.5rem;
+    padding:.5rem 0;
+    color:#eee;
+    text-align: left;
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    padding:.5rem 0;
+    color:#eee;
+}
+
+.footer .box-container .box a:hover{
+    text-decoration: underline;
+}
+
+.footer .box-container .box .info{
+    display: flex;
+    align-items: center;
+}
+
+.footer .box-container .box .info i{
+    margin:.5rem 0;
+    margin-right: 1rem;
+    border-radius: 50%;
+    background:#fff;
+    color:var(--lblue);
+    font-size: 2rem;
+    height:4.5rem;
+    width:4.5rem;
+    line-height: 4.5rem;
+    text-align: center;
+}
+
+.footer .credit{
+    font-size: 2rem;
+    font-weight: normal;
+    letter-spacing: .1rem;
+    color:#fff;
+    border-top: .1rem solid #fff5;
+    padding:2.5rem 1rem;
+    text-align: center;
+}
+.left-column h2{
+    color: black;
+}
+
+
+
+/* grid-cards */
+
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row2 {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row2:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .grid-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    background-color: #f1f1f1;
+  }
+
+  .grid-card img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+  .other-notices h2{
+      color: black;
+      text-align: center;
+  }
+
+
+
+
+
+
+
+
+

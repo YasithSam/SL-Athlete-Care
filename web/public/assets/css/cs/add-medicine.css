@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+  
+ body{
+  background-color: #ffffff;
+
+}
+
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  input[type=date] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  label {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: #01579b;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=submit]:hover {
+    background-color:  #80c0ff;
+    color: #01579b;
+  }
+
+  .back{
+    background-color: #01579b;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 10px;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+    cursor: pointer;
+    float: left;
+  }
+
+  .back a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: inline-block;     
+    position: relative;    
+    z-index: 1;     
+    padding: 2em;     
+    margin: -2em; 
+  }
+
+  .back:hover{
+    background-color: #80c0ff;
+  }
+  
+  .back a:hover{
+    color: #01579b;
+  }
+ 
+  .container {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 80px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .form-cont{
+    padding: 20px 30px 20px 30px;
+    background-color: #ecedee;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .header{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-top: 7px;
+    height: 85px;
+    width: 100%;
+    background-color: #01579b;
+
+  }
+
+  h2{
+    text-align: center;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+  }
+
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }

@@ -17,25 +17,19 @@
 
         <div class="main-content">
         <?php include "header.php"?>
-
-
-            <header>
-                <div class="social-icons">
-                    <span class="ti-bell"></span>
-                    <div class="user-wrapper">
-                        <img src="avatar.jpg" width="40px" height="40px" alt="">
-                        <div>
-                            <h4>Doctor</h4>
-                            <small>Doctor</small>
-                        </div>
-                    </div>                
-                </div>
-            </header>
+           
 <!--Body section-->
             <main>
              <div class="title">Patients Overview</div>
+          
                 
                               <div class="pt box">
+                                                    
+                                <form class="search-btn" action="">
+                                    <input type="text" class="search" placeholder="Search..." name="search">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                
                                 <section class="target_box">
                                 <div id="div1" class="target">Page 1</div>
                                 <div id="div2" class="target">Page 2</div>
@@ -55,7 +49,7 @@
                                   <div class="btn">
                                     <ul style="list-style: none;">
                                     <li class="l1" style="padding-bottom: 5px;">Date: 01/02/2022</li>
-                                    <li class="l2"><a href="athleteprofile.html">View</a></li>
+                                    <li class="l2"><a href="<?php echo BASEURL;?>/doctor/athlete">View</a></li>
                                     </ul>
                                   </div>
                                 </div>
@@ -70,7 +64,7 @@
                                   <div class="btn">
                                     <ul style="list-style: none;">
                                     <li class="l1" style="padding-bottom: 5px;">Date: 01/02/2022</li>
-                                    <li class="l2"><a href="athleteprofile.html">View</a></li>
+                                    <li class="l2"><a href="<?php echo BASEURL;?>/doctor/athlete">View</a></li>
                                     </ul>
                                   </div>
                                 </div>
@@ -85,7 +79,7 @@
                                   <div class="btn">
                                     <ul style="list-style: none;">
                                     <li class="l1" style="padding-bottom: 5px;">Date: 01/02/2022</li>
-                                    <li class="l2"><a href="athleteprofile.html">View</a></li>
+                                    <li class="l2"><a href="<?php echo BASEURL;?>/doctor/athlete">View</a></li>
                                     </ul>
                                   </div>
                                 </div>
@@ -100,7 +94,7 @@
                                   <div class="btn">
                                     <ul style="list-style: none;">
                                     <li class="l1" style="padding-bottom: 5px;">Date: 01/02/2022</li>
-                                    <li class="l2"><a href="athleteprofile.html">View</a></li>
+                                    <li class="l2"><a href="<?php echo BASEURL;?>/doctor/athlete">View</a></li>
                                     </ul>
                                   </div>
                                 </div>

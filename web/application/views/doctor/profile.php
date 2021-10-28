@@ -51,7 +51,7 @@
                           My Case Studies
 
                           <div class="edit">
-                            <a href="<?php echo BASEURL;?>/doctor/addcasestudy/<?php echo $data[0]->uuid;?>"> <i class="fas fa-plus addicon"></i></a> 
+                            <a href="<?php echo BASEURL;?>/doctor/casestudyform/<?php echo $data[0]->uuid;?>"> <i class="fas fa-plus addicon"></i></a> 
                           </div>
                         </div>
                         <?php if(!empty($data[1])): ?>
@@ -61,8 +61,8 @@
                                   <!--card-->
                                 <div class="card">
                                   <i class="fas fa-book-medical user"></i>
-                                  <div class="qual">Patient:<?php echo $item->uuid;?> <br><p class="txt">Case study on bone fracture, rugby </p></div>
-                                  <div class="button" > <a href="<?php echo BASEURL;?>/doctor/addq" style="font-size:8px">Assign Paramedical User</a></div>
+                                  <div class="qual">Case Study : #C00<?php echo($item->case_id);?> <br><p class="txt"><?php echo($item->title);?>  </p></div>
+                                  <div class="button" > <a href="<?php echo BASEURL;?>/doctor/addparaform/<?php echo($item->case_id);?>" style="font-size:8px">Assign Paramedical User</a></div>
                                 </div>
                                 <?php endforeach;?>
                          <?php else: ?>

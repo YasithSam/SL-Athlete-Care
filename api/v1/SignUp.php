@@ -2,13 +2,16 @@
 require_once '../../web/application/models/AthleteAPI.php';
 $db=new AthleteAPI();
 $response = array("error" => FALSE);
-if (isset($_REQUEST['name']) && isset($_REQUEST['phone']) && isset($_REQUEST['password'])) {
+if (isset($_REQUEST['name']) && isset($_REQUEST['phone']) && isset($_REQUEST['password'])&& isset($_REQUEST['sex'])&&isset($_REQUEST['email'])) {
     // receiving the post params
     $name = $_REQUEST['name'];
     $phone = $_REQUEST['phone'];
     $password = $_REQUEST['password'];
-    if($db->validateUser($name,$password,$phone)){
-        // check if user is already existed with the same email
+    $email = $_REQUEST['email'];
+    $sex = $_REQUEST['sex'];
+    $user=[$name,$password,$phone,$email,$sex];
+    if($db->validateUser($user)){
+        // check if user is already existed with the same phone
         if ($db->checkUser($name,$phone)) {
             // user already existed
             $response["error"] = TRUE;
@@ -17,7 +20,7 @@ if (isset($_REQUEST['name']) && isset($_REQUEST['phone']) && isset($_REQUEST['pa
         } else {
             // create a new user
 
-            $user = $db->addUser($name,$password,$phone);
+            $user = $db->addUser($name,$password,$phone,$email,$sex);
           
             if ($user) {
                 // user stored successfully
@@ -41,7 +44,7 @@ if (isset($_REQUEST['name']) && isset($_REQUEST['phone']) && isset($_REQUEST['pa
 
 } else {
     $response["error"] = TRUE;
-    $response["error_msg"] = "Required parameters (name, phone or password) is missing!";
+    $response["error_msg"] = "Required parameters (name, sex,email, phone or password) is missing!";
     echo json_encode($response);
 }
 

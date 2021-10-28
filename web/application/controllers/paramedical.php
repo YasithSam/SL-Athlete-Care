@@ -22,20 +22,67 @@ class paramedical extends main{
             $this->view('404');
         }
     }
-    public function patients(){
-        $this->view('para/patients');
-    }
-   
     public function casestudy(){
-        $this->view('para/casestudy');
+        if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
+           $this->view('para/casestudy');
+        }
+        else{
+            $this->view('404');
+        }
+    }
+    public function articles(){
+        if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
+           $this->view('para/articles');
+        }
+        else{
+            $this->view('404');
+        }
     }
     public function schedules(){
-        $this->view('para/schedules');
+        if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
+          $this->view('para/schedule');
+        } 
+        else{
+            $this->view('404');
+        }
     }
     public function settings(){
-        $this->view("settings");
+        if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
+          $this->view("para/settings");
+        }
+        else{
+            $this->view('404');
+        }
     }
-    
+    public function privacy(){
+        if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
+          $this->view('para/support');
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
+    public function help(){
+        if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
+          $this->view('para/help');
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
+    public function profile(){
+        if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
+          $this->view('para/profile');
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
+  
+  
    
    
    

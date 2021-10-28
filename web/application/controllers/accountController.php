@@ -59,10 +59,13 @@ class accountController extends main{
                 $this->redirect('admin');
                 break;
             case 2:
-                $this->redirect('doctor/dashboard');
+                $this->redirect('doctor/index');
                 break;
                 
             case 3:
+                $this->redirect('paramedical');
+                break;
+            case 5:
                 $this->redirect('paramedical');
                 break;
 

@@ -45,7 +45,7 @@ class accountModel extends database
         }
         else{
             return ['status' => 'usernameNotFound','data'=>''];
-            echo "na";
+           
         }
 
 

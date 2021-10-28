@@ -1,13 +1,13 @@
 <?php
 // Send an SMS using Twilio's REST API and PHP
 use Twilio\Rest\Client;
-require_once "../../vendor/autoload.php";
-require_once "../../application/models/AthleteAPI.php";
+require_once "../../web/vendor/autoload.php";
+require_once "../../web/application/models/AthleteAPI.php";
 $phone=$_REQUEST['phone'];
 $username=$_REQUEST['name'];
-$account_sid = "ACac384855d9a7ccdbeb05c48fca145396";
-$auth_token = "21d5e4a703e08183b3fcd7380e77435d";
-$twilio_phone_number = "+15709894946";
+$account_sid = "AC6690c2afb7b6168604e7e4c8f5bd985b";
+$auth_token = "f054fc4e5b222014ee767a9e48923c28";
+$twilio_phone_number = "+18482891989";
 $athlete=new AthleteAPI();
 $athlete->checkUser($username,$phone);
 if($athlete){

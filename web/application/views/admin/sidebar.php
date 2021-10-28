@@ -17,17 +17,29 @@
                         </a>
                     </li>
                     <li>
+                        <a href="<?php echo BASEURL;?>/admin/users">
+                            <span class="ti-files"></span>
+                            <span>Users</span>
+                        </a>
+                    </li> 
+                    <li>
                         <a href="<?php echo BASEURL;?>/admin/casestudy">
                             <span class="ti-files"></span>
                             <span>Case Studies</span>
                         </a>
-                    </li>
+                    </li>  
                     <li>
-                        <a href="<?php echo BASEURL;?>/admin/profile">
-                            <span class="ti-user"></span>
-                            <span>Profile</span>
+                        <a href="<?php echo BASEURL;?>/admin/articles">
+                            <span class="ti-files"></span>
+                            <span>Articles and Questions</span>
                         </a>
-                    </li>
+                    </li> 
+                    <li>
+                        <a href="<?php echo BASEURL;?>/admin/comments">
+                            <span class="ti-files"></span>
+                            <span>Comments</span>
+                        </a>
+                    </li>                   
                     <li>
                         <a href="<?php echo BASEURL;?>/forumController/">
                             <span class="ti-agenda"></span>
@@ -35,9 +47,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo BASEURL;?>/commonController/settings">
-                            <span class="ti-settings"></span>
-                            <span>Settings</span>
+                        <a href="<?php echo BASEURL;?>/admin/notices">
+                            <span class="ti-agenda"></span>
+                            <span>Notices</span>
                         </a>
                     </li>
                     <li>
