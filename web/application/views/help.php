@@ -6,7 +6,6 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
      <?php linkCSS("assets/css/privacy.css") ?>
-     <?php linkCSS("assets/css/doctormain.css") ?>
      <?php linkCSS("assets/css/doctordashboard.css") ?>
    
 
