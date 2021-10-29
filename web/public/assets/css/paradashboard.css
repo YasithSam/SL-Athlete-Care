@@ -1,0 +1,432 @@
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.home-section{
+  padding-top: 60px;
+  position: relative;
+  background: #ffffff;
+  /*min-height: 100vh;*/
+  /*width: calc(100% - 240px);*/
+  /*left: 240px;*/
+  transition: all 0.5s ease;
+}
+
+.home-section .home-content{
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.home-content .overview-boxes{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /*max-width: 65%;*/
+  padding: 0 20px;
+  margin-bottom: 26px;
+}
+.overview-boxes .box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / 3 - 12px);
+  background: #fff;
+  padding: 15px 14px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.overview-boxes .box .right-side{
+  padding-right: 50px;
+}
+.overview-boxes .box-topic{
+  font-size: 20px;
+  font-weight: 500;
+}
+.home-content .box .number{
+  display: inline-block;
+  font-size: 35px;
+  margin-top: -6px;
+  font-weight: 500;
+}
+
+.home-content .box .icon{
+  display: inline-block;
+  font-size: 40px;
+  height: 65px;
+  width: 65px;
+  background: #cce5ff;
+  line-height: 65px;
+  text-align: center;
+  color: #66b0ff;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  margin-right: 60px;
+  /*margin: -15px 0 0 6px;*/
+}
+
+.injury .user{
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  border-radius: 12px;
+  margin-right: 30px;
+  margin-left: 10px;
+}
+.injury .description{
+  display: flex;
+  width: 90%;
+  font-size: 15px;
+}
+.description .description1{
+  margin-right: 30px;
+}
+.description span{
+  font-weight: 500;
+}
+
+.injury .btn-grp{
+  text-align: right;
+  padding-top: 3px;
+  margin-right: 10px;
+  /*margin-right: 20px;*/
+}
+.injury .button1{
+  font-size: 18px;
+}
+.injury .button2{
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.injury .button1 a,
+.injury .button2 a{
+  color: #fff;
+  font-weight: 400;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.injury .button1 a{
+  background: rgb(248, 81, 59);
+  padding: 1px 11.5px;
+}
+.injury .button2 a{
+  background: rgb(1, 161, 249);
+  padding: 2px 10px;
+}
+
+.button2 a:hover{
+  background:  #01579b;
+}  
+.button1 a:hover{
+  background:  #d80000;
+}
+
+.updates .injury .med{
+  font-size: 35px;
+  width: fit-content;
+  text-align: center;
+  color: #065ebd;
+  margin-left: 15px;
+  margin-right: 20px;
+  display: none;
+}
+.updates .injury .qual{
+  width: 60%;
+  font-size: 15px;
+  font-weight: 500;
+  padding-left: 10px; 
+}
+.updates .injury .qual .txt{
+  font-size: 12px;
+  font-weight: 0;
+  color: #6d6b6b;
+}
+.updates .injury .qual .txt1{
+  font-size: 12px;
+  font-weight: 0;
+  color: #6d6b6b;
+  display: none;
+}
+
+.home-content .forum{
+  display: flex;
+  justify-content: space-between;
+  /* padding: 0 20px; */
+}
+
+/* left box */
+.home-content .forum .forum-injury{
+  width: 72%;
+  background: #fff;
+  padding: 20px 30px;
+  margin: 0 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.home-content .forum .updates .injury,
+.home-content .forum .forum-injury .injury{
+  display: flex;
+  align-items: center;
+  /*justify-content: center;*/
+  width: 100%;
+  height: 70px;
+  background: rgb(241, 241, 241);
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 15px;
+  /*padding: 15px 14px;*/
+  font-size: 13px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+
+.forum .box .title{
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px; 
+}
+.forum .box .button{
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+}
+.forum .box .button a{
+  color: #fff;
+  background: rgb(2, 87, 185);
+  padding: 4px 12px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.forum .box .button a:hover{
+  background:  #0d3073;
+}
+
+/* Right box */
+.home-content .forum .updates{
+  width: 35%;
+  background: #fff;
+  padding: 20px 30px;
+  margin: 0 20px 0 0;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Media Query */
+@media (max-width: 1200px) {
+  
+  .home-section{
+    width: calc(100% - 60px);
+    left: 10px;
+  }
+  
+  .overview-boxes .box{
+    width: calc(100% / 3 - 12px);
+    padding: 10px 14px;
+  }
+  .overview-boxes .box .right-side{
+    padding-right: 5px;
+    padding-left: 10px;
+  }
+  .home-content .box .icon{
+    font-size: 40px;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    border-radius: 12px;
+    margin-bottom: 2px;
+    margin-right: 40px;
+  }
+  .home-content .forum{
+    /*display: flex;*/
+    flex-direction: column;
+    /*justify-content: space-between;
+    /* padding: 0 20px; */
+  }
+  
+  /* left box */
+  .home-content .forum .forum-injury{
+    padding-top: 10px;
+    padding-right: 0px;
+    margin-left: 20px;
+    margin-right: 1000px;
+    width: 96%;
+    overflow: hidden;
+  }
+  .home-content .forum .forum-injury .injury{
+  width: 96%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 15px;
+  margin-right: 0%;
+  font-size: 13px;
+}
+.updates .injury .med{
+  display: unset;
+}
+.updates .injury .qual{
+  width: 40%;
+}
+.updates .injury .qual .txt1{
+  display: unset;
+}
+}
+@media (max-width: 1150px) {
+  .home-content{
+    margin-left: 20px;
+  }
+  .home-content .forum{
+    flex-direction: column;
+  }
+  .home-content .forum .forum-injury
+  {
+    /*width: 100%;*/
+    overflow-x: hidden;
+    margin-bottom: 30px;
+  }
+  .home-content .forum .updates{
+    width: 96%;
+    margin-left: 20px;
+  }
+  .home-content .forum .updates.updt{
+    width: 100%;
+    height: fit-content;
+  }
+  .overview-boxes .box .right-side{
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  .overview-boxes .box-topic{
+    font-size: 17px;
+  }
+  .home-content .box .number{
+    font-size: 25px;
+  }
+  
+}
+@media (max-width: 1000px) {
+  .overview-boxes .box{
+    width: calc(100% / 3 - 12px);
+    margin-bottom: 15px;
+  }
+  .overview-boxes .box-topic{
+    font-size: 17px;
+  }
+  .home-content .box .number{
+    font-size: 25px;
+  }
+  .overview-boxes .box .right-side{
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  
+}
+@media (max-width: 900px){
+  .home-content .box .icon{
+    font-size: 40px;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    margin-bottom: 2px;
+    margin-right: 10px;
+  }
+}
+@media (max-width: 700px) {
+  .home-content .box .icon{
+    font-size: 30px;
+    height: 60px;
+    width: 80px;
+    line-height: 60px;
+    border-radius: 12px;
+    margin-bottom: 2px;
+    margin-right: 10px;
+  }
+  .home-content .forum .forum-injury .injury .user{
+    display: none;
+  }
+  .overview-boxes .box{
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+  .overview-boxes .box-topic{
+    font-size: 15px;
+  }
+  .home-content .box .number{
+    font-size: 15px;
+  }
+  .overview-boxes .box .right-side{
+    padding-right: 1px;
+    padding-left: 20px;
+  }
+  .home-content .forum .forum-injury{
+    padding-left: 15px;
+  }
+  .home-content .forum .forum-injury .injury{
+    padding-left: 10px;
+  }
+  .updates .injury .qual .txt1{
+    display: none;
+  }
+}
+@media (max-width: 650px){
+  .home-content .box .icon{
+    display: none;
+  }
+  .overview-boxes .box{
+    height: 70px;
+  }
+  .description span{
+    display: none;
+  }
+}
+@media (max-width: 550px) {
+  .home-content{
+    margin-left: 5px;
+  }
+  .overview-boxes{
+    width: 100%;
+  }
+  .overview-boxes .box{
+    /*width: 100%;*/
+    margin-bottom: 15px;
+    padding: 0px;
+    padding-left: 0px;
+  }
+  .overview-boxes .box .right-side{
+    padding-left: 0px;
+    text-align: center;
+  }
+  .forum .box .button{
+    /*width: 10%;*/
+    display: flex;
+    justify-content: flex-end;
+  }
+  .forum .box .button a{
+    color: #fff;
+    background: rgb(2, 87, 185);
+    padding: 4px 12px;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .updates .injury .qual .txt1,
+  .updates .injury .qual .txt,
+  .updates .injury .med{
+    display: none;
+  }
+  .updates .injury .qual{
+   width: auto;
+  }
+}

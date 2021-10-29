@@ -1,32 +1,98 @@
 <div class="forum-injury box">
-
-         
-          <div class="title">Case Study Requests</div>
-          <!--Injury card-->
-          <?php if(!empty($data[1])): ?>
-
-             <?php foreach($data[1] as $item): ?>
-                  <div class="injury">
-                    <i class="fas fa-user user"></i>
-                    <div class="des1"><p>Name: </p><p>Injury: </p></div>
-                    <div class="des2"><p><?php echo ucwords($item->full_name); ?></p><p><?php echo ucwords($item->injury); ?></p></div>
-                    <div class="des3"></div>
-                    <div class="des1-des11"><p>Condition: </p><p>Visibility:</p></div>
-                    <?php $x=($item->doctor_id==0) ? "public" :"private"; ?>
-                    <div class="des2"><p><?php echo ucwords($item->con); ?></p> <p><?php echo $x?></p></div>
-                    <div class="button">
-                      <ul style="list-style: none;">
-                      <li class="l1" style="padding-bottom: 5px;">Date: 01/02/2022</li>
-                      <li class="l2"><a href="<?php echo BASEURL;?>/forumController/item/<?php echo $item->id; ?>">View</a></li>
-                      </ul>
-                    </div>
-                
-                </div>
-            <?php endforeach;?>
-        <?php else: ?>
-          <h1>No data </h1>
-        <?php endif; ?> 
-    
-
-          
+  <div class="title">Case Study Requests</div>
+    <!--Injury card-->
+    <div class="injury">
+      <img src="../../../public/assets/img/user.png" alt="user" class="user">
+      <div class="description">
+        <div class="description1">
+          <div><p><span> Patient: </span>A.B.C. Perera</p> </div>
+          <div><p><span> Doctor: </span> Dr P.Q.R. Perera</p> </div>
+        </div>
+        <div class="description2">
+          <div><p><span> Injury: </span>Leg sprain</p> </div>
+          <div><p><span> Patient Tel.: </span>071-2345678</p> </div>
+        </div>
+      </div>
+      <div class="btn-grp">
+        <div class="button2"><a href=""><i class="fas fa-check"></i></a></div>
+        <div class="button1"><a href=""><i class="fas fa-times"></i></a></div>
+      </div>
+    </div>
+    <!--End of Injury card-->  
+    <!--Injury card-->
+    <div class="injury">
+      <img src="../../../public/assets/img/user.png" alt="user" class="user">
+      <div class="description">
+        <div class="description1">
+          <div><p><span> Patient: </span>A.B.C. Perera</p> </div>
+          <div><p><span> Doctor: </span> Dr P.Q.R. Perera</p> </div>
+        </div>
+        <div class="description2">
+          <div><p><span> Injury: </span>Leg sprain</p> </div>
+          <div><p><span> Patient Tel.: </span>071-2345678</p> </div>
+        </div>
+      </div>
+      <div class="btn-grp">
+        <div class="button2"><a href=""><i class="fas fa-check"></i></a></div>
+        <div class="button1"><a href=""><i class="fas fa-times"></i></a></div>
+      </div>
+    </div>
+    <!--End of Injury card--> 
+    <!--Injury card-->
+    <div class="injury">
+      <img src="../../../public/assets/img/user.png" alt="user" class="user">
+      <div class="description">
+        <div class="description1">
+          <div><p><span> Patient: </span>A.B.C. Perera</p> </div>
+          <div><p><span> Doctor: </span> Dr P.Q.R. Perera</p> </div>
+        </div>
+        <div class="description2">
+          <div><p><span> Injury: </span>Leg sprain</p> </div>
+          <div><p><span> Patient Tel.: </span>071-2345678</p> </div>
+        </div>
+      </div>
+      <div class="btn-grp">
+        <div class="button2"><a href=""><i class="fas fa-check"></i></a></div>
+        <div class="button1"><a href=""><i class="fas fa-times"></i></a></div>
+      </div>
+    </div>
+    <!--End of Injury card-->  
+    <!--Injury card-->
+    <div class="injury">
+      <img src="../../../public/assets/img/user.png" alt="user" class="user">
+      <div class="description">
+        <div class="description1">
+          <div><p><span> Patient: </span>A.B.C. Perera</p> </div>
+          <div><p><span> Doctor: </span> Dr P.Q.R. Perera</p> </div>
+        </div>
+        <div class="description2">
+          <div><p><span> Injury: </span>Leg sprain</p> </div>
+          <div><p><span> Patient Tel.: </span>071-2345678</p> </div>
+        </div>
+      </div>
+      <div class="btn-grp">
+        <div class="button2"><a href=""><i class="fas fa-check"></i></a></div>
+        <div class="button1"><a href=""><i class="fas fa-times"></i></a></div>
+      </div>
+    </div>
+    <!--End of Injury card-->  
+    <!--Injury card-->
+    <div class="injury">
+      <img src="../../../public/assets/img/user.png" alt="user" class="user">
+      <div class="description">
+        <div class="description1">
+          <div><p><span> Patient: </span>A.B.C. Perera</p> </div>
+          <div><p><span> Doctor: </span> Dr P.Q.R. Perera</p> </div>
+        </div>
+        <div class="description2">
+          <div><p><span> Injury: </span>Leg sprain</p> </div>
+          <div><p><span> Patient Tel.: </span>071-2345678</p> </div>
+        </div>
+      </div>
+      <div class="btn-grp">
+        <div class="button2"><a href=""><i class="fas fa-check"></i></a></div>
+        <div class="button1"><a href=""><i class="fas fa-times"></i></a></div>
+      </div>
+    </div>
+    <!--End of Injury card-->  
 </div>

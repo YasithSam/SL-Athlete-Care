@@ -39,49 +39,61 @@
                       </div>
               <!--End of Profile box-->
               
-                      <div class="right">
-              <!--Professional qualifications box-->
-                    
-              <!--End of Professional qualifications box-->
-              
-              <!--Case studies box box-->
-                   
+                    <div class="right">
+                  
+                      <!--Case studies box-->
                       <div class="about box">
-                        <div class="title">
-                          My Case Studies
-
-                         
+                        <div class="title">My Case Studies</div>
+                        <!--card-->
+                        <div class="card">
+                          <i class="fas fa-book-medical user"></i>
+                          <div class="qual">Case Study : #C001<br>
+                          <p class="txt">Short description: Arm injury of severe condition Sport: Badminton<?php echo($item->title);?></p></div>
                         </div>
-                      
+                        <div class="card">
+                          <i class="fas fa-book-medical user"></i>
+                          <div class="qual">Case Study : #C005<br><p class="txt">Leg sprain of mild condition<?php echo($item->title);?></p></div>
+                        </div>
+                        <div class="card">
+                          <i class="fas fa-book-medical user"></i>
+                          <div class="qual">Case Study : #C011<br><p class="txt">Head injury<?php echo($item->title);?></p></div>
+                        </div>
 
-                           
-
-                                  <!--card-->
-                                <div class="card">
-                                  <i class="fas fa-book-medical user"></i>
-                                  <div class="qual">Case Study : #C001<br><p class="txt"><?php echo($item->title);?>  </p></div>
-                                  <div class="button" > <a href="<?php echo BASEURL;?>/doctor/addparaform/<?php echo($item->case_id);?>" style="font-size:8px">Assign Paramedical User</a></div>
-                                </div>
-                                
-                        
-    
-              <!--End of Case studies box box-->
+                      </div> 
+                      <!--End of Case studies box box-->
               
-              <!--Articles box-->
+                      <!--Articles box-->
                       <div class="about box">
-                        <div class="title">
-                          My Articles
-                        </div>
-                          <!--card-->
+                        <div class="title">My Articles</div>
+                        <!--card-->
                         <div class="card">
                           <i class="fas fa-notes-medical user"></i>
-                          <div class="qual">Tibial Stress Syndrome<br><p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome? </p></div>
+                          <div class="qual">
+                            Tibial Stress Syndrome<br>
+                            <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome. </p>
+                          </div>
                         </div>
+                        <!--card-->
+                        <div class="card">
+                          <i class="fas fa-notes-medical user"></i>
+                          <div class="qual">
+                            Repetitive Stress Injuries<br>
+                            <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome? </p>
+                          </div>
+                        </div>
+                        <!--card-->
+                        <div class="card">
+                          <i class="fas fa-notes-medical user"></i>
+                          <div class="qual">
+                            Common causes for injuries<br>
+                            <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome? </p>
+                          </div>
+                        </div>
+
                       </div>
-              <!--End of Articles box-->
-              
-                    </div>      
-              </div>
+                      <!--End of Articles box-->  
+                         
+                   </div>
               
                <!-- The Modal -->
                <div id="myModal" class="modal">

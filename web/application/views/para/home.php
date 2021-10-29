@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' rel='stylesheet'>
         <?php linkCSS("assets/css/doctormain.css") ?>
-        <?php linkCSS("assets/css/doctordashboard.css") ?>
+        <?php linkCSS("assets/css/paradashboard.css") ?>
         
 
     </head>
@@ -33,7 +33,7 @@
                     </div>
                   </div>
                 </div>
-  </section>
+            </section>
 
              
             </main>

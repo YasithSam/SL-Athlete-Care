@@ -47,28 +47,26 @@
               <!--Case studies box box-->
                    
                       <div class="about box">
-                        <div class="title">
-                          My Case Studies
-
+                        <div class="title">My Case Studies
                           <div class="edit">
                             <a href="<?php echo BASEURL;?>/doctor/casestudyform/<?php echo $data[0]->uuid;?>"> <i class="fas fa-plus addicon"></i></a> 
                           </div>
                         </div>
-                        <?php if(!empty($data[1])): ?>
 
-                           <?php foreach($data[1] as $item): ?>
+                        <?php if(!empty($data[1])): ?>
+                        <?php foreach($data[1] as $item): ?>
 
                                   <!--card-->
                                 <div class="card">
                                   <i class="fas fa-book-medical user"></i>
                                   <div class="qual">Case Study : #C00<?php echo($item->case_id);?> <br><p class="txt"><?php echo($item->title);?>  </p></div>
-                                  <div class="button" > <a href="<?php echo BASEURL;?>/doctor/addparaform/<?php echo($item->case_id);?>" style="font-size:8px">Assign Paramedical User</a></div>
+                                  <div class="button" > <a href="<?php echo BASEURL;?>/doctor/addparaform/<?php echo($item->case_id);?>" style="font-size:13px">Assign</a></div>
                                 </div>
                                 <?php endforeach;?>
                          <?php else: ?>
                               <h1>No data </h1>
                         <?php endif; ?> 
-    
+                         </div>
               <!--End of Case studies box box-->
               
               <!--Articles box-->
@@ -76,11 +74,31 @@
                         <div class="title">
                           My Articles
                         </div>
-                          <!--card-->
+                        <!--card-->
                         <div class="card">
                           <i class="fas fa-notes-medical user"></i>
-                          <div class="qual">Tibial Stress Syndrome<br><p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome? </p></div>
+                          <div class="qual">
+                            Tibial Stress Syndrome<br>
+                          <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome</p>
+                          </div>
                         </div>
+                        <!--card-->
+                        <div class="card">
+                          <i class="fas fa-notes-medical user"></i>
+                          <div class="qual">
+                            Repetitive Stress Injuries<br>
+                            <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome </p>
+                          </div>
+                        </div>
+                        <!--card-->
+                        <div class="card">
+                          <i class="fas fa-notes-medical user"></i>
+                          <div class="qual">
+                            Common Types of Injuries<br>
+                          <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome </p>
+                          </div>
+                        </div>
+
                       </div>
               <!--End of Articles box-->
               
