@@ -12,7 +12,7 @@ class paramedical extends main{
     }
     public function index(){
         $userId = $this->getSession('userId');
-        if($this->getSession('userRole')==3){
+        if($this->getSession('userRole')==3|| $this->getSession('userRole')==5){
             
            // $data = $this->profileModel->getData($userId);
             $this->view("para/home");
@@ -38,10 +38,22 @@ class paramedical extends main{
             $this->view('404');
         }
     }
-    public function schedules(){
-        if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
-          $this->view('para/schedule');
+    public function dschedule(){
+        $this->view('para/dschedule');
+
+    }
+    public function wschedule(){
+        $this->view('para/wschedule');
+        
+    }
+    public function schedule(){
+        if($this->getSession('userRole')==3){
+           $this->redirect('paramedical/wschedule');
+       
         } 
+        if($this->getSession('userRole')==5){
+           $this->redirect('paramedical/dschedule');
+        }
         else{
             $this->view('404');
         }

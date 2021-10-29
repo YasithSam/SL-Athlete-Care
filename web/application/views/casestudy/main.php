@@ -40,7 +40,7 @@
         <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1])?>';">
             Pre
         </button>
-        <button class="btn" onclick="window.location.href='';">
+        <button class="postbtn">
             Post
         </button>
     </div>
@@ -110,5 +110,93 @@ for (var i = 0; i < btns.length; i++) {
 
 </script> 
     
+
+
+   <!-- The Alert Modal -->
+   <div id="alertModal1" class="alertmodal">
+
+<div class="amcontainer">
+    <div class="top">
+        <i class="fa fa-exclamation-circle fa-2x" aria-hidden="true" ></i>
+        <h3>Post Not Yet Activated</h3>
+    </div>
+    <div class="texticon">
+        <i class="fa fa-question-circle fa-3x" aria-hidden="true" aria-hidden="true" ></i>
+        <h3>Do you want to activate?</h3>
+    </div>
+
+    <div class="mbtn">
+        <button class="mbuttonno">Cancel</button>
+
+        <button class="mbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/post/<?php echo($data[1])?>';">Activate</button>
+    </div>
+</div>
+</div>
+
+<!--Alert Modal End-->
+
+<script>
+// Get the alertmodal
+var alertmodal = document.getElementById('alertModal1');
+
+// Get the button that opens the alertmodal
+var btns = document.getElementsByClassName("postbtn");
+
+// Get the element that closes the alertmodal
+var span = document.getElementsByClassName("mbuttonno")[0];
+
+// When the user clicks the button, open the alertmodal
+for (var i = 0; i < btns.length; i++) {
+btns[i].onclick = function() {
+    alertmodal.style.display = "block";
+}
+}
+
+// When the user clicks on N0, close the modal
+span.onclick = function() {
+    alertmodal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == alertmodal) {
+    alertmodal.style.display = "none";
+}
+}
+
+
+// Get the modal
+var modal = document.getElementById('AddModal');
+
+// Get the button that opens the modal
+var btns = document.getElementsByClassName("addbutton1");
+
+// Get the element that closes the modal
+var span = document.getElementsByClassName("back")[0];
+
+// When the user clicks the button, open the modal 
+for (var i = 0; i < btns.length; i++) {
+btns[i].onclick = function() {
+    modal.style.display = "block";
+}
+}
+
+// When the user clicks on N0, close the modal
+span.onclick = function() {
+ modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal) {
+    modal.style.display = "none";
+}
+}
+</script>
+
+<!--End modal-->
+
+
+
 </body>
 </html>

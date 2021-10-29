@@ -34,7 +34,63 @@ class caseStudyModel extends database
            return $data;
          }
      }
-     public function addworkout($data){
+     public function addworkout($data){  
+        $y=[$data['id'],6];
+        
+        if($this->Query("INSERT into schedule (case_study_id,type) VALUES (?,?)",$y)){
+            if($this->Query("SELECT id FROM schedule where id=(select max(id) from schedule)")){
+                if($this->rowCount() > 0 ){
+                    $row = $this->fetch();
+                    $id = $row->id;
+                    $x=[$id,$data['title'],$data['description'],0];
+                    if($this->Query("INSERT into workout_schedule (schedule_id,title,description,state) VALUES (?,?,?,?)",$x)){
+                        if($this->Query("SELECT id FROM workout_schedule where id=(select max(id) from workout_schedule)")){
+                               $row2 = $this->fetch();
+                               $id2= $row2->id;
+                               for ($i=0;$i<count($data['itemtitle']);$i++){
+                                   if(empty($data['reps'][$i])){
+                                    $z=[$id2,$data['reps'][$i],$data['itemtitle'][$i],$data['itemdesc'][$i]];
+                                    if($this->Query("INSERT into workout_events (workout_schdule_id,reps,title,description) VALUES (?,?,?,?)",$z)){
+                                       return true;
+                                    }
+                               
+
+                                   }else if(empty($data['time'][$i])){
+                                    $z=[$id2,$data['itemtitle'][$i],$data['itemdesc'][$i],$data['time'][$i]];
+                                    if($this->Query("INSERT into workout_events (workout_schdule_id,title,description,time) VALUES (?,?,?,?)",$z)){
+                                        return true;
+                                     }
+
+                                   }
+                                   else{
+                                    $z=[$id2,$data['reps'][$i],$data['itemtitle'][$i],$data['itemdesc'][$i],$data['time'][$i]];
+                                    if($this->Query("INSERT into workout_events (workout_schdule_id,reps,title,description,time) VALUES (?,?,?,?,?)",$z)){
+                                        return true;
+                                     }
+
+                                   }
+                                  
+                                 
+
+                               }
+
+                        }
+                    }
+                    
+                }
+
+
+            }
+
+
+
+           
+            return true;
+        }
+         $count=count($data['itemheading']);
+         for($i=0;$i<$count;$i++){
+           
+         }
 
 
      }
@@ -153,9 +209,9 @@ class caseStudyModel extends database
         return $m;
 
     }
-    public function addMedicine($id,$data){
-        $x=[$data['id'],$data['heading'],$data['description'],0];
-        if($this->Query("INSERT into case_study_records (case_id,heading,description,state) VALUES (?,?,?,?)",$x)){
+    public function addMedicine($data){
+        $x=[$data['id'],1,$data['uid'],$data['heading'],$data['description'],0];
+        if($this->Query("INSERT into case_study_records (case_id,type_id,recording_user_id,heading,description,state) VALUES (?,?,?,?,?,?)",$x)){
             return true;
         }
         return false;

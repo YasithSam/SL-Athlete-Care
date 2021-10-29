@@ -88,23 +88,29 @@ class caseStudyController extends main{
         $this->view('casestudy/medicine',[$data,$id]);
 
     }
-    public function addMedicine($id){   
+    public function addMedicine($id){
+        $uid=$this->getSession('userId');
         $data = [
 
             'heading'        => $this->input('title'),
             'description'    => $this->input('description'),
-            'id' => $id
+            'id' => $id,
+            'uid'=>$uid
           
         ];
-        if(count(array_filter($data)) == 0){
-            //$this->caseStudyModel->editMedicine($id,$data); 
-            $this->view('casestudy/forms/pre' . $id); 
-            
-        }
-        else{
-            $this->caseStudyModel->addMedicine($data);
-            $this->redirect('caseStudyController/medicine/'.$id);     
+        if(!empty($data['heading']) && !empty($data['description'])){
+            if($this->caseStudyModel->addMedicine($data)){
+                
+                $this->redirect('caseStudyController/medicine/'.$id);     
+            }
+
         } 
+        else{
+            $this->redirect('caseStudyController/pre/'.$id);   
+
+        }
+      
+       
 
     }
     public function editAdvices($id){   
@@ -145,8 +151,9 @@ class caseStudyController extends main{
         $this->view('casestudy/view-diet-schedule',$data);
 
     }
-    public function addworkout(){
-        $this->view('casestudy/forms/add-workout');
+    public function addworkout($id){
+
+        $this->view('casestudy/forms/add-workout',$id);
 
     }
 

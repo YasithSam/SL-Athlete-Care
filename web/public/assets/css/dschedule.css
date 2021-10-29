@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+/* Google Font CDN Link */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 :root{
     --main-color: #0562cc;
@@ -14,6 +16,72 @@
     list-style-type: none;
     box-sizing: border-box;
 }
+/*vertical cards*/
+.container{
+    padding-top: 50px;
+    width: 80%;
+    margin-left: 250px;
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
+    display: block;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.container h3{
+    padding-left: 15px;
+    letter-spacing: 1.5px;
+    padding-bottom: 15px;
+}
+
+.card-deck{
+    width: 100%;
+    height: 320px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+}
+
+.card{
+    background-color: rgb(255, 255, 255);
+    height: 300px;
+    display: inline-block;
+    width: 25%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.img-top{
+    background-color: rgb(255, 255, 255);
+    height: 50%;
+    width: 100%;
+}
+
+.card-img-top{
+    background-color: rgb(255, 255, 255);
+    height: 90%;
+    width: 80%;
+    padding-top: 5%;
+    padding-left: 20%;
+}
+
+.card-body{
+    padding-left: 10px;
+    background-color: #f5f5f5;
+    height: 50%;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+p.card-text{
+    font-size: 15px;
+    font-weight: 500;
+}
+
 
 #sidebar-toggle{
     display: none;
@@ -146,6 +214,12 @@
     width: 96%;
 }
 
+#sidebar-toggle:checked ~ .container{
+    width: 90%;
+    margin-left: 7%;
+}
+
+
 .main-content{
     position: relative;
     margin-left: 240px;
@@ -193,158 +267,3 @@ header{
 }
 
 
-/*Table*/
-
-.description{
-    display: inline-block;
-    text-align: center;
-    justify-content: center;
-    margin-top: 80px;
-    padding-top: 0;
-    margin-bottom: 20px;
-    display: flex;
-    color: #01579b;
-    font-weight: 800;
-    font-size: 26px;
-}
-
-.wrapper{
-  margin-left: 150px;
-  overflow: hidden;
-  background: #ffffff;
-  width: 960px;
-  height: fit-content;
-  padding-top: 0;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.content-table {
-    border-collapse: collapse;
-    margin: 15px 0;
-    font-size: 0.9em;
-    min-width: fit-content;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .content-table thead tr {
-    background-color: #01579b;
-    color: #ffffff;
-    text-align: left;
-    font-size: 17px;
-    height: 60px;
-    font-weight: bold;
-  }
-  
-  .content-table .uuid{
-      width: 100px;
-  }
-
-  .content-table .roleid{
-    width: 100px;
-}
-
-.content-table .fullname{
-    width: 180px;
-}
-
-.content-table .nic{
-    width: 140px;
-}
-
-.content-table .email{
-    width: 280px;
-}
-
-.content-table .btnrow{
-     width: 160px;
-}
-
-  .content-table th,
-  .content-table td {
-    padding: 4px 15px;
-  }
-  
-  .content-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-    height: 50px;
-  }
-  
-  .content-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-  }
-  
-  .content-table tbody tr:last-of-type {
-    border-bottom: 2px solid #01579b;
-  }
-  
-  .content-table tbody tr.active-row {
-    font-weight: bold;
-    color: #01579b;
-  }
-
-  .button{
-  overflow:hidden;
-  cursor: pointer;
-  text-align: center;
-  justify-content: center;
-  background: #ff0000;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  font-size: 1.0em;
-  font-weight: bold;
-  padding: 0;
-  margin: 0;
-  height: 38px;
-  width: 100px;
-  }
-  
-  .button:hover{
-      background: #01579b;
-  }
-
-
-  /*Pagination*/
-
-.pagination {
-  display: inline-block;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
-
-.pagination a {
-  color: rgb(0, 0, 0);
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-  border: 1px solid #ddd;
-}
-
-.pagination a.active {
-  background-color: #01579b;
-  color: white;
-  border: 1px solid #01579b;
-}
-
-.pagination a:hover:not(.active) {
-  background-color: rgb(106, 214, 233);
-}
-
-.pagination a:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.pagination a:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-
-
-  
-  

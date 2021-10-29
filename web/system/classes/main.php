@@ -69,9 +69,35 @@ class main{
     header("location:" . BASEURL . "/".$path,true,303);
  
    }
+    // Set flash message
+    public function setFlash($sessionName, $msg){
+
+      if(!empty($sessionName) && !empty($msg)){
+
+         $_SESSION[$sessionName] = $msg;
+
+      }
+
+   }
+
+   //Show flash message
+   public function flash($sessionName, $className){
+
+      if(!empty($sessionName) && !empty($className) && isset($_SESSION[$sessionName])){
+         
+         $msg = $_SESSION[$sessionName];
+         
+         echo "<div class='". $className ."'>".$msg."</div>";
+         unset($_SESSION[$sessionName]);
+
+      }
+
+   }
+   
 
 
 }
+
 
 
 ?>

@@ -93,11 +93,13 @@
           <h1>No data </h1>
     <?php endif; ?> 
     
-        
         <div class="addbtn2">
-            <button class="addbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/medicine/<?php echo($data[1])?>';">Add New</button>
-            <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/medicine/<?php echo($data[1])?>';">More</button> 
-        </div>
+      <?php if($_SESSION["userRole"]==2):?>         
+        <button class="addbutton1">Add New</button>
+     <?php else: ?>             
+      <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/medicine/<?php echo($data[1])?>';">More</button> 
+     <?php endif;?>
+      </div>
 
     </div>
     
@@ -168,9 +170,12 @@
         <?php endif; ?> 
             
         </div>
-
-    <div class="addbtn2">
-        <button class="addbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/addworkout/<?php echo($data[1])?>';">Add New</button>
+        <div class="addbtn2">
+        <?php if($_SESSION["userRole"]==3):?>         
+          <button class="addbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/addworkout/<?php echo($data[1])?>';">Add New</button>
+        <?php else: ?>             
+           
+        <?php endif;?>        
         <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/workout/<?php echo($data[1])?>';">More</button>
     </div>
 
@@ -204,11 +209,85 @@
         </div>
 
     <div class="addbtn2">
-        <button class="addbutton" onclick="window.location.href='./forms/add-diet.html/<?php echo($data[1])?>';">Add New</button>
+      <?php if($_SESSION["userRole"]==5):?>         
+          <button class="addbutton" onclick="window.location.href='./forms/add-diet.html/<?php echo($data[1])?>';">Add New</button>        
+     <?php else: ?>             
         <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/diet/<?php echo($data[1])?>';">More</button>
-    </div>
+     <?php endif;?>
+      </div>
 </div>
       <!--end-->
+           
+<!--Modal-->
+    
+<div id="AddModal" class="modal">       
+    <div class="mcontainer">
+        <div class="header2">
+        <h2 class="myheader">Add Medicine</h2>
+        </div>
+   
+  <div class="form-cont">
+    <form action="<?php echo BASEURL;?>/CaseStudyController/addMedicine/<?php echo($data[1])?>" method="POST">
+  
+    <div class="row">
+      <div class="col-25">
+        <label for="title">Title :</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="title" name="title" placeholder="Enter Title" required>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Description :</label>
+      </div>
+      <div class="col-75">
+        <textarea id="description" required name="description" placeholder="Enter Description" style="height:120px"></textarea>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <button class="back">Cancel</button>  
+      <input type="submit" value="Submit">
+    </div>
+    </form>
+    </div>
+    </div>
+</div>
+
+<script>
+   // Get the modal
+    var modal = document.getElementById('AddModal');
+
+    // Get the button that opens the modal
+    var btns = document.getElementsByClassName("addbutton1");
+
+    // Get the element that closes the modal
+    var span = document.getElementsByClassName("back")[0];
+
+    // When the user clicks the button, open the modal 
+    for (var i = 0; i < btns.length; i++) {
+    btns[i].onclick = function() {
+        modal.style.display = "block";
+    }
+    }
+
+    // When the user clicks on N0, close the modal
+    span.onclick = function() {
+     modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    </script>
+
+ <!--End modal-->
+
     
 </body>
 </html>

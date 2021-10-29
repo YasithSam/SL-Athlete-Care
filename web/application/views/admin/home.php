@@ -11,7 +11,7 @@
     </head>
 
     <body>
-
+       <?php $this->flash('docreg', 'alert alert-success') ?>
         <?php include "sidebar.php"?>
 
 <div class="main-content">

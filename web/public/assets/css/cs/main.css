@@ -138,6 +138,19 @@ body{
     letter-spacing: 0.5px;
   }
    
+  .postbtn{
+      border-radius: 0;
+      border: none;
+      color: white;
+      height: 70px;
+      width: 26.6%;
+      font-size: 20px;
+      font-weight: 500;
+      background-color: #58a5f0;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+  }
+
    /* Style the active class (and buttons on mouse-over) */
  .active, .btn:hover {
      background-color: #01579b;
@@ -150,6 +163,11 @@ body{
      color: white;
  }
  
+ .postbtn:hover{
+  background-color: #01579b;
+  border: white;
+  color: white;
+}
  /*end*/
 
 /*horizontal cards*/
@@ -219,6 +237,153 @@ body{
 }
 
 
+  
+/*Alert Modal CSS*/
+
+/* The Alert Modal (background) */
+.alertmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  
+  /* Modal Content */
+  .amcontainer{
+    width: 390px;
+    height: 280px;
+    background: #fff;
+    margin-left: 520px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .top{
+    background: rgb(255, 0, 0);
+    display: flex;
+    height: 60px;
+    text-align: center;
+  }
+  
+  .top i{
+    padding-top: 15px;
+    margin-left: 30px;
+    margin-right: 20px;
+    color: #ffffff;
+  }
+  .top h3{
+    padding-top: 15px;
+    padding-right: 15px;
+    font-size: 24px;
+    color: #fff;
+  }
+  
+  .texticon{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .texticon i{
+    margin-top: 40px;
+    margin-left: 20px;
+    color: #000000;
+  }
+  
+  .texticon h3{
+    padding-top: 50px;
+    margin-right: 15px;
+    font-size: 22px;
+  }
+  
+  .mbtn{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .mbutton{
+    position: relative;
+    background-color:rgb(22, 112, 22);
+    border: none;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-top: 45px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mbuttonno{
+    position: relative;
+    background-color: #01579b;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin-top: 45px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mbutton:hover {
+    background: #ff1f1f;
+    color: #fff;
+   
+  }
+  
+  .mbutton:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+  .mbuttonno:hover {
+    background: #ff1f1f;
+    color: #fff;
+   
+  }
+  
+  .mbuttonno:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+  
+  /*End Alert Modal CSS*/
+  
+
+  
 @media screen and (max-width: 1064px){
 
     .details_part .name{
@@ -301,7 +466,7 @@ body{
     
     .container-2{
     padding-left: 5px;
-}
+ }
     .card-2{
         padding-left: 5px;
         padding-right: 5px;
@@ -385,5 +550,4 @@ body{
       
 
 }
-
 

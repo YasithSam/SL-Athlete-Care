@@ -209,10 +209,10 @@ header{
 }
 
 .wrapper{
-  margin-left: 150px;
+  margin-left: 200px;
   overflow: hidden;
   background: #ffffff;
-  width: 960px;
+  width: 900px;
   height: fit-content;
   padding-top: 0;
   padding-left: 30px;
@@ -238,24 +238,12 @@ header{
     font-weight: bold;
   }
   
-  .content-table .uuid{
-      width: 100px;
+  .content-table .article-name{
+      width: 200px;
   }
 
-  .content-table .roleid{
-    width: 100px;
-}
-
-.content-table .fullname{
-    width: 180px;
-}
-
-.content-table .nic{
-    width: 140px;
-}
-
-.content-table .email{
-    width: 280px;
+  .content-table .comment{
+    width: 450px;
 }
 
 .content-table .btnrow{
@@ -345,6 +333,3 @@ header{
 }
 
 
-
-  
-  

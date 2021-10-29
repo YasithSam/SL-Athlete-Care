@@ -123,6 +123,7 @@ class admin extends main{
            && empty($userData['districtError']))
            {   
                if($this->adminModel->createAccountDoctor($userData)){
+                   $this->setFlash('docreg', 'User registered successfully!');
                    $this->redirect('admin');
                 
                 }

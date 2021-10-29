@@ -34,13 +34,13 @@
     <!--buttons-->
     <div id="btn-group">
       
-        <button class="btn active" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/index/<?php echo($data[1]->id)?>';">
+        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/index/<?php echo($data[1]->id)?>';">
          Updates
         </button>
         <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1]->id)?>';">
             Pre
         </button>
-        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/post/<?php echo($data[1]->id)?>';">
+        <button class="btn active" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/post/<?php echo($data[1]->id)?>';">
             Post
         </button>
     </div>
