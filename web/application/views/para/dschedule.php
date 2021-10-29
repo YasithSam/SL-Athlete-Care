@@ -38,80 +38,84 @@
     </div>
     <div class="card-deck">
         <div class="card">
+            <a href="#">
             <div class="img-top">
             <img class="card-img-top" src="diet (3).png" alt="icon"> 
             </div>
             <div class="card-body"> 
-                <h5 class="card-title">VITAMINS</h5>
-                <p class="card-text"> Vitamins A, D, E, and C help your body perform
-                    processes such as turning carbohydrate into energy. Eat a diet that includes foods from all the
-                    food groups.</p>
+                <h5 class="card-title">Diet Schedule - Ankle Sprain</h5>
+                <p class="card-text"> Best foods to eat while recovering from Ankle Sprain</p>
             </div>
+        </a>
         </div>
         
        
         <div class="card">
+            <a href="#">
             <div class="img-top">
             <img class="card-img-top" src="diet (3).png" alt="icon"> 
             </div>
             <div class="card-body"> 
-                <h5 class="card-title">VITAMINS</h5>
-                <p class="card-text"> Vitamins A, D, E, and C help your body perform
-                    processes such as turning carbohydrate into energy. Eat a diet that includes foods from all the
-                    food groups.</p>
+                <h5 class="card-title">Diet Schedule - Pulled Hamstring</h5>
+                <p class="card-text">Best foods to eat while recovering from Pulled Hamstring</p>
             </div>
+        </a>
         </div>
-        <div class="card">
-            <div class="img-top">
-            <img class="card-img-top" src="diet (3).png" alt="icon"> 
-            </div>
-            <div class="card-body"> 
-                <h5 class="card-title">VITAMINS</h5>
-                <p class="card-text"> Vitamins A, D, E, and C help your body perform
-                    processes such as turning carbohydrate into energy. Eat a diet that includes foods from all the
-                    food groups.</p>
-            </div>
-        </div>
+        
 
+        <div class="card">
+            <a href="#">
+            <div class="img-top">
+            <img class="card-img-top" src="diet (3).png" alt="icon"> 
+            </div>
+            <div class="card-body"> 
+                <h5 class="card-title">Diet Schedule - Tennis Elbow</h5>
+                <p class="card-text"> Best foods to eat while recovering from Tennis Elbow</p>
+            </div>
+        </a>
+        </div>
+        
 </div>
 
 <div class="card-deck">
     <div class="card">
+        <a href="#">
         <div class="img-top">
         <img class="card-img-top" src="diet (3).png" alt="icon"> 
         </div>
         <div class="card-body"> 
-            <h5 class="card-title">VITAMINS</h5>
-            <p class="card-text"> Vitamins A, D, E, and C help your body perform
-                processes such as turning carbohydrate into energy. Eat a diet that includes foods from all the
-                food groups.</p>
+            <h5 class="card-title">Diet Schedule - Ankle Sprain</h5>
+            <p class="card-text">Best foods to eat while recovering from Ankle Sprain</p>
         </div>
+    </a>
     </div>
     
    
     <div class="card">
+        <a href="#">
         <div class="img-top">
         <img class="card-img-top" src="diet (3).png" alt="icon"> 
         </div>
         <div class="card-body"> 
-            <h5 class="card-title">VITAMINS</h5>
-            <p class="card-text"> Vitamins A, D, E, and C help your body perform
-                processes such as turning carbohydrate into energy. Eat a diet that includes foods from all the
-                food groups.</p>
+            <h5 class="card-title">Diet Schedule - Pulled Hamstring</h5>
+            <p class="card-text"> Best foods to eat while recovering from Pulled Hamstring</p>
         </div>
+    </a>
     </div>
-    <div class="card">
-        <div class="img-top">
-        <img class="card-img-top" src="diet (3).png" alt="icon"> 
-        </div>
-        <div class="card-body"> 
-            <h5 class="card-title">VITAMINS</h5>
-            <p class="card-text"> Vitamins A, D, E, and C help your body perform
-                processes such as turning carbohydrate into energy. Eat a diet that includes foods from all the
-                food groups.</p>
-        </div>
-    </div>
+    
 
+    <div class="card">
+        <a href="#">
+        <div class="img-top">
+        <img class="card-img-top" src="diet (3).png" alt="icon"> 
+        </div>
+        <div class="card-body"> 
+            <h5 class="card-title">Diet Schedule - Tennis Elbow</h5>
+            <p class="card-text"> Best foods to eat while recovering from Tennis Elbow</p>
+        </div>
+    </a>
+    </div>
+    
 </div>
 
         </div>

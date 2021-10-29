@@ -30,76 +30,86 @@
 
             </div>
 
-
             <div class="container">
     <div class="title">
     <h3>Workout Schedules</h3>
     </div>
     <div class="card-deck">
         <div class="card">
+            <a href="pre.php">
             <div class="img-top">
             <img class="card-img-top" src="workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
-                <h5 class="card-title">Day 01</h5>
-                <p class="card-text">Upper-body strength training (45 to 60 minutes)</p>
+                <h5 class="card-title">Workout Schedule - Ankle Sprain</h5>
+                <p class="card-text">Simple motion exercises and strength training to help the ankle heal properly.</p>
             </div>
+        </a>
         </div>
 
         <div class="card">
+            <a href="#">
             <div class="img-top">
             <img class="card-img-top" src="workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
-                <h5 class="card-title">Day 02</h5>
-                <p class="card-text">Upper-body strength training (45 to 60 minutes)</p>
+                <h5 class="card-title">Workout Schedule - Stress Fractures</h5>
+                <p class="card-text">Workout Schedule to heal Stress Fractures.</p>
             </div>
+        </a>
         </div>
 
         <div class="card">
+            <a href="#">
             <div class="img-top">
             <img class="card-img-top" src="workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
-                <h5 class="card-title">Day 03</h5>
-                <p class="card-text">Yoga or a low-impact activity like barre, light cycling, or swimming </p>
+                <h5 class="card-title">Workout Schedule - Hamstring Strain.</h5>
+                <p class="card-text">Simple physical therapy to heal Hamstring Strain.</p>
             </div>
+        </a>
         </div>
     </div>
 
     <div class="card-deck">
         <div class="card">
+            <a href="#">
             <div class="img-top">
             <img class="card-img-top" src="workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
-                <h5 class="card-title">Day 04</h5>
-                <p class="card-text">Rest (Don't forget to foam roll and stretch!)</p>
+                <h5 class="card-title">Workout Schedule - Stress Fractures</h5>
+                <p class="card-text">Workout Schedule to heal Stress Fractures.</p>
             </div>
+        </a>
         </div>
 
         <div class="card">
+            <a href="#">
             <div class="img-top">
             <img class="card-img-top" src="workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
-                <h5 class="card-title">Day 05</h5>
-                <p class="card-text">Total-body strength training (30 to 60 minutes)</p>
+                <h5 class="card-title">Workout Schedule - Ankle Sprain</h5>
+                <p class="card-text">Simple motion exercises and strength training to help the ankle heal properly.</p>
             </div>
+        </a>
         </div>
 
         <div class="card">
+            <a href="#">
             <div class="img-top">
             <img class="card-img-top" src="workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
-                <h5 class="card-title">Day 06</h5>
-                <p class="card-text">Steady-state cardio </p>
+                <h5 class="card-title">Workout Schedule - Hamstring Strain.</h5>
+                <p class="card-text">Simple physical therapy to heal Hamstring Strain.</p>
             </div>
+        </a>
         </div>
     </div>
 
-</div>
 
         </div>
     </body>
