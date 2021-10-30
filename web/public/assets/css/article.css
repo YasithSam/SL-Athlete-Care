@@ -12,17 +12,10 @@
 
 
 html{
-    font-size: 85%;
+    font-size: 75%;
     overflow-x: hidden;
 }
 
-
-header h2{
-color:#ffffff;
-float: left;
-margin-left: 5px;
-margin-top: 5px;
-}
 
 .main-content{
     position: relative;
@@ -45,10 +38,18 @@ header{
     transition: left 500ms;
 }
 
+header h2{
+font-family: 'Poppins', sans-serif;
+color:#ffffff;
+float: left;
+margin-left: 8px;
+margin-top: 0.5rem;
+}
+
 
 .logo img{
 	float: left;
-	width: 40px;
+	width: 35px;
 }
 
 
@@ -59,6 +60,53 @@ main{
     min-height: 90vh;
     padding: 1rem;
 } 
+
+
+
+.profile{
+	padding-right: 30px;
+	text-align: right;
+}
+  
+.profile i{
+    font-size: 1.5rem;
+	color: #ffffff;
+}
+  
+/* Style buttons */
+  
+.btn1 {
+	background-color: rgb(255, 255, 255); 
+	border: #58a5f0;
+	height: 33px;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-left: 10px;
+	font-size: 12px;
+	width: fit-content;
+	cursor: pointer; 
+	border-radius: 55px;
+	color:#01579b;
+	letter-spacing: 0.5px;
+	font-weight: 600;
+}
+  
+.btn1 i{
+	font-size: 18px;
+	margin-top: 2px;
+	margin-right: 2px;
+	color:#01579b;
+}
+  
+.btn1:hover {
+	  background-color: #58a5f0;
+	  color: #ffffff;
+}
+  
+.btn1:hover i {
+	  color: #ffffff;
+}
+
 
 
 
@@ -133,50 +181,6 @@ main{
     border-top: .1rem solid #fff5;
     padding:2.5rem 1rem;
     text-align: center;
-}
-
-.profile{
-	padding-right: 30px;
-	text-align: right;
-}
-  
-.profile i{
-    font-size: 1.5rem;
-	color: #ffffff;
-}
-  
-  /* Style buttons */
-  
-.btn1 {
-	background-color: rgb(255, 255, 255); 
-	border: #58a5f0;
-	height: 33px;
-	padding-left: 8px;
-	padding-right: 8px;
-	margin-left: 30px;
-	font-size: 12px;
-	width: fit-content;
-	cursor: pointer; 
-	border-radius: 55px;
-	color:#01579b;
-	letter-spacing: 0.5px;
-	font-weight: 600;
-}
-  
-.btn1 i{
-	font-size: 18px;
-	margin-top: 2px;
-	margin-right: 4px;
-	color:#01579b;
-}
-  
-.btn1:hover {
-	  background-color: #58a5f0;
-	  color: #ffffff;
-}
-  
-.btn1:hover i {
-	  color: #ffffff;
 }
 
 body{
@@ -364,6 +368,14 @@ hr {
     }
 }
 
+.card {
+    font-size: 1.15rem;
+}
+
+.card h5,
+.card .decision-wrapper .button3{
+    margin-top: 1rem;
+}
 
 
 

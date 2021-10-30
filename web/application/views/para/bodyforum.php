@@ -2,7 +2,7 @@
   <div class="title">Case Study Requests</div>
     <!--Injury card-->
     <div class="injury">
-      <img src="../../../public/assets/img/user.png" alt="user" class="user">
+      <img src="../public/assets/img/user.jpg" alt="user" class="user">
       <div class="description">
         <div class="description1">
           <div><p><span> Patient: </span>A.B.C. Perera</p> </div>
@@ -21,7 +21,7 @@
     <!--End of Injury card-->  
     <!--Injury card-->
     <div class="injury">
-      <img src="../../../public/assets/img/user.png" alt="user" class="user">
+      <img src="../public/assets/img/user.jpg" alt="user" class="user">
       <div class="description">
         <div class="description1">
           <div><p><span> Patient: </span>A.B.C. Perera</p> </div>
@@ -40,7 +40,7 @@
     <!--End of Injury card--> 
     <!--Injury card-->
     <div class="injury">
-      <img src="../../../public/assets/img/user.png" alt="user" class="user">
+      <img src="../public/assets/img/user.jpg" alt="user" class="user">
       <div class="description">
         <div class="description1">
           <div><p><span> Patient: </span>A.B.C. Perera</p> </div>
@@ -59,7 +59,7 @@
     <!--End of Injury card-->  
     <!--Injury card-->
     <div class="injury">
-      <img src="../../../public/assets/img/user.png" alt="user" class="user">
+      <img src="../public/assets/img/user.jpg" alt="user" class="user">
       <div class="description">
         <div class="description1">
           <div><p><span> Patient: </span>A.B.C. Perera</p> </div>
@@ -78,7 +78,7 @@
     <!--End of Injury card-->  
     <!--Injury card-->
     <div class="injury">
-      <img src="../../../public/assets/img/user.png" alt="user" class="user">
+      <img src="../public/assets/img/user.jpg" alt="user" class="user">
       <div class="description">
         <div class="description1">
           <div><p><span> Patient: </span>A.B.C. Perera</p> </div>

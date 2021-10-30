@@ -39,7 +39,7 @@
                         </div>
                                     
                         <div class="conversation">
-                            <img src="../../web/public/assets/img/avatar.png" alt="Kusal Mendis" />
+                            <img src="../../web/public/assets/img/dhanushka.jpg" alt="Kusal Mendis" />
                             <div class="title-text">
                                 Kusal Mendis
                             </div>

@@ -64,7 +64,7 @@
         <div id="div1" class="target">
             <!--Update card-->
             <div class="injury">
-                <img src="user.png" alt="user" class="user">
+                <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
                 <div class="description">
                     <div class="col"> Name: A.B.C. Perera </div>
                     <div class="col"><span> Injury: Arm strain </span> </div>
@@ -79,7 +79,7 @@
             </div>
             <!--Update card-->
             <div class="injury">
-                <img src="user.png" alt="user" class="user">
+                <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
                 <div class="description">
                     <div class="col"> Name: A.B.C. Perera </div>
                     <div class="col"><span> Injury: Arm strain </span> </div>
@@ -98,7 +98,7 @@
         <div id="div2" class="target">
              <!--Update card-->
              <div class="injury">
-                <img src="user.png" alt="user" class="user">
+                <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
                 <div class="description">
                     <div class="col"> Name: P.Q.R. Perera </div>
                     <div class="col"><span> Injury: Arm strain </span> </div>
@@ -115,7 +115,7 @@
             </div>  
             <!--Update card-->
             <div class="injury">
-                <img src="user.png" alt="user" class="user">
+                <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
                 <div class="description">
                     <div class="col"> Name: P.Q.R. Perera </div>
                     <div class="col"><span> Injury: Arm strain </span> </div>

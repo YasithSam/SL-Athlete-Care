@@ -26,7 +26,7 @@
     left: 0;
     top: 0;
     z-index: 100;
-    background: var(--main-color);
+    background: #01579b;
     color: #ffffff;
     overflow-y: auto;
     transition: width 500ms;
@@ -37,7 +37,24 @@
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    padding: 0rem 1rem;
+    padding: 0rem 1rem 0rem 0rem;
+}
+
+.sidebar-header span img{
+    margin-left: 0.2rem;
+    width: 35px;
+    height: auto;
+}
+
+.sidebar-header h3 span{
+    float: left;
+    margin-left: 0.3rem;
+    margin-top: 0.8rem;
+}
+
+#sidebar-toggle ~ .sidebar .sidebar-header .ti-menu-alt{
+    float: left;
+    margin-left: 0.8rem;
 }
 
 .sidebar-menu{
@@ -196,6 +213,9 @@ header{
     } */
 }
 
+.sidebar a:hover, .dropdown-btn:hover {
+    color: #00ccff;
+  }
 
 
 

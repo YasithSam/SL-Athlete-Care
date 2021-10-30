@@ -1,7 +1,7 @@
 <div class="sidebar">
             <div class="sidebar-header">
                 <h3 class="brand">
-                    <span class="ti-unlink"></span>
+                    <span><img src="../../web/public/assets/img/logo-4040.png" alt=""></span>
                     <span>SL Athlete Care</span>
                 </h3>
                 <label for="sidebar-toggle" class="ti-menu-alt"></label>

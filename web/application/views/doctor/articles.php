@@ -33,7 +33,7 @@
 
         <!--Single card------------------------------------------------------------------------->
         <div class="card">
-          <img src="article.jpg" alt="Avatar" style="width:100%">
+          <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
           <div class="container">
                 <h4>Article One</h4> 
                 <p>something something something <br>something something something </p> 
@@ -48,7 +48,7 @@
 
         <!--Single card------------------------------------------------------------------------->
         <div class="card">
-            <img src="article.jpg" alt="Avatar" style="width:100%">
+            <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
             <div class="container">
                   <h4>Article One</h4> 
                   <p>something something something <br>something something something </p> 
@@ -63,7 +63,7 @@
 
           <!--Single card------------------------------------------------------------------------->
         <div class="card">
-            <img src="article.jpg" alt="Avatar" style="width:100%">
+            <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
             <div class="container">
                   <h4>Article One</h4> 
                   <p>something something something <br>something something something </p> 
@@ -82,7 +82,7 @@
 
         <!--Single card------------------------------------------------------------------------->
         <div class="card">
-          <img src="article.jpg" alt="Avatar" style="width:100%">
+          <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
           <div class="container">
                 <h4>Article One</h4> 
                 <p>something something something <br>something something something </p> 
@@ -97,7 +97,7 @@
 
         <!--Single card------------------------------------------------------------------------->
         <div class="card">
-            <img src="article.jpg" alt="Avatar" style="width:100%">
+            <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
             <div class="container">
                   <h4>Article One</h4> 
                   <p>something something something <br>something something something </p> 
@@ -112,7 +112,7 @@
 
           <!--Single card------------------------------------------------------------------------->
         <div class="card">
-            <img src="article.jpg" alt="Avatar" style="width:100%">
+            <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
             <div class="container">
                   <h4>Article One</h4> 
                   <p>something something something <br>something something something </p> 

@@ -26,7 +26,7 @@
     left: 0;
     top: 0;
     z-index: 100;
-    background: var(--main-color);
+    background: #01579b;
     color: #ffffff;
     overflow-y: auto;
     transition: width 500ms;
@@ -41,15 +41,23 @@
 }
 
 .sidebar-header span img{
-    width: 40px;
+    margin-left: 0.2rem;
+    width: 35px;
     height: auto;
 }
 
 .sidebar-header h3 span{
     float: left;
-    margin-left: 00.2rem;
-    margin-top: 20px;
+    margin-left: 0.3rem;
+    margin-top: 18px;
 }
+
+#sidebar-toggle ~ .sidebar .sidebar-header .ti-menu-alt{
+    float: left;
+    margin-left: 0.8rem;
+}
+
+
 
 .sidebar-menu{
     padding: 1rem;

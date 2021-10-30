@@ -18,7 +18,7 @@
                 <div class="social-icons">
                     <span class="ti-bell"></span>
                     <div class="user-wrapper">
-                         <img src="../../web/public/assets/img/avatar.png" width="40px" height="40px" alt="">    
+                         <img src="../../web/public/assets/img/doctor.jpg" width="40px" height="40px" alt="">    
                          <div>
                              <h4>Paramedical User</h4>
                              <small>Paramedical User</small>
@@ -38,7 +38,7 @@
         <div class="card">
             <a href="pre.php">
             <div class="img-top">
-            <img class="card-img-top" src="workout-machine.png" alt="icon"> 
+            <img class="card-img-top" src="../public/assets/img/workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
                 <h5 class="card-title">Workout Schedule - Ankle Sprain</h5>
@@ -50,7 +50,7 @@
         <div class="card">
             <a href="#">
             <div class="img-top">
-            <img class="card-img-top" src="workout-machine.png" alt="icon"> 
+            <img class="card-img-top" src="../public/assets/img/workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
                 <h5 class="card-title">Workout Schedule - Stress Fractures</h5>
@@ -62,7 +62,7 @@
         <div class="card">
             <a href="#">
             <div class="img-top">
-            <img class="card-img-top" src="workout-machine.png" alt="icon"> 
+            <img class="card-img-top" src="../public/assets/img/workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
                 <h5 class="card-title">Workout Schedule - Hamstring Strain.</h5>
@@ -76,7 +76,7 @@
         <div class="card">
             <a href="#">
             <div class="img-top">
-            <img class="card-img-top" src="workout-machine.png" alt="icon"> 
+            <img class="card-img-top" src="../public/assets/img/workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
                 <h5 class="card-title">Workout Schedule - Stress Fractures</h5>
@@ -88,7 +88,7 @@
         <div class="card">
             <a href="#">
             <div class="img-top">
-            <img class="card-img-top" src="workout-machine.png" alt="icon"> 
+            <img class="card-img-top" src="../public/assets/img/workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
                 <h5 class="card-title">Workout Schedule - Ankle Sprain</h5>
@@ -100,7 +100,7 @@
         <div class="card">
             <a href="#">
             <div class="img-top">
-            <img class="card-img-top" src="workout-machine.png" alt="icon"> 
+            <img class="card-img-top" src="../public/assets/img/workout-machine.png" alt="icon"> 
             </div>
             <div class="card-body"> 
                 <h5 class="card-title">Workout Schedule - Hamstring Strain.</h5>

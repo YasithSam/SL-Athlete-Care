@@ -16,7 +16,7 @@
 <div class="main-content">
     <header>
         <div class="logo">
-            <img src="logo-4040.png" alt="">
+            <img src="../../web/public/assets/img/logo-4040.png" alt="">
             <h3>SL Athlete Care</h3>
         </div>
         
@@ -63,13 +63,13 @@
                 <li data-category="Others">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="question.jpg" alt="">
+                            <img src="../../web/public/assets/img/question.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -81,13 +81,13 @@
                 <li data-category="Cricket">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="cricket.jpg" alt="">
+                            <img src="../../web/public/assets/img/cricket.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -99,13 +99,13 @@
                 <li data-category="Football">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="football.jpg" alt="">
+                            <img src="../../web/public/assets/img/football.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -117,13 +117,13 @@
                 <li data-category="Athletics">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="athletics.jpg" alt="">
+                            <img src="../../web/public/assets/img/athletics.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -135,13 +135,13 @@
                 <li data-category="Others">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="question.jpg" alt="">
+                            <img src="../../web/public/assets/img/question.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -153,13 +153,13 @@
                 <li data-category="Cricket">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="cricket.jpg" alt="">
+                            <img src="../../web/public/assets/img/cricket.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -171,13 +171,13 @@
                 <li data-category="Football">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="football.jpg" alt="">
+                            <img src="../../web/public/assets/img/football.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -189,13 +189,13 @@
                 <li data-category="Athletics">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="athletics.jpg" alt="">
+                            <img src="../../web/public/assets/img/athletics.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -207,13 +207,13 @@
                 <li data-category="Others">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="question.jpg" alt="">
+                            <img src="../../web/public/assets/img/question.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -225,13 +225,13 @@
                 <li data-category="Cricket">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="cricket.jpg" alt="">
+                            <img src="../../web/public/assets/img/cricket.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -243,13 +243,13 @@
                 <li data-category="Football">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="football.jpg" alt="">
+                            <img src="../../web/public/assets/img/football.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -261,13 +261,13 @@
                 <li data-category="Athletics">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="athletics.jpg" alt="">
+                            <img src="../../web/public/assets/img/athletics.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -279,13 +279,13 @@
                 <li data-category="Others">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="question.jpg" alt="">
+                            <img src="../../web/public/assets/img/question.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -297,13 +297,13 @@
                 <li data-category="Cricket">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="cricket.jpg" alt="">
+                            <img src="../../web/public/assets/img/cricket.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -315,13 +315,13 @@
                 <li data-category="Football">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="football.jpg" alt="">
+                            <img src="../../web/public/assets/img/football.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>
@@ -333,13 +333,13 @@
                 <li data-category="Athletics">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="avatar.png"  alt="">
+                            <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
                                 <h4>Kusal Mendis</h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="athletics.jpg" alt="">
+                            <img src="../../web/public/assets/img/athletics.jpg" alt="">
                         </div>
                          <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
                          <h5 class="date">Dec 7, 2017</h5>

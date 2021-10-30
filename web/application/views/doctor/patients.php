@@ -19,128 +19,135 @@
         <?php include "header.php"?>
            
 <!--Body section-->
-            <main>
-             <div class="title">Patients Overview</div>
-          
-                
-                              <div class="pt box">
-                                                    
-                                <form class="search-btn" action="">
-                                    <input type="text" class="search" placeholder="Search..." name="search">
-                                    <button type="submit"><i class="fa fa-search"></i></button>
-                                </form>
-                
-                                <section class="target_box">
-                                <div id="div1" class="target">Page 1</div>
-                                <div id="div2" class="target">Page 2</div>
-                                <div id="div3" class="target">Page 3</div>
-                                <div id="div4" class="target">Page 4</div>
-                              </section>
-              
-                                
-                                <!--Injury card-->
-                                <div class="injury">
-                                  <i class="fas fa-user user"></i>
-                                  <div class="des1"><p>Name: </p><p>Sport: </p></div>
-                                  <div class="des2"><p>A.B.C.Perera</p><p>Swimming</p></div>
-                                  <div class="des3"></div>
-                                  <div class="des1"><p>Injury: </p><p>Condition: </p></div>
-                                  <div class="des2"><p>Arm strain</p><p>Mild</p></div>
-                                  <div class="btn">
-                                    <ul style="list-style: none;">
-                                    <li class="l1" style="padding-bottom: 5px;">Date: 01/02/2022</li>
-                                    <li class="l2"><a href="<?php echo BASEURL;?>/doctor/athlete">View</a></li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <!--Injury card-->
-                                <div class="injury">
-                                  <i class="fas fa-user user"></i>
-                                  <div class="des1"><p>Name: </p><p>Sport: </p></div>
-                                  <div class="des2"><p>A.B.C.Perera</p><p>Swimming</p></div>
-                                  <div class="des3"></div>
-                                  <div class="des1"><p>Injury: </p><p>Condition: </p></div>
-                                  <div class="des2"><p>Arm strain</p><p>Mild</p></div>
-                                  <div class="btn">
-                                    <ul style="list-style: none;">
-                                    <li class="l1" style="padding-bottom: 5px;">Date: 01/02/2022</li>
-                                    <li class="l2"><a href="<?php echo BASEURL;?>/doctor/athlete">View</a></li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                 <!--Injury card-->
-                                 <div class="injury">
-                                  <i class="fas fa-user user"></i>
-                                  <div class="des1"><p>Name: </p><p>Sport: </p></div>
-                                  <div class="des2"><p>A.B.C.Perera</p><p>Swimming</p></div>
-                                  <div class="des3"></div>
-                                  <div class="des1"><p>Injury: </p><p>Condition: </p></div>
-                                  <div class="des2"><p>Arm strain</p><p>Mild</p></div>
-                                  <div class="btn">
-                                    <ul style="list-style: none;">
-                                    <li class="l1" style="padding-bottom: 5px;">Date: 01/02/2022</li>
-                                    <li class="l2"><a href="<?php echo BASEURL;?>/doctor/athlete">View</a></li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <!--Injury card-->
-                                <div class="injury">
-                                  <i class="fas fa-user user"></i>
-                                  <div class="des1"><p>Name: </p><p>Sport: </p></div>
-                                  <div class="des2"><p>A.B.C.Perera</p><p>Swimming</p></div>
-                                  <div class="des3"></div>
-                                  <div class="des1"><p>Injury: </p><p>Condition: </p></div>
-                                  <div class="des2"><p>Arm strain</p><p>Mild</p></div>
-                                  <div class="btn">
-                                    <ul style="list-style: none;">
-                                    <li class="l1" style="padding-bottom: 5px;">Date: 01/02/2022</li>
-                                    <li class="l2"><a href="<?php echo BASEURL;?>/doctor/athlete">View</a></li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <!--Injury card-->
-                                <div class="injury">
-                                  <i class="fas fa-user user"></i>
-                                  <div class="des1"><p>Name: </p><p>Sport: </p></div>
-                                  <div class="des2"><p>A.B.C.Perera</p><p>Swimming</p></div>
-                                  <div class="des3"></div>
-                                  <div class="des1"><p>Injury: </p><p>Condition: </p></div>
-                                  <div class="des2"><p>Arm strain</p><p>Mild</p></div>
-                                  <div class="btn">
-                                    <ul style="list-style: none;">
-                                    <li class="l1" style="padding-bottom: 5px;">Date: 01/02/2022</li>
-                                    <li class="l2"><a href="athleteprofile.html">View</a></li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div class="pages">
-                    <button class="num" target="1">1</button>
-                    <button class="num" target="2">2</button>
-                    <button class="num" target="3">3</button>
-                    <button class="num" target="4">>></button>
-                </div>
-                             
-              
-                                </div>
-              <script>
-                                var buttons = $('button');
-              buttons.click(function() {
-                buttons.css('background-color', 'snow');
-                $(this).css('background-color', 'rgb(8, 190, 255)');
-              });
-              
-              
-                      jQuery('.num').click(function(){
-                          jQuery('.target').hide();
-                          jQuery('#div'+$(this).attr('target')).show();
-                      });
-                      
-                      
-              </script>
-                               
-              </body>
-            </main>
+<div class="main">
 
-        </div>
-    </body>
+<div class="container">
+    
+    <div class="title"> Patients Overview </div> 
+    <div class="subtitle"> Page 1 </div>
+
+    <form class="search-btn" action="/action_page.php">
+        <input type="text" class="search" placeholder="Search..." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+        
+<!--Update card-->
+<div class="injury">
+    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
+    <div class="description">
+        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
+        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
+    </div>
+    <div class="button">
+        <div class="date">21/10/2021</div>
+        <a href="athleteprofile.html">View</a>
+    </div>
+</div>
+<!--Update card-->
+<div class="injury">
+    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
+    <div class="description">
+        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
+        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
+    </div>
+    <div class="button">
+        <div class="date">21/10/2021</div>
+        <a href="athleteprofile.html">View</a>
+    </div>
+</div>
+<!--Update card-->
+<div class="injury">
+    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
+    <div class="description">
+        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
+        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
+    </div>
+    <div class="button">
+        <div class="date">21/10/2021</div>
+        <a href="athleteprofile.html">View</a>
+    </div>
+</div>
+<!--Update card-->
+<div class="injury">
+    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
+    <div class="description">
+        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
+        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
+    </div>
+    <div class="button">
+        <div class="date">21/10/2021</div>
+        <a href="athleteprofile.html">View</a>
+    </div>
+</div>
+<!--Update card-->
+<div class="injury">
+    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
+    <div class="description">
+        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
+        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
+    </div>
+    <div class="button">
+        <div class="date">21/10/2021</div>
+        <a href="athleteprofile.html">View</a>
+    </div>
+</div>
+<!--Update card-->
+<div class="injury">
+    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
+    <div class="description">
+        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
+        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
+    </div>
+    <div class="button">
+        <div class="date">21/10/2021</div>
+        <a href="athleteprofile.html">View</a>
+    </div>
+</div>
+<!--Update card-->
+<div class="injury">
+    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
+    <div class="description">
+        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
+        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
+    </div>
+    <div class="button">
+        <div class="date">21/10/2021</div>
+        <a href="athleteprofile.html">View</a>
+    </div>
+</div>
+
+<!--buttons-->
+<div class="btn-group">
+    <a href="" class="activebtn" style="margin-right: 10px;">1</a>
+    <a href="" class="btn" style="margin-left: 10px;">2</a>
+    <a href="" class="btn" style="margin-left: 20px;">3</a>
+    <a href="" class="btn" style="margin-left: 20px;">>></a>
+</div>
+<!--end of buttons-->
+
+</div>
+
+</div>
+
+</div>
+
+<!--Forum dropdown menu script-->
+    <script>
+      /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+      
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+        } else {
+        dropdownContent.style.display = "block";
+        }
+        });
+      }
+      </script>
+</body>
 </html>

@@ -24,11 +24,11 @@
  	  <div class="card">
 
 		<div class="user-wrapper1">
-			<img src="img/avatar.png"  alt="">
+			<img src="../../public/assets/img/avatar.png"  alt="">
 			<div class="user-name">
 				<h4><?php echo ($data[0]->full_name)?></h4>
 			</div>
-			<div class="condition">
+			<div class="img/condition">
 				<h5>| <?php echo ($data[0]->con)?></h5>
 			</div>
 		</div> 	
@@ -92,7 +92,7 @@
            <?php foreach($data[1] as $item): ?>
                 <div class="card">
                     <div class="user-wrapper2">
-                        <img src="img/avatar.png"  alt="">
+                        <img src="../../public/assets/img/avatar.png"  alt="">
                         <div class="user-name">
                             <h4> <?php echo($item->full_name) ?></h4>
                         </div>

@@ -12,17 +12,12 @@
 
 
 html{
-    font-size: 85%;
+    font-size: 75%;
     overflow-x: hidden;
 }
 
 
-header h2{
-color:#ffffff;
-float: left;
-margin-left: 5px;
-margin-top: 5px;
-}
+
 
 .main-content{
     position: relative;
@@ -45,12 +40,13 @@ header{
     transition: left 500ms;
 }
 
-
-.logo img{
-	float: left;
-	width: 40px;
-}
-
+header h2{
+    font-family: 'Poppins', sans-serif;
+    color:#ffffff;
+    float: left;
+    margin-left: 8px;
+    margin-top: 0.5rem;
+    }
 
 
 main{
@@ -60,79 +56,9 @@ main{
     padding: 1rem;
 } 
 
-
-
-.footer{
-   /*/ width: 100%;*/
-    /*padding-top: 10rem;*/
-    background:url('../img/footerbg.jpg') no-repeat;
-    background-size: cover;
-    /*background-position: center;*/
-    background:#01579b;
-}
-
-.footer .box-container{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.footer .box-container .box{
-    flex:3 1 25rem;
-    margin:2rem;
-}
-
-.footer .box-container .box h3{
-    font-size: 2.5rem;
-    padding:1rem 0;
-    color:#fff;
-    /*text-decoration: underline;
-    text-underline-offset: 1rem;*/
-}
-
-.footer .box-container .box p{
-    font-size: 1.5rem;
-    padding:.5rem 0;
-    color:#eee;
-    text-align: left;
-}
-
-.footer .box-container .box a{
-    display: block;
-    font-size: 1.5rem;
-    padding:.5rem 0;
-    color:#eee;
-}
-
-.footer .box-container .box a:hover{
-    text-decoration: underline;
-}
-
-.footer .box-container .box .info{
-    display: flex;
-    align-items: center;
-}
-
-.footer .box-container .box .info i{
-    margin:.5rem 0;
-    margin-right: 1rem;
-    border-radius: 50%;
-    background:#fff;
-    color:var(--lblue);
-    font-size: 2rem;
-    height:4.5rem;
-    width:4.5rem;
-    line-height: 4.5rem;
-    text-align: center;
-}
-
-.footer .credit{
-    font-size: 2rem;
-    font-weight: normal;
-    letter-spacing: .1rem;
-    color:#fff;
-    border-top: .1rem solid #fff5;
-    padding:2.5rem 1rem;
-    text-align: center;
+.logo img{
+	float: left;
+	width: 35px;
 }
 
 .profile{
@@ -145,7 +71,7 @@ main{
 	color: #ffffff;
 }
   
-  /* Style buttons */
+/* Style buttons */
   
 .btn1 {
 	background-color: rgb(255, 255, 255); 
@@ -153,7 +79,7 @@ main{
 	height: 33px;
 	padding-left: 8px;
 	padding-right: 8px;
-	margin-left: 30px;
+	margin-left: 10px;
 	font-size: 12px;
 	width: fit-content;
 	cursor: pointer; 
@@ -166,7 +92,7 @@ main{
 .btn1 i{
 	font-size: 18px;
 	margin-top: 2px;
-	margin-right: 4px;
+	margin-right: 2px;
 	color:#01579b;
 }
   
@@ -179,8 +105,88 @@ main{
 	  color: #ffffff;
 }
 
+
+
+
+.footer{
+    /*/ width: 100%;*/
+     /*padding-top: 10rem;*/
+     background:url('../img/footerbg.jpg') no-repeat;
+     background-size: cover;
+     /*background-position: center;*/
+     background:#01579b;
+ }
+ 
+ .footer .box-container{
+     display: flex;
+     flex-wrap: wrap;
+ }
+ 
+ .footer .box-container .box{
+     flex:3 1 25rem;
+     margin:2rem;
+ }
+ 
+ .footer .box-container .box h3{
+     font-size: 2.5rem;
+     padding:1rem 0;
+     color:#fff;
+     /*text-decoration: underline;
+     text-underline-offset: 1rem;*/
+ }
+ 
+ .footer .box-container .box p{
+     font-size: 1.5rem;
+     padding:.5rem 0;
+     color:#eee;
+     text-align: left;
+ }
+ 
+ .footer .box-container .box a{
+     display: block;
+     font-size: 1.5rem;
+     padding:.5rem 0;
+     color:#eee;
+ }
+ 
+ .footer .box-container .box a:hover{
+     text-decoration: underline;
+ }
+ 
+ .footer .box-container .box .info{
+     display: flex;
+     align-items: center;
+ }
+ 
+ .footer .box-container .box .info i{
+     margin:.5rem 0;
+     margin-right: 1rem;
+     border-radius: 50%;
+     background:#fff;
+     color:var(--lblue);
+     font-size: 2rem;
+     height:4.5rem;
+     width:4.5rem;
+     line-height: 4.5rem;
+     text-align: center;
+ }
+ 
+ .footer .credit{
+     font-size: 2rem;
+     font-weight: normal;
+     letter-spacing: .1rem;
+     color:#fff;
+     border-top: .1rem solid #fff5;
+     padding:2.5rem 1rem;
+     text-align: center;
+ }
+ 
+
+.logo img{
+	float: left;
+	width: 35px;
+}
 body{
-	font-family: Arial;
 	margin:0;
 	background-color: #f1f1f1;
 }
@@ -286,7 +292,7 @@ body{
     color: white;
 }
 main{
-    margin-top: 60px; 
+    margin-top: 40px; 
     background: #f5f5f5;
     min-height: 90vh;
     padding: 1rem;
@@ -363,6 +369,12 @@ hr {
         display: none;
     }
 }
+
+.right-column .card h5,
+.right-column .card .decision-wrapper .button3{
+    margin-top: 1rem;
+}
+
 
 
 

@@ -73,10 +73,9 @@ a{
 
 .brand-logo {
   margin: 0px auto auto auto;
-  height: 100px;
+  height: 110px;
   width: 100px;
-  background: url("https://img.icons8.com/color/100/000000/twitter--v2.png");
-  border-radius: 50%;
+  background: url("../img/logo100100.png");
   box-sizing: border-box;
 }
 

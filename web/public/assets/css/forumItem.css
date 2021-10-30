@@ -28,10 +28,7 @@ header h1{
     font-size:12px;
 }
 
-h2{
-	color:#ffffff;
-margin:1.5 0px;	
-}
+
 .left-column{
 float: left;
 width: 75%;	
@@ -256,11 +253,10 @@ width: 75%;
 
 header{
     position: fixed;
-/*     left: 240;
- */    top: 0;
+    top: 0;
     z-index: 100;
     width: 100%;
-    background: #0562cc   ;
+    background: #01579b;
     height: 60px;
     padding: 0rem 1rem;
     display: flex;
@@ -268,6 +264,14 @@ header{
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
     transition: left 500ms;
+}
+
+header h2{
+font-family: 'Poppins', sans-serif;
+color:#ffffff;
+float: left;
+margin-left: 8px;
+margin-top: 0.5rem;
 }
 .main-content header h3{
     color: white;
@@ -330,9 +334,61 @@ main{
 }
 
 html{
-    font-size: 62.5%;
+    font-size: 75%;
     overflow-x: hidden;
 }
+
+
+.logo img{
+	float: left;
+	width: 35px;
+}
+
+.profile{
+	padding-right: 30px;
+	text-align: right;
+}
+  
+.profile i{
+    font-size: 1.5rem;
+	color: #ffffff;
+}
+  
+/* Style buttons */
+  
+.btn1 {
+	background-color: rgb(255, 255, 255); 
+	border: #58a5f0;
+	height: 33px;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-left: 10px;
+	font-size: 12px;
+	width: fit-content;
+	cursor: pointer; 
+	border-radius: 55px;
+	color:#01579b;
+	letter-spacing: 0.5px;
+	font-weight: 600;
+}
+  
+.btn1 i{
+	font-size: 18px;
+	margin-top: 2px;
+	margin-right: 2px;
+	color:#01579b;
+}
+  
+.btn1:hover {
+	  background-color: #58a5f0;
+	  color: #ffffff;
+}
+  
+.btn1:hover i {
+	  color: #ffffff;
+}
+
+
 
 
 .footer{
@@ -341,7 +397,7 @@ html{
     background:url('../img/footerbg.jpg') no-repeat;
     background-size: cover;
     /*background-position: center;*/
-    /*background:#0965ee;*/
+    background:#01579b;
 }
 
 .footer .box-container{
@@ -407,6 +463,7 @@ html{
     padding:2.5rem 1rem;
     text-align: center;
 }
+
 
 .Comments-box .comments {
 	float: right;

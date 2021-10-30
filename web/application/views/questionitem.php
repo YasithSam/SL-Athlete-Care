@@ -28,14 +28,14 @@
  <div class="main-content">
  <header>
 	 <div class="logo">
-		<img src="img/logo 4040.png" alt="">
+		<img src="../../web/public/assets/img/logo-4040.png" alt="">
 		<h2>SL Athlete Care</h2>
 	</div>
 	
 		
 			<div class="profile">
 				<i class="fas fa-bell"></i>
-				<button class="btn1" onclick="window.location.href='#';"><i class="fa fa-user-circle" aria-hidden="true"></i>My Profile</button>
+				<button class="btn1" onclick="window.location.href='#';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
 			</div>
 	
 </header> 
@@ -43,11 +43,11 @@
 <main>
 	<div class="row">
 		<div class="left-column">
-			<h2>Questions</h2>
+			<h1 style="font-size:30px">Questions</h1>
 		  <div class="card">
    
 		   <div class="user-wrapper1">
-			   <img src="img/avatar.png"  alt="">
+			   <img src="../../web/public/assets/img/avatar.png"  alt="">
 			   <div class="user-name">
 				   <h4>Kusal Mendis</h4>
 			   </div>
@@ -92,10 +92,10 @@
 		</div>
    
 		<div class="right-column">
-			<h2>Similar Questions</h2>
+			<h1 style="font-size:30px">Similar Questions</h1>
 			<div class="card">
 			   <div class="user-wrapper2">
-				   <img src="img/avatar.png"  alt="">
+				   <img src="../../web/public/assets/img/avatar.png"  alt="">
 				   <div class="user-name">
 					   <h4>Kusal Mendis</h4>
 				   </div>
@@ -106,7 +106,7 @@
  -->			   </div>
 		  
 	   
-				<h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
+				<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
 				<h5>Dec 7, 2017</h5>
    
 				<div class="decision-wrapper">
@@ -118,7 +118,7 @@
 		   
 			<div class="card">
 			   <div class="user-wrapper2">
-				   <img src="img/avatar.png"  alt="">
+				   <img src="../../web/public/assets/img/avatar.png"  alt="">
 				   <div class="user-name">
 					   <h4>Kusal Mendis</h4>
 				   </div>
@@ -140,7 +140,7 @@
    
 			<div class="card">
 			   <div class="user-wrapper2">
-				   <img src="img/avatar.png"  alt="">
+				   <img src="../../web/public/assets/img/avatar.png"  alt="">
 				   <div class="user-name">
 					   <h4>Kusal Mendis</h4>
 				   </div>
