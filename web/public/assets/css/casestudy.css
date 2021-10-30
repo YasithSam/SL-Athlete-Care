@@ -59,9 +59,20 @@ html,body{
     font-size: 12px;
     transition: all 0.3s ease;
   }
+  /*.chosen-container-single .chosen-single span{
+    height: 100px;
+    width: 100%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    font-size: 12px;
+    transition: all 0.3s ease;
+  }*/
   
   .form-inner form .field input:focus,
-  .form-inner form .field select:focus{
+  .form-inner form .field select:focus,
+  .chosen-container-single .chosen-single:focus{
     border-color: rgb(5, 98, 204);
   }
   .form-inner form .field input::placeholder,

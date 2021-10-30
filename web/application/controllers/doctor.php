@@ -83,6 +83,7 @@ class doctor extends main{
         ];
         
         if($this->doctorModel->createCaseStudy($data)){
+            $this->setFlash('addcs', 'New case study record added successfully!');
             $this->redirect('doctor/profile');
      
         }
@@ -108,15 +109,16 @@ class doctor extends main{
         ];
         if(empty($data['nid']) && empty($data['phid'])){
             $data['error']="Couldn't assign paramedical";
-            $this->view('doctor/addparaform',$data);
+            $this->view('doctor/addPara',$data);
 
         }
         if($this->doctorModel->AssignPara($data)){
+            $this->setFlash('assign', 'Paramedical user assigned successfully!');
             $this->redirect('doctor/profile');
         }
         else{
             $data['error']="Couldn't assign paramedical";
-            $this->view('doctor/addparaform',$data);         
+            $this->view('doctor/addPara',$data);         
         }
 
     }

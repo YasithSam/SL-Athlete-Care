@@ -8,10 +8,11 @@
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' rel='stylesheet'>
         <?php linkCSS("assets/css/admin/adminmain.css") ?>
         <?php linkCSS("assets/css/admin/admin.css") ?>
+        <?php linkCSS("assets/css/alert.css") ?>
     </head>
 
     <body>
-       <?php $this->flash('docreg', 'alert alert-success') ?>
+      
         <?php include "sidebar.php"?>
 
 <div class="main-content">
@@ -36,6 +37,8 @@
     <!--Body section-->
     <main>
           <div class="home-content">
+          <?php $this->flash('docreg', 'alert alert-success') ?>
+          <?php $this->flash('parareg', 'alert alert-success') ?>
             <!--Overview boxes-->
             <div class="overview-boxes">
               <div class="box">

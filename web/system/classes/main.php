@@ -87,7 +87,13 @@ class main{
          
          $msg = $_SESSION[$sessionName];
          
-         echo "<div class='". $className ."'>".$msg."</div>";
+         //echo "<div class='". $className ."'>".$msg."</div>";
+
+   echo "<div class='alert'>
+         <span class='closebtn' onclick='this.parentElement.style.display=\"none\";'>&times;</span> 
+         <strong>SUCCESS!</strong> $msg
+         </div>";
+
          unset($_SESSION[$sessionName]);
 
       }

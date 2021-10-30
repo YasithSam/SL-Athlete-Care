@@ -40,9 +40,7 @@
                                    <?php foreach($data[1] as $item): ?>
                                     <option value="<?php print_r($item->uuid);?>"><?php print_r($item->username);?></option>
                                  <?php endforeach;?>
-                                 </select>
-         
-                                </select>
+                                   </select>
                              </div>
                              <!--Injury-->
                              <div class="field">
