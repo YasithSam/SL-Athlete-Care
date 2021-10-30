@@ -57,17 +57,17 @@ class accountController extends main{
         switch($role){
             case 1:
                 $this->setFlash('docreg', 'User registered successfully!');
-                $this->redirect('admin');
+                $this->redirect('admin/index');
                 break;
             case 2:
                 $this->redirect('doctor/index');
                 break;
                 
             case 3:
-                $this->redirect('paramedical');
+                $this->redirect('paramedical/index');
                 break;
             case 5:
-                $this->redirect('paramedical');
+                $this->redirect('paramedical/index');
                 break;
 
             default:
