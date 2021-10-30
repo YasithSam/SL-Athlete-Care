@@ -40,7 +40,7 @@
     </div>
     <div class="button">
         <div class="date">21/10/2021</div>
-        <a href="athleteprofile.html">View</a>
+        <a href="<?php echo BASEURL;?>/doctor/athlete">View</a>
     </div>
 </div>
 <!--Update card-->
@@ -52,7 +52,7 @@
     </div>
     <div class="button">
         <div class="date">21/10/2021</div>
-        <a href="athleteprofile.html">View</a>
+        <a href="<?php echo BASEURL;?>/doctor/patient">View</a>
     </div>
 </div>
 <!--Update card-->
