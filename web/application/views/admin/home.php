@@ -24,7 +24,7 @@
         <div class="social-icons">
             <span class="ti-bell"></span>
             <div class="user-wrapper">
-                <img src="../web/public/assets/img/doctor.jpg" width="40px" height="40px" alt="">
+                <img src="../../web/public/assets/img/doctor.jpg" width="40px" height="40px" alt="">
                 <div>
                     <h4>Administrator</h4>
                     <small>Administrator</small>
@@ -65,7 +65,7 @@
               <div class="chart1 box">
                 <p>User movement</p>
                 <div class="graph">
-                    <img class="line" src="../web/public/assets/img/line.jpeg" alt="">
+                    <img class="line" src="../../web/public/assets/img/line.jpeg" alt="">
                 </div>
                 
               </div>
@@ -74,7 +74,7 @@
                     <div class="piechartbox">
                         <p>Athletes by sport</p>
                         
-                        <img class="pie" src="../web/public/assets/img/pie.jpeg" alt="pie chart">
+                        <img class="pie" src="../../web/public/assets/img/pie.jpeg" alt="pie chart">
                     </div>
                     
               </div>
