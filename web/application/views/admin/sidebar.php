@@ -11,7 +11,7 @@
             <div class="sidebar-menu">
                 <ul>
                     <li>
-                        <a href="<?php echo BASEURL;?>/admin/">
+                        <a href="<?php echo BASEURL;?>/admin/index">
                             <span class="ti-dashboard"></span>
                             <span>Dashboard</span>
                         </a>
