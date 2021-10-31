@@ -94,7 +94,6 @@ class admin extends main{
             'email'           => $this->input('email'),
             'username'        => $this->input('username'),
             'password'        => $this->input('password'),
-            'nic'             => $this->input('nic'),
             'gender'          => $this->input('gender'),
             'hospital'        => $this->input('hospital'),
             'doctorId'        => $this->input('doctorId'),
@@ -104,7 +103,6 @@ class admin extends main{
             'emailError'      => '',
             'usernameError'   => '' ,
             'passowrdError'   => '',
-            'nicError'        => '',
             'genderError'     => '' ,
             'hospitalError'   => '',
             'doctorIdError'   => '',
@@ -118,7 +116,7 @@ class admin extends main{
      
         
            if(empty($userData['fullNameError']) && empty($userData['emailError']) && empty($userData['passwordError'])
-           && empty($userData['usernameError']) && empty($userData['nicError']) && empty($userData['genderError'])
+           && empty($userData['usernameError'])  && empty($userData['genderError'])
            && empty($userData['hospitalError']) && empty($userData['doctorIdError']) && empty($userData['provinceError'])
            && empty($userData['districtError']))
            {   
@@ -150,7 +148,6 @@ class admin extends main{
             'para'            => $this->input('para'),
             'username'        => $this->input('username'),
             'password'        => $this->input('password'),
-            'nic'             => $this->input('nic'),
             'gender'          => $this->input('gender'),
             'hospital'        => $this->input('hospital'),
             'doctorId'        => $this->input('doctorId'),
@@ -161,7 +158,6 @@ class admin extends main{
             'paraError'       => '',
             'usernameError'   => '' ,
             'passowrdError'   => '',
-            'nicError'        => '',
             'genderError'     => '' ,
             'hospitalError'   => '',
             'doctorIdError'   => '',
@@ -175,7 +171,7 @@ class admin extends main{
      
         
            if(empty($userData['fullNameError']) && empty($userData['emailError']) && empty($userData['paraError']) 
-           && empty($userData['passwordError']) && empty($userData['usernameError']) && empty($userData['nicError']) 
+           && empty($userData['passwordError']) && empty($userData['usernameError']) 
            && empty($userData['genderError']) && empty($userData['hospitalError']) && empty($userData['doctorIdError']) 
            && empty($userData['provinceError']) && empty($userData['districtError']))
            {   
@@ -235,14 +231,7 @@ class admin extends main{
             $userData['passwordError'] = "Passowrd must be 5 characters long";
         }
 
-        if(empty($userData['nic'])){
-            $userData['nicError'] = 'NIC is required';
-        } else {
-            // if(!$this->accountModel->checkEmail($userData['email'])){
-            //  $userData['nicError'] = "Sorry there is an already existing user with this nic";
-
-            // }
-        }
+      
         if(empty($userData['gender'])){
             $userData['genderError'] = 'Gender is required';
         } 
