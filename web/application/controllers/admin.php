@@ -123,8 +123,8 @@ class admin extends main{
            && empty($userData['districtError']))
            {   
                if($this->adminModel->createAccountDoctor($userData)){
-                   $this->setFlash('docreg', 'User registered successfully!');
-                   $this->redirect('admin');
+                   $this->setFlash('docreg', 'Doctor registered successfully!');
+                   $this->redirect('admin/home');
                 
                 }
                 else{
@@ -180,6 +180,7 @@ class admin extends main{
            && empty($userData['provinceError']) && empty($userData['districtError']))
            {   
                if($this->adminModel->createAccountPara($userData)){
+                   $this->setFlash('parareg', 'Paramedical user registered successfully!');
                    $this->redirect('admin');
                 
                 }

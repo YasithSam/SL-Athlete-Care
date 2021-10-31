@@ -56,7 +56,6 @@ class accountController extends main{
     public function redirectFunc($role){  
         switch($role){
             case 1:
-                $this->setFlash('docreg', 'User registered successfully!');
                 $this->redirect('admin/index');
                 break;
             case 2:

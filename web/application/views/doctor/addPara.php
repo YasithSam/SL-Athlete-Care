@@ -32,7 +32,7 @@
                              </div>
                             
                               <div class="row">
-                               <div class="field" style="margin-right: 10px;">
+                               <div class="field">
                                 <select name="phy" id="month">
                                    <option value="" disabled selected hidden>Physiotherapist</option>
                                    <?php foreach($data[1] as $item): ?>
@@ -42,7 +42,7 @@
                                </div>
                               </div>
                               <div class="row">
-                                  <div class="field" style="margin-right: 10px;">
+                                  <div class="field">
                                    <select name="nut" id="month">
                                       <option value="" disabled selected hidden>Nutritionist</option>
                                       <?php foreach($data[0] as $item): ?>
