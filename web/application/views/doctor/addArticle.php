@@ -6,8 +6,9 @@
         <title></title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' rel='stylesheet'>
-        <?php linkCSS("assets/css/addart.css") ?>
         <?php linkCSS("assets/css/addartstyle.css") ?>
+        <?php linkCSS("assets/css/addart.css") ?>
+      
     </head>
 
     <body>
@@ -16,9 +17,6 @@
 
         <div class="main-content">
         <?php include "header.php"?>
-
-       
-
 
        
 <main>

@@ -42,7 +42,7 @@
             </div>
             <div class="card-body"> 
                 <h5 class="card-title">Workout Schedule - Ankle Sprain</h5>
-                <p class="card-text">Simple motion exercises and strength training to help the ankle heal properly.</p>
+                <p class="card-text">Simple motion exercises</p>
             </div>
         </a>
         </div>
@@ -92,7 +92,7 @@
             </div>
             <div class="card-body"> 
                 <h5 class="card-title">Workout Schedule - Ankle Sprain</h5>
-                <p class="card-text">Simple motion exercises and strength training to help the ankle heal properly.</p>
+                <p class="card-text">Simple motion exercises</p>
             </div>
         </a>
         </div>
