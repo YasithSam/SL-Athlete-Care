@@ -135,7 +135,7 @@ class doctor extends main{
     }
     public function addarticle(){
         if($this->getSession('userRole')==2){
-            $this->view('doctor/addArticle');
+            $this->view('doctor/addarticle');
         }
         else{
             $this->view('404');
