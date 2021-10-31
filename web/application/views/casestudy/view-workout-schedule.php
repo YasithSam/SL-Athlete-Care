@@ -22,7 +22,7 @@
 <div class="container">
         <div class="card">
             <div class="left">
-            <img class="card-img-top" src="../images/yoga.png" alt="icon">
+            <img class="card-img-top" src="yoga.png" alt="icon">
             </div>
             
             <div class="right">

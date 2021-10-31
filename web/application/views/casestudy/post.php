@@ -124,7 +124,7 @@
         </div>
         <div class="card-deck">
             <div class="card">
-                <img class="card-img-top" src="images/fitness.png" alt="icon"> 
+                <img class="card-img-top" src="../../../web/public/assets/img/fitness.png" alt="icon"> 
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
@@ -132,7 +132,7 @@
             </div>
 
             <div class="card">
-                <img class="card-img-top" src="images/workout-machine.png" alt="icon"> 
+                <img class="card-img-top" src="../../../web/public/assets/img/workout-machine.png" alt="icon"> 
                 <div class="card-body"> 
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
@@ -140,7 +140,7 @@
             </div>
 
             <div class="card">
-                <img class="card-img-top" src="images/yoga.png" alt="icon"> 
+                <img class="card-img-top" src="../../../web/public/assets/img/yoga.png" alt="icon"> 
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
@@ -164,7 +164,7 @@
         </div>
         <div class="card-deck">
             <div class="card">
-                <img class="card-img-top" src="images/diet (3).png" alt="icon"> 
+                <img class="card-img-top" src="../../../web/public/assets/img/diet (3).png" alt="icon"> 
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
@@ -172,7 +172,7 @@
             </div>
 
             <div class="card">
-                <img class="card-img-top" src="images/diet (2).png" alt="icon"> 
+                <img class="card-img-top" src="../../../web/public/assets/img/diet (2).png" alt="icon"> 
                 <div class="card-body"> 
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
@@ -180,7 +180,7 @@
             </div>
 
             <div class="card">
-                <img class="card-img-top" src="images/healthy-food.png" alt="icon"> 
+                <img class="card-img-top" src="../../../web/public/assets/img/healthy-food.png" alt="icon"> 
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
