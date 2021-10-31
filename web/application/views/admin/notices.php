@@ -27,7 +27,7 @@
     <div class="head">
         <div class="title">Notices</div>
         <div class="add">
-            <a href="<?php echo BASEURL;?>/doctor/addarticle"><i class="fas fa-plus" ></i>Add</a>
+            <a href="<?php echo BASEURL;?>/admin/addnotice"><i class="fas fa-plus" ></i>Add</a>
         </div>
     </div>
 
@@ -42,7 +42,7 @@
                 <p>something something something <br>something something something </p> 
             <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                   <p>something something something <br>something something something </p> 
               <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
               </div>
@@ -72,7 +72,7 @@
                   <p>something something something <br>something something something </p> 
               <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
               </div>
@@ -91,7 +91,7 @@
                 <p>something something something <br>something something something </p> 
             <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                   <p>something something something <br>something something something </p> 
               <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
               </div>
@@ -121,7 +121,7 @@
                   <p>something something something <br>something something something </p> 
               <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
               </div>
