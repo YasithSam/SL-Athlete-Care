@@ -126,7 +126,7 @@
           </div>
     </div>
 
-    <div class="more"><a href="<?php echo BASEURL;?>/forumController"> View All</a></div>
+    <div class="more"><a href="<?php echo BASEURL;?>/forumController/grid"> View All</a></div>
         
             </main>
             </div>

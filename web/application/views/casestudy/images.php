@@ -10,15 +10,19 @@
     <script src="https://kit.fontawesome.com/4e3a3a38a1.js" crossorigin="anonymous"></script></head>
 <body>
 
-<div class="header_section">
-        <div class="header">
-            <a href="#">SL ATHLETE CARE</a>
+<header>
+        <div class="logo">
+            <img src="../../public/assets/img/logo-4040.png" alt="">
+            <h2>SL Athlete Care</h2>
         </div>
-        <div class="profile">
-            <i class="fas fa-bell"></i>
-            <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i>My Profile</button>
-        </div>
-    </div>
+        
+            
+                <div class="profile">
+                    <i class="fas fa-bell"></i>
+                    <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
+                </div>
+        
+    </header> 
     <!--header ends-->
 
     <!--end of details-->

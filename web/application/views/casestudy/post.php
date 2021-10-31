@@ -63,7 +63,7 @@
 
         <div class="card-2">
             <div class="imgbox">
-                <img src="./images/advice.png" alt="">
+                <img src="../../../web/public/assets/img/advice.png" alt="">
             </div>
             <div class="textbox1">
             <div id="textbox">
@@ -78,7 +78,7 @@
     
         <div class="card-2">
             <div class="imgbox">
-                <img src="./images/advice.png" alt="">
+                <img src="../../../web/public/assets/img/advice.png" alt="">
             </div>
             <div class="textbox1">
             <div id="textbox">
@@ -93,7 +93,7 @@
 
         <div class="card-2">
             <div class="imgbox">
-                <img src="./images/advice.png" alt="">
+                <img src="../../../web/public/assets/img/advice.png" alt="">
             </div>
             <div class="textbox1">
             <div id="textbox">

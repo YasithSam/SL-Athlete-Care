@@ -78,7 +78,7 @@
          <?php foreach($data[0] as $item): ?>
             <div class="card-2">
                 <div class="imgbox">
-                    <img src="./images/medicine.png" alt="">
+                    <img src="../../../web/public/assets/img/medicine.png" alt="">
                 </div>
                 <div class="textbox1">
                 <div id="textbox">
@@ -162,7 +162,7 @@
 
          <?php foreach($data[2] as $item): ?>
             <div class="card">
-                <img class="card-img-top" src="images/fitness.png" alt="icon"> 
+                <img class="card-img-top" src="../../../web/public/assets/img/fitness.png" alt="icon"> 
                 <div class="card-body">
                     <h5 class="card-title"><?php echo ucwords($item->title)?></h5>
                     <p class="card-text"><?php echo ucwords($item->description)?></p>
@@ -198,7 +198,7 @@
 
 <?php foreach($data[3] as $item): ?>
                 <div class="card">
-                    <img class="card-img-top" src="images/diet (3).png" alt="icon"> 
+                    <img class="card-img-top" src="../../../web/public/assets/img/diet (3).png" alt="icon"> 
                     <div class="card-body">
                         <h5 class="card-title"><?php echo ucwords($item->title)?></h5>
                         <p class="card-text"><?php echo ucwords($item->description)?></p>

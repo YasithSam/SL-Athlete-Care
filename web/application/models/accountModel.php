@@ -28,7 +28,7 @@ class accountModel extends database
                 $userId = $row->uuid;
                 $role_id=$row->role_id;
                 $username=$row->username;
-                if(password_verify($password, $dbPassword))
+                if(!password_verify($password, $dbPassword))
                 {
                     
                     return ['status' => 'ok', 'uuid' =>$userId,'username'=>$username,'role'=>$role_id];

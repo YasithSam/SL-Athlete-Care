@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 :root{
     --main-color: #0562cc;
@@ -585,6 +585,7 @@ header{
 
 .you-message .message-content .message-text{
     text-align: left;
+    font-weight: 300;
 }
 
 
