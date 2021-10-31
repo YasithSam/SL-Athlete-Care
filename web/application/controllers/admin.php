@@ -46,6 +46,24 @@ class admin extends main{
             $this->view('404');
         }
     }
+    public function addnotice(){
+        if($this->getSession('userRole')==1){
+            $this->view('admin/addnotice');
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
+    public function editnotice(){
+        if($this->getSession('userRole')==1){
+            $this->view('admin/editnotice');
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
     public function users(){
         if($this->getSession('userRole')==1){
           $this->view('admin/users');

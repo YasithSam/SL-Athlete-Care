@@ -39,7 +39,7 @@
                 <p>something something something <br>something something something </p> 
             <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                   <p>something something something <br>something something something </p> 
               <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
               </div>
@@ -69,7 +69,7 @@
                   <p>something something something <br>something something something </p> 
               <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
               </div>
@@ -88,7 +88,7 @@
                 <p>something something something <br>something something something </p> 
             <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                   <p>something something something <br>something something something </p> 
               <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
               </div>
@@ -118,7 +118,7 @@
                   <p>something something something <br>something something something </p> 
               <div class="edit">
                 <div class="button">
-                    <a href=""><i class="fas fa-pen icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a>
                     <a href=""><i class="fas fa-trash-alt icon"></i></a>
                 </div>
               </div>
