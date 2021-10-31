@@ -76,11 +76,10 @@
                       <?php if(!empty($data['passwordError'])): echo $data['passwordError']; endif; ?>
                   </div>
                    
-                  <div class="row">
                      <!--nic-->
                     
                      <!--gender-->
-                     <div class="field"  style="margin-left: 10px;">
+                     <div class="field">
                      <label>*</label>
                         <select name="gender" id="gender" required>
                         <option value="" disabled selected hidden>Gender</option>
@@ -91,7 +90,6 @@
                      <div class="error">
                       <?php if(!empty($data['genderError'])): echo $data['genderError']; endif; ?>
                      </div>
-                  </div>
 
                   <div class="row">
                      <!--hospital-->
@@ -201,10 +199,9 @@
                       <?php if(!empty($data['passwordError'])): echo $data['passwordError']; endif; ?>
                   </div>
 
-                  <div class="row">
                     
 
-                     <div class="field" style="margin-left: 10px;">
+                  <div class="field">
                      <label>*</label>
                         <select name="gender" id="gender" required>
                         <option value="" disabled selected hidden>Gender</option>
@@ -214,7 +211,6 @@
                      </div>
                      <div class="error">
                       <?php if(!empty($data['genderError'])): echo $data['genderError']; endif; ?>
-                     </div>
                   </div>
                
                   <div class="row">

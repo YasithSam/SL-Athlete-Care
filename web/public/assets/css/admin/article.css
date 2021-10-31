@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
 
 :root{
     --main-color: #0562cc;
@@ -278,11 +278,11 @@ header{
  * higher z-index brings element to front
  * auto width cancels the overflow
  */
-.longtext:hover {
+/* .longtext:hover {
   z-index: 1;
   width: auto;
   background-color: #FFFFCC;
-}
+} */
 
   .content-table th,
   .content-table td {
