@@ -112,7 +112,8 @@ class AthleteAPI extends database
             if($this->rowCount() > 0 ){
                 $row = $this->fetch();
                 $dbPassword = $row->password;
-                if(true){
+                if(password_verify($password, $dbPassword))
+                {
                     $userId = $row->uuid;
                     $role_id=$row->role;
                     return ['status' => 'ok', 'data' => [$userId,$role_id]];
