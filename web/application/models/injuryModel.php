@@ -3,7 +3,7 @@
 class injuryModel extends database
  {
     public function getInjuryData(){
-        if($this->Query("SELECT i.injury,d.uuid,d.full_name,d.city FROM injury i , doctor_profile d")){
+        if($this->Query("SELECT i.injury,d.uuid,d.full_name,d.province FROM injury i , doctor_profile d")){
             $injury=[];
             $doctor=[];
             if($this->rowCount() > 0 ){
@@ -17,8 +17,8 @@ class injuryModel extends database
                      
                 } 
                 foreach($row as $obj){
-                    if(!in_array($obj->full_name." - ".$obj->city,$doctor)){
-                        $doctor[$j]=$obj->full_name." - ".$obj->city;
+                    if(!in_array($obj->full_name." - ".$obj->province,$doctor)){
+                        $doctor[$j]=$obj->full_name." - ".$obj->province;
                         $j++;
 
                     }      
