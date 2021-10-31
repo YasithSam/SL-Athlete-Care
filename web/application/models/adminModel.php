@@ -10,10 +10,10 @@ class adminModel extends database
         $ps = password_hash($data['password'], PASSWORD_DEFAULT);
         $x=[$uuid,$role,$data['username'],null,$ps,0,0];
   
-        $y=[$uuid,$data['fullName'],$data['province'],$data['district'],$data['email'],$data['gender'],$data['hospital'],$data['nic'],$data['doctorId']];
+        $y=[$uuid,$data['fullName'],$data['province'],$data['district'],$data['email'],$data['gender'],$data['hospital'],$data['doctorId']];
    
         if($this->Query("INSERT INTO application_user (uuid,role_id,username,phone,password,login_status,is_disabled) VALUES (?,?,?,?,?,?,?)",$x)){
-            if($this->Query("INSERT INTO doctor_profile (uuid,full_name,province,district,email,sex,hospital,nic,doctor_number) VALUES (?,?,?,?,?,?,?,?,?)",$y)){
+            if($this->Query("INSERT INTO doctor_profile (uuid,full_name,province,district,email,sex,hospital,doctor_number) VALUES (?,?,?,?,?,?,?,?)",$y)){
                  return true;
             }
             else{
@@ -38,11 +38,11 @@ class adminModel extends database
         $ps = password_hash($data['password'], PASSWORD_DEFAULT);
         $x=[$uuid,$role,$data['username'],null,$ps,0,0];
   
-        $y=[$uuid,$data['fullName'],$data['province'],$data['district'],$data['email'],$data['gender'],$data['hospital'],$data['nic'],$data['doctorId']];
+        $y=[$uuid,$data['fullName'],$data['province'],$data['district'],$data['email'],$data['gender'],$data['hospital'],$data['doctorId']];
    
 
         if($this->Query("INSERT INTO application_user (uuid,role_id,username,phone,password,login_status,is_disabled) VALUES (?,?,?,?,?,?,?)",$x)){
-            if($this->Query("INSERT INTO paramedical_profile (uuid,full_name,province,district,email,sex,hospital,nic,paramedical_number) VALUES (?,?,?,?,?,?,?,?,?)",$y)){
+            if($this->Query("INSERT INTO paramedical_profile (uuid,full_name,province,district,email,sex,hospital,paramedical_number) VALUES (?,?,?,?,?,?,?,?)",$y)){
                  return true;
             }
             else{
