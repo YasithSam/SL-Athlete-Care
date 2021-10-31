@@ -101,8 +101,9 @@
       <?php if($_SESSION["userRole"]==2):?>         
         <button class="addbutton1">Add New</button>
      <?php else: ?>             
-      <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/medicine/<?php echo($data[1])?>';">More</button> 
+     
      <?php endif;?>
+     <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/medicine/<?php echo($data[1])?>';">More</button> 
       </div>
 
     </div>

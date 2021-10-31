@@ -13,7 +13,7 @@
                     <div class="des3"></div>
                     <div class="des1-des11"><p>Condition: </p><p>Visibility:</p></div>
                     <?php $x=($item->doctor_id==0) ? "public" :"private"; ?>
-                    <div class="des2"><p><?php echo ucwords($item->con); ?></p> <p><?php echo $x?></p></div>
+                    <div class="des2"><p> <?php echo ucwords($item->con); ?></p> <p><?php echo $x?></p></div>
                     <div class="button">
                       <ul style="list-style: none;">
                       <li class="l1" style="padding-bottom: 5px;">Date: 01/02/2022</li>

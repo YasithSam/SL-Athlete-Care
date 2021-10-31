@@ -34,8 +34,8 @@
                                    <input type="text" name="description" placeholder="Case Study Description" required>
                                 </div>
                              <!--Athlete-->
-                             <div class="field">
-                                <select name="athlete" id="athlete" required>
+                             <div class="field" >
+                                <select name="athlete" id="athlete" style="background-color:aqua" required>
                                    <option value="" disabled selected hidden>Athlete</option>
                                    <?php foreach($data[1] as $item): ?>
                                     <option value="<?php print_r($item->uuid);?>"><?php print_r($item->username);?></option>

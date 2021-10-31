@@ -47,8 +47,8 @@ class forumController extends main{
     }
     public function confirm($id){
         if($this->getSession('userRole')==2){
-            $this->forumModel->updateForumbyId($id,"Accepted");
-            $this->redirect('doctor/dashboard');
+            $this->forumModel->updateForumbyId($id,1);
+            $this->redirect('doctor/profile');
 
         }
         else{

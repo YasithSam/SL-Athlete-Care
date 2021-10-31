@@ -25,8 +25,8 @@ class forumModel extends database
 
     } 
     public function updateForumbyId($id,$status){
-      if($status=="Accepted"){
-        if($this->Query("UPDATE athlete_reported_injury set status='Accepted' where id=?",[$id])){
+      if($status==1){
+        if($this->Query("UPDATE athlete_reported_injury set status=? where id=?",[$status,$id])){
 
         }
         else{
