@@ -32,21 +32,38 @@
             </div> 
         
           <div class="items">
-          <?php if(!empty($data)): ?>
+          
         
-             <?php foreach($data as $item): ?>  
+            
             <div class="card-2">
                 <div id="textbox">
-                    <h2 class="alignleft"><b><?php echo($item->title)?></b></h2>
-                    <h3 class="alignright"><?php echo($item->amount)?></h3>
+                    <h2 class="alignleft"><b>Diet Event - 1</b></h2>
+                    <h3 class="alignright">500g</h3>
                 </div>
                 <div style="clear: both;">
-                    <h3><?php echo($item->description)?></h3>
+                    <h3>Zinc-rich foods include meat, fish, shellfish, and whole grains to heal wounded tissue. Nuts are also a great choice.</h3>
                 </div>
             </div>
-            <?php endforeach;?>
-     
-        <?php endif; ?> 
+            <div class="card-2">
+                <div id="textbox">
+                    <h2 class="alignleft"><b>Diet Event - 2</b></h2>
+                    <h3 class="alignright">2 spoons</h3>
+                </div>
+                <div style="clear: both;">
+                    <h3>Omega-6 fats, which are often present in Canola oil, sunflower oil, Chia seeds, corn oil and Walnuts.</h3>
+                </div>
+            </div>
+            <div class="card-2">
+                <div id="textbox">
+                    <h2 class="alignleft"><b>Diet Event - 3</b></h2>
+                    <h3 class="alignright">1 from each</h3>
+                </div>
+                <div style="clear: both;">
+                    <h3>Beans, Popcorn, Broccoli, Apples, Berries, Avocados, Whole Grains and Dried Fruits.
+</h3>
+                </div>
+            </div>
+           
       
     </div>
     

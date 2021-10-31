@@ -78,13 +78,7 @@
                    
                   <div class="row">
                      <!--nic-->
-                     <div class="field" style="margin-right: 10px;">
-                     <label>*</label>
-                        <input type="text" placeholder="NIC" name="nic" required>
-                     </div>
-                     <div class="error">
-                      <?php if(!empty($data['nicError'])): echo $data['nicError']; endif; ?>
-                     </div>
+                    
                      <!--gender-->
                      <div class="field"  style="margin-left: 10px;">
                      <label>*</label>
@@ -208,13 +202,7 @@
                   </div>
 
                   <div class="row">
-                     <div class="field" style="margin-right: 10px;">
-                     <label>*</label>
-                        <input type="text" placeholder="NIC" name="nic" required>
-                     </div>
-                     <div class="error">
-                      <?php if(!empty($data['nicError'])): echo $data['nicError']; endif; ?>
-                     </div>
+                    
 
                      <div class="field" style="margin-left: 10px;">
                      <label>*</label>

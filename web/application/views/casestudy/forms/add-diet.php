@@ -13,182 +13,146 @@
 
 </head>
 <body>  
+
+
+<div class="header_section">
+        <div class="header">
+            <a href="#">SL ATHLETE CARE</a>
+        </div>
+        <div class="profile">
+            <i class="fas fa-bell"></i>
+            <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i>My Profile</button>
+        </div>
+    </div>
+    <!--header ends-->
+
+    <!--end of details-->
+
+    <!--buttons-->
+    <div id="btn-group">
+      
+        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/index/<?php echo($data[1])?>';">
+          Updates 
+        </button>
+        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1])?>';">
+            Pre
+        </button>
+        <button class="btn" onclick="window.location.href='';">
+            Post
+        </button>
+    </div>
+
+    
+<script>
+
+$(document).ready(function(){
+  var max_carts = 1000;
+  var wrapper = $(".dropdown");
+  var add_button = $(".add_cart");
+
+  var x = 1;
+  $(add_button).click(function(e){
+    e.preventDefault();
+    if(x<max_carts){
+      x++;
+      $(wrapper).append('<div><div class="dropdown"><button onclick="myFunction(this)" class="dropbtn"><b> Diet Event <i class="fas fa-angle-down"></i></b></button><div id="myDropdown" class="dropdown-content"><div class="row1"><label for="event-title" class="form-label">Event Title : </label><input type="text" class="form-control" id="event-title" placeholder="Diet Event - 1"></div><div class="row1"><label for="event-desc" class="form-label">Event Description : </label><textarea id="event-desc" class="form-control" name="event-desc" placeholder="Lower-body strength training" style="height:100px"></textarea></div><div class="row1"><label for="time" class="form-label">Time Duration : </label><input type="text" class="form-control" id="time" placeholder="30 to 60 minutes"></div></div><a href="#" class="remove_field">Cancel</a></div></div>');
+    }
+  });
+
+  $(wrapper).on("click",".remove_field",function(e){
+    e.preventDefault();
+    $(this).parent('div').remove();
+    x--;
+  });
+});
+
+</script>
+
   <div class="pagecontainer">
     <div class="header">
     <p class="h22">Add Diet Schedule</p>
   </div>
    
-  <div class="form-cont">
-
-  <form action=" ">
-
-      <div class="row">
-      <label for="title">Diet Title :</label>
-      </div>
-      <div class="row">
-      <input type="text" id="title" name="title" placeholder="Enter Title">
-       </div>
- 
-       <div class="row">
-       <label for="subject">Diet Description :</label>
-       </div>
-       <div class="row">
-      <textarea id="description" name="description" placeholder="Enter Description" style="height:120px"></textarea>
-       </div>
-
-       <div class="row">
-        <label for="we">Diet Events :</label>
-       </div>
+  <div class="form-container">
+      
+      <form action ="<?php echo BASEURL;?>/caseStudyController/addDietlist/">
+    
+          <div class="row2">
+            <label for="title">Diet Title :</label>
+            <input type="text" id="title" name="title" placeholder="Enter Title">
+          </div>
+         <input name="id" value="<?php echo($data[0])?>" hidden></input>
+          <div class="row2">
+            <label for="subject">Diet Description :</label>
+            <textarea id="description" name="description" placeholder="Enter Description" style="height:120px"></textarea>
+          </div>  
+      
+           <div class="row2">
+            <label for="event">Diet Events :</label>
+           </div>
 
 
-        <!--Dropdown-->
-   <button class="navbar-toggler" type="button" 
-   data-toggle="collapse" data-target="#myNavbar1" aria-controls="myNavbar" 
-   aria-expanded="false" aria-label="Toggle navigation">
-  <div class="dropbtn"><b> Diet Event - 1 <i class="fas fa-angle-down"></i></b></div>
-</button>
-<div class="collapse navbar-collapse" id="myNavbar1">
+          <!--Dropdown-->
+          <div class="dropdown">
+                      
+                      <div id="myDropdown" class="dropdown-content">
+                        <button class="dropbtn"><b> Diet Event <i class="fas fa-angle-down"></i></b></button>
+                        <div class="row1">
+                        <label for="event-title" class="form-label">Event Title : </label>
+                        <input type="text" class="form-control" id="event-title" name="itemheading" placeholder="Diet Event - 1">
+                        </div>
 
-<div class="mb-3">
-  <label for="event-title" class="form-label">Diet Title : </label>
-  <input type="text" class="form-control" id="event-title" placeholder="Diet Event - 1">
-</div>
-<div class="mb-3">
-  <label for="event-desc" class="form-label">Diet Description : </label>
-  <textarea id="event-desc" name="event-desc" placeholder="Try two tangerines or an apple with a handful of nuts, dried apricots, or raisins to get you going." style="height:100px"></textarea>
-</div>
-<div class="mb-3">
-  <label for="time" class="form-label">Meal : </label>
-  <input type="text" class="form-control" id="meal" placeholder="Morning Snack | Fruits">
-</div>    
-</div>
+                        <div class="row1">
+                        <label for="event-desc" class="form-label">Event Description : </label>
+                        <textarea id="event-desc" class="form-control" name="itemdesc" placeholder="Lower-body strength training" style="height:100px"></textarea>
+                        </div>
 
-   <!--Dropdown-->
-   <button class="navbar-toggler" type="button" 
-   data-toggle="collapse" data-target="#myNavbar2" aria-controls="myNavbar" 
-   aria-expanded="false" aria-label="Toggle navigation">
-   <div class="dropbtn"><b> Diet Event - 2 <i class="fas fa-angle-down"></i></b></div>
-</button>
-<div class="collapse navbar-collapse" id="myNavbar2">
+                        <div class="row1">
+                        <label for="time" class="form-label">Time Duration : </label>
+                        <input type="text" class="form-control" id="time" name="time"placeholder="30 to 60 minutes">
+                        </div>
+                        <div class="row1">
+                        <label for="time" class="form-label">Repetitions : </label>
+                        <input type="text" class="form-control" id="time" name="reps" placeholder="30 to 60 minutes">
+                        </div>
 
-<div class="mb-3">
-  <label for="event-title" class="form-label">Event Title : </label>
-  <input type="text" class="form-control" id="event-title" placeholder="Diet Event - 2">
-</div>
-<div class="mb-3">
-  <label for="event-desc" class="form-label">Diet Description : </label>
-  <textarea id="event-desc" name="event-desc" placeholder="Try two tangerines or an apple with a handful of nuts, dried apricots, or raisins to get you going." style="height:100px"></textarea>
-</div>
-<div class="mb-3">
-  <label for="time" class="form-label">Meal : </label>
-  <input type="text" class="form-control" id="meal" placeholder="Morning Snack | Fruits">
-</div>  
+                      </div>
+                    </div><br>
+
+
+                    <center><button onclick="myFunction(this)" class="add_cart"><b> Add Diet </b></button></center>
+
+<div class="btnrow">
+  <button class="back"><a href="#" onclick="history.go(-1)">Go Back</a></button>  
+  <input type="submit" value="Submit">
 </div>
 
-
- <!--Dropdown-->
- <button class="navbar-toggler" type="button" 
- data-toggle="collapse" data-target="#myNavbar3" aria-controls="myNavbar" 
- aria-expanded="false" aria-label="Toggle navigation">
- <div class="dropbtn"><b> Diet Event - 3 <i class="fas fa-angle-down"></i></b></div>
-</button>
-<div class="collapse navbar-collapse" id="myNavbar3">
-
-<div class="mb-3">
-<label for="event-title" class="form-label">Event Title : </label>
-<input type="text" class="form-control" id="event-title" placeholder="Diet Event - 3">
-</div>
-<div class="mb-3">
-  <label for="event-desc" class="form-label">Diet Description : </label>
-  <textarea id="event-desc" name="event-desc" placeholder="Try two tangerines or an apple with a handful of nuts, dried apricots, or raisins to get you going." style="height:100px"></textarea>
-</div>
-<div class="mb-3">
-  <label for="time" class="form-label">Meal : </label>
-  <input type="text" class="form-control" id="meal" placeholder="Morning Snack | Fruits">
-</div>  
-</div>
-
-
-
- <!--Dropdown-->
- <button class="navbar-toggler" type="button" 
- data-toggle="collapse" data-target="#myNavbar4" aria-controls="myNavbar" 
- aria-expanded="false" aria-label="Toggle navigation">
- <div class="dropbtn"><b> Diet Event - 4 <i class="fas fa-angle-down"></i></b></div>
-</button>
-<div class="collapse navbar-collapse" id="myNavbar4">
-
-<div class="mb-3">
-<label for="event-title" class="form-label">Event Title : </label>
-<input type="text" class="form-control" id="event-title" placeholder="Diet Event - 4">
-</div>
-<div class="mb-3">
-  <label for="event-desc" class="form-label">Diet Description : </label>
-  <textarea id="event-desc" name="event-desc" placeholder="Try two tangerines or an apple with a handful of nuts, dried apricots, or raisins to get you going." style="height:100px"></textarea>
-</div>
-<div class="mb-3">
-  <label for="time" class="form-label">Meal : </label>
-  <input type="text" class="form-control" id="meal" placeholder="Morning Snack | Fruits">
-</div>  
-</div>
-
-
- <!--Dropdown-->
- <button class="navbar-toggler" type="button" 
- data-toggle="collapse" data-target="#myNavbar5" aria-controls="myNavbar" 
- aria-expanded="false" aria-label="Toggle navigation">
- <div class="dropbtn"><b> Diet Event - 5 <i class="fas fa-angle-down"></i></b></div>
-</button>
-<div class="collapse navbar-collapse" id="myNavbar5">
-
-<div class="mb-3">
-<label for="event-title" class="form-label">Event Title : </label>
-<input type="text" class="form-control" id="event-title" placeholder="Diet Event - 5">
-</div>
-<div class="mb-3">
-  <label for="event-desc" class="form-label">Diet Description : </label>
-  <textarea id="event-desc" name="event-desc" placeholder="Try two tangerines or an apple with a handful of nuts, dried apricots, or raisins to get you going." style="height:100px"></textarea>
-</div>
-<div class="mb-3">
-  <label for="time" class="form-label">Meal : </label>
-  <input type="text" class="form-control" id="meal" placeholder="Morning Snack | Fruits">
-</div> 
-</div>
-
-  <div class="btnrow">
-    <button class="back"><a href="#" onclick="history.go(-1)">Go Back</a></button>  
-    <input type="submit" value="Submit">
-  </div>
-
-  </form>
-  <br>
-  <br> 
+</form>
+<br>
+<br> 
 </div>
 
 <script>
-  function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+var myFunction = function(target) {
+   target.parentNode.querySelector('.dropdown-content').classList.toggle("show");
 }
 
-// Close the dropdown menu if the user clicks outside of it
+// Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
+  if (event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
       if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+        openDropdown.classList.contains('show');
       }
     }
   }
 }
 </script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
 
 </body>
 </html>

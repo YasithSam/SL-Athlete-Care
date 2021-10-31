@@ -214,7 +214,7 @@
 
     <div class="addbtn2">
       <?php if($_SESSION["userRole"]==5):?>         
-          <button class="addbutton" onclick="window.location.href='./forms/add-diet.html/<?php echo($data[1])?>';">Add New</button>        
+          <button class="addbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/adddiet/<?php echo($data[1])?>';">Add New</button>        
      <?php else: ?>             
         <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/diet/<?php echo($data[1])?>';">More</button>
      <?php endif;?>

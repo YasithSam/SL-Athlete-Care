@@ -12,6 +12,35 @@
 </head>
 <body>  
 
+
+<div class="header_section">
+        <div class="header">
+            <a href="#">SL ATHLETE CARE</a>
+        </div>
+        <div class="profile">
+            <i class="fas fa-bell"></i>
+            <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i>My Profile</button>
+        </div>
+    </div>
+    <!--header ends-->
+
+    <!--end of details-->
+
+    <!--buttons-->
+    <div id="btn-group">
+      
+        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/index/<?php echo($data[1])?>';">
+          Updates 
+        </button>
+        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1])?>';">
+            Pre
+        </button>
+        <button class="btn" onclick="window.location.href='';">
+            Post
+        </button>
+    </div>
+
+    
   <script>
 
     $(document).ready(function(){
@@ -69,10 +98,11 @@
            
 
                         <!--Dropdown-->
-                      <div class="dropdown">
+                        <button class="dropbtn"><b> Workout Event <i class="fas fa-angle-down"></i></b></button>
+                        <div class="dropdown">
                       
                         <div id="myDropdown" class="dropdown-content">
-                            <button onclick="myFunction(this)" class="dropbtn"><b> Workout Event <i class="fas fa-angle-down"></i></b></button>
+                           
                           <div class="row1">
                           <label for="event-title" class="form-label">Event Title : </label>
                           <input type="text" class="form-control" id="event-title" name="itemheading" placeholder="Workout Event - 1">
@@ -94,6 +124,7 @@
 
                         </div>
                       </div><br>
+  </div> 
 
                       <center><button onclick="myFunction(this)" class="add_cart"><b> Add Workout </b></button></center>
 
