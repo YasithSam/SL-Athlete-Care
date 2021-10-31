@@ -55,7 +55,7 @@ $(document).ready(function(){
     e.preventDefault();
     if(x<max_carts){
       x++;
-      $(wrapper).append('<div><div class="dropdown"><button onclick="myFunction(this)" class="dropbtn"><b> Diet Event <i class="fas fa-angle-down"></i></b></button><div id="myDropdown" class="dropdown-content"><div class="row1"><label for="event-title" class="form-label">Event Title : </label><input type="text" class="form-control" id="event-title" placeholder="Diet Event - 1"></div><div class="row1"><label for="event-desc" class="form-label">Event Description : </label><textarea id="event-desc" class="form-control" name="event-desc" placeholder="Lower-body strength training" style="height:100px"></textarea></div><div class="row1"><label for="time" class="form-label">Time Duration : </label><input type="text" class="form-control" id="time" placeholder="30 to 60 minutes"></div></div><a href="#" class="remove_field">Cancel</a></div></div>');
+      $(wrapper).append('<div><div class="dropdown"><button onclick="myFunction(this)" class="dropbtn"><b> Diet Event <i class="fas fa-angle-down"></i></b></button><div id="myDropdown" class="dropdown-content"><div class="row1"><label for="event-title" class="form-label">Event Title : </label><input type="text" class="form-control" id="event-title" placeholder="Diet Event - 1"></div><div class="row1"><label for="event-desc" class="form-label">Event Description : </label><textarea id="event-desc" class="form-control" name="event-desc" placeholder="Add a description about diet event" style="height:100px"></textarea></div><a href="#" class="remove_field">Cancel</a></div></div>');
     }
   });
 
@@ -104,17 +104,14 @@ $(document).ready(function(){
 
                         <div class="row1">
                         <label for="event-desc" class="form-label">Event Description : </label>
-                        <textarea id="event-desc" class="form-control" name="itemdesc" placeholder="Lower-body strength training" style="height:100px"></textarea>
+                        <textarea id="event-desc" class="form-control" name="itemdesc" placeholder="add a description about the diet event" style="height:100px"></textarea>
                         </div>
 
                         <div class="row1">
-                        <label for="time" class="form-label">Time Duration : </label>
-                        <input type="text" class="form-control" id="time" name="time"placeholder="30 to 60 minutes">
+                        <label for="time" class="form-label">Amount : </label>
+                        <input type="text" class="form-control" id="time" name="time"placeholder="Enter in grams">
                         </div>
-                        <div class="row1">
-                        <label for="time" class="form-label">Repetitions : </label>
-                        <input type="text" class="form-control" id="time" name="reps" placeholder="30 to 60 minutes">
-                        </div>
+                        
 
                       </div>
                     </div><br>

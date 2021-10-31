@@ -142,6 +142,15 @@ class doctor extends main{
         }
 
     }
+    public function editarticle(){
+        if($this->getSession('userRole')==2){
+            $this->view('doctor/editarticle');
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
     public function editprofile(){
         if($this->getSession('userRole')==2){
             $this->view('doctor/editprofile');
