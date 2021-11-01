@@ -7,7 +7,7 @@
     <?php linkCSS("assets/css/cs/pre.css") ?>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' rel='stylesheet'>
 </head>
-<body>
+<body style="overflow-x: hidden;">
     <!--header starts-->
     <header>
         <div class="logo">
@@ -141,7 +141,7 @@
     
             
         </div>
-
+        <br><br>
         <div class="addbtn2">
             <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/image/<?php echo($data[1])?>';">More</button>
         </div>
