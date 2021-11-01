@@ -31,61 +31,27 @@
       <tr>
         <th class="uuid">UUID</th>
         <th class="roleid">Role ID</th>
-        <th class="fullname">Full Name</th>
-        <th class="nic">NIC</th>
+        <th class="fullname">Username</th>
         <th class="email">Email</th>
         <th class="btnrow">Disable User</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>AID0001</td>
-        <td>4</td>
-        <td>Akila Perera</td>
-        <td>971267456v</td>
-        <td>akilaperera@gmail.com</td>
-        <td><input type="button" class="button" value="Disable"> </td>
-      </tr>
-      <tr class="active-row">
-        <td>AID0001</td>
-        <td>4</td>
-        <td>Akila Perera</td>
-        <td>971267456v</td>
-        <td>akilaperera@gmail.com</td>
-        <td><input type="button" class="button" value="Disable"> </td>
-      </tr>
-      <tr>
-        <td>AID0001</td>
-        <td>4</td>
-        <td>Akila Perera</td>
-        <td>971267456v</td>
-        <td>akilaperera@gmail.com</td>
-        <td><input type="button" class="button" value="Disable"> </td>
-      </tr>
-      <tr class="active-row">
-        <td>AID0001</td>
-        <td>4</td>
-        <td>Akila Perera</td>
-        <td>971267456v</td>
-        <td>akilaperera@gmail.com</td>
-        <td><input type="button" class="button" value="Disable"> </td>
-      </tr>
-      <tr>
-        <td>AID0001</td>
-        <td>4</td>
-        <td>Akila Perera</td>
-        <td>971267456v</td>
-        <td>akilaperera@gmail.com</td>
-        <td><input type="button" class="button" value="Disable"> </td>
-      </tr>
-      <tr class="active-row">
-        <td>AID0001</td>
-        <td>4</td>
-        <td>Akila Perera</td>
-        <td>971267456v</td>
-        <td>akilaperera@gmail.com</td>
-        <td><input type="button" class="button" value="Disable"> </td>
-      </tr>
+    <?php if(!empty($data)): ?>
+
+        <?php foreach($data as $item): ?>
+            <tr class="">
+              <td><?php echo ucwords($item->uuid); ?></td>
+              <td><?php echo ucwords($item->role); ?></td>
+              <td><?php echo ucwords($item->username); ?></td>  
+              <td><?php echo ucwords($item->email); ?></td>
+              <td><input type="button" class="button" value="Disable"> </td>
+            </tr>
+      <?php endforeach;?>
+        <?php else: ?>
+          <h1>No data </h1>
+        <?php endif; ?> 
+     
     </tbody>
   </table>
   <br>

@@ -102,7 +102,7 @@
                        
                     <h3><?php echo($item->con) ?></h3>
                      
-                    <h5><?php echo($item->date) ?></h5>
+                    
 
                     <div class="decision-wrapper">
                         <a href="<?php echo BASEURL;?>/forumController/item/<?php echo $item->id; ?>"><button class="button3">View</button></a>

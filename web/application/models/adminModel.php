@@ -26,6 +26,28 @@ class adminModel extends database
         }
 
     }
+    public function getUsers(){
+        $m=[];
+        if($this->Query("SELECT u.uuid,u.username,u.phone,r.role from application_user u inner join user_role r on r.id=u.role_id where u.role_id!=1 order by timestamp desc")){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $m[$i]=$obj;
+                    $i++;
+                     
+                }    
+       
+
+            } else {
+                return $m;
+            }
+
+        }
+        return $m;
+
+    }
     public function createAccountPara($data){
         if($data['para']=='physiotherapist'){
             $role=3;

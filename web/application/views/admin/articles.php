@@ -43,7 +43,7 @@
                 <td>Akila Perera</td>
                 <td><input type="button" class="button" value="Approve"> </td>
               </tr>
-              <tr class="active-row">
+              <tr>
                 <td>Article</td>
                 <td >What causes lumbar strain?</td>
                 <td class="longtext">What causes lumbar strain?What causes lumbar strain?What causes lumbar strain?</td>
@@ -59,7 +59,7 @@
                 <td>Akila Perera</td>
                 <td><input type="button" class="button" value="Approve"> </td>
               </tr>
-              <tr class="active-row">
+              <tr>
                 <td>Article</td>
                 <td >What causes lumbar strain?</td>
                 <td class="longtext">What causes lumbar strain?What causes lumbar strain?What causes lumbar strain?</td>
@@ -75,7 +75,7 @@
                 <td>Akila Perera</td>
                 <td><input type="button" class="button" value="Approve"> </td>
               </tr>
-              <tr class="active-row">
+              <tr>
                 <td>Article</td>
                 <td >What causes lumbar strain?</td>
                 <td class="longtext">What causes lumbar strain?What causes lumbar strain?What causes lumbar strain?</td>

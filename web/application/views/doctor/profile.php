@@ -20,7 +20,7 @@
             <?php include "header.php"?>
 <!--Body section-->
             <main>
-              <br><br><br>
+            
             <?php $this->flash('addcs', 'alert alert-success') ?>
             <?php $this->flash('assign', 'alert alert-success') ?>
                   
@@ -28,12 +28,12 @@
               <!--Profile box-->
                       <div class="profile box">
                         <div class="title" style="justify-content: center;">Personal Profile</div>
-                        <div class="img">
-                          <i class="fas fa-user prof"></i>
+                      
+                        <center><img src="../../web/public/assets/img/user.jpg" alt="user" class="user" style="width: 100px; height:100px"></center>
                           <!--<div class="edit">
                             <i class="fas fa-camera cam"></i>
                           </div>-->
-                        </div>
+                      
                         <div class="updt"><i class="fas fa-user user"></i>Dr.<?php echo $data[0]->full_name?></div>
                         <div class="updt"><i class="fas fa-user user"></i><?php echo ($data[0]->sex) ?></div>
                         <div class="updt"><i class="fas fa-map-marker-alt user"></i><?php echo($data[0]->province)?></div>
@@ -63,7 +63,7 @@
                                   <!--card-->
                                 <div class="card">
                                   <i class="fas fa-book-medical user"></i>
-                                  <div class="qual">Case Study : #C00<?php echo($item->case_id);?> <br><p class="txt"><?php echo($item->title);?>  </p></div>
+                                  <div class="qual">Case Study : #C00<?php echo($item->case_id);?> <br><p class="txt"><?php echo($item->title);?> - <?php echo($item->full_name);?>  </p> </div>
                                   <div class="button" > <a href="<?php echo BASEURL;?>/doctor/addparaform/<?php echo($item->case_id);?>" style="font-size:13px">Assign</a></div>
                                 </div>
                                 <?php endforeach;?>

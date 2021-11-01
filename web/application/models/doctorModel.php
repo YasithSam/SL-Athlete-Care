@@ -26,7 +26,7 @@ class doctorModel extends database
         }
     }
     public function getCaseStudyProfile($id){
-        if($this->Query("SELECT c.case_id,c.title FROM case_study c where doctor_id=? && status=?",[$id,1])){
+        if($this->Query("SELECT a.full_name,c.case_id,c.title FROM case_study c inner join athlete_profile a on a.uuid=c.athlete_id where doctor_id=? && status=?",[$id,1])){
             $x=$this->fetchall();
             return $x;
 

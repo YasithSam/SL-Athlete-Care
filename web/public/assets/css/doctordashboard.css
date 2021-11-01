@@ -79,7 +79,7 @@
   text-align: center;
   color: #66b0ff;
   border-radius: 12px;
-  margin-right: 30px;
+  margin-right: 10px;
   margin-left: 10px;
   border-style: solid;
   border-color: #0d3073;
@@ -148,23 +148,18 @@
   color: #0d3073;
   font-weight: 500;
 }
-.des3{
-  width: 60px;
+.home-content .forum .forum-injury .injury .des2{
+  margin-right: 10px;
 }
-/*.home-content .forum .sales-details{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}*/
 .forum .box .title{
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 10px; 
 }
 .forum .box .button{
-  width: 40%;
+  text-align: right;
   display: flex;
-  justify-content: flex-end;
+  padding-right: 10px;
 }
 .forum .box .button a{
   color: #fff;

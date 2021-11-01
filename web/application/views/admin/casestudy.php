@@ -45,7 +45,7 @@
             <td>Akila Perera</td>
             <td><input type="button" class="button" value="Disable"> </td>
           </tr>
-          <tr class="active-row">
+          <tr>
             <td>Case Study - 1 Ankle Sprain</td>
             <td>Akila Perera</td>
             <td>Akila Perera</td>
@@ -61,7 +61,7 @@
             <td>Akila Perera</td>
             <td><input type="button" class="button" value="Disable"> </td>
           </tr>
-          <tr class="active-row">
+          <tr>
             <td>Case Study - 1 Ankle Sprain</td>
             <td>Akila Perera</td>
             <td>Akila Perera</td>
@@ -77,7 +77,7 @@
             <td>Akila Perera</td>
             <td><input type="button" class="button" value="Disable"> </td>
           </tr>
-          <tr class="active-row">
+          <tr>
             <td>Case Study - 1 Ankle Sprain</td>
             <td>Akila Perera</td>
             <td>Akila Perera</td>

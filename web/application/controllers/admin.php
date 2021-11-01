@@ -66,7 +66,9 @@ class admin extends main{
     }
     public function users(){
         if($this->getSession('userRole')==1){
-          $this->view('admin/users');
+          $data=$this->adminModel->getUsers();
+       
+          $this->view('admin/users',$data);
         }  
         else{
             $this->view('404');
