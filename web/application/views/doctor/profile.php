@@ -28,8 +28,10 @@
               <!--Profile box-->
                       <div class="profile box">
                         <div class="title" style="justify-content: center;">Personal Profile</div>
-                      
-                        <center><img src="../../web/public/assets/img/user.jpg" alt="user" class="user" style="width: 100px; height:100px"></center>
+                        <div class="img">
+                        <center><img src="../../web/public/assets/img/doctor.jpg" alt="user" class="user"  style="width: 100px; height:100px"></center>
+
+                
                           <!--<div class="edit">
                             <i class="fas fa-camera cam"></i>
                           </div>-->
