@@ -29,7 +29,9 @@
                       <div class="profile box">
                         <div class="title" style="justify-content: center;">Personal Profile</div>
                         <div class="img">
-                          <i class="fas fa-user prof"></i>
+                        <center><img src="../../web/public/assets/img/doctor.jpg" alt="user" class="user"  style="width: 100px; height:100px"></center>
+
+                
                           <!--<div class="edit">
                             <i class="fas fa-camera cam"></i>
                           </div>-->

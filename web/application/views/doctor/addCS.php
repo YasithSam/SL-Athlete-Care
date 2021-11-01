@@ -99,7 +99,6 @@
         </div>
 </header>
 
-         <!-- ?php include "header.php";?> -->
 
            
 <!--Body section-->
@@ -118,7 +117,7 @@
                                 </div>
                              <!--Athlete-->
                              <div class="field" >
-                                <select name="athlete" id="athlete" style="background-color:aqua" required>
+                                <select name="athlete" id="athlete"  required>
                                    <option value="" disabled selected hidden>Athlete</option>
                                    <?php foreach($data[1] as $item): ?>
                                     <option value="<?php print_r($item->uuid);?>"><?php print_r($item->username);?></option>

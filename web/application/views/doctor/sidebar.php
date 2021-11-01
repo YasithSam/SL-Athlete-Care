@@ -10,7 +10,7 @@
             <div class="sidebar-menu">
                 <ul>
                     <li id="db">
-                        <a href="<?php echo BASEURL;?>/doctor/dashboard">
+                        <a href="<?php echo BASEURL;?>/doctor/index">
                             <span class="ti-dashboard"></span>
                             <span>Dashboard</span>
                         </a>
