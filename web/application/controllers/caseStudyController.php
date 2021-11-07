@@ -35,8 +35,8 @@ class caseStudyController extends main{
     public function post($id){
         $data=$this->caseStudyModel->getAdvice($id);  
         // $data2=$this->caseStudyModel->getImages($id);  
-        $data3=$this->caseStudyModel->getWorkout($id); 
-        $data4=$this->caseStudyModel->getDiet($id);
+        $data3=$this->caseStudyModel->getPWorkout($id); 
+        $data4=$this->caseStudyModel->getPDiet($id);
         $top=array_slice($data, 0, 3);
         // $top2=array_slice($data2, 0, 3);
         $top3=array_slice($data3, 0, 3);
@@ -85,6 +85,25 @@ class caseStudyController extends main{
         $this->view('casestudy/diet',[$data3,$id]);
 
     }
+
+//post diet
+
+    public function pdiet($id){
+        $data3=$this->caseStudyModel->getPDiet($id); 
+
+        $this->view('casestudy/pdiet',[$data3,$id]);
+
+    }
+
+//post workout
+
+    public function pworkout($id){
+        $data3=$this->caseStudyModel->getPWorkout($id); 
+        $this->view('casestudy/pworkout',[$data3,$id]);
+
+    }
+
+
     public function medicine($id){
         $data=$this->caseStudyModel->getMedicine($id);
         $this->view('casestudy/medicine',[$data,$id]);
