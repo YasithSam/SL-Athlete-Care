@@ -33,16 +33,18 @@ class caseStudyController extends main{
 
     }
     public function post($id){
-        // $data=$this->caseStudyModel->getAdvices($id);  
+        $data=$this->caseStudyModel->getAdvice($id);  
         // $data2=$this->caseStudyModel->getImages($id);  
-        // $data3=$this->caseStudyModel->getWorkout($id); 
-        // $data4=$this->caseStudyModel->getDiet($id);
-        // $top=array_slice($data, 0, 3);
+        $data3=$this->caseStudyModel->getWorkout($id); 
+        $data4=$this->caseStudyModel->getDiet($id);
+        $top=array_slice($data, 0, 3);
         // $top2=array_slice($data2, 0, 3);
-        // $top3=array_slice($data3, 0, 3);
-        // $top4=array_slice($data4, 0, 3);
+        $top3=array_slice($data3, 0, 3);
+        $top4=array_slice($data4, 0, 3);
         // $dataA=[$top,$id,$top2,$top3,$top4];
-        $this->view("casestudy/post");
+        $dataA=[$top,$id,$top3,$top4];
+
+        $this->view("casestudy/post" ,$dataA);
       
      }
     public function item($id){
@@ -113,6 +115,34 @@ class caseStudyController extends main{
        
 
     }
+
+    public function addAdvice($id){
+        $uid=$this->getSession('userId');
+        $data = [
+
+            'heading'        => $this->input('title'),
+            'description'    => $this->input('description'),
+            'id' => $id,
+            'uid'=>$uid
+          
+        ];
+        if(!empty($data['heading']) && !empty($data['description'])){
+            if($this->caseStudyModel->addAdvice($data)){
+                
+                $this->redirect('caseStudyController/advices/'.$id);     
+            }
+
+        } 
+        else{
+            $this->redirect('caseStudyController/post/'.$id);   
+
+        }
+      
+       
+
+    }
+
+
     public function editAdvices($id){   
         $data = [
 
@@ -138,7 +168,8 @@ class caseStudyController extends main{
 
     }
     public function advices($id){
-        $this->view('casestudy/advices');
+        $data3=$this->caseStudyModel->getAdvice($id);
+        $this->view('casestudy/advices',[$data3,$id]);
 
     }
     public function workoutsingle($id){
