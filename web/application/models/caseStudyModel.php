@@ -217,6 +217,17 @@ class caseStudyModel extends database
         return false;
 
     }
+
+    public function addAdvice($data){
+        $x=[$data['id'],2,$data['uid'],$data['heading'],$data['description'],0];
+        if($this->Query("INSERT into case_study_records (case_id,type_id,recording_user_id,heading,description,state) VALUES (?,?,?,?,?,?)",$x)){
+            return true;
+        }
+        return false;
+
+    }
+
+
     public function getDietById($id){
         $m=[];
         if($this->Query("SELECT id,title,description FROM diet_events where diet_id=? ",[$id])){

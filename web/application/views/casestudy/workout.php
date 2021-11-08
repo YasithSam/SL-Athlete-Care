@@ -26,19 +26,19 @@
 
     <!--end of details-->
 
-    <!--buttons-->
-    <div id="btn-group">
+  <!--buttons-->
+  <div id="btn-group">
       
-        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/index/<?php echo($data[1])?>';">
-          Updates 
-        </button>
-        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1])?>';">
-            Pre
-        </button>
-        <button class="btn" onclick="window.location.href='';">
-            Post
-        </button>
-    </div>
+      <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/index/<?php echo($data[1])?>';">
+        Updates 
+      </button>
+      <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1])?>';">
+          Pre
+      </button>
+      <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/post/<?php echo($data[1])?>';">
+          Post
+      </button>
+  </div>
 
 <!--cards-->
 <div class="container">

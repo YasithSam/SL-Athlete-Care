@@ -21,8 +21,10 @@
 <!--Body section-->
             <main>
         
+            <div class="alrt">
             <?php $this->flash('addcs', 'alert alert-success') ?>
             <?php $this->flash('assign', 'alert alert-success') ?>
+            </div>
                   
               <div class="home">
               <!--Profile box-->
@@ -107,7 +109,10 @@
                           <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome </p>
                           </div>
                         </div>
-
+                        <div class="link">
+                        <a href="<?php echo BASEURL;?>/doctor/articles"?>
+                         View More </a>
+                         </div>
                       </div>
               <!--End of Articles box-->
               
