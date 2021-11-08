@@ -140,7 +140,7 @@ for (var i = 0; i < btns.length; i++) {
         <?php else: ?>             
            
         <?php endif;?>        
-        <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/workout/<?php echo($data[1])?>';">More</button>
+        <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pworkout/<?php echo($data[1])?>';">More</button>
     </div>
 
 </div>
@@ -175,7 +175,7 @@ for (var i = 0; i < btns.length; i++) {
       <?php if($_SESSION["userRole"]==5):?>         
           <button class="addbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/adddiet/<?php echo($data[1])?>';">Add New</button>        
      <?php else: ?>             
-        <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/diet/<?php echo($data[1])?>';">More</button>
+        <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pdiet/<?php echo($data[1])?>';">More</button>
      <?php endif;?>
       </div>
 </div>
