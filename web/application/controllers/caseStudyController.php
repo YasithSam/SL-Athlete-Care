@@ -86,6 +86,7 @@ class caseStudyController extends main{
 
     }
 
+
 //post diet
 
     public function pdiet($id){
@@ -191,6 +192,7 @@ class caseStudyController extends main{
         $this->view('casestudy/advices',[$data3,$id]);
 
     }
+    
     public function workoutsingle($id){
         $data3=$this->caseStudyModel->getWorkoutById($id); 
         $this->view('casestudy/view-workout-schedule',$data3);

@@ -4,7 +4,9 @@
     font-family: 'Poppins', sans-serif;
     margin:0; 
     padding:0;
+   
 }
+
 
 .header_section{
     position: fixed;
@@ -118,14 +120,16 @@
 }
 
 .card{
-    background-color: rgb(255, 255, 255);
-    height: 850px;
-    display: inline-block;
-    width: 80%;
-    margin-left: 10%;
-    box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2);
-    transition: 0.3s;
-    margin-top: 10px;
+  background-color: rgb(255, 255, 255);
+  height: fit-content;
+  display: inline-block;
+  width: 80%;
+  margin-left: 10%;
+  box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
    
 }
 
@@ -133,12 +137,12 @@
     float: left;
     background-color: #fff;
     width: 20%;
-    height: 120px;
+    height: 140px;
 }
 
 .card-img-top{
     width: 140px;
-    height: 120px;
+    height: 140px;
     padding-left: 20px;
 }
 
@@ -146,7 +150,7 @@
     float: right;
     background-color: #58a5f0;
     width: 80%;
-    height: 120px;
+    height: 140px;
 }
 
 .card-body{
@@ -167,13 +171,13 @@
 }
 
 .items{
-    display: flex;
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    height: 660px;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-top: 20px;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: fit-content;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 .card-2{
@@ -223,7 +227,7 @@
   color: #fff;
 }
 
-.editbtn{
+.backbtn{
     background-color: #58a5f0;
     float: left;
     border: none;
@@ -250,7 +254,7 @@
   }
   
   
-  .editbtn:hover {
+  .backbtn:hover {
     background-color: #01579b;
 }
 

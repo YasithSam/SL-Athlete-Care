@@ -22,14 +22,17 @@
 <div class="container">
         <div class="card">
             <div class="left">
-            <img class="card-img-top" src="yoga.png" alt="icon">
+            <img class="card-img-top" src="../../../web/public/assets/img/fitness.png" alt="icon">
             </div>
             
             <div class="right">
             <div class="card-body">
-                <h5 class="card-title">Workout Schedule - 1</h5>
-                <p class="card-text">Total body strength and core training</p>
-            </div>
+                
+
+            <h5 class="card-title"><?php echo $data[0]->htitle?></h5>
+
+            <p class="card-text"><?php echo $data[0]->hdesc?></p>
+        </div>
             </div> 
         
           <div class="items">
@@ -38,18 +41,12 @@
              <?php foreach($data as $item): ?>  
                 <div class="card-2">
                     <div id="textbox">
-                        <h2 class="alignleft"><b><?php echo($item->title)?></b></h2>
-                        <?php if($item->reps==0):?>
-                            <h3 class="alignright">Time period: <?php echo($item->time)?>s</h3>
-                        <?elseif($item->time==0):?>
-                            <h3 class="alignright">Repetitions: <?php echo($item->reps)?></h3>
-
-                        <?elseif($item->time==0 && $item->reps==0):?>
-
-                        <?else:?>
-                            <h3 class="alignright">Time period: <?php echo($item->time)?>s</h3>
-                            <h3 class="alignright">Repetitions: <?php echo($item->reps)?></h3>
-                        <?endif?>
+                        <h2 class="alignleft"><b>Workout Event - <?php echo($item->title)?></b></h2>
+                        
+              
+                        <h3 class="alignright">Time period: <?php echo($item->time)?>s</h3>
+                            
+                        <h3 class="alignright">Repetitions: <?php echo($item->reps)?></h3>
 
                       
                     </div>
@@ -58,19 +55,34 @@
                     </div>
                 </div>
 
-            <?php endforeach;?>
-     
-         <?php endif; ?> 
+
+         <?php endforeach;?>
+
+     <?php else: ?>
+        
+            <h1>No data </h1>
+    <?php endif; ?> 
 
     </div>
+
+    
     
     <div class="endbtn">
+        <button class="backbtn" onclick="goBack()"><i class="fa fa-arrow-left "></i>Go Back</button>
         <button class="deletebtn"><i class="fa fa-trash"></i>Delete</button>
     
     </div>
 
  </div>
 </div>
+
+<!--Go Back Script-->
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 
 
  <!-- The Modal -->

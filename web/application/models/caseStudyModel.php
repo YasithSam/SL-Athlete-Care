@@ -142,6 +142,19 @@ class caseStudyModel extends database
         return $m;
 
     }
+
+
+   // getDetailsPart 
+
+    //public function getDetailsPart($id){
+        //if($this->Query("SELECT title AS cstitle,description AS csdesc FROM case_study where case_id=?",[$id])){
+      //      $x=$this->fetch();
+        //return $x;
+
+      //}
+
+
+
     public function getWorkout($id){
         $m=[];
         if($this->Query("SELECT w.id,w.title,w.description FROM workout_schedule w inner join schedule s on w.schedule_id=s.id where s.case_study_id =? && w.state=?",[$id,0])){
@@ -281,10 +294,10 @@ class caseStudyModel extends database
 
     }
 
-
+         
     public function getDietById($id){
         $m=[];
-        if($this->Query("SELECT id,title,description FROM diet_events where diet_id=? ",[$id])){
+        if($this->Query("SELECT e.id,e.title,e.amount,e.descritption, d.title AS htitle,d.description AS hdesc FROM diet_events e inner join diet_schedule d on d.id=e.diet_id where d.id=? ",[$id])){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;
@@ -306,7 +319,7 @@ class caseStudyModel extends database
     }
     public function getWorkoutById($id){
         $m=[];
-        if($this->Query("SELECT id,title,description,reps,time FROM workout_events where workout_schdule_id=? ",[$id])){
+        if($this->Query("SELECT e.id,e.title,e.description,e.reps,time,d.title AS htitle, d.description AS hdesc FROM workout_events e inner join workout_schedule d on d.id=e.workout_schdule_id where d.id=? ",[$id])){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;
