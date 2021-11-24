@@ -48,14 +48,20 @@
 				<div class="testimonials-carousel">
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
+
 							<!--first-->
+							<?php if(!empty($data[0])): ?>
+							<?php foreach($data[0] as $item): ?>
+
 							<div class="swiper-slide">
 								<div class="testi-item">
 									<div class="testimonials-text">
 										<div class="notice">
-											<img src="../../web/public/assets/img/notice.jpg" alt="">
+											<img src="../../web/public/assets/img/<?php echo($item->link)?>" alt="">
 										</div>
-										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+										
+										<p><?php echo $item->heading?></p>
+
 										<div class="text-link">
 											<div class="decision-wrapper">
 												<a href="<?php echo BASEURL;?>/forumController/noticeitem"><button class="notice-btn">View</button></a>
@@ -68,70 +74,12 @@
 									</div>
 								</div>
 							</div>
+							<?php endforeach;?>
+							<?php else: ?>
+								<h1>No data </h1>
+							<?php endif; ?> 
 		
-							<!--second--->
-							<div class="swiper-slide">
-								<div class="testi-item">
-									<div class="testimonials-text">
-										<div class="notice">
-											<img src="../../web/public/assets/img/notice1.jfif" alt="">
-										</div>
-										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-										<div class="text-link">
-											<div class="decision-wrapper">
-												<a href="<?php echo BASEURL;?>/forumController/noticeitem"><button class="notice-btn">View</button></a>
-											</div>          
-
-										</div>
-										<div class="testimonials-avatar">
-																					<h4>Owner</h4>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--third-->
-		
-							<div class="swiper-slide">
-								<div class="testi-item">
-									<div class="testimonials-text">
-										<div class="notice">
-											<img src="../../web/public/assets/img/notice2.jfif" alt="">
-										</div>
-										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-										<div class="text-link">
-											<div class="decision-wrapper">
-												<a href="<?php echo BASEURL;?>/forumController/noticeitem"><button class="notice-btn">View</button></a>
-											</div>          
-
-										</div>
-										<div class="testimonials-avatar">
-																					<h4>Owner</h4>
-										</div>
-									</div>
-								</div>
-							</div>
-		
-							<!--fourth-->
-							<div class="swiper-slide">
-								<div class="testi-item">
-									<div class="testimonials-text">
-										<div class="notice">
-											<img src="../../web/public/assets/img/notice3.jpg" alt="">
-										</div>
-										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-										<div class="text-link">
-											<div class="decision-wrapper">
-												<a href="<?php echo BASEURL;?>/forumController/noticeitem"><button class="notice-btn">View</button></a>
-											</div>          
-
-										</div>
-										<div class="testimonials-avatar">
-																					<h4>Owner</h4>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--testi end-->
+							
 		
 						</div>
 					</div>
@@ -300,6 +248,10 @@
 
  	<div class="right-column">
 		 <h1 style="font-size:30px">Article Section</h1>
+
+		<?php if(!empty($data[1])): ?>
+		<?php foreach($data[1] as $item1): ?>
+
  		<div class="card2">
 			<div class="user-wrapper2">
 				<img src="../../web/public/assets/img/avatar.png"  alt="">
@@ -308,8 +260,8 @@
 				</div>
 			</div> 	
 			 <img src="../../web/public/assets/img/article.jpg"  alt="">
-			 <h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-			 <h5>Dec 7, 2017</h5>
+			 <h2><?php echo $item1->heading?></h2>
+			 <h4><?php echo $item1->datetime?></h4>
 
 			 <div class="decision-wrapper">
 				<a href="<?php echo BASEURL;?>/forumController/articleitem"><button class="button3">View</button></a>
@@ -318,66 +270,12 @@
 				  
  		</div>
 
-		 <div class="card2">
-			<div class="user-wrapper2">
-				<img src="../../web/public/assets/img/avatar.png"  alt="">
-				<div class="user-name">
-					<h4>Kusal Mendis</h4>
-				</div>
-			</div> 	
-			<img src="../../web/public/assets/img/article.jpg"  alt="">
-			<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-			 <h5>Dec 7, 2017</h5>
+		<?php endforeach;?>
+		<?php else: ?>
+			<h1>No data </h1>
+		<?php endif; ?> 
 
-			 <div class="decision-wrapper">
-				<a href=""><button class="button3">View</button></a>
-			</div>
-	
-				  
- 		</div>
-
-		
- 		<div class="card2">
-			<div class="user-wrapper2">
-				<img src="../../web/public/assets/img/avatar.png"  alt="">
-				<div class="user-name">
-					<h4>Kusal Mendis</h4>
-				</div>
-			</div> 	
-			<img src="../../web/public/assets/img/article.jpg"  alt="">
-			<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-			 <h5>Dec 7, 2017</h5>
-
-			 <div class="decision-wrapper">
-				<a href=""><button class="button3">View</button></a>
-			</div>
-	
-				  
- 		</div>
-
-		 <div class="card2">
-			<div class="user-wrapper2">
-				<img src="../../web/public/assets/img/avatar.png"  alt="">
-				<div class="user-name">
-					<h4>Kusal Mendis</h4>
-				</div>
-			</div> 	
-			<img src="../../web/public/assets/img/article.jpg"  alt="">
-			<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-			 <h5>Dec 7, 2017</h5>
-
-			 <div class="decision-wrapper">
-				<a href=""><button class="button3">View</button></a>
-			</div>
-
-			
-	
-				  
- 		</div>
-		 
-
-		 
-		 
+	 
 		 <div class="view">
 			<a href="<?php echo BASEURL;?>/forumController/grid"><button class="viewall">View All</button></a>
 		</div>

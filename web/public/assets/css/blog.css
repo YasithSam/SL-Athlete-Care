@@ -863,10 +863,10 @@ ul li .pag-card{
 	font-size: 1.15rem;
 }
 
-.right-column .card2 h4,
-.right-column .card2 h5{
+.right-column .card2 h2,
+.right-column .card2 h4{
 	margin-top: 1rem;
-	font-size: 1.15rem;
+/* 	font-size: 1.15rem; */
 }
 
 .pag-card .card-info .user-wrapper2 img{
