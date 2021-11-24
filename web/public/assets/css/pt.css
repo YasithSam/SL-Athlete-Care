@@ -7,7 +7,7 @@
 }
 body{
   width: 100%;
-  background-color: #fff;
+  background-color: #e6e6e6;
 }
 .container{
   width: 100%;
@@ -185,7 +185,7 @@ body{
 
 /*Search bar*/
 
-form.search-btn input[type=text] {
+form select {
   padding: 10px;
   font-size: 16px;
   border: none;

@@ -27,94 +27,35 @@
     <div class="subtitle"> Page 1 </div>
 
     <form class="search-btn" action="/action_page.php">
-        <input type="text" class="search" placeholder="Search..." name="search">
+        <!--<input type="text" class="search" placeholder="Search..." name="search">-->
+        <select name="search" id="search" class="search">
+            <option value="" disabled selected hidden>Patient</option>
+            <?php foreach($data as $item): ?>
+            <option value="<?php print_r($item->uuid);?>"><?php print_r($item->full_name);?></option>
+            <?php endforeach;?>
+        </select>
         <button type="submit"><i class="fa fa-search"></i></button>
     </form>
         
 <!--Update card-->
+<?php if(!empty($data)): ?>
+<?php foreach($data as $item): ?>
+
 <div class="injury">
     <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
     <div class="description">
-        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
-        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
+        <div class="col1"> Name: &nbsp; <?php echo($item->full_name);?> <br> Phone: &nbsp; <?php echo($item->phone);?> </div>
+        <!-- <div class="col2"> Injury: &nbsp;   <br> Condition: &nbsp;  </div> -->
     </div>
     <div class="button">
         <div class="date">21/10/2021</div>
-        <a href="<?php echo BASEURL;?>/doctor/athlete">View</a>
+        <a href="<?php echo BASEURL;?>/doctor/athlete/<?php echo $item->uuid;?>">View</a>
     </div>
 </div>
-<!--Update card-->
-<div class="injury">
-    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
-    <div class="description">
-        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
-        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
-    </div>
-    <div class="button">
-        <div class="date">21/10/2021</div>
-        <a href="<?php echo BASEURL;?>/doctor/patient">View</a>
-    </div>
-</div>
-<!--Update card-->
-<div class="injury">
-    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
-    <div class="description">
-        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
-        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
-    </div>
-    <div class="button">
-        <div class="date">21/10/2021</div>
-        <a href="athleteprofile.html">View</a>
-    </div>
-</div>
-<!--Update card-->
-<div class="injury">
-    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
-    <div class="description">
-        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
-        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
-    </div>
-    <div class="button">
-        <div class="date">21/10/2021</div>
-        <a href="athleteprofile.html">View</a>
-    </div>
-</div>
-<!--Update card-->
-<div class="injury">
-    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
-    <div class="description">
-        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
-        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
-    </div>
-    <div class="button">
-        <div class="date">21/10/2021</div>
-        <a href="athleteprofile.html">View</a>
-    </div>
-</div>
-<!--Update card-->
-<div class="injury">
-    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
-    <div class="description">
-        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
-        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
-    </div>
-    <div class="button">
-        <div class="date">21/10/2021</div>
-        <a href="athleteprofile.html">View</a>
-    </div>
-</div>
-<!--Update card-->
-<div class="injury">
-    <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
-    <div class="description">
-        <div class="col1"> Name: &nbsp; A.B.C. Perera <br> Sport: &nbsp; Swimming </div>
-        <div class="col2"> Injury: &nbsp; Arm strain <br> Condition: &nbsp; Severe </div>
-    </div>
-    <div class="button">
-        <div class="date">21/10/2021</div>
-        <a href="athleteprofile.html">View</a>
-    </div>
-</div>
+<?php endforeach;?>
+    <?php else: ?>
+        <h1>No data </h1>
+    <?php endif; ?> 
 
 <!--buttons-->
 <div class="btn-group">
@@ -126,28 +67,13 @@
 <!--end of buttons-->
 
 </div>
-
 </div>
 
-</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
 
-<!--Forum dropdown menu script-->
-    <script>
-      /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-      var dropdown = document.getElementsByClassName("dropdown-btn");
-      var i;
-      
-      for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none";
-        } else {
-        dropdownContent.style.display = "block";
-        }
-        });
-      }
-      </script>
+         <script type="text/javascript">
+         $("#athlete").chosen();
+         </script>
 </body>
 </html>

@@ -25,8 +25,12 @@ class doctor extends main{
         }
     }
     public function patients(){
+        $userId = $this->getSession('userId');
         if($this->getSession('userRole')==2){
-            $this->view('doctor/patients');
+            $data=$this->doctorModel->getPatients($userId);
+            
+            //$data["id"]=("uuid");
+            $this->view('doctor/patients',$data);
         }
         else{
             $this->view('404');
@@ -49,9 +53,13 @@ class doctor extends main{
 
     }
 
-    public function athlete(){
+    public function athlete($uuid){
+        //$user_id = $this->uri->segment(3);
+        $id=$uuid;
         if($this->getSession('userRole')==2){
-            $this->view('doctor/athlete');
+            $data=$this->doctorModel->getAthlete($id);
+            //$data2=$this->doctorModel->getAthleteSport();
+            $this->view('doctor/athlete',$data);
         }
         else{
             $this->view('404');

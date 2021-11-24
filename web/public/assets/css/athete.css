@@ -59,13 +59,9 @@ body{
   font-size: 100px;
   height: 150px;
   width: 150px;
-  background: #cce5ff;
   line-height: 150px;
   text-align: center;
-  color: #66b0ff;
   border-radius: 100px;
-  padding-top: 10px;
-  padding-bottom: 10px;
   margin-bottom: 20px;
   overflow: hidden;
   object-fit: cover;
