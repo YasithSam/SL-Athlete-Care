@@ -11,8 +11,19 @@ class forumController extends main{
 
     }
     public function index(){
-        $this->view('blog');
-    }
+            if($this->getSession('userRole')==2){
+            $data=$this->forumModel->getNotices();
+            $data2=$this->forumModel->getArticles();
+            $top=array_slice($data, 0, 3);
+            $top2=array_slice($data2, 0, 4);
+            $data3=[$top,$top2];
+            $this->view('blog',$data3);
+            }
+            else{
+                $this->view('404');
+            } 
+        }
+
     
 
     public function item($id){
