@@ -12,7 +12,11 @@ class doctorModel extends database
 
     }   
      public function getForumItems($id){
-        if($this->Query("SELECT r.id,a.full_name,i.injury,r.con,r.doctor_id from athlete_reported_injury AS r inner join athlete_profile AS a On r.athlete_id=a.uuid inner join injury As i on i.id=r.injury_id where (r.doctor_id=? || r.doctor_id=?) && r.status=?",[$id,0,0])){
+        if($this->Query("SELECT r.id,a.full_name,i.injury,r.con,r.doctor_id 
+                         from athlete_reported_injury AS r 
+                         inner join athlete_profile AS a On r.athlete_id=a.uuid 
+                         inner join injury As i on i.id=r.injury_id 
+                         where (r.doctor_id=? || r.doctor_id=?) && r.status=?",[$id,0,0])){
             $x=$this->fetchall();
             return $x;
 
@@ -32,6 +36,38 @@ class doctorModel extends database
 
         }
     }
+    //////////////////
+    public function getPatients($id){
+        if($this->Query("SELECT a.uuid,a.full_name,au.phone
+                         from application_user au
+                         inner join athlete_profile a on a.uuid=au.uuid
+                         where role_id=? ",[4])){
+            $x=$this->fetchall();
+            return $x;
+
+        }
+    }
+    
+    public function getAthlete($id){
+        if($this->Query("SELECT a.full_name,a.email,a.sex,a.city,a.responsible_person_email/*,au.phone,ap.weight,ap.height,ap.bmi,ap.body_fat*/
+                         from athlete_profile a
+                         /*inner join application_user au on au.uuid=a.uuid
+                         /*inner join athlete_physical ap on a.uuid=ap.athlete_id*/
+                         where uuid=?",[$id])){
+            $x=$this->fetch();
+            return $x;
+        }
+    }
+    /*public function getAthleteSport(){
+        if($this->Query("SELECT asp.institution,asp.level,s.name
+                         from athlete_sport asp
+                         inner join sport s on asp.sport_id=s.id
+                         where id=?",[1])){
+            $x=$this->fetchall();
+            return $x;
+        }
+    }*/
+    /////////////////
     public function getNutritionist(){
         if($this->Query("SELECT uuid,username FROM application_user where role_id=?",[5])){
             $x=$this->fetchall();

@@ -29,7 +29,8 @@
                       <div class="profile box">
                         <div class="title" style="justify-content: center;">Personal Profile</div>
                         <div class="img">
-                        <center><img src="../../web/public/assets/img/doctor.jpg" alt="user" class="user"  style="width: 100px; height:100px"></center>
+                          <img src="../../web/public/assets/img/doctor.jpg" alt="user" class="user"  style="width: 100px; height:100px">
+                        </div>
 
                 
                           <!--<div class="edit">
@@ -46,9 +47,6 @@
               <!--End of Profile box-->
               
                       <div class="right">
-              <!--Professional qualifications box-->
-                    
-              <!--End of Professional qualifications box-->
               
               <!--Case studies box box-->
                    
