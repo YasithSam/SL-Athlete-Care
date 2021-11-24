@@ -14,19 +14,22 @@
     <body>
         <input type="checkbox" id="sidebar-toggle">
         <?php include "sidebar.php" ?>
-
+     
         <div class="main-content">
 
             <?php include "header.php"?>
 <!--Body section-->
             <main>
-            
+        
+            <div class="alrt">
             <?php $this->flash('addcs', 'alert alert-success') ?>
             <?php $this->flash('assign', 'alert alert-success') ?>
+            </div>
                   
               <div class="home">
               <!--Profile box-->
                       <div class="profile box">
+                      <br>
                         <div class="title" style="justify-content: center;">Personal Profile</div>
                         <div class="img">
                           <img src="../../web/public/assets/img/doctor.jpg" alt="user" class="user"  style="width: 100px; height:100px">
@@ -44,6 +47,8 @@
                         <div class="updt"><i class="fas fa-clinic-medical user"></i><?php echo($data[0]->hospital)?></div>
                         <div class="button" style="justify-content: center;"><a href="<?php echo BASEURL;?>/doctor/editprofile">Edit Profile</a></div>
                       </div>
+                      </div>  
+
               <!--End of Profile box-->
               
                       <div class="right">
@@ -102,7 +107,10 @@
                           <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome </p>
                           </div>
                         </div>
-
+                        <div class="link">
+                        <a href="<?php echo BASEURL;?>/doctor/articles"?>
+                         View More </a>
+                         </div>
                       </div>
               <!--End of Articles box-->
               

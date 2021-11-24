@@ -11,9 +11,18 @@ body{
   width: 100%;
   background: rgb(255, 255, 255);
 }
+.link{
+  float: right;
+}
+
+.alrt{
+  margin-left: 20px;
+  margin-top: 100px;
+}
 .home{
   position: relative;
   padding-top: 70px;
+
   background: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
@@ -30,7 +39,7 @@ body{
 /* left box */
 .home .profile{
   width: 40%;
-  height: auto;
+  height: 600px;
   background: rgb(255, 255, 255);
   padding: 20px 30px;
   margin: 0 20px 0 0;

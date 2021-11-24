@@ -50,7 +50,7 @@
         
         <?php foreach($data[0] as $item): ?>
         <div class="card">
-            <img class="card-img-top" src="../../../web/public/assets/img/yoga.png" alt="icon"> 
+            <img class="card-img-top" src="../../../web/public/assets/img/fitness.png" alt="icon"> 
             <div class="card-body">
                 <h5 class="card-title"><?php echo ucwords($item->title)?></h5>
                 <p class="card-text"><?php echo ucwords($item->description)?></p>

@@ -35,7 +35,7 @@
         <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1])?>';">
             Pre
         </button>
-        <button class="btn" onclick="window.location.href='';">
+        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/post/<?php echo($data[1])?>';">
             Post
         </button>
     </div>

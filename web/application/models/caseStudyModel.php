@@ -164,6 +164,60 @@ class caseStudyModel extends database
         return $m;
 
     }
+
+    //post workout
+
+    public function getPWorkout($id){
+        $m=[];
+        if($this->Query("SELECT w.id,w.title,w.description FROM workout_schedule w inner join schedule s on w.schedule_id=s.id where s.case_study_id =? && w.state=?",[$id,1])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $m[$i]=$obj;
+                    $i++;
+                     
+                }    
+       
+
+            } else {
+                return $m;
+            }
+
+        }
+        return $m;
+
+    }
+
+    //post workout
+
+    public function getPDiet($id){
+        $m=[];
+        if($this->Query("SELECT d.id,d.title,d.description FROM diet_schedule d inner join schedule s on d.schedule_id=s.id where s.case_study_id =? && d.state=?",[$id,1])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $m[$i]=$obj;
+                    $i++;
+                     
+                }    
+       
+
+            } else {
+                return $m;
+            }
+
+        }
+        return $m;
+
+    }
+
+
+
+
     public function getImages($id){
         $m=[];
         if($this->Query("SELECT c.id,c.heading,c.description,a.link FROM case_study_records c left join case_study_attachements a on c.id=a.case_study_record where c.type_id=? && c.case_id=? && c.state=?",[5,$id,0])){
@@ -217,6 +271,17 @@ class caseStudyModel extends database
         return false;
 
     }
+
+    public function addAdvice($data){
+        $x=[$data['id'],2,$data['uid'],$data['heading'],$data['description'],0];
+        if($this->Query("INSERT into case_study_records (case_id,type_id,recording_user_id,heading,description,state) VALUES (?,?,?,?,?,?)",$x)){
+            return true;
+        }
+        return false;
+
+    }
+
+
     public function getDietById($id){
         $m=[];
         if($this->Query("SELECT id,title,description FROM diet_events where diet_id=? ",[$id])){
@@ -264,4 +329,5 @@ class caseStudyModel extends database
 
 
 }
+
 ?>

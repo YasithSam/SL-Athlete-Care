@@ -38,78 +38,73 @@
     <!--buttons-->
     <div id="btn-group">
       
-        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/index/<?php echo($data[1]->id)?>';">
+        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/index/<?php echo($data[1])?>';">
          Updates
         </button>
-        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1]->id)?>';">
+        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1])?>';">
             Pre
         </button>
-        <button class="btn active" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/post/<?php echo($data[1]->id)?>';">
+        <button class="btn active">
             Post
         </button>
     </div>
       
 
+    <script>
+
+// Add active class to the current button (highlight it)
+var header = document.getElementById("btn-group");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+
+</script> 
 
     <!--end of buttons-->
 
     
     <!--Advices-->
-   <!--Advices-->
    <div class="container-2">
         <div class="title">
         <h3>Advices</h3>
         </div>
+        <?php if(!empty($data[0])): ?>
 
+        <?php foreach($data[0] as $item): ?>
         <div class="card-2">
-            <div class="imgbox">
+            <div class="imgbox" style="overflow-y: hidden;">
                 <img src="../../../web/public/assets/img/advice.png" alt="">
             </div>
             <div class="textbox1">
             <div id="textbox">
-                <h2 class="alignleft"><b>Advice update - 1</b></h2>
-                <h3 class="alignright">03/10/2021</h3>
+                    <h2 class="alignleft"><b>Advice update - <?php echo ucwords($item->heading)?></b></h2>
+                    <?php $d=explode(" ",$item->datetime)?>
+                        <h3 class="alignright">Time: <?php echo ucwords($d[1])?></h3>
+                        <h3 class="alignright">Date: <?php echo ucwords($d[0])?></h3>
+                </div>
+                <div style="clear: both;">
+                    <h3><?php echo ucwords($item->description)?></h3>
+                </div>
             </div>
-              <div style="clear: both;">
-                <h3>This card has supporting text below as a natural lead-in to additional</h3>
             </div>
-           </div>
-        </div>
-    
-        <div class="card-2">
-            <div class="imgbox">
-                <img src="../../../web/public/assets/img/advice.png" alt="">
-            </div>
-            <div class="textbox1">
-            <div id="textbox">
-                <h2 class="alignleft"><b>Advice update - 2</b></h2>
-                <h3 class="alignright">03/10/2021</h3>
-            </div>
-              <div style="clear: both;">
-                <h3>This card has supporting text below as a natural lead-in to additional</h3>
-            </div>
-           </div>
-        </div>
-
-        <div class="card-2">
-            <div class="imgbox">
-                <img src="../../../web/public/assets/img/advice.png" alt="">
-            </div>
-            <div class="textbox1">
-            <div id="textbox">
-                <h2 class="alignleft"><b>Advice update - 3</b></h2>
-                <h3 class="alignright">03/10/2021</h3>
-            </div>
-              <div style="clear: both;">
-                <h3>This card has supporting text below as a natural lead-in to additional</h3>
-            </div>
-           </div>
-        </div>
+            <?php endforeach;?>
+     <?php else: ?>
+          <h1>No data </h1>
+    <?php endif; ?> 
 
     <div class="addbtn2">
-        <button class="addbutton" onclick="window.location.href='./forms/add-advice.html';">Add New</button>
-        <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/post';">More</button> 
-    </div>
+      <?php if($_SESSION["userRole"]==2):?>         
+        <button class="addbutton1">Add New</button>
+     <?php else: ?>             
+     
+     <?php endif;?>
+     <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/advices/<?php echo($data[1])?>';">More</button> 
+      </div>
 
     </div>
     
@@ -123,76 +118,66 @@
         <h3>Workout</h3>
         </div>
         <div class="card-deck">
+        <?php if(!empty($data[2])): ?>
+
+         <?php foreach($data[2] as $item): ?>
             <div class="card">
                 <img class="card-img-top" src="../../../web/public/assets/img/fitness.png" alt="icon"> 
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
+                    <h5 class="card-title"><?php echo ucwords($item->title)?></h5>
+                    <p class="card-text"><?php echo ucwords($item->description)?></p>
                 </div>
             </div>
-
-            <div class="card">
-                <img class="card-img-top" src="../../../web/public/assets/img/workout-machine.png" alt="icon"> 
-                <div class="card-body"> 
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img-top" src="../../../web/public/assets/img/yoga.png" alt="icon"> 
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
-                </div>
-            </div>
+            <?php endforeach;?>
+        <?php else: ?>
+          <h1>No data </h1>
+        <?php endif; ?> 
             
         </div>
-
-    <div class="addbtn2">
-        <button class="addbutton" onclick="window.location.href='./forms/add-workout.html';">Add New</button>
-        <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/workout';">More</button>
+        <div class="addbtn2">
+        <?php if($_SESSION["userRole"]==3):?>         
+          <button class="addbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/addworkout/<?php echo($data[1])?>';">Add New</button>
+        <?php else: ?>             
+           
+        <?php endif;?>        
+        <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pworkout/<?php echo($data[1])?>';">More</button>
     </div>
 
 </div>
       <!--end-->
 
       <!--Diet-->
-    <div class="container">
+      <div class="container">
         <div class="title">
         <h3>Diet</h3>
         </div>
-        <div class="card-deck">
-            <div class="card">
-                <img class="card-img-top" src="../../../web/public/assets/img/diet (3).png" alt="icon"> 
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
-                </div>
-            </div>
+       
+            <div class="card-deck">
+            <?php if(!empty($data[3])): ?>
 
-            <div class="card">
-                <img class="card-img-top" src="../../../web/public/assets/img/diet (2).png" alt="icon"> 
-                <div class="card-body"> 
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
+            <?php foreach($data[3] as $item): ?>
+                <div class="card">
+                    <img class="card-img-top" src="../../../web/public/assets/img/diet (3).png" alt="icon"> 
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo ucwords($item->title)?></h5>
+                        <p class="card-text"><?php echo ucwords($item->description)?></p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <img class="card-img-top" src="../../../web/public/assets/img/healthy-food.png" alt="icon"> 
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content</p>
-                </div>
-            </div>
+            <?php endforeach;?>
+        <?php else: ?>
+          <h1>No data </h1>
+        <?php endif; ?> 
             
         </div>
 
     <div class="addbtn2">
-        <button class="addbutton" onclick="window.location.href='./forms/add-diet.html';">Add New</button>
-        <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/diet';">More</button>
-    </div>
+      <?php if($_SESSION["userRole"]==5):?>         
+          <button class="addbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/adddiet/<?php echo($data[1])?>';">Add New</button>        
+     <?php else: ?>             
+        <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pdiet/<?php echo($data[1])?>';">More</button>
+     <?php endif;?>
+      </div>
 </div>
       <!--end-->
 
@@ -200,6 +185,79 @@
    
       <!--end-->
 
+   
+      
+      <!--Modal-->
     
+<div id="AddModal" class="modal">       
+    <div class="mcontainer">
+        <div class="header2">
+        <h2 class="myheader">Add Advice</h2>
+        </div>
+   
+  <div class="form-cont">
+    <form action="<?php echo BASEURL;?>/CaseStudyController/addAdvice/<?php echo($data[1])?>" method="POST">
+  
+    <div class="row">
+      <div class="col-25">
+        <label for="title">Title :</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="title" name="title" placeholder="Enter Title" required>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Description :</label>
+      </div>
+      <div class="col-75">
+        <textarea id="description" required name="description" placeholder="Enter Description" style="height:120px"></textarea>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <button class="back">Cancel</button>  
+      <input type="submit" value="Submit">
+    </div>
+    </form>
+    </div>
+    </div>
+</div>
+
+<script>
+   // Get the modal
+    var modal = document.getElementById('AddModal');
+
+    // Get the button that opens the modal
+    var btns = document.getElementsByClassName("addbutton1");
+
+    // Get the element that closes the modal
+    var span = document.getElementsByClassName("back")[0];
+
+    // When the user clicks the button, open the modal 
+    for (var i = 0; i < btns.length; i++) {
+    btns[i].onclick = function() {
+        modal.style.display = "block";
+    }
+    }
+
+    // When the user clicks on N0, close the modal
+    span.onclick = function() {
+     modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    </script>
+
+ <!--End modal-->
+
+
+
 </body>
 </html>
