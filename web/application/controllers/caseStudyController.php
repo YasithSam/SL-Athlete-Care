@@ -10,39 +10,47 @@ class caseStudyController extends main{
        $this->caseStudyModel = $this->model('caseStudyModel');
 
     }
+
     public function index($id){
         $data=$this->caseStudyModel->getUpdates($id);
-        $data2=[$data,$id];
+        $data3=$this->caseStudyModel->getCaseStudyDetails($id);
+        $data2=[$data,$id,$data3];
         $this->view("casestudy/main",$data2);      
-
     }
+
+
     public function pre($id){
         $data=$this->caseStudyModel->getMedicine($id);  
         $data2=$this->caseStudyModel->getImages($id);  
         $data3=$this->caseStudyModel->getWorkout($id); 
         $data4=$this->caseStudyModel->getDiet($id);
+        $data5=$this->caseStudyModel->getCaseStudyDetails($id);
+
         $top=array_slice($data, 0, 3);
         $top2=array_slice($data2, 0, 3);
         $top3=array_slice($data3, 0, 3);
         $top4=array_slice($data4, 0, 3);
   
-        $dataA=[$top,$id,$top3,$top4,$top2];
+        $dataA=[$top,$id,$top3,$top4,$top2,$data5];
       
         $this->view("casestudy/pre",$dataA);
       
 
     }
+
     public function post($id){
         $data=$this->caseStudyModel->getAdvice($id);  
         // $data2=$this->caseStudyModel->getImages($id);  
         $data3=$this->caseStudyModel->getPWorkout($id); 
         $data4=$this->caseStudyModel->getPDiet($id);
+        $data5=$this->caseStudyModel->getCaseStudyDetails($id);
+
         $top=array_slice($data, 0, 3);
         // $top2=array_slice($data2, 0, 3);
         $top3=array_slice($data3, 0, 3);
         $top4=array_slice($data4, 0, 3);
         // $dataA=[$top,$id,$top2,$top3,$top4];
-        $dataA=[$top,$id,$top3,$top4];
+        $dataA=[$top,$id,$top3,$top4,$data5];
 
         $this->view("casestudy/post" ,$dataA);
       
