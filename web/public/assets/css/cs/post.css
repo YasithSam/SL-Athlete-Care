@@ -97,35 +97,36 @@ margin-left: 8px;
     
   /* Details part */
  
- .details_part{
-     padding-top: 60px;
-     padding-bottom: 20px;
-     height: 120px;
-     width: 100%;
-     background-color: rgb(255, 255, 255);
-     text-align: center; 
- }
- 
- .details_part .name{
-     padding-top: 10px;
-     font-size: 24px;
-     letter-spacing: 0.7px;
-     font-weight: 800;
- }
- 
- .details_part .description h3{
-     color: #777676;
-     font-size: 20px;
-     font-weight: 700;
- }
- 
- .details_part .description h4{
-     color: #c2c2c2;
-     letter-spacing: 0.5px;
-     font-size: 16px;
-     font-weight: 700;
- }
- 
+  .details_part{
+    padding-top: 60px;
+    padding-bottom: 20px;
+    height: 150px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    text-align: center; 
+}
+
+.details_part .description h2{
+    padding-top: 15px;
+    letter-spacing: 0.3px;
+    font-weight: 25px;
+}
+
+.details_part .description h3{
+ color: #000000;
+ letter-spacing: 0.3px;
+ font-size: 20px;
+}
+
+
+.details_part .description h4{
+    color: #000000;
+    letter-spacing: 0.2px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
  /* Style the button group */
  
  #btn-group{

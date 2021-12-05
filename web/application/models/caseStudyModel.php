@@ -34,6 +34,15 @@ class caseStudyModel extends database
            return $data;
          }
      }
+
+     public function getCaseStudyDetails($id){
+        if($this->Query("SELECT a.full_name,c.title,c.description from case_study c inner join athlete_profile a on c.athlete_id=a.uuid where c.case_id=?",[$id])){
+            $data=$this->fetch();
+            return $data;
+        }
+    }
+
+    
      public function addworkout($data){  
         $y=[$data['id'],6];
         
@@ -144,14 +153,19 @@ class caseStudyModel extends database
     }
 
 
-   // getDetailsPart 
 
-    //public function getDetailsPart($id){
-        //if($this->Query("SELECT title AS cstitle,description AS csdesc FROM case_study where case_id=?",[$id])){
-      //      $x=$this->fetch();
-        //return $x;
 
-      //}
+
+   //getDetailsPart 
+
+  //  public function getDetailsPart($id){
+  //     if($this->Query("SELECT title AS cstitle FROM case_study where case_id=?",[$id])){
+    //        $x=$this->fetch();
+    //    return $x;
+
+//      }
+
+
 
 
 
