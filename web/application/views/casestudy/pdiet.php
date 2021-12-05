@@ -42,7 +42,7 @@
 <!--cards-->
 <div class="container">
     <div class="title">
-    <h3>Diet</h3>
+    <h3>Diet Schedules</h3>
     </div>
     <div class="card-deck">
       <?php if(!empty($data[0])): ?>
@@ -51,7 +51,7 @@
         <div class="card">
             <img class="card-img-top" src="../../../web/public/assets/img/diet (3).png" alt="icon"> 
             <div class="card-body">
-                <h5 class="card-title"><?php echo ucwords($item->title)?></h5>
+                <h5 class="card-title">Diet Schedule - <?php echo ucwords($item->title)?></h5>
                 <p class="card-text"><?php echo ucwords($item->description)?></p>
             </div>
 

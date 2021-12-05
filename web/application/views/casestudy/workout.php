@@ -43,19 +43,20 @@
 <!--cards-->
 <div class="container">
     <div class="title">
-    <h3>Workout</h3>
+    <h3>Workout Schedules</h3>
     </div>
+
     <div class="card-deck">
     <?php if(!empty($data[0])): ?>
         
         <?php foreach($data[0] as $item): ?>
         <div class="card">
-            <img class="card-img-top" src="../../../web/public/assets/img/yoga.png" alt="icon"> 
+            <img class="card-img-top" src="../../../web/public/assets/img/fitness.png" alt="icon"> 
             <div class="card-body">
-                <h5 class="card-title"><?php echo ucwords($item->title)?></h5>
+                <h5 class="card-title">Workout Schedule - <?php echo ucwords($item->title)?></h5>
                 <p class="card-text"><?php echo ucwords($item->description)?></p>
             </div>
-
+            
             <div class="endbtn">
                 <button class="viewbtn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/workoutsingle/<?php echo($item->id)?>';">View Schedule</button>
             </div>
@@ -64,15 +65,13 @@
         <?php endforeach;?>
      <?php else: ?>
             <h1>No data </h1>
-    <?php endif; ?>   
+    <?php endif; ?> 
+    
+    
         </div>
 
-      
-
-    
-
-   
 </div>
-
+<br>
+<br>
 </body>
 </html>

@@ -165,7 +165,7 @@
             <div class="card">
                 <img class="card-img-top" src="../../../web/public/assets/img/fitness.png" alt="icon"> 
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo ucwords($item->title)?></h5>
+                    <h5 class="card-title">Workout Schedule - <?php echo ucwords($item->title)?></h5>
                     <p class="card-text"><?php echo ucwords($item->description)?></p>
                 </div>
             </div>
@@ -201,7 +201,7 @@
                 <div class="card">
                     <img class="card-img-top" src="../../../web/public/assets/img/diet (3).png" alt="icon"> 
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo ucwords($item->title)?></h5>
+                        <h5 class="card-title">Diet Schedule - <?php echo ucwords($item->title)?></h5>
                         <p class="card-text"><?php echo ucwords($item->description)?></p>
                     </div>
                 </div>

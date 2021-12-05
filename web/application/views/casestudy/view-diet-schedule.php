@@ -18,63 +18,73 @@
         </div>
     </div>
     <br><br> 
+    
+
 <div class="container">
         <div class="card">
             <div class="left">
-            <img class="card-img-top" src="../images/diet (3).png" alt="icon">
+            <img class="card-img-top" src="../../../web/public/assets/img/diet (3).png" alt="icon">
             </div>
             
             <div class="right">
             <div class="card-body">
-                <h5 class="card-title">Diet Schedule - 1</h5>
-                <p class="card-text">Diet plan to lose weight</p>
+
+         
+                <h5 class="card-title"><?php echo $data[0]->htitle?></h5>
+
+                <p class="card-text"><?php echo $data[0]->hdesc?></p>
             </div>
             </div> 
         
           <div class="items">
-          
+         <?php if(!empty($data)): ?>
         
+        <?php foreach($data as $item): ?>
+            <div class="card-2">
+                <div id="textbox">
+                
+
+                    <h2 class="alignleft"><b>Diet Event - <?php echo($item->title)?></b></h2>
+
+                    <h3 class="alignright"><?php echo($item->amount)?></h3>
+                </div>
+
+                <div style="clear: both;">
+
+                    <h3><?php echo($item->descritption)?></h3>
+                </div>
             
-            <div class="card-2">
-                <div id="textbox">
-                    <h2 class="alignleft"><b>Diet Event - 1</b></h2>
-                    <h3 class="alignright">500g</h3>
-                </div>
-                <div style="clear: both;">
-                    <h3>Zinc-rich foods include meat, fish, shellfish, and whole grains to heal wounded tissue. Nuts are also a great choice.</h3>
-                </div>
-            </div>
-            <div class="card-2">
-                <div id="textbox">
-                    <h2 class="alignleft"><b>Diet Event - 2</b></h2>
-                    <h3 class="alignright">2 spoons</h3>
-                </div>
-                <div style="clear: both;">
-                    <h3>Omega-6 fats, which are often present in Canola oil, sunflower oil, Chia seeds, corn oil and Walnuts.</h3>
-                </div>
-            </div>
-            <div class="card-2">
-                <div id="textbox">
-                    <h2 class="alignleft"><b>Diet Event - 3</b></h2>
-                    <h3 class="alignright">1 from each</h3>
-                </div>
-                <div style="clear: both;">
-                    <h3>Beans, Popcorn, Broccoli, Apples, Berries, Avocados, Whole Grains and Dried Fruits.
-</h3>
-                </div>
             </div>
            
-      
+            <?php endforeach;?>
+
+<?php else: ?>
+   
+       <h1>No data </h1>
+<?php endif; ?> 
+
     </div>
     
     <div class="endbtn">
+    <button class="backbtn" onclick="goBack()"><i class="fa fa-arrow-left "></i>Go Back</button>
         <button class="deletebtn"><i class="fa fa-trash"></i>Delete</button>
        
     </div>
 
  </div>
+ 
+ 
+
 </div>
   
+<!--Go Back Script-->
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
 
  <!-- The Modal -->
  <div id="myModal" class="modal">
