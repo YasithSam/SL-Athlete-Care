@@ -81,10 +81,12 @@ class forumController extends main{
         $this->view('questionitem');
 
     }
-    public function noticeitem(){
-        $this->view('noticeitem');
+/*     public function noticeitem($id){
+        $id=$id;
+        $data=$this->forumModel->getNoticeitem($id);
+        $this->view('noticeitem',$data);
 
-    }
+    } */
 
     public function reject($id){
         if($this->getSession('userRole')==2){
