@@ -32,7 +32,8 @@ class admin extends main{
     }
     public function casestudy(){
         if($this->getSession('userRole')==1){
-          $this->view('admin/casestudy');
+          $data=$this->adminModel->getCasestudy();
+          $this->view('admin/casestudy',$data);
         }  
         else{
             $this->view('404');
@@ -76,7 +77,8 @@ class admin extends main{
     }
     public function articles(){
         if($this->getSession('userRole')==1){
-          $this->view('admin/articles');
+          $data=$this->adminModel->getArticles();
+          $this->view('admin/articles',$data);
         }  
         else{
             $this->view('404');
