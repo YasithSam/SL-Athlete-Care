@@ -38,9 +38,9 @@
 		 <h1 style="font-size:30px">Latest Notice</h1>
  	  <div class="card">
 			<div class="in-card">
-				<img src="../../web/public/assets/img/notice.jpg"  alt="">
-				<h2>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process. Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h2>
-				<h5>Dec 7, 2017</h5>
+				<img src="../../web/public/assets/img/<?php echo($data->url)?>"  alt="">
+				<h2><?php echo $data->heading?></h2>
+				<!-- <h5>Dec 7, 2017</h5> -->
 				<br>
 		</div>
 	  </div>
