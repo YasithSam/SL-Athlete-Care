@@ -57,7 +57,7 @@
 								<div class="testi-item">
 									<div class="testimonials-text">
 										<div class="notice">
-											<img src="../../web/public/assets/img/<?php echo($item->link)?>" alt="">
+											<img src="../../web/public/assets/img/<?php echo($item->url)?>" alt="">
 										</div>
 										
 										<p><?php echo $item->heading?></p>
@@ -259,7 +259,7 @@
 					<h4>Kusal Mendis</h4>
 				</div>
 			</div> 	
-			 <img src="../../web/public/assets/img/article.jpg"  alt="">
+			 <img src="../../web/public/assets/img/<?php echo($item1->url)?>"  alt="">
 			 <h2><?php echo $item1->heading?></h2>
 			 <h4><?php echo $item1->datetime?></h4>
 
