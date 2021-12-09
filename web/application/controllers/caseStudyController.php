@@ -12,10 +12,11 @@ class caseStudyController extends main{
     }
     public function index($id){
         $data=$this->caseStudyModel->getUpdates($id);
-        $data2=[$data,$id];
+        $data3=$this->caseStudyModel->getCaseStudyDetails($id);
+        $data2=[$data,$id,$data3];
         $this->view("casestudy/main",$data2);      
-
     }
+
     public function pre($id){
         $data=$this->caseStudyModel->getMedicine($id);  
         $data2=$this->caseStudyModel->getImages($id);  
@@ -137,6 +138,7 @@ class caseStudyController extends main{
     }
 
     public function addAdvice($id){
+        
         $uid=$this->getSession('userId');
         $data = [
 
@@ -156,11 +158,10 @@ class caseStudyController extends main{
         else{
             $this->redirect('caseStudyController/post/'.$id);   
 
-        }
-      
-       
+        }   
 
     }
+   
 
 
     public function editAdvices($id){   
