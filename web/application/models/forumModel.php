@@ -68,8 +68,8 @@ class forumModel extends database
 
 
     public function getNotices(){
-        if($this->Query("SELECT p.heading ,pa.url from post p 
-        inner join post_attachements pa on p.id=pa.post_id 
+        if($this->Query("SELECT p.id,p.heading,pa.url from post p 
+        inner join post_attachments pa on p.id=pa.post_id 
         where p.type='Notice'  ORDER BY p.datetime DESC")){
             $data = $this->fetchall();
             return $data;
@@ -77,9 +77,20 @@ class forumModel extends database
         }
     }
 
+ /*    public function getNoticeitem($id){
+        if($this->Query("SELECT p.id,p.heading,pa.url from post p 
+        inner join post_attachments pa on p.id=pa.post_id 
+        where p.id=?",$id)){
+            $data = $this->fetch();
+            return $data;
+    }
+} */
+
     
     public function getArticles(){
-        if($this->Query("SELECT p.heading ,p.datetime from post p where p.type='Article' ORDER BY p.datetime DESC")){
+        if($this->Query("SELECT p.id,p.heading,p.datetime,pa.url from post p 
+        inner join post_attachments pa on p.id=pa.post_id 
+        where p.type='Article' ORDER BY p.datetime DESC")){
             $data = $this->fetchall();
             return $data;
 

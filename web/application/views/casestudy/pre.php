@@ -26,10 +26,12 @@
     
     <!--details-->
     <div class="details_part">
-        <div class="name">CASE STUDY</div>
         <div class="description">
-            <h3>Muscle Sprains and Strains</h3>
-            <h4>Injuries and disorders that affects bones, muscles, ligaments, nerves, or tendons</h4>
+           
+            <h2>Case Study Title : <?php print_r($data[5]->title)?></h2>
+            <h4><?php print_r($data[5]->description)?></h4>
+            <h3>Athlete Name : <?php print_r($data[5]->full_name)?></h3>
+           
         </div>
     </div>
 
