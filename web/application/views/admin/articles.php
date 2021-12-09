@@ -35,54 +35,20 @@
               </tr>
             </thead>
             <tbody>
+            <?php if(!empty($data)): ?>
+            <?php foreach($data as $item): ?>
               <tr>
-                <td>Article</td>
-                <td >What causes lumbar strain?</td>
-                <td class="longtext">What causes lumbar strain?What causes lumbar strain?What causes lumbar strain?</td>
-                <td >What causes lumbar strain?</td>
-                <td>Akila Perera</td>
+                <td><?php echo ucwords($item->type); ?></td>
+                <td ><?php echo ucwords($item->heading); ?></td>
+                <td class="longtext"><?php echo ucwords($item->description); ?></td>
+                <td ><?php echo ucwords($item->pt); ?></td>
+                <td><?php echo ucwords($item->username); ?></td>
                 <td><input type="button" class="button" value="Approve"> </td>
               </tr>
-              <tr>
-                <td>Article</td>
-                <td >What causes lumbar strain?</td>
-                <td class="longtext">What causes lumbar strain?What causes lumbar strain?What causes lumbar strain?</td>
-                <td >What causes lumbar strain?</td>
-                <td>Akila Perera</td>
-                <td><input type="button" class="button" value="Approve"> </td>
-              </tr>
-              <tr>
-                <td>Article</td>
-                <td >What causes lumbar strain?</td>
-                <td class="longtext">What causes lumbar strain?What causes lumbar strain?What causes lumbar strain?</td>
-                <td >What causes lumbar strain?</td>
-                <td>Akila Perera</td>
-                <td><input type="button" class="button" value="Approve"> </td>
-              </tr>
-              <tr>
-                <td>Article</td>
-                <td >What causes lumbar strain?</td>
-                <td class="longtext">What causes lumbar strain?What causes lumbar strain?What causes lumbar strain?</td>
-                <td >What causes lumbar strain?</td>
-                <td>Akila Perera</td>
-                <td><input type="button" class="button" value="Approve"> </td>
-              </tr>
-              <tr>
-                <td>Article</td>
-                <td >What causes lumbar strain?</td>
-                <td class="longtext">What causes lumbar strain?What causes lumbar strain?What causes lumbar strain?</td>
-                <td >What causes lumbar strain?</td>
-                <td>Akila Perera</td>
-                <td><input type="button" class="button" value="Approve"> </td>
-              </tr>
-              <tr>
-                <td>Article</td>
-                <td >What causes lumbar strain?</td>
-                <td class="longtext">What causes lumbar strain?What causes lumbar strain?What causes lumbar strain?</td>
-                <td >What causes lumbar strain?</td>
-                <td>Akila Perera</td>
-                <td><input type="button" class="button" value="Approve"> </td>
-              </tr>
+              <?php endforeach;?>
+        <?php else: ?>
+          <h1>No data </h1>
+        <?php endif; ?> 
             </tbody>
           </table>
           <br>

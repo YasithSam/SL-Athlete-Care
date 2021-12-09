@@ -37,54 +37,21 @@
           </tr>
         </thead>
         <tbody>
+        <?php if(!empty($data)): ?>
+
+        <?php foreach($data as $item): ?>
           <tr>
-            <td>Case Study - 1 Ankle Sprain</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
+            <td><?php echo ucwords($item->title); ?></td>
+            <td><?php echo ucwords($item->an); ?></td>
+            <td><?php echo ucwords($item->dn); ?></td>
+            <td></td>
+            <td></td>
             <td><input type="button" class="button" value="Disable"> </td>
           </tr>
-          <tr>
-            <td>Case Study - 1 Ankle Sprain</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td><input type="button" class="button" value="Disable"> </td>
-          </tr>
-          <tr>
-            <td>Case Study - 1 Ankle Sprain</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td><input type="button" class="button" value="Disable"> </td>
-          </tr>
-          <tr>
-            <td>Case Study - 1 Ankle Sprain</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td><input type="button" class="button" value="Disable"> </td>
-          </tr>
-          <tr>
-            <td>Case Study - 1 Ankle Sprain</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td><input type="button" class="button" value="Disable"> </td>
-          </tr>
-          <tr>
-            <td>Case Study - 1 Ankle Sprain</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td>Akila Perera</td>
-            <td><input type="button" class="button" value="Disable"> </td>
-          </tr>
+          <?php endforeach;?>
+        <?php else: ?>
+          <h1>No data </h1>
+        <?php endif; ?> 
         </tbody>
       </table>
       <br>
@@ -96,6 +63,7 @@
         <a href="#">4</a>
         <a href="#">&raquo;</a>
       </div>
+      <br>
     </div> 
 </body>
 </html>
