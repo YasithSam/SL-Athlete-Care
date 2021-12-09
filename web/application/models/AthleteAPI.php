@@ -189,6 +189,55 @@ class AthleteAPI extends database
         return ['status'=>'ok','data'=>$u];
 
     }
+    public function getUserData($id)
+    {
+        if($this->Query("SELECT * FROM athlete_profile WHERE uuid= ?", [$id])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetch();
+                $f = $row->full_name;
+                $e=$row->email;
+                $re=$row->responsible_person_email;
+                $a=$row->address;
+                $n=$row->nic;
+                $d=$row->dob;
+                $s=$row->sex;
+                $c=$row->city;
+                $dateOfBirth = $d;
+                $today = date("Y-m-d");
+                $diff = date_diff(date_create($dateOfBirth), date_create($today));
+                return ['status' => 'ok', 'data' => [$f,$e,$re,$a,$n,$diff->format('%y'),$s,$c]];
+
+
+            } else {
+                return ['status' => 'n'];
+            }
+
+        }
+
+    }
+    public function getUserSports($id)
+    {
+        $u=[];
+        if($this->Query("SELECT s.name,a.institution,a.level FROM athlete_sport a inner join sport s on a.sport_id=s.id WHERE a.athlete_id= ?", [$id])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $u[$i]=$obj;
+                    $i++;
+                     
+                }       
+
+            } else {
+                return ['status' => 'n'];
+            }
+
+        }
+        return ['status'=>'ok','data'=>$u];
+        
+
+    }
 
 
     public function userData($r,$add,$d,$c){
@@ -240,38 +289,60 @@ class AthleteAPI extends database
       
        
     }
-    public function updateSportsData($i,$l,$c){
-        $sql= "UPDATE athlete_sport set ";
-        $a=[];
-        if(!empty($i)){
-            $sql .="institution=?";
-            array_push($a,$i);
+    public function updateUserData($i,$f,$a,$c,$d,$r){
+        $sql= "UPDATE athlete_profile set ";
+        $array=[];
+        if(!empty($f)){
+            $sql .="full_name=?";
+            array_push($array,$f);
         }
        
-        if(!empty($l)){
-         if(!empty($l) && !empty($a)){
-             $sql .=", level=?";
-             array_push($a,$l);
+        if(!empty($a)){
+         if(!empty($f) && !empty($a)){
+             $sql .=", address=?";
+             array_push($array,$a);
           }
           else{
-             $sql .="level=?";
-             array_push($a,$l);
+             $sql .="address=?";
+             array_push($array,$a);
           }
  
         }
         if(!empty($c)){
-         if(!empty($c) && !empty($a)){
-             $sql .=", category=?";
-             array_push($a,$c);
+         if(!empty($c) && !empty($array)){
+             $sql .=", city=?";
+             array_push($array,$c);
           }
           else {
-             $sql .="category=?";
-             array_push($a,$c);
+             $sql .="city=?";
+             array_push($array,$c);
          }
         }
+
+        if(!empty($d)){
+            if(!empty($d) && !empty($array)){
+                $sql .=", dob=?";
+                array_push($array,$d);
+             }
+             else {
+                $sql .="dob=?";
+                array_push($array,$d);
+            }
+        }
+        if(!empty($r)){
+            if(!empty($r) && !empty($array)){
+                $sql .=",responsible_person_email=?";
+                array_push($array,$r);
+             }
+             else {
+                $sql .="responsible_person_email=?";
+                array_push($array,$r);
+            }
+        }
        
-         
-        if($this->Query($sql, $a)){
+        $sql.="WHERE uuid=?";
+        array_push($array,$i);
+        if($this->Query($sql, $array)){
             return ['status' => 'ok'];
  
         } else {
@@ -280,8 +351,16 @@ class AthleteAPI extends database
  
 
     }
-    public function addSportsData($sid,$aid,$i,$l,$c){
-        if($this->Query("INSERT INTO athlete_sport (athlete_id,sport_id,institution,level,category) values(?,?,?,?,?,?)", [$sid,$aid,$i,$l,$c])){
+    public function addSportsData($sid,$aid,$i,$l){
+        $id=0;
+        if($this->Query("SELECT id FROM sport where name=?",[$sid])){
+            if($this->rowCount()>0){
+                 $row=$this->fetch();
+            }
+        }
+        $id=$row->id;
+
+        if($this->Query("INSERT INTO athlete_sport (athlete_id,sport_id,institution,level) values(?,?,?,?)", [$aid,$id,$i,$l])){
              return ['status' => 'ok'];       
         }
         else{
@@ -289,6 +368,9 @@ class AthleteAPI extends database
 
         }
     }
+
+
+   
     /**
      * Encrypting password
      * @param password
