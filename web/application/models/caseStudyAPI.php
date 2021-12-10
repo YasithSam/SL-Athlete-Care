@@ -82,9 +82,9 @@ class caseStudyAPI extends database
 
         
     }
-    public function getMedicine($id){
+    public function getMedicine($id,$state){
         $m=[];
-        if($this->Query("SELECT heading,description FROM case_study_records where type_id=? && case_id=? order datetime desc",[1,$id])){
+        if($this->Query("SELECT heading,description FROM case_study_records where type_id=? && case_id=? && state=? order by datetime desc",[1,$id,$state])){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;
@@ -104,9 +104,9 @@ class caseStudyAPI extends database
         return ['status'=>'ok','data'=>$m];
 
     }
-    public function getAdvices($id){
+    public function getAdvices($id,$s){
         $a=[];
-        if($this->Query("SELECT heading,description,datetime FROM case_study_records where type_id=? && case_id=? order datetime desc",[2,$id])){
+        if($this->Query("SELECT heading,description,datetime FROM case_study_records where type_id=? && case_id=? && state=? order by datetime desc",[2,$id,$s])){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;
@@ -126,7 +126,7 @@ class caseStudyAPI extends database
         return ['status'=>'ok','data'=>$a];
 
     }
-    public function getImages($id){
+    public function getImages($id,$s){
         $u=[];
         if($this->Query("SELECT heading,description,datetime FROM case_study_records where type_id=? && case_id=? order datetime desc",[1,$id])){
             if($this->rowCount() > 0 ){
