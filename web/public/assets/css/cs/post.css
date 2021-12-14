@@ -15,6 +15,24 @@ i{
     color: rgb(200, 206, 206);
 }
 
+.report{
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: #01579b;
+  color: #ffffff;
+  border: none;
+  padding: 10px 14px;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.report:hover{
+  background-color: #58a5f0;
+}
+
 body{
     background-color: rgb(255, 255, 255); 
  }
@@ -100,7 +118,7 @@ margin-left: 8px;
   .details_part{
     padding-top: 60px;
     padding-bottom: 20px;
-    height: 150px;
+    height: fit-content;
     width: 100%;
     background-color: rgb(255, 255, 255);
     text-align: center; 
@@ -170,7 +188,7 @@ margin-left: 8px;
 
 .container-2{
     width: 100%;
-    height: 490px;
+    height: fit-content;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -430,6 +448,29 @@ margin-left: 8px;
     margin-left: 0px;
   }
 
+
+  .faddbutton{
+    background-color: #58a5f0;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400px;
+    cursor: pointer;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  .faddbutton:hover{
+    background-color: #01579b;
+}
+
+
 .container .addbutton:hover{
     background-color: #01579b;
 }
@@ -458,6 +499,31 @@ margin-left: 8px;
 
 
 
+/*feedback modal*/
+.fmodal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 5px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
 
 
 /*Modal CSS*/
@@ -531,6 +597,45 @@ margin-left: 8px;
     color: #01579b;
   }
 
+
+  
+  /*feedback*/
+  
+  .fback{
+    background-color: #01579b;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 10px;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+    cursor: pointer;
+    float: left;
+    margin-left: 40px;
+  }
+
+  
+  .fback a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: inline-block;     
+    position: relative;    
+    z-index: 1;     
+    padding: 2em;     
+    margin: -2em; 
+  }
+
+  .fback:hover{
+    background-color: #80c0ff;
+  }
+  
+  .fback a:hover{
+    color: #01579b;
+  }
+
+
+
   .back{
     background-color: #01579b;
     color: white;
@@ -542,6 +647,7 @@ margin-left: 8px;
     width: 100px;
     cursor: pointer;
     float: left;
+    margin-left: 40px;
   }
 
   .back a{

@@ -25,13 +25,15 @@ class caseStudyController extends main{
         $data3=$this->caseStudyModel->getWorkout($id); 
         $data4=$this->caseStudyModel->getDiet($id);
         $data5=$this->caseStudyModel->getCaseStudyDetails($id);
+        $data6=$this->caseStudyModel->getFeedback($id);
 
         $top=array_slice($data, 0, 3);
         $top2=array_slice($data2, 0, 3);
         $top3=array_slice($data3, 0, 3);
         $top4=array_slice($data4, 0, 3);
+        $top6=array_slice($data6, 0, 3);
   
-        $dataA=[$top,$id,$top3,$top4,$top2,$data5];
+        $dataA=[$top,$id,$top3,$top4,$top2,$data5,$top6];
       
         $this->view("casestudy/pre",$dataA);
       
@@ -44,13 +46,15 @@ class caseStudyController extends main{
         $data3=$this->caseStudyModel->getPWorkout($id); 
         $data4=$this->caseStudyModel->getPDiet($id);
         $data5=$this->caseStudyModel->getCaseStudyDetails($id);
+        $data6=$this->caseStudyModel->getPostFeedback($id);
 
         $top=array_slice($data, 0, 3);
         // $top2=array_slice($data2, 0, 3);
         $top3=array_slice($data3, 0, 3);
         $top4=array_slice($data4, 0, 3);
-        // $dataA=[$top,$id,$top2,$top3,$top4];
-        $dataA=[$top,$id,$top3,$top4,$data5];
+        $top5=array_slice($data6, 0, 3);
+
+        $dataA=[$top,$id,$top3,$top4,$data5,$top5];
 
         $this->view("casestudy/post" ,$dataA);
       
@@ -143,6 +147,28 @@ class caseStudyController extends main{
        
 
     }
+
+    //Feedback - Pre
+    public function feedback($id){
+        $data6=$this->caseStudyModel->getFeedback($id);
+        $this->view('casestudy/feedback',[$data6,$id]);
+
+    }
+
+    //Feedback - Post
+    public function feedback_post($id){
+        $data6=$this->caseStudyModel->getPostFeedback($id);
+        $this->view('casestudy/feedback_post',[$data6,$id]);
+
+    }
+
+ 
+  
+
+
+
+
+
 
     public function addAdvice($id){
         $uid=$this->getSession('userId');
@@ -256,7 +282,7 @@ class caseStudyController extends main{
             $this->redirect('caseStudyController/diet/'.$id);     
         }
        
-
+        $this->view('casestudy/forms/add-diet');
     }
 
 
