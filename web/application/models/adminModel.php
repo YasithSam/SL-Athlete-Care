@@ -192,5 +192,22 @@ class adminModel extends database
 
 
     }
+    public function deleteNotice($id)
+    {
+        $link="";
+        if($this->Query("SELECT url from post_attachements where post_id=",[$id]))
+        {
+            $obj=$this->fetch();
+            $link=$obj->url;
+
+        }       
+        // since post has an attachement first delete the attachement then the post, because if we delete the post first there will be no match in post_attachement table for given post
+       if($this->Query("DELETE from post_attachments where post_id=?",[$id])){
+        
+        if($this->Query("DELETE from post where id=?",[$id])){
+            unlink('../../public/assets/dbimages/'.$link);
+        }
+       }
+    }
 
 }

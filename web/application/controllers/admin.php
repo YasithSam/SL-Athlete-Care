@@ -277,7 +277,16 @@ class admin extends main{
         return $data;
 
     }
-    
+    public function deleteNotice($id)
+    {
+        if($this->adminModel->deleteNotice($id)){
+            $this->view('admin/notices');
+            // add user has succesfully deleted message ( same as used in registering)
+          }  
+          else{
+              $this->view('admin/notices');
+          } 
+    }
     
     
 
