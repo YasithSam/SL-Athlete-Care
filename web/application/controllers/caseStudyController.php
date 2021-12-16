@@ -42,19 +42,19 @@ class caseStudyController extends main{
 
     public function post($id){
         $data=$this->caseStudyModel->getAdvice($id);  
-        // $data2=$this->caseStudyModel->getImages($id);  
+        $data2=$this->caseStudyModel->getPostImages($id);  
         $data3=$this->caseStudyModel->getPWorkout($id); 
         $data4=$this->caseStudyModel->getPDiet($id);
         $data5=$this->caseStudyModel->getCaseStudyDetails($id);
         $data6=$this->caseStudyModel->getPostFeedback($id);
 
         $top=array_slice($data, 0, 3);
-        // $top2=array_slice($data2, 0, 3);
+        $top2=array_slice($data2, 0, 3);
         $top3=array_slice($data3, 0, 3);
         $top4=array_slice($data4, 0, 3);
         $top5=array_slice($data6, 0, 3);
 
-        $dataA=[$top,$id,$top3,$top4,$data5,$top5];
+        $dataA=[$top,$id,$top3,$top4,$data5,$top5,$top2];
 
         $this->view("casestudy/post" ,$dataA);
       
@@ -98,6 +98,13 @@ class caseStudyController extends main{
 
     }
 
+//post images
+
+    public function postimage($id){
+        $data2=$this->caseStudyModel->getPostImages($id);  
+        $this->view('casestudy/postimages',[$data2,$id]);
+
+     }
 
 //post diet
 

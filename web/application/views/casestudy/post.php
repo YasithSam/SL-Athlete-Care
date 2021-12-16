@@ -112,6 +112,45 @@ for (var i = 0; i < btns.length; i++) {
 
     <!--end-->
 
+
+        <!--Images-->
+        <div class="container-s">
+        <div class="title">
+        <h3>Attachments</h3>
+        </div>
+        <div class="card-deck">
+        <?php if(!empty($data[6])): ?>
+
+          <?php foreach($data[6] as $item): ?>
+            <div class="card">
+                <img class="card-img-top" src="../../../web/public/assets/dbimages/<?php echo($item->link)?>" alt="icon"> 
+                <center><a href="../../../web/public/assets/dbimages/<?php echo($item->link)?>" title="click here to see the full sized image" target="_blank">View Full Screen</a></center>
+                
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo ucwords($item->heading)?></h5>
+                    <p class="card-text"><?php echo ucwords($item->description)?></p>
+                   
+                </div>
+            </div>
+        <?php endforeach;?>
+        <?php else: ?>
+          <h1>No data </h1>
+        <?php endif; ?> 
+            
+    
+            
+        </div>
+        <br><br>
+        <div class="addbtn2">
+            <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/postimage/<?php echo($data[1])?>';">More</button>
+        </div>
+
+      </div>
+    
+      <!--end-->
+
+
+
       
     <!--Workout-->
     <div class="container">
