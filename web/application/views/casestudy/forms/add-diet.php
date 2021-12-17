@@ -97,7 +97,8 @@ $(document).ready(function(){
 
 
           <!--Dropdown-->
-          <div class="dropdown">
+          <button class="dropbtn"><b> Diet Event <i class="fas fa-angle-down"></i></b></button>
+                <div class="dropdown">
                       
                       <div id="myDropdown" class="dropdown-content">
                         <button class="dropbtn"><b> Diet Event <i class="fas fa-angle-down"></i></b></button>

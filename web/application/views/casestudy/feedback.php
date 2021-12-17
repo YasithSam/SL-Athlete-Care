@@ -8,7 +8,6 @@
     <script src="https://kit.fontawesome.com/4e3a3a38a1.js" crossorigin="anonymous"></script></head>
 <body>
 
- 
 <header>
         <div class="logo">
             <img src="../../public/assets/img/logo-4040.png" alt="">
@@ -23,9 +22,7 @@
         
     </header> 
     <!--header ends-->
-
-    <!--end of details-->
-
+    
     <!--buttons-->
     <div id="btn-group">
       
@@ -40,28 +37,28 @@
       </button>
   </div>
 
-<!--Medicine-->
-<!--Medicine-->
+<!--Feedback-->
+
 <div class="container-2">
     <div class="title">
-    <h3>Medicine</h3>
+    <h3>Feedback</h3>
     </div>
     <?php if(!empty($data[0])): ?>
         
         <?php foreach($data[0] as $item): ?>
                 <div class="card-2">
                     <div class="imgbox" style="overflow-y: hidden;">
-                        <img src="../../public/assets/img/medicine.png" alt="">
+                        <img src="../../public/assets/img/feedback.png" alt="">
                     </div>
                     <div class="textbox1">
                     <div id="textbox">
-                        <h2 class="alignleft"><b><?php echo ucwords($item->heading)?></b></h2>
+                        <h2 class="alignleft"><b>Feedback update - <?php echo ucwords($item->name)?></b></h2>
                         <?php $d=explode(" ",$item->datetime)?>
                         <h3 class="alignright">Time: <?php echo ucwords($d[1])?></h3>
                         <h3 class="alignright">Date: <?php echo ucwords($d[0])?></h3>
                     </div>
                     <div style="clear: both;">
-                        <h3><?php echo ucwords($item->description)?></h3>
+                        <h3><?php echo ucwords($item->feedback)?></h3>
                     </div>
                 </div>
                 </div>
@@ -86,7 +83,7 @@
 
     <div class="mcontainer">
         <div class="top">
-            <h3>Delete Medicine</h3>
+            <h3>Delete Feedback</h3>
         </div>
         <div class="texticon">
             <i class="fa fa-exclamation-triangle fa-5x" aria-hidden="true" ></i>

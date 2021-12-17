@@ -39,7 +39,7 @@ body{
 /* left box */
 .home .profile{
   width: 40%;
-  height: 600px;
+  height: fit-content;
   background: rgb(255, 255, 255);
   padding: 20px 30px;
   margin: 0 20px 0 0;

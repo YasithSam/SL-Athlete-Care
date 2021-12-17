@@ -129,6 +129,57 @@ class caseStudyModel extends database
         return $m;
 
     }
+
+
+    //Get feedback - Pre 
+    public function getFeedback($id){
+        $m=[];
+        if($this->Query("SELECT t.name, f.feedback,f.datetime FROM feedback f inner join case_study_type t on f.type=t.id where f.case_id=? && f.state=? order by datetime desc",[$id,0])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $m[$i]=$obj;
+                    $i++;
+                     
+                }    
+       
+
+            } else {
+                return $m;
+            }
+
+        }
+        return $m;
+
+    }
+
+
+    //Get feedback - Post
+    public function getPostFeedback($id){
+        $m=[];
+        if($this->Query("SELECT t.name, f.feedback,f.datetime FROM feedback f inner join case_study_type t on f.type=t.id where f.case_id=? && f.state=? order by datetime desc",[$id,1])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $m[$i]=$obj;
+                    $i++;
+                     
+                }    
+       
+
+            } else {
+                return $m;
+            }
+
+        }
+        return $m;
+
+    }
+
     public function getAdvice($id){
         $m=[];
         if($this->Query("SELECT heading,description,datetime FROM case_study_records where type_id=? && case_id=? && state=? order by datetime desc",[2,$id,0])){
@@ -151,19 +202,6 @@ class caseStudyModel extends database
         return $m;
 
     }
-
-
-
-
-
-   //getDetailsPart 
-
-  //  public function getDetailsPart($id){
-  //     if($this->Query("SELECT title AS cstitle FROM case_study where case_id=?",[$id])){
-    //        $x=$this->fetch();
-    //    return $x;
-
-//      }
 
 
 
@@ -244,7 +282,6 @@ class caseStudyModel extends database
 
 
 
-
     public function getImages($id){
         $m=[];
         if($this->Query("SELECT c.id,c.heading,c.description,a.link FROM case_study_records c left join case_study_attachements a on c.id=a.case_study_record where c.type_id=? && c.case_id=? && c.state=?",[5,$id,0])){
@@ -268,6 +305,32 @@ class caseStudyModel extends database
 
 
     }
+
+    //Post Images
+    public function getPostImages($id){
+        $m=[];
+        if($this->Query("SELECT c.id,c.heading,c.description,a.link FROM case_study_records c left join case_study_attachements a on c.id=a.case_study_record where c.type_id=? && c.case_id=? && c.state=?",[5,$id,1])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $m[$i]=$obj;
+                    $i++;
+                     
+                }    
+       
+
+            } else {
+                return $m;
+            }
+
+        }
+        return $m;
+
+
+    }
+
     public function getDiet($id){
         $m=[];
         if($this->Query("SELECT d.id,d.title,d.description FROM diet_schedule d inner join schedule s on d.schedule_id=s.id where s.case_study_id =? && d.state=?",[$id,0])){
@@ -298,6 +361,10 @@ class caseStudyModel extends database
         return false;
 
     }
+  
+
+ 
+
 
     public function addAdvice($data){
         $x=[$data['id'],2,$data['uid'],$data['heading'],$data['description'],0];

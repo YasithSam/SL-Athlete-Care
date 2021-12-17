@@ -33,6 +33,8 @@
             <h3>Athlete Name : <?php print_r($data[5]->full_name)?></h3>
            
         </div>
+
+        <button class="report">Generate Report</button>
     </div>
 
     <!--end of details-->
@@ -224,7 +226,53 @@
       </div>
 </div>
       <!--end-->
-           
+      
+      
+
+            <!--Feedback-->
+            <div class="container-2">
+            <div class="title">
+            <h3>Feedback </h3>
+            </div>
+            <?php if(!empty($data[6])): ?>
+
+         <?php foreach($data[6] as $item): ?>
+            <div class="card-2">
+                <div class="imgbox">
+                    <img src="../../../web/public/assets/img/feedback.png" alt="">
+                </div>
+                <div class="textbox1">
+                <div id="textbox">
+                    <h2 class="alignleft"><b>Feedback update - <?php echo ucwords($item->name)?></b></h2>
+                    <?php $d=explode(" ",$item->datetime)?>
+                        <h3 class="alignright">Time: <?php echo ucwords($d[1])?></h3>
+                        <h3 class="alignright">Date: <?php echo ucwords($d[0])?></h3>
+                </div>
+                <div style="clear: both;">
+                    <h3><?php echo ucwords($item->feedback)?></h3>
+                </div>
+            </div>
+            </div>
+     <?php endforeach;?>
+     <?php else: ?>
+          <h1>No data </h1>
+    <?php endif; ?> 
+    
+        <div class="addbtn2">
+      <?php if($_SESSION["userRole"]):?>      
+        <button class="faddbutton">Add New</button>
+     <?php else: ?>             
+     
+     <?php endif;?>
+     <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/feedback/<?php echo($data[1])?>';">More</button> 
+      </div>
+
+    </div>
+    
+   
+
+    <!--end-->
+
 <!--Modal-->
     
 <div id="AddModal" class="modal">       
@@ -349,5 +397,80 @@ if (event.target == alertmodal) {
 }
 </script>
     
+
+
+<!--Feedback Modal-->
+    
+<div id="FeedbackModal" class="fmodal">       
+    <div class="mcontainer">
+        <div class="header2">
+        <h2 class="myheader">Add Feedback</h2>
+        </div>
+   
+  <div class="form-cont">
+    <form action="<?php echo BASEURL;?>/CaseStudyController/addFeedback/<?php echo($data[1])?>" method="POST">
+  
+    <div class="row">
+      <div class="col-25">
+        <label for="title">Type :</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="type" name="type" required>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Feedback :</label>
+      </div>
+      <div class="col-75">
+        <textarea id="feedback" required name="feedback" placeholder="Enter Feedback" style="height:120px"></textarea>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <button class="fback">Cancel</button>  
+      <input type="submit" value="Submit">
+    </div>
+    </form>
+    </div>
+    </div>
+</div>
+
+<script>
+   // Get the modal
+    var fmodal = document.getElementById('FeedbackModal');
+
+    // Get the button that opens the modal
+    var btns = document.getElementsByClassName("faddbutton");
+
+    // Get the element that closes the modal
+    var span = document.getElementsByClassName("fback")[0];
+
+    // When the user clicks the button, open the modal 
+    for (var i = 0; i < btns.length; i++) {
+    btns[i].onclick = function() {
+        fmodal.style.display = "block";
+    }
+    }
+
+    // When the user clicks on N0, close the modal
+    span.onclick = function() {
+     fmodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == fmodal) {
+        fmodal.style.display = "none";
+    }
+    }
+    </script>
+
+ <!--End modal-->
+
+
+
+
 </body>
 </html>
