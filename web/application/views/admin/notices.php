@@ -43,7 +43,7 @@
             <div class="edit">
                 <div class="button">
                     <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
-                    <a href=""><i class="fas fa-trash-alt icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/admin/deleteNotice/1"><i class="fas fa-trash-alt icon"></i></a>
                 </div>
             </div>
           </div>

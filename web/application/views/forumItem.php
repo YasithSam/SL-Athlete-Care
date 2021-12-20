@@ -44,7 +44,7 @@
  		<p><?php echo ($data[0]->description)?></p>
 		 <br>
 		 <div class="decision-wrapper">
-			<a href="<?php echo BASEURL;?>/forumController/confirm/<?php echo $data[0]->id;?>"><button class="button1">Accpet</button></a>
+			<a href="http://localhost/SL-Athlete-Care/api/v1/email.php?id=<?php echo $data[0]->id;?>" onclick='return confirm("Are you sure want to confirm?");'><button class="button1"> Accpet</button></a>
 			<a href="<?php echo BASEURL;?>/forumController/reject/<?php echo $data[0]->id;?>"><button class="button2">Reject</button></a>
 		</div>
 

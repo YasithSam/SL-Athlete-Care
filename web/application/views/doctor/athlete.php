@@ -116,6 +116,7 @@
                           <div class="qual">Responsible person<br><p class="txt">Email: <?php echo $data->responsible_person_email?> </p></div>
                         </div>
                       </div>
+                      
               <!--End of Articles box-->
               
                     </div>      
