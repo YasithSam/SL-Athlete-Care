@@ -1,9 +1,10 @@
 <?php
-
+include "../../web/config/config.php";
+include "../../web/system/classes/database.php";
 class forumModel extends database
 {
     public function getForumbyId($id){
-        if($this->Query("SELECT r.id,a.full_name,i.injury,r.con,r.doctor_id,r.date,r.description from athlete_reported_injury AS r inner join athlete_profile AS a On r.athlete_id=a.uuid inner join injury As i on i.id=r.injury_id where r.id=?",$id)){
+        if($this->Query("SELECT r.id,a.full_name,i.injury,r.con,r.doctor_id,r.date,r.description from athlete_reported_injury r inner join athlete_profile a On r.athlete_id=a.uuid inner join injury i on i.id=r.injury_id where r.id=?",[$id])){
             $data = $this->fetch();
             return $data;
 
@@ -12,12 +13,12 @@ class forumModel extends database
     } 
     public function getForums($id){
        
-        if($this->Query("SELECT injury_id from athlete_reported_injury where id=?",$id)){
+        if($this->Query("SELECT injury_id from athlete_reported_injury where id=?",[$id])){
             $data = $this->fetch();
             
         }
         $x=$data->injury_id;
-        if($this->Query("SELECT r.id,a.full_name,i.injury,r.con,r.date from athlete_reported_injury AS r inner join athlete_profile AS a On r.athlete_id=a.uuid inner join injury As i on i.id=r.injury_id where r.injury_id=? && r.id!=?",$x,$id)){
+        if($this->Query("SELECT r.id,a.full_name,i.injury,r.con,r.date from athlete_reported_injury AS r inner join athlete_profile AS a On r.athlete_id=a.uuid inner join injury As i on i.id=r.injury_id where r.injury_id=? && r.id!=?",[$x,$id])){
             $datax = $this->fetchall();
             return $datax;
 
@@ -26,15 +27,22 @@ class forumModel extends database
     } 
     public function updateForumbyId($id,$status){
       if($status==1){
-        if($this->Query("UPDATE athlete_reported_injury set status=? where id=?",$status,$id)){
-
-        }
-        else{
+        if($this->Query("UPDATE athlete_reported_injury set status=? where id=?",[$status,$id])){
+            if($this->Query("SELECT p.email as e,d.email,d.full_name from athlete_reported_injury r inner join athlete_profile p on p.uuid=r.athlete_id inner join doctor_profile d on d.uuid=r.doctor_id where r.id=?",[$id])){
+                $data = $this->fetch();
+                $e=$data->e;
+                $d=$data->email;
+                $n=$data->full_name;  
+                return [$e,$d,$n];
+            
+            }
+           
+        }else{
             echo "Record error";
         }
 
       }else{
-        if($this->Query("UPDATE athlete_reported_injury set status='Rejected' where id=?",$id)){
+        if($this->Query("UPDATE athlete_reported_injury set status=2 where id=?",[$id])){
 
         }
         else{
