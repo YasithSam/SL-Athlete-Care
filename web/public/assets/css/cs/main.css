@@ -99,7 +99,7 @@ margin-left: 8px;
   .details_part{
     padding-top: 60px;
     padding-bottom: 20px;
-    height: 150px;
+    height: fit-content;
     width: 100%;
     background-color: rgb(255, 255, 255);
     text-align: center; 

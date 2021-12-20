@@ -13,15 +13,19 @@
 <body>  
 
 
-<div class="header_section">
-        <div class="header">
-            <a href="#">SL ATHLETE CARE</a>
+<header>
+        <div class="logo">
+            <img src="../../public/assets/img/logo-4040.png" alt=""> 
         </div>
-        <div class="profile">
-            <i class="fas fa-bell"></i>
-            <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i>My Profile</button>
-        </div>
-    </div>
+        
+            <h2>SL Athlete Care</h2>
+ 
+                <div class="profile">
+                    <i class="fas fa-bell"></i>
+                    <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
+                </div>
+        
+    </header> 
     <!--header ends-->
 
     <!--end of details-->
@@ -35,7 +39,7 @@
         <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1])?>';">
             Pre
         </button>
-        <button class="btn" onclick="window.location.href='';">
+        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/post/<?php echo($data[1])?>';">
             Post
         </button>
     </div>
@@ -124,7 +128,7 @@
 
                         </div>
                       </div><br>
-  </div> 
+  
 
                       <center><button onclick="myFunction(this)" class="add_cart"><b> Add Workout </b></button></center>
 
@@ -134,6 +138,9 @@
 </div>
 
 </form>
+
+
+
 <br>
 <br> 
 </div>

@@ -4,6 +4,7 @@
     font-family: 'Poppins', sans-serif;
     margin:0; 
     padding:0;
+    overflow-x: hidden;
    
 }
 a{
@@ -171,8 +172,9 @@ body{
 }
 
 .card{
+  overflow-y: hidden;
   height: 320px;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.4);
+  box-shadow: 4px 2px 8px 4px rgba(0,0,0,0.4);
   transition: 0.3s;
   background-color: rgb(255, 255, 255);
     

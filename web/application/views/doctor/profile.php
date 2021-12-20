@@ -47,7 +47,7 @@
                         <div class="updt"><i class="fas fa-clinic-medical user"></i><?php echo($data[0]->hospital)?></div>
                         <div class="button" style="justify-content: center;"><a href="<?php echo BASEURL;?>/doctor/editprofile">Edit Profile</a></div>
                       </div>
-                      </div>  
+                      
 
               <!--End of Profile box-->
               
