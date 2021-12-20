@@ -56,6 +56,7 @@ class doctor extends main{
     public function athlete($uuid){
         //$user_id = $this->uri->segment(3);
         $id=$uuid;
+  
         if($this->getSession('userRole')==2){
             $data=$this->doctorModel->getAthlete($id);
             //$data2=$this->doctorModel->getAthleteSport();
