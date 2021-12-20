@@ -70,24 +70,35 @@ class forumModel extends database
     public function getNotices(){
         if($this->Query("SELECT p.id,p.heading,pa.url from post p 
         inner join post_attachments pa on p.id=pa.post_id 
-        where p.type='Notice'  ORDER BY p.datetime DESC")){
+        where p.type='1'  ORDER BY p.datetime DESC")){
             $data = $this->fetchall();
             return $data;
 
         }
     }
 
- /*    public function getNoticeitem($id){
+    public function getotherNotices($id){
         if($this->Query("SELECT p.id,p.heading,pa.url from post p 
         inner join post_attachments pa on p.id=pa.post_id 
-        where p.id=?",$id)){
+        where p.type='1' and p.id<>$id  ORDER BY p.datetime DESC")){
+            $data = $this->fetchall();
+            return $data;
+
+        }
+    }
+
+     public function getNoticeitem($id){
+        if($this->Query("SELECT p.id,p.heading,p.description,pa.url from post p 
+        inner join post_attachments pa on p.id=pa.post_id 
+        where p.id=$id")){
             $data = $this->fetch();
             return $data;
-    }
-} */
+
+        }
+    } 
 
     
-    public function getArticles(){
+/*     public function getArticle(){
         if($this->Query("SELECT p.id,p.heading,p.datetime,pa.url from post p 
         inner join post_attachments pa on p.id=pa.post_id 
         where p.type='Article' ORDER BY p.datetime DESC")){
@@ -95,7 +106,38 @@ class forumModel extends database
             return $data;
 
         }
+    } */
+
+    public function getArticles(){
+        if($this->Query("SELECT p.id,p.heading,pa.url from post p 
+        inner join post_attachments pa on p.id=pa.post_id 
+        where p.type in (2,3,4,5,6)  ORDER BY p.datetime DESC")){
+            $data = $this->fetchall();
+            return $data;
+
+        }
     }
+
+    public function getotherArticles($id){
+        if($this->Query("SELECT p.id,p.heading,pa.url from post p 
+        inner join post_attachments pa on p.id=pa.post_id 
+        where p.type in (2,3,4,5,6) and p.id<>$id  ORDER BY p.datetime DESC")){
+            $data = $this->fetchall();
+            return $data;
+
+        }
+    }
+
+     public function getArticlesitem($id){
+        if($this->Query("SELECT p.id,p.heading,p.description,p.likes,p.comments,p.datetime,pa.url from post p 
+        inner join post_attachments pa on p.id=pa.post_id 
+        where p.id=$id")){
+            $data = $this->fetch();
+            return $data;
+
+        }
+    } 
+
 
 
 
