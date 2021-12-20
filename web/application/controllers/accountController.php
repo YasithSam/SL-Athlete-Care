@@ -49,7 +49,7 @@ class accountController extends main{
             }
         } else {
             $this->view("login", $userData);
-        }
+        }  
 
     }
 
