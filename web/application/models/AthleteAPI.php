@@ -240,13 +240,15 @@ class AthleteAPI extends database
     }
 
 
-    public function userData($r,$add,$d,$c){
-       $sql= "UPDATE athlete_profile set ";
+    public function userData($r,$add,$d,$c)
+    {
+       $sql= "UPDATE athlete_profile set";
        $a=[];
        if(!empty($r)){
            $sql .="responsible_person_email=?";
            array_push($a,$r);
        }
+
        if(!empty($add)){
         if(!empty($add) && !empty($a)){
             $sql .=", address=?";
@@ -284,9 +286,7 @@ class AthleteAPI extends database
 
        } else {
         return ['status' => 'error','data'=>'Could not update user'];
-        }
-
-      
+        }  
        
     }
     public function updateUserData($i,$f,$a,$c,$d,$r){
