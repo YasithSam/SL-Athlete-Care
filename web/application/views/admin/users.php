@@ -32,19 +32,18 @@
         <th class="uuid">UUID</th>
         <th class="roleid">Role ID</th>
         <th class="fullname">Username</th>
-        <th class="email">Email</th>
         <th class="btnrow">Disable User</th>
       </tr>
     </thead>
     <tbody>
-    <?php if(!empty($data)): ?>
+    <?php if(!empty($data[0])): ?>
 
-        <?php foreach($data as $item): ?>
+        <?php foreach($data[0] as $item): ?>
             <tr class="">
               <td><?php echo ucwords($item->uuid); ?></td>
               <td><?php echo ucwords($item->role); ?></td>
               <td><?php echo ucwords($item->username); ?></td>  
-              <td><?php echo ucwords($item->email); ?></td>
+           
               <td><input type="button" class="button" value="Disable"> </td>
             </tr>
       <?php endforeach;?>
@@ -56,12 +55,19 @@
   </table>
   <br>
   <div class="pagination">
-    <a href="#">&laquo;</a>
-    <a href="#">1</a>
-    <a class="active" href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">&raquo;</a>
+    <?php 
+    $x=$data[1];
+    $c=ceil($x / 10);
+    for ($i=1; $i<=$c; $i++) {?>
+      <?php if($i==$data[2]){?>
+       <a href="<?php echo BASEURL;?>/admin/users?id=<?php echo($i)?>" class="active"><?php echo($i)?></a>
+     <?php }else{?>
+       <a href="<?php echo BASEURL;?>/admin/users?id=<?php echo($i)?>"><?php echo($i)?></a>
+      <?php
+      } ?>
+    <?php
+    }?>
+
   </div>
 </div> 
 </div>
