@@ -15,7 +15,6 @@ class doctor extends main{
         if($this->getSession('userRole')==2){
             $data = $this->doctorModel->getCounts($userId);   
             $x= $this->doctorModel->getForumItems($userId);    
-            //$data3= $this->doctorModel->getUpdates($userId);   
             $dataArray=[$data,$x];
             $this->view("doctor/home",$dataArray);
               
@@ -189,8 +188,21 @@ class doctor extends main{
     public function casestudy(){
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==2){   
-          $data=$this->doctorModel->getCaseStudy($userId);
-    
+          $data=$this->doctorModel->getCaseStudy();
+           //print_r($data);
+         $this->view('doctor/casestudy',$data);
+        } 
+        else{
+            $this->view('404');
+        } 
+    }
+    public function filter(){
+        $d=$this->input('doctors');
+        $a=$this->input('athlete');
+        $i=$this->input('injury');
+       
+        if($this->getSession('userRole')==2){   
+          $data=$this->doctorModel->getCaseStudyFilter($d,$a,$i);
           $this->view('doctor/casestudy',$data);
         } 
         else{
