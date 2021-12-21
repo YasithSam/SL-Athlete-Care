@@ -17,25 +17,25 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo BASEURL;?>/admin/users">
+                        <a href="<?php echo BASEURL;?>/admin/users?id=1">
                             <span class="ti-files"></span>
                             <span>Users</span>
                         </a>
                     </li> 
                     <li>
-                        <a href="<?php echo BASEURL;?>/admin/casestudy">
+                        <a href="<?php echo BASEURL;?>/admin/casestudy?id=1">
                             <span class="ti-files"></span>
                             <span>Case Studies</span>
                         </a>
                     </li>  
                     <li>
-                        <a href="<?php echo BASEURL;?>/admin/articles">
+                        <a href="<?php echo BASEURL;?>/admin/articles?id=1">
                             <span class="ti-files"></span>
                             <span>Articles and Questions</span>
                         </a>
                     </li> 
                     <li>
-                        <a href="<?php echo BASEURL;?>/admin/comments">
+                        <a href="<?php echo BASEURL;?>/admin/comments?id=1">
                             <span class="ti-files"></span>
                             <span>Comments</span>
                         </a>
