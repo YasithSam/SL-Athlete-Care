@@ -84,10 +84,10 @@ class doctorModel extends database
         }
         
     }
-    public function getCaseStudy($id){
+    public function getCaseStudy(){
         $current=[];
         $old=[];
-        if($this->Query("SELECT c.case_id,c.title,i.injury,c.datetime FROM case_study c inner join injury i on c.injury_id=i.id where doctor_id=? && status=?",[$id,1])){
+        if($this->Query("SELECT c.case_id,d.full_name,i.injury,c.datetime,a.username FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid inner join doctor_profile d on c.doctor_id=d.uuid where c.view_status=?",[1])){
    
             if($this->rowCount() > 0 ){
                 $row=$this->fetchall();
@@ -100,7 +100,7 @@ class doctorModel extends database
                 }         
             
             } 
-            if($this->Query("SELECT c.case_id,c.title,i.injury,c.datetime FROM case_study c inner join injury i on c.injury_id=i.id where doctor_id=? && status=?",[$id,0])){
+            if($this->Query("SELECT c.case_id,c.title,i.injury,c.datetime,a.username FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid where c.view_status=?",[0])){
                 if($this->rowCount() > 0 ){
                     $row=$this->fetchall();
                     $i=0;
@@ -125,7 +125,47 @@ class doctorModel extends database
 
 
     }
+    public function getCaseStudyFilter($d,$a,$i){
+        $current=[];
+        $old=[];
+        if($this->Query("SELECT c.case_id,d.full_name,i.injury,c.datetime,a.username FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid inner join doctor_profile d on c.doctor_id=d.uuid where c.view_status=? && d.full_name=? && i.id=? && a.username=?",[1,$d,$i,$a])){
+   
+            if($this->rowCount() > 0 ){
+                $row=$this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $current[$i]=$obj;
+                    $i++;
+                     
+                }         
+            
+            } 
+            if($this->Query("SELECT c.case_id,c.title,i.injury,c.datetime,a.username FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid where c.view_status=? && d.full_name=? && i.id=? && a.username=?",[0,$d,$i,$a])){
+                if($this->rowCount() > 0 ){
+                    $row=$this->fetchall();
+                    $i=0;
+                    foreach ($row as $obj)
+                    {
+                        $old[$i]=$obj;
+                        $i++;
+                         
+                    }         
+                
+                } 
+                
+            }
 
+            
+        }
+        else {
+            return ['status' => 'n'];
+        }
+       
+        return [$current,$old];
+
+
+    }
     public function getArticle($id){
         if($this->Query("SELECT r.id,a.full_name,i.injury,r.con,r.doctor_id from athlete_reported_injury AS r inner join athlete_profile AS a On r.athlete_id=a.uuid inner join injury As i on i.id=r.injury_id where r.doctor_id=? || r.doctor_id=0",[$id])){
             $x=$this->fetchall();
@@ -215,11 +255,27 @@ class doctorModel extends database
 
 
 
-     // public function getUpdates($id){
-    //     if($this->Query("SELECT * from athlete_reported_injury ")){
+     public function getUpdates($id){
+        $u=[];
+        if($this->Query("SELECT t.name,u.username,c.datetime FROM case_study_records c inner join case_study_type t on c.type_id=t.id inner join application_user u on c.recording_user_id=u.uuid inner join case_study d on where c.doctor_id=? order by datetime desc",[$id])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $u[$i]=$obj;
+                    $i++;
+                     
+                }    
+       
 
-    //     }
-    // }
+            } else {
+                return ['status' => 'n'];
+            }
+
+        }
+        return $u;
+    }
 
 
 }
