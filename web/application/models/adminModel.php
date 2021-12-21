@@ -26,9 +26,10 @@ class adminModel extends database
         }
 
     }
-    public function getUsers(){
+    public function getUsers($c){
         $m=[];
-        if($this->Query("SELECT u.uuid,u.username,u.phone,r.role from application_user u inner join user_role r on r.id=u.role_id where u.role_id!=1 order by timestamp desc")){
+        $start_from = ($c-1) * 10;  
+        if($this->Query("SELECT u.uuid,u.username,u.phone,r.role from application_user u inner join user_role r on r.id=u.role_id where u.role_id!=1 order by timestamp desc limit $start_from,10")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;
@@ -48,16 +49,49 @@ class adminModel extends database
         return $m;
 
     }
+    public function getCount(){
+        if($this->Query("SELECT count(*) as Count from application_user where role_id!=1")){
+            $row=$this->fetch();
+            return $row->Count;
+
+        }
+   
+
+    }
+    public function getCount2(){
+        if($this->Query("SELECT count(*) as Count from post where type!=1")){
+            $row=$this->fetch();
+            return $row->Count;
+
+        }
+
+    }
+    public function getCount3(){
+        if($this->Query("SELECT count(*) as Count from comments where approve!=1")){
+            $row=$this->fetch();
+            return $row->Count;
+
+        }
+   
+
+    }
+    public function getCount4(){
+        if($this->Query("SELECT count(*) as Count from case_study")){
+            $row=$this->fetch();
+            return $row->Count;
+
+        }
+   
+
+    }
     ///////////////////
     public function getCasestudy(){
         $m=[];
-        if($this->Query("SELECT title, a.full_name an, d.full_name dn /*, pp.full_name pn, pp.type pt*/
+        if($this->Query("SELECT title, a.full_name an, d.full_name dn 
                         from case_study c 
                         inner join athlete_profile a on a.uuid=c.athlete_id 
                         inner join doctor_profile d on d.uuid=c.doctor_id
-                        /*inner join paramedical_case_study p on p.case_study_id=c.case_id
-                        inner join paramedical_profile pp on pp.uuid=p.paramedical_id*/
-                        where c.status=1 
+                       
                         order by c.case_id asc ")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -96,6 +130,30 @@ class adminModel extends database
             }
         }
         return $m;
+    }
+    public function getComments(){
+        $m=[];
+        if($this->Query("SELECT c.comment,c.datetime,p.heading,a.username
+                        from comments c
+                        inner join post p on c.post_id=p.id 
+                        inner join application_user a on c.user_id=a.uuid
+                        where c.approve=0 
+                        order by c.datetime desc ")){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $m[$i]=$obj;
+                    $i++;
+                     
+                }    
+            } else {
+                return $m;
+            }
+        }
+        return $m;
+
     }
     ///////////////////
     public function createAccountPara($data){
@@ -216,5 +274,6 @@ class adminModel extends database
         
         return false; 
     }
+    
 
 }
