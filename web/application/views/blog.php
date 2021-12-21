@@ -202,7 +202,8 @@
 						   </div>
 				   </div>
 			   </li>
-					<li data-category="Athletics">
+			        
+					<li data-category="<?php echo("Cricket")?>">
 						<div class="pag-card">
 							<div class="card-info">
 							   <div class="user-wrapper2">
