@@ -29,49 +29,43 @@
       <tr>
         <th class="article-name">Article Title</th>
         <th class="comment">Comment</th>
+        <th class="comment">Username</th>
+        <th class="comment">Datetime</th>
         <th class="btnrow">Approve</th>
       </tr>
     </thead>
     <tbody>
+    <?php if(!empty($data[0])): ?>
+    <?php foreach($data[0] as $item): ?>
       <tr>
-        <td>Article Title</td>
-        <td>Enjoyed reading the article above , really explains everything in detail. Thanks for the information.</td>
+        <td><?php echo ucwords($item->heading); ?></td>
+        <td><?php echo ucwords($item->comment); ?></td>
+        <td><?php echo ucwords($item->username); ?></td>
+        <td><?php echo ucwords($item->datetime); ?></td>
         <td><input type="button" class="button" value="Approve"> </td>
       </tr>
-      <tr class="active-row">
-        <td>Article Title</td>
-        <td>Enjoyed reading the article above , really explains everything in detail. Thanks for the information.</td>
-        <td><input type="button" class="button" value="Approve"> </td>
-      </tr>
-      <tr>
-        <td>Article Title</td>
-        <td>Enjoyed reading the article above , really explains everything in detail. Thanks for the information.</td>
-        <td><input type="button" class="button" value="Approve"> </td>
-      </tr>
-      <tr class="active-row">
-        <td>Article Title</td>
-        <td>Enjoyed reading the article above , really explains everything in detail. Thanks for the information.</td>
-        <td><input type="button" class="button" value="Approve"> </td>
-      </tr>
-        <td>Article Title</td>
-        <td>Enjoyed reading the article above , really explains everything in detail. Thanks for the information.</td>
-        <td><input type="button" class="button" value="Approve"> </td>
-      </tr>
-      <tr class="active-row">
-        <td>Article Title</td>
-        <td>Enjoyed reading the article above , really explains everything in detail. Thanks for the information.</td>
-        <td><input type="button" class="button" value="Approve"> </td>
-      </tr>
+    <?php endforeach;?>
+      <?php else: ?>
+        <h1>No data </h1>
+    <?php endif; ?> 
+     
     </tbody>
   </table>
   <br>
   <div class="pagination">
-    <a href="#">&laquo;</a>
-    <a href="#">1</a>
-    <a class="active" href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">&raquo;</a>
+    <?php 
+    $x=$data[1];
+    $c=ceil($x / 10);
+    for ($i=1; $i<=$c; $i++) {?>
+      <?php if($i==$data[2]){?>
+       <a href="<?php echo BASEURL;?>/admin/comments?id=<?php echo($i)?>" class="active"><?php echo($i)?></a>
+     <?php }else{?>
+       <a href="<?php echo BASEURL;?>/admin/comments?id=<?php echo($i)?>"><?php echo($i)?></a>
+      <?php
+      } ?>
+    <?php
+    }?>
+
   </div>
 </div> 
 </div>
