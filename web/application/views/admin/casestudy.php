@@ -31,21 +31,19 @@
             <th class="title">Title</th>
             <th class="athlete">Athlete</th>
             <th class="doctor">Doctor</th>
-            <th class="nutri">Nutritionist</th>
-            <th class="physio">Physiotherapist</th>
+           
             <th class="btnrow">Disable</th>
           </tr>
         </thead>
         <tbody>
-        <?php if(!empty($data)): ?>
+        <?php if(!empty($data[0])): ?>
 
-        <?php foreach($data as $item): ?>
+        <?php foreach($data[0] as $item): ?>
           <tr>
             <td><?php echo ucwords($item->title); ?></td>
             <td><?php echo ucwords($item->an); ?></td>
             <td><?php echo ucwords($item->dn); ?></td>
-            <td></td>
-            <td></td>
+          
             <td><input type="button" class="button" value="Disable"> </td>
           </tr>
           <?php endforeach;?>
@@ -56,13 +54,20 @@
       </table>
       <br>
       <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">&raquo;</a>
-      </div>
+    <?php 
+    $x=$data[1];
+    $c=ceil($x / 10);
+    for ($i=1; $i<=$c; $i++) {?>
+      <?php if($i==$data[2]){?>
+       <a href="<?php echo BASEURL;?>/admin/casestudy?id=<?php echo($i)?>" class="active"><?php echo($i)?></a>
+     <?php }else{?>
+       <a href="<?php echo BASEURL;?>/admin/casestudy?id=<?php echo($i)?>"><?php echo($i)?></a>
+      <?php
+      } ?>
+    <?php
+    }?>
+
+  </div>
       <br>
     </div> 
 </body>
