@@ -30,10 +30,12 @@ class admin extends main{
         $this->view('404');
     } 
     }
-    public function casestudy(){
+    public function casestudy(){     
+        $c=$this->input('id');
         if($this->getSession('userRole')==1){
-          $data=$this->adminModel->getCasestudy();
-          $this->view('admin/casestudy',$data);
+          $data=$this->adminModel->getCasestudy($c);
+          $data2=$this->adminModel->getCount4();
+          $this->view('admin/casestudy',[$data,$data2,$c]);
         }  
         else{
             $this->view('404');
@@ -66,27 +68,33 @@ class admin extends main{
 
     }
     public function users(){
+        $c=$this->input('id');
         if($this->getSession('userRole')==1){
-          $data=$this->adminModel->getUsers();
-       
-          $this->view('admin/users',$data);
+          $data=$this->adminModel->getUsers($c);
+          $data2=$this->adminModel->getCount();
+          $this->view('admin/users',[$data,$data2,$c]);
         }  
         else{
             $this->view('404');
         }
     }
     public function articles(){
+        $c=$this->input('id');
         if($this->getSession('userRole')==1){
-          $data=$this->adminModel->getArticles();
-          $this->view('admin/articles',$data);
+          $data=$this->adminModel->getArticles($c);
+          $data2=$this->adminModel->getCount2();
+          $this->view('admin/articles',[$data,$data2,$c]);
         }  
         else{
             $this->view('404');
         }
     }
     public function comments(){
+        $c=$this->input('id');
         if($this->getSession('userRole')==1){
-          $this->view('admin/comments');
+            $data=$this->adminModel->getComments($c);
+            $data2=$this->adminModel->getCount3();
+          $this->view('admin/comments',[$data,$data2,$c]);
         }  
         else{
             $this->view('404');
