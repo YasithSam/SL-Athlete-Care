@@ -29,19 +29,19 @@
                 <th class="type">Type</th>
                 <th class="title">Title</th>
                 <th class="desc">Description</th>
-                <th class="url">Attachment</th>
                 <th class="name">Author Name</th>
+                <th class="name">Reviewer Approval</th>
                 <th class="btnrow">Approve Article</th>
               </tr>
             </thead>
             <tbody>
-            <?php if(!empty($data)): ?>
-            <?php foreach($data as $item): ?>
+            <?php if(!empty($data[0])): ?>
+            <?php foreach($data[0] as $item): ?>
               <tr>
                 <td><?php echo ucwords($item->type); ?></td>
                 <td ><?php echo ucwords($item->heading); ?></td>
                 <td class="longtext"><?php echo ucwords($item->description); ?></td>
-                <td ><?php echo ucwords($item->pt); ?></td>
+                <td><?php echo ucwords($item->username); ?></td>
                 <td><?php echo ucwords($item->username); ?></td>
                 <td><input type="button" class="button" value="Approve"> </td>
               </tr>
@@ -53,13 +53,20 @@
           </table>
           <br>
           <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#">1</a>
-            <a class="active" href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">&raquo;</a>
-          </div>
+    <?php 
+    $x=$data[1];
+    $c=ceil($x / 10);
+    for ($i=1; $i<=$c; $i++) {?>
+      <?php if($i==$data[2]){?>
+       <a href="<?php echo BASEURL;?>/admin/articles?id=<?php echo($i)?>" class="active"><?php echo($i)?></a>
+     <?php }else{?>
+       <a href="<?php echo BASEURL;?>/admin/articles?id=<?php echo($i)?>"><?php echo($i)?></a>
+      <?php
+      } ?>
+    <?php
+    }?>
+
+  </div>
           
         </div> 
     </body>
