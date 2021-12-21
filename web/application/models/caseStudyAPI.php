@@ -190,6 +190,40 @@ class caseStudyAPI extends database
         return ['status'=>'ok','diet'=>$d,'workout'=>$w];
 
     }
+    public function getCase($id)
+    {
+        $data=[];
+        if($this->Query("SELECT d.id,d.title,d.description FROM schedule s inner join diet_schedule d on s.id=d.schedule_id where s.case_study_id =? && d.state=?",[$id,0])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                foreach ($row as $ob)
+                {
+                    $events=[];
+                    if($this->Query("SELECT title,amount,description FROM diet_events where diet_id =?",[$ob->id])){
+                        if($this->rowCount() > 0 ){
+                            $row = $this->fetchall();
+                            foreach ($row as $obj)
+                            {
+                                array_push($events,$obj);
+                                 
+                            }    
+                   
+            
+                        } 
+            
+                    }
+                    $ob->events=$events;
+                    array_push($data,$ob);         
+                }    
+
+            } else {
+                return ['status' => 'n'];
+            }
+
+        }
+        return $data;
+        
+    }
  
     public function getWorkoutEvents($id){
         $e=[];
