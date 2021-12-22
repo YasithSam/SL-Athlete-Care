@@ -47,19 +47,19 @@
 		  <div class="card">
    
 		   <div class="user-wrapper1">
-			   <img src="../../web/public/assets/img/avatar.png"  alt="">
+			   <img src="../../../web/public/assets/img/avatar.png"  alt="">
 			   <div class="user-name">
 				   <h4>Kusal Mendis</h4>
 			   </div>
 		   </div> 	
    
-			<h2>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h2>
-			<h5>Dec 7, 2017</h5>
+			<h2><?php echo $data['active']->heading; ?></h2>
+			<h5><?php echo $data['active']->datetime; ?></h5>
 		   
 		   <div class="article">
-			<img src="../../web/public/assets/img/article.jpg" alt="">
+			<img src="../../../web/public/assets/img/<?php echo($data['active']->url)?>" alt="">
 		   </div>
-			<p>There have been growing discussions across international societies since 2017 focused on athlete wellness and athlete care. The human condition of high-performance athletes requires life balance, holistic personhood, and a functional athletic career with the support of integrative resources from sport organisations. During two successive International Society of Sport Psychology Think Tanks on Athlete Mental Health in 2018 and 2019, an international group of practitioners from Olympic and professional sport organisations discussed topics spanning what athlete mental health should look like, while problematising an overly narrow focus on athlete mental ill-health (i.e., an unbalanced approach to the topic), how it is being diagnosed, and how it is understood through research. Discussions have advanced into structural suggestions regarding standards of care for athletes in their daily training environments and at major international tournament events. Within this consensus statement, the authors focus our discussions onto athlete acute care. Emphasis is placed on how an integrated support team can work efficiently with high-performance athletes when acute care is required in two general contexts: within the training environment, and onsite at major events. A model is proposed to spur discussions and better standards to guide the athlete acute care process. Recommendations are provided for sport psychology practitioners, researchers, and high-performance sport organizations. There have been growing discussions across international societies since 2017 focused on athlete wellness and athlete care. The human condition of high-performance athletes requires life balance, holistic personhood, and a functional athletic career with the support of integrative resources from sport organisations. 
+			<p><?php echo $data['active']->description; ?>
 			</p>
 			<br>
    
@@ -68,11 +68,13 @@
 			<div class="like-comment">
 			   <div class="like">
 				   <i class="bx bxs-like"></i>
+				   <h6><?php echo $data['active']->likes; ?></h6>
 				   <h6>Likes</h6>
    
 			   </div>
 			   <div class="comment">
 				   <i class="bx bx-comment-dots"></i>
+				   <h6><?php echo $data['active']->comments; ?></h6>
 				   <h6>Comments</h6>
 			   </div>
 			</div>
@@ -93,6 +95,8 @@
    
 		<div class="right-column">
 			<h1 style="font-size:30px">Similar Articles</h1>
+			<?php if(!empty($data['data'])): ?>
+			<?php foreach($data['data'] as $item): ?>
 			<div class="card">
 			   <div class="user-wrapper2">
 				   <img src="../../web/public/assets/img/avatar.png"  alt="">
@@ -102,64 +106,25 @@
 			   </div> 	
    
 			   <div class="article">
-				   <img src="../../web/public/assets/img/article.jpg" alt="">
+				   <img src="../../../web/public/assets/img/<?php echo($item->url)?>" alt="">
 			   </div>
 		  
 	   
-				<h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-				<h5>Dec 7, 2017</h5>
+				<h5><?php echo $item->heading; ?></h4>
+				<h5><?php echo $data['active']->datetime; ?></h5>
    
 				<div class="decision-wrapper">
-				   <a href="<?php echo BASEURL;?>/forumController/articleitem"><button class="button3">View</button></a>
+				   <a href="<?php echo BASEURL;?>/forumController/articleitem/<?php echo $item->id;?>"><button class="button3">View</button></a>
 			   </div>
 	   
 					 
 			</div>
 		   
-			<div class="card">
-			   <div class="user-wrapper2">
-				   <img src="../../web/public/assets/img/avatar.png"  alt="">
-				   <div class="user-name">
-					   <h4>Kusal Mendis</h4>
-				   </div>
-			   </div> 
-			   
-			   <div class="article">
-				   <img src="../../web/public/assets/img/article.jpg" alt="">
-			   </div>
-	   
-				<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-				<h5>Dec 7, 2017</h5>
-   
-				<div class="decision-wrapper">
-				   <a href=""><button class="button3">View</button></a>
-			   </div>
-	   
-					 
-			</div>
-   
-			<div class="card">
-			   <div class="user-wrapper2">
-				   <img src="../../web/public/assets/img/avatar.png"  alt="">
-				   <div class="user-name">
-					   <h4>Kusal Mendis</h4>
-				   </div>
-			   </div> 	
-   
-			   <div class="article">
-				   <img src="../../web/public/assets/img/article.jpg" alt="">
-			   </div>
-	   
-				<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-				<h5>Dec 7, 2017</h5>
-   
-				<div class="decision-wrapper">
-				   <a href=""><button class="button3">View</button></a>
-			   </div>
-	   
-					 
-			</div>
-   
+ <?php endforeach;?>
+	<?php else: ?>
+		<h1>No data </h1>
+	<?php endif; ?> 
+
    
 		</div>
 	</div>

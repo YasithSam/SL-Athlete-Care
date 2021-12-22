@@ -37,12 +37,16 @@
  	<div class="left-column">
 		 <h1 style="font-size:30px">Latest Notice</h1>
  	  <div class="card">
+	  
 			<div class="in-card">
-				<img src="../../web/public/assets/img/<?php echo($data->url)?>"  alt="">
-				<h2><?php echo $data->heading?></h2>
-				<!-- <h5>Dec 7, 2017</h5> -->
-				<br>
+				<img src="../../../web/public/assets/img/<?php echo($data['active']->url)?>"  alt="">
+				<h2><?php echo $data['active']->heading; ?></h2>
+				<h2><?php echo $data['active']->description; ?></h2>
+				
+<!-- 								<h5>Dec 7, 2017</h5>
+ -->				<br>
 		</div>
+		
 	  </div>
  	</div>
 
@@ -58,57 +62,23 @@
 
 <br>
  <div class="row2">
+ <?php if(!empty($data['data'])): ?>
+ <?php foreach($data['data'] as $item): ?>
    	<div class="column">
 		<div class="grid-card">
-			<img src="../../web/public/assets/img/notice1.jfif"  alt="">
-			<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-			<h5>Dec 7, 2017</h5>
+		<img src="../../../web/public/assets/img/<?php echo($item->url)?>"  alt="">
+				<h2><?php echo $item->heading; ?></h2>
 				
 			<div class="decision-wrapper">
-				<a href="<?php echo BASEURL;?>/forumController/noticeitem"><button class="button3">View</button></a>
+				<a href="<?php echo BASEURL;?>/forumController/noticeitem/<?php echo $item->id;?>"><button class="button3">View</button></a>
 			</div>
 		</div>
 	</div>
- 
-	<div class="column">
-		<div class="grid-card">
-			<img src="../../web/public/assets/img/notice2.jfif"  alt="">
-			<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-			<h5>Dec 7, 2017</h5>
-	
-			<div class="decision-wrapper">
-				<a href=""><button class="button3">View</button></a>
-			</div>
-		</div>
-	</div>
-
-	<div class="column">
-		<div class="grid-card">
-			<img src="../../web/public/assets/img/notice.jpg"  alt="">
-			<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-			<h5>Dec 7, 2017</h5>
-	
-			<div class="decision-wrapper">
-				<a href=""><button class="button3">View</button></a>
-			</div>
-		</div>
-	</div>
-
-	<div class="column">
-		<div class="grid-card">
-			<img src="../../web/public/assets/img/notice3.jpg"  alt="">
-			<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-			<h5>Dec 7, 2017</h5>
-	
-			<div class="decision-wrapper">
-				<a href=""><button class="button3">View</button></a>
-			</div>
-		</div>
-	</div>
-
- 
- 
- </div>
+	<?php endforeach;?>
+	<?php else: ?>
+		<h1>No data </h1>
+	<?php endif; ?> 
+</div>
 
 </main>
 
