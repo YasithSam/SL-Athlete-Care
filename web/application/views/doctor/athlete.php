@@ -43,11 +43,12 @@
                             <i class="fas fa-camera cam"></i>
                           </div>-->
                         </div>
-                        <div class="updt"><i class="fas fa-user user"></i><?php echo $data->full_name?></div>
-                        <div class="updt"><i class="fas fa-user user"></i><?php echo $data->sex?></div>
-                        <div class="updt"><i class="fas fa-map-marker-alt user"></i><?php echo $data->city?></div>
-                        <div class="updt"><i class="fas fa-phone user"></i><?php echo $data->phone?></div>
-                        <div class="updt"><i class="fas fa-at user"></i><?php echo $data->email?></div>
+                        <div class="updt"><i class="fas fa-user user"></i><?php echo $data[0]->full_name?></div>
+                        <div class="updt"><i class="fas fa-user user"></i><?php echo $data[0]->sex?></div>
+                        <div class="updt"><i class="fas fa-map-marker-alt user"></i><?php echo $data[0]->city?></div>
+                        <div class="updt"><i class="fas fa-phone user"></i><?php echo $data[0]->phone?></div>
+                        <div class="updt"><i class="fas fa-at user"></i><?php echo $data[0]->email?></div>
+                        <div class="updt"><i class="fas fa-info-circle user"></i><?php echo $data[0]->responsible_person_email?></div>
                         <!-- <div class="updt"><i class="fas fa-user-injured user"></i></div> -->
                       </div>
               <!--End of Profile box-->
@@ -58,65 +59,85 @@
                         <div class="title">
                           Sports Details
                         </div>
-                        <!--card-->
-                      
+                        <?php if(!empty($data[1])): ?>
+                        <?php foreach($data[1] as $item): ?>
                         <div class="card">
                           <i class="fas fa-running user"></i>
-                          <div class="qual"><br><p class="txt">Institute:  &nbsp; &nbsp; &nbsp; &nbsp; Level:  </p></div>
-                        </div>
+                          <div class="qual"><?php echo $item->name?><br><p class="txt">Institute: <?php echo $item->institution?>  &nbsp; &nbsp; &nbsp; &nbsp; Level: <?php echo $item->level?>  </p></div>
+                          </div>
                         
-                        <!--card-->
-                        <!-- <div class="card">
-                          <i class="fas fa-running user"></i>
-                          <div class="qual">Water Pollo<br><p class="txt">Institute: National Youth Center &nbsp; &nbsp; &nbsp; &nbsp; Level: Beginner </p></div>
-                        </div> --> 
+                        <?php endforeach;?>
+                        <?php else: ?>
+                            <h1>No data </h1>
+                        <?php endif; ?> 
                       </div>
               <!--End of box-->
               
-              <!--Case studies box box-->
+              <!--Health details box box-->
                       <div class="about box">
                         <div class="title">
                           Health Details
                         </div>
                         <div class="health">
                           <!--card-->
-                        <div class="card" style="margin-right: 20px; width: 50%;">
+                        <div class="card" style="margin-right: 30px; width: 22%;">
                           <i class="fas fa-heartbeat user"></i>
-                          <div class="qual">Height<br><p class="txt"><?php echo $data->height?> m</p></div>
+                          <div class="qual">Height<br><p class="txt"><?php echo $data[0]->height?> m</p></div>
                         </div>
                         <!--card-->
-                        <div class="card" style="width: 50%;">
+                        <div class="card" style="margin-right: 30px;width: 22%;">
                           <i class="fas fa-heartbeat user"></i>
-                          <div class="qual">Weight<br><p class="txt"><?php echo $data->weight?> kg </p></div>
-                        </div>
-                      </div>
-                      <div class="health">
-                          <!--card-->
-                        <div class="card" style="margin-right: 20px; width: 50%;">
-                          <i class="fas fa-heartbeat user"></i>
-                          <div class="qual">BMI<br><p class="txt"><?php echo $data->bmi?> </p></div>
+                          <div class="qual">Weight<br><p class="txt"><?php echo $data[0]->weight?> kg </p></div>
                         </div>
                         <!--card-->
-                        <div class="card" style="width: 50%;">
+                        <div class="card" style="margin-right: 30px; width: 22%;">
                           <i class="fas fa-heartbeat user"></i>
-                          <div class="qual">Body Fat<br><p class="txt"><?php echo $data->body_fat?></p></div>
+                          <div class="qual">BMI<br><p class="txt"><?php echo $data[0]->bmi?> </p></div>
+                        </div>
+                        <!--card-->
+                        <div class="card" style="width: 22%;">
+                          <i class="fas fa-heartbeat user"></i>
+                          <div class="qual">Body Fat<br><p class="txt"><?php echo $data[0]->body_fat?></p></div>
+                        </div>
                         </div>
                       </div>
-                  </div>
               <!--End of Case studies box box-->
               
               <!--Articles box-->
-                      <div class="about box">
+                      <!-- <div class="about box">
                         <div class="title">
                           Other details
                         </div>
-                          <!--card-->
+                          
                         <div class="card">
                           <i class="fas fa-info-circle user"></i>
-                          <div class="qual">Responsible person<br><p class="txt">Email: <?php echo $data->responsible_person_email?> </p></div>
+                          <div class="qual">Responsible person<br><p class="txt">Email: <?php echo $data[0]->responsible_person_email?> </p></div>
                         </div>
-                      </div>
+                      </div> -->
               <!--End of Articles box-->
+
+              <!--case studies box-->
+              <div class="about box">
+                        <div class="title">
+                          Case Studies
+                        </div>
+                          <!--card-->
+                        <?php if(!empty($data[2])): ?>
+                        <?php foreach($data[2] as $item): ?>
+                        <div class="card">
+                          <i class="fas fa-user user"></i>
+                          <div class="qual"><?php echo $item->title?><br><p class="txt">Doctor: <?php echo $item->full_name?> </p></div>
+                          <div class="button">
+                            <div class="date">21/10/2021</div>
+                            <a href="<?php echo BASEURL;?>/caseStudyController/index/<?php echo $item->case_id;?>">View</a>
+                          </div>
+                        </div>
+                        <?php endforeach;?>
+                        <?php else: ?>
+                            <h1>No data </h1>
+                        <?php endif; ?>
+                      </div>
+              <!--End of cs box-->
               
                     </div>      
               </div>

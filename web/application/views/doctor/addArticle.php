@@ -24,30 +24,32 @@
           <div class="title">Create Article</div>
       
         <div class="form-inner">
-            <form action="#" class="login">              
+            <form action="<?php echo BASEURL;?>/doctor/addnewarticle" class="login" method="post">              
                <!--heading-->
                <div class="field">
-                  <input type="text" placeholder="Article heading" required>
+                  <input type="text" placeholder="Article heading" name="heading" required>
                </div>
                <!--subheading-->
-               <div class="field">
-                  <input type="text" placeholder="Article subheading" required>
-               </div>
+               <!-- <div class="field">
+                  <input type="text" placeholder="Article subheading" name="subheading">
+               </div> -->
                 <!--description-->
-               <div class="field">
-                  <input type="text" placeholder="Short description" required>
-               </div>
+               <!-- <div class="field">
+                  <input type="text" placeholder="Short description" name="description">
+               </div> -->
                <!--category-->
                <div class="field">
-                  <select name="category" id="category" required>
+                  <select name="category" id="category">
                      <option value="" disabled selected hidden>Category</option>
-                     <option value="male">Athletics</option>
-                     <option value="female">Injuries</option>
-                     <option value="female">Health</option>
+                     <option value="Cricket">Cricket</option>
+                     <option value="Football">Football</option>
+                     <option value="Rugby">Rugby</option>
+                     <option value="Athletics">Athletics</option>
+                     <option value="Other">Other</option>
                   </select>
                </div>
               <!--content-->
-                     <textarea class="text-area" rows="10" placeholder="Article content" required></textarea>
+                     <textarea class="text-area" rows="10" placeholder="Article content" name="content" required></textarea>
                <!--cover image
                   <div class="cover">
                      <p class="coverimg"> Upload your cover image for the article: </p> <input type="file" id="myFile" name="filename">

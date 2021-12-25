@@ -192,22 +192,54 @@ class adminModel extends database
 
 
     }
+    
     public function deleteNotice($id)
     {
-        $link="";
-        if($this->Query("SELECT url from post_attachements where post_id=",[$id]))
-        {
-            $obj=$this->fetch();
-            $link=$obj->url;
-
-        }       
-        // since post has an attachement first delete the attachement then the post, because if we delete the post first there will be no match in post_attachement table for given post
-       if($this->Query("DELETE from post_attachments where post_id=?",[$id])){
         
-        if($this->Query("DELETE from post where id=?",[$id])){
-            unlink('../../public/assets/dbimages/'.$link);
+        $link="";
+       
+        if($this->Query("SELECT url from post_attachments where post_id=?",[$id]))
+        {
+           
+            if($this->rowCount()>0)
+            {
+                $obj=$this->fetch();
+                $link=$obj->url;
+                if($this->Query("DELETE from post_attachments where post_id=?",[$id]))
+                { 
+                    unlink('../../public/assets/dbimages/'.$link);
+                }
+            }     
+        }  
+        if($this->Query("DELETE from post where id=?",[$id]))
+        { 
+            
+            if($this->rowCount()>0){
+                return true; 
+            }  
+        }  
+        
+        return false;
+
+    }
+
+    public function getNotices(){
+        if($this->Query("SELECT p.id, p.type, p.heading, p.description 
+                         from post p
+                         inner join post_type pt on p.type=pt.id
+                         where pt.id=? ",[1])){
+            $x=$this->fetchall();
+            return $x;
         }
-       }
+    }
+
+    public function createNotice($data){
+        
+        $y=[$data['userid'],$data['type'],$data['heading'],$data['content']];
+         print_r ($y); 
+            if($this->Query("INSERT INTO post (author_id,type,heading,description) VALUES (?,?,?,?)",$y)){
+                 return true;
+            }
     }
 
 }

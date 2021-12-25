@@ -49,24 +49,34 @@ class doctorModel extends database
     }
     
     public function getAthlete($id){
-        if($this->Query("SELECT a.full_name,a.email,a.sex,a.city,a.responsible_person_email/*,au.phone,ap.weight,ap.height,ap.bmi,ap.body_fat*/
+        if($this->Query("SELECT a.full_name,a.email,a.sex,a.city,a.responsible_person_email,au.phone,ap.weight,ap.height,ap.bmi,ap.body_fat
                          from athlete_profile a
-                         /*inner join application_user au on au.uuid=a.uuid
-                         /*inner join athlete_physical ap on a.uuid=ap.athlete_id*/
-                         where uuid=?",[$id])){
+                         inner join application_user au on au.uuid=a.uuid
+                         inner join athlete_physical ap on a.uuid=ap.athlete_id
+                         where a.uuid=?",[$id])){
             $x=$this->fetch();
             return $x;
         }
     }
-    /*public function getAthleteSport(){
+    public function getAthleteSport($id){
         if($this->Query("SELECT asp.institution,asp.level,s.name
                          from athlete_sport asp
                          inner join sport s on asp.sport_id=s.id
-                         where id=?",[1])){
+                         where asp.athlete_id=?",[$id])){
             $x=$this->fetchall();
             return $x;
         }
-    }*/
+    }
+    public function getAthleteCS($id){
+        if($this->Query("SELECT c.title, c.case_id, d.full_name
+                         from case_study c
+                         /* inner join injury i on c.injury_id=i.id */
+                         inner join doctor_profile d on c.doctor_id=d.uuid
+                         where c.athlete_id=?",[$id])){
+            $x=$this->fetchall();
+            return $x;
+        }
+    }
     /////////////////
     public function getNutritionist(){
         if($this->Query("SELECT uuid,username FROM application_user where role_id=?",[5])){
@@ -213,7 +223,68 @@ class doctorModel extends database
 
     }
 
+    public function getArticles(){
+        if($this->Query("SELECT p.id, p.type, p.heading, p.description 
+                         from post p
+                         inner join post_type pt on p.type=pt.id
+                         where pt.id<? && pt.id!=?",[7,1] )){
+            $x=$this->fetchall();
+            return $x;
+        }
+    }
+    public function createArticle($data){
+        $category = $data['category'];
+        switch ($category) {
+        case "Cricket":
+            $type = 2;
+            break;
+        case "Football":
+            $type = 3;
+            break;
+        case "Rugby":
+            $type = 4;
+            break;
+        case "Athletics":
+            $type = 5;
+            break;
+        case "Other":
+            $type = 6;
+            break;
+        }
+        $y=[$data['userid'],$type,$data['heading'],$data['content']]; 
+            if($this->Query("INSERT INTO post (author_id,type,heading,description) VALUES (?,?,?,?)",$y)){
+                 return true;
+            }
+    }
+    public function deleteArticle($id)
+    {
+        
+        $link="";
+       
+        if($this->Query("SELECT url from post_attachments where post_id=?",[$id]))
+        {
+           
+            if($this->rowCount()>0)
+            {
+                $obj=$this->fetch();
+                $link=$obj->url;
+                if($this->Query("DELETE from post_attachments where post_id=?",[$id]))
+                { 
+                    unlink('../../public/assets/dbimages/'.$link);
+                }
+            }     
+        }  
+        if($this->Query("DELETE from post where id=?",[$id]))
+        { 
+            
+            if($this->rowCount()>0){
+                return true; 
+            }  
+        }  
+        
+        return false;
 
+    }
 
      // public function getUpdates($id){
     //     if($this->Query("SELECT * from athlete_reported_injury ")){
