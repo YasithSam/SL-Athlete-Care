@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+}
+
+hr.top{
+    border-top: 2px solid black;
+}
+  
+.details_part{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.row{
+    display: flex;
+}
+.pre{
+    padding: 20px;
+}
+
+.post{
+    padding: 20px;
+}
+
+.progress{
+    padding: 20px;
+}
+
+li{
+    font-weight: 600;
+    padding-top: 10px;
+}
+
+.card-deck{
+    display: grid;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 10px;
+    align-items: stretch;
+    
+  }
+  
+  .card{
+    overflow-y: hidden;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 20px; 
+  }
+  
+  .card-img-top{
+      height: 80%;
+      width: 80%;
+      padding-bottom: 5px;
+      padding-top: 5px;
+  }
+  
+  
+  .card-body{
+      padding-left: 10px;
+      height: 20%;
+      margin-bottom: 10px;
+  }
+  
+ 
