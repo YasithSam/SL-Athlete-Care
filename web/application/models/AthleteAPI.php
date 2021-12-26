@@ -4,6 +4,80 @@ include "../../web/config/config.php";
 include "../../web/system/classes/database.php";
 class AthleteAPI extends database
 {
+    public function getUserForum($id){
+        $data=[];
+        if( $this->Query("SELECT a.id,a.con,a.description,a.status,a.comment,a.date,i.injury,d.full_name as doctor FROM athlete_reported_injury a inner join injury i on i.id=a.injury_id inner join doctor_profile d on d.uuid=a.doctor_id WHERE a.athlete_id=?",[$id])){
+            if($this->rowCount()>0){
+                $row = $this->fetchall();
+                foreach ($row as $obj)
+                {
+                    $arr=explode(" ",$obj->date);
+                    $obj->date=$arr[0];
+                    array_push($data,$obj);
+                     
+                }    
+
+            } else {
+                return ['status' => 'n'];
+            }
+
+        }
+        return ['status'=>'ok','data'=>$data];
+
+    }
+
+    public function deleteUserForum($id)
+    {
+        if($this->Query("DELETE from athlete_reported_injury where id=?",[$id])){
+            return true;
+        }
+        return false;
+
+    }
+
+    public function editUserForum()
+    {
+
+    }
+
+    public function getUserForumComments($id){
+        $data=[];
+        if( $this->Query("SELECT f.comment,f.date,u.username from forum_comment f inner join application_user u on f.user_id=u.uuid WHERE f.forum_id=?",[$id])){
+            if($this->rowCount()>0){
+                $row = $this->fetchall();
+                foreach ($row as $obj)
+                {
+                    array_push($data,$obj);
+                     
+                }    
+
+            } else {
+                return ['status' => 'n'];
+            }
+            
+
+        }
+        return ['status'=>'ok','data'=>$data];
+       
+
+    }
+
+    public function addUserForumComment($f,$c,$u){
+        $x=[$f,$u,$c];
+        if( $this->Query("INSERT INTO forum_comment (forum_id,user_id,comment) VALUES (?,?,?)",$x)){
+            if($this->rowCount()>0){
+                return['status'=>'ok'];
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+
+    }
+
     public function checkUser($username,$phone){
         if( $this->Query("SELECT * FROM application_user WHERE username = ? || phone= ?",[$username,$phone])){
             if($this->rowCount()>0){
