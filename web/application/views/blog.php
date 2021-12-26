@@ -52,7 +52,6 @@
 							<!--first-->
 							<?php if(!empty($data[0])): ?>
 							<?php foreach($data[0] as $item): ?>
-
 							<div class="swiper-slide">
 								<div class="testi-item">
 									<div class="testimonials-text">
@@ -64,7 +63,7 @@
 
 										<div class="text-link">
 											<div class="decision-wrapper">
-												<a href="<?php echo BASEURL;?>/forumController/noticeitem"><button class="notice-btn">View</button></a>
+												<a href="<?php echo BASEURL;?>/forumController/noticeitem/<?php echo $item->id;?>"><button class="notice-btn">View</button></a>
 											</div>          
 
 										</div>
@@ -265,7 +264,7 @@
 			 <h4><?php echo $item1->datetime?></h4>
 
 			 <div class="decision-wrapper">
-				<a href="<?php echo BASEURL;?>/forumController/articleitem"><button class="button3">View</button></a>
+				<a href="<?php echo BASEURL;?>/forumController/articleitem/<?php echo $item1->id;?>"><button class="button3">View</button></a>
 			</div>
 	
 				  

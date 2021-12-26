@@ -74,20 +74,31 @@ class forumController extends main{
         $this->view('grid');
 
     }
-    public function articleitem(){
-        $this->view('articleitem');
-
+    public function articleitem($id){
+        if($this->getSession('userRole')==2){
+            $data['data']=$this->forumModel->getotherArticles($id);
+            $data['active']=$this->forumModel->getArticlesitem($id);
+            $this->view('articleitem',$data);
+        }
+        else{
+            $this->view('404');
+        }
     }
+
     public function questionitem(){
         $this->view('questionitem');
 
     }
-/*     public function noticeitem($id){
-        $id=$id;
-        $data=$this->forumModel->getNoticeitem($id);
-        $this->view('noticeitem',$data);
-
-    } */
+    public function noticeitem($id){
+            if($this->getSession('userRole')==2){
+                $data['data']=$this->forumModel->getotherNotices($id);
+                $data['active']=$this->forumModel->getNoticeitem($id);
+                $this->view('noticeitem',$data);
+            }
+            else{
+                $this->view('404');
+            }
+    }
 
     public function reject($id){
         if($this->getSession('userRole')==2){
