@@ -1,7 +1,8 @@
 <?php
 require_once '../../web/application/models/BlogAPI.php';
  $db=new BlogAPI();
- $data=$db->GetAll();
+ $t=$_REQUEST['type'];
+ $data=$db->GetAll($t);
  echo json_encode($data);
 
  ?>
