@@ -58,6 +58,33 @@ class caseStudyController extends main{
         $this->view("casestudy/post" ,$dataA);
       
      }
+
+
+     //report
+     public function report($id){
+        $data1=$this->caseStudyModel->getReportDetails($id);  
+        $data2=$this->caseStudyModel->getReportMedicine($id);  
+        $data3=$this->caseStudyModel->getReportPreAttachments($id); 
+        $data4=$this->caseStudyModel->getReportPreWorkout($id);
+        $data5=$this->caseStudyModel->getReportPreDiet($id);
+        $data6=$this->caseStudyModel->getReportAdvices($id);
+        $data7=$this->caseStudyModel->getReportPostAttachments($id); 
+        $data8=$this->caseStudyModel->getReportPostWorkout($id);
+        $data9=$this->caseStudyModel->getReportPostDiet($id);
+        $data10=$this->caseStudyModel->getReportDoctorFeedback($id);
+        $data11=$this->caseStudyModel->getReportPhysioFeedback($id);
+        $data12=$this->caseStudyModel->getReportNutriFeedback($id);
+        $data13=$this->caseStudyModel->getReportAthleteFeedback($id);
+        $data14=$this->caseStudyModel->getReportDetailsPhysiotherapist($id);
+        $data15=$this->caseStudyModel->getReportDetailsNutritionist($id);
+
+
+        $dataA=[$data1, $data2, $data3, $data4, $data5, $data6, $data7, $data8, $data9, $data10, $data11, $data12, $data13, $data14, $data15];
+
+        $this->view("casestudy/report" ,$dataA);
+     }
+
+
     public function item($id){
         // $userId = $this->getSession('userId');
         // // check which user has access to the specific case study
