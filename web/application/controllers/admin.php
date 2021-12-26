@@ -43,7 +43,8 @@ class admin extends main{
     }
     public function notices(){
         if($this->getSession('userRole')==1){
-          $this->view('admin/notices');
+            $data=$this->adminModel->getNotices();
+          $this->view('admin/notices',$data);
         }  
         else{
             $this->view('404');
@@ -56,16 +57,35 @@ class admin extends main{
         else{
             $this->view('404');
         }
-
     }
-    public function editnotice(){
-        if($this->getSession('userRole')==1){
-            $this->view('admin/editnotice');
+    public function addnewnotice(){
+        $userid = $this->getSession('userId');
+        $type = 1;
+        $userData = [
+            'heading'        => $this->input('heading'),
+            'content'           => $this->input('content'),
+            'userid' => $userid,
+            'type' => $type,
+        ];
+        
+        if($this->adminModel->createNotice($userData)){
+            $this->setFlash('addnot', 'Notice added successfully!');
+            $this->redirect('admin/notices');
+         }
+        else {
+        $this->view('admin/addnotice',$userData);
         }
-        else{
-            $this->view('404');
-        }
+    }
 
+    public function deleteNotice($id)
+    {
+        if($this->adminModel->deleteNotice($id)){
+            $this->setFlash('dltnot', 'Article deleted successfully!');
+            $this->redirect('admin/notices');
+          }  
+          else{
+              $this->view('admin/notices');
+          } 
     }
     public function users(){
         $c=$this->input('id');
@@ -284,19 +304,7 @@ class admin extends main{
         $data = htmlspecialchars($data);
         return $data;
 
-    }
-    public function deleteNotice($id)
-    {
-        if($this->adminModel->deleteNotice($id)){
-            $this->view('admin/notices');
-            // add user has succesfully deleted message ( same as used in registering)
-          }  
-          else{
-              $this->view('admin/notices');
-          } 
-    }
-    
-    
+    }  
 
 }
 ?>    

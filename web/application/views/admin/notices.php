@@ -10,7 +10,7 @@
         <?php linkCSS("assets/css/admin/admin.css") ?>
         <?php linkCSS("assets/css/articlemain.css") ?>
         <?php linkCSS("assets/css/myarticles.css") ?>
-      
+        <?php linkCSS("assets/css/alert.css") ?>
 
     </head>
 
@@ -30,60 +30,37 @@
             <a href="<?php echo BASEURL;?>/admin/addnotice"><i class="fas fa-plus" ></i>Add</a>
         </div>
     </div>
-
-    <!--Horizontal card container-->
-    <div class="main">
-
-        <!--Single card------------------------------------------------------------------------->
-        <div class="card">
-          <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
-          <div class="container">
-                <h4>Notice One</h4> 
-                <p>something something something <br>something something something </p> 
-            <div class="edit">
-                <div class="button">
-                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
-                    <a href="<?php echo BASEURL;?>/admin/deleteNotice/1"><i class="fas fa-trash-alt icon"></i></a>
-                </div>
-            </div>
-          </div>
-        </div>
-
-        <!--Single card------------------------------------------------------------------------->
-        <div class="card">
-            <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                  <h4>Notice One</h4> 
-                  <p>something something something <br>something something something </p> 
-              <div class="edit">
-                <div class="button">
-                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
-                    <a href=""><i class="fas fa-trash-alt icon"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!--Single card------------------------------------------------------------------------->
-        <div class="card">
-            <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                  <h4>Notice One</h4> 
-                  <p>something something something <br>something something something </p> 
-              <div class="edit">
-                <div class="button">
-                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
-                    <a href=""><i class="fas fa-trash-alt icon"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        
+    <div style="margin-left: 40px; margin-bottom: 10px;">
+        <?php $this->flash('dltnot', 'alert alert-success') ?>
+        <?php $this->flash('addnot', 'alert alert-success') ?>
     </div>
     <!--Horizontal card container-->
     <div class="main">
 
         <!--Single card------------------------------------------------------------------------->
+        <?php if(!empty($data)): ?>
+        <?php foreach($data as $item): ?>
+        <div class="card">
+          <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
+          <div class="container">
+            <h4><?php echo($item->heading);?></h4> 
+            <p><?php echo($item->description);?></p> 
+              <div class="edit">
+                <div class="button">
+                    <!-- <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a> -->
+                    <a href="<?php echo BASEURL;?>/admin/deleteNotice/<?php echo $item->id;?>"><i class="fas fa-trash-alt icon"></i></a>
+                </div>
+              </div>
+          </div>
+        </div>
+        <?php endforeach;?>
+        <?php else: ?>
+            <h1>No data </h1>
+        <?php endif; ?> 
+    </div>
+
+    <!--Horizontal card container-->
+    <!-- <div class="main">
         <div class="card">
           <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
           <div class="container">
@@ -97,37 +74,7 @@
             </div>
           </div>
         </div>
-
-        <!--Single card------------------------------------------------------------------------->
-        <div class="card">
-        <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                  <h4>Notice One</h4> 
-                  <p>something something something <br>something something something </p> 
-              <div class="edit">
-                <div class="button">
-                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
-                    <a href=""><i class="fas fa-trash-alt icon"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!--Single card------------------------------------------------------------------------->
-        <div class="card">
-            <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                  <h4>Notice One</h4> 
-                  <p>something something something <br>something something something </p> 
-              <div class="edit">
-                <div class="button">
-                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
-                    <a href=""><i class="fas fa-trash-alt icon"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div>
+    </div> -->
 
     <div class="more"><a href="<?php echo BASEURL;?>/forumController/noticeitem"> View All</a></div>
         

@@ -9,6 +9,7 @@
      
         <?php linkCSS("assets/css/articlemain.css") ?>
         <?php linkCSS("assets/css/myarticles.css") ?>
+        <?php linkCSS("assets/css/alert.css") ?>
     </head>
 
     <body>  <input type="checkbox" id="sidebar-toggle">
@@ -16,10 +17,7 @@
 
         <div class="main-content">
         <?php include "header.php"?>
-
-
- 
-            <main>
+        <main>
                 
     <div class="head">
         <div class="title">My Articles</div>
@@ -27,11 +25,37 @@
             <a href="<?php echo BASEURL;?>/doctor/addarticle"><i class="fas fa-plus" ></i>Add</a>
         </div>
     </div>
+    <div style="margin-left: 40px; margin-bottom: 10px;">
+    <?php $this->flash('dltart', 'alert alert-success') ?>
+    <?php $this->flash('addart', 'alert alert-success') ?>
+  </div>
 
     <!--Horizontal card container-->
     <div class="main">
-
+    <?php if(!empty($data)): ?>
+    <?php foreach($data as $item): ?>
         <!--Single card------------------------------------------------------------------------->
+        <div class="card">
+          <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
+          <div class="container">
+                  <h4><?php echo($item->heading);?></h4> 
+                  <p><?php echo($item->description);?></p> 
+            <div class="edit">
+                <div class="button">
+                    <!-- <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a> -->
+                    <a href="<?php echo BASEURL;?>/doctor/deletearticle/<?php echo $item->id;?>"><i class="fas fa-trash-alt icon"></i></a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <?php endforeach;?>
+        <?php else: ?>
+            <h1>No data </h1>
+        <?php endif; ?>
+    </div>
+
+    <!--Horizontal card container-->
+    <!-- <div class="main">
         <div class="card">
           <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
           <div class="container">
@@ -45,93 +69,14 @@
             </div>
           </div>
         </div>
-
-        <!--Single card------------------------------------------------------------------------->
-        <div class="card">
-            <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                  <h4>Article One</h4> 
-                  <p>something something something <br>something something something </p> 
-              <div class="edit">
-                <div class="button">
-                    <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a>
-                    <a href=""><i class="fas fa-trash-alt icon"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!--Single card------------------------------------------------------------------------->
-        <div class="card">
-            <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                  <h4>Article One</h4> 
-                  <p>something something something <br>something something something </p> 
-              <div class="edit">
-                <div class="button">
-                    <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a>
-                    <a href=""><i class="fas fa-trash-alt icon"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        
-    </div>
-    <!--Horizontal card container-->
-    <div class="main">
-
-        <!--Single card------------------------------------------------------------------------->
-        <div class="card">
-          <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
-          <div class="container">
-                <h4>Article One</h4> 
-                <p>something something something <br>something something something </p> 
-            <div class="edit">
-                <div class="button">
-                    <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a>
-                    <a href=""><i class="fas fa-trash-alt icon"></i></a>
-                </div>
-            </div>
-          </div>
-        </div>
-
-        <!--Single card------------------------------------------------------------------------->
-        <div class="card">
-            <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                  <h4>Article One</h4> 
-                  <p>something something something <br>something something something </p> 
-              <div class="edit">
-                <div class="button">
-                    <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a>
-                    <a href=""><i class="fas fa-trash-alt icon"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!--Single card------------------------------------------------------------------------->
-        <div class="card">
-            <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-                  <h4>Article One</h4> 
-                  <p>something something something <br>something something something </p> 
-              <div class="edit">
-                <div class="button">
-                    <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a>
-                    <a href=""><i class="fas fa-trash-alt icon"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div>
+    </div> -->
 
     <div class="more"><a href="<?php echo BASEURL;?>/forumController/grid"> View All</a></div>
         
             </main>
             </div>
 
-            <script>
+            <!-- <script>
               /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
               var dropdown = document.getElementsByClassName("dropdown-btn");
               var i;
@@ -147,6 +92,6 @@
                 }
                 });
               }
-              </script>
+              </script> -->
     </body>
 </html>
