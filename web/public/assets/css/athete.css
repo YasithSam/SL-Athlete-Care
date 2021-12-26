@@ -146,12 +146,36 @@ body{
   width: 86%;
   font-size: 15px;
   font-weight: 500; 
+  display: inline-block;
 }
 .home .about .card .qual .txt{
   font-size: 12px;
   font-weight: 0;
   color: #6d6b6b;
 }
+.card .button{
+  padding-top: 3px;
+  width: 30%;
+  text-align: right;
+  margin-right: 20px;
+}
+.button .date{
+  margin-bottom: 7px;
+}
+.card .button a{
+  color: #fff;
+  background: #58a5f0;
+  padding: 4px 12px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.button a:hover{
+  background:  #01579b;
+}  
 
 .home .box .title{
   font-size: 24px;
@@ -164,94 +188,6 @@ body{
   
 }
 
-/* Float cancel and delete buttons and add an equal width */
-.cancelbtn, .deletebtn {
-  float: center;
-  width: 30%;
-  height: 50px;
-}
-
-/* Add a color to the cancel button */
-.cancelbtn {
-  background-color: #ccc;
-  color: black;
-}
-
-/* Add a color to the delete button */
-.deletebtn {
-  background-color: #f44336;
-}
-
-/* Add padding and center-align text to the container */
-.container {
-  padding: 16px;
-  text-align: center;
-  height: 100%;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 80%; /* Full width */
-  height: 80%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: #bfc0c2;
-  padding-top: 70px;
-  justify-content: center;
-  text-align: center;
-  align-content: center;
-  align-items: center;
- 
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  height: 50%;
-}
-
-/* Style the horizontal ruler */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
- 
-/* The Modal Close Button (x) */
-.close {
-  position: absolute;
-  right: 35px;
-  top: 15px;
-  font-size: 40px;
-  font-weight: bold;
-  color: #f1f1f1;
-}
-
-.close:hover,
-.close:focus {
-  color: #f44336;
-  cursor: pointer;
-}
-
-/* Clear floats */
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-/* Change styles for cancel button and delete button on extra small screens */
-@media screen and (max-width: 300px) {
-  .cancelbtn, .deletebtn {
-     width: 100%;
-  }
-}
 
 /* Responsive Media Query */
 @media (max-width: 1240px) {

@@ -53,18 +53,16 @@ class doctor extends main{
     }
 
     public function athlete($uuid){
-        //$user_id = $this->uri->segment(3);
         $id=$uuid;
-  
         if($this->getSession('userRole')==2){
             $data=$this->doctorModel->getAthlete($id);
-            //$data2=$this->doctorModel->getAthleteSport();
-            $this->view('doctor/athlete',$data);
+            $data2=$this->doctorModel->getAthleteSport($id);
+            $data3=$this->doctorModel->getAthleteCS($id);
+            $this->view('doctor/athlete',[$data,$data2,$data3]);
         }
         else{
             $this->view('404');
         }
-
     }
     public function casestudyform(){
         if($this->getSession('userRole')==2){
@@ -141,23 +139,52 @@ class doctor extends main{
         }
 
     }
+    public function articles(){
+        if($this->getSession('userRole')==2){
+            $data=$this->doctorModel->getArticles();
+          $this->view('doctor/articles',$data);
+        }  
+        else{
+            $this->view('404');
+        }
+    }
     public function addarticle(){
         if($this->getSession('userRole')==2){
-            $this->view('doctor/addarticle');
+            $this->view('doctor/addArticle');
         }
         else{
             $this->view('404');
         }
 
     }
-    public function editarticle(){
-        if($this->getSession('userRole')==2){
-            $this->view('doctor/editarticle');
+    public function addnewarticle(){
+        $userid = $this->getSession('userId');
+        $userData = [
+            'heading'        => $this->input('heading'),
+            'content'           => $this->input('content'),
+            'category'           => $this->input('category'),
+            'userid' => $userid,
+        ];
+        
+        if($this->doctorModel->createArticle($userData)){
+            $this->setFlash('addart', 'Article added successfully!');
+            $this->redirect('doctor/articles');
+         }
+        else {
+        $this->view('doctor/addArticle',$userData);
         }
-        else{
-            $this->view('404');
-        }
-
+    }
+    public function deletearticle($id)
+    {
+       
+        if($this->doctorModel->deleteArticle($id)){
+            $this->setFlash('dltart', 'Article deleted successfully!');
+            $this->redirect('doctor/articles');
+            // add user has succesfully deleted message ( same as used in registering)
+          }  
+          else{
+              $this->view('doctor/articles');
+          } 
     }
     public function editprofile(){
         if($this->getSession('userRole')==2){
@@ -171,14 +198,6 @@ class doctor extends main{
     public function messages(){
         if($this->getSession('userRole')==2){
           $this->view('doctor/chat');
-        }
-        else{
-            $this->view('404');
-        }
-    }
-    public function articles(){
-        if($this->getSession('userRole')==2){
-          $this->view('doctor/articles');
         }
         else{
             $this->view('404');
