@@ -252,9 +252,12 @@ class adminModel extends database
     }
     public function deleteNotice($id)
     {
+        
         $link="";
-        if($this->Query("SELECT url from post_attachements where post_id=?",[$id]))
+       
+        if($this->Query("SELECT url from post_attachments where post_id=?",[$id]))
         {
+           
             if($this->rowCount()>0)
             {
                 $obj=$this->fetch();
@@ -264,16 +267,36 @@ class adminModel extends database
                     unlink('../../public/assets/dbimages/'.$link);
                 }
             }     
-        }   
+        }  
         if($this->Query("DELETE from post where id=?",[$id]))
         { 
+            
             if($this->rowCount()>0){
                 return true; 
             }  
-        }   
+        }  
         
-        return false; 
+        return false;
+
     }
-    
+
+    public function getNotices(){
+        if($this->Query("SELECT p.id, p.type, p.heading, p.description 
+                         from post p
+                         inner join post_type pt on p.type=pt.id
+                         where pt.id=? ",[1])){
+            $x=$this->fetchall();
+            return $x;
+        }
+    }
+
+    public function createNotice($data){
+        
+        $y=[$data['userid'],$data['type'],$data['heading'],$data['content']];
+         print_r ($y); 
+            if($this->Query("INSERT INTO post (author_id,type,heading,description) VALUES (?,?,?,?)",$y)){
+                 return true;
+            }
+    }
 
 }

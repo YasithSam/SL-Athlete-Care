@@ -24,19 +24,19 @@
           <div class="title">Create Notice</div>
       
         <div class="form-inner">
-            <form action="#" class="login">              
+        <form action="<?php echo BASEURL;?>/admin/addnewnotice" class="login" method="post">             
                <!--heading-->
                <div class="field">
-                  <input type="text" placeholder="Notice heading" required>
+                  <input type="text" placeholder="Notice heading" name="heading" required>
                </div>
                <!--subheading-->
-               <div class="field">
+              <!--  <div class="field">
                   <input type="text" placeholder="Notice subheading" required>
-               </div>
+               </div> -->
                 <!--description-->
-               <div class="field">
+              <!--  <div class="field">
                   <input type="text" placeholder="Notice description" required>
-               </div>
+               </div> -->
                <!--category-->
                <div class="field">
                   <select name="category" id="category" required>
@@ -47,7 +47,7 @@
                   </select>
                </div>
               <!--content-->
-                     <textarea class="text-area" rows="10" placeholder="Notice content" required></textarea>
+                     <textarea class="text-area" rows="10" placeholder="Notice content" name="content" required></textarea>
                <!--cover image
                   <div class="cover">
                      <p class="coverimg"> Upload your cover image for the article: </p> <input type="file" id="myFile" name="filename">
