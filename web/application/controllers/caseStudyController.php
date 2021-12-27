@@ -123,6 +123,40 @@ class caseStudyController extends main{
         $this->view('casestudy/diet',[$data3,$id]);
 
     }
+    
+//Delete Advice
+    public function deleteAdvice()
+    {
+        $x=$this->input('id');
+        $v=$this->input('case_id');
+        if($this->caseStudyModel->deleteAdvice($x)){
+            $this->redirect('caseStudyController/advices/'.$v);
+            }
+
+        
+        else{
+            $this->redirect('caseStudyController/advices/'.$v);
+
+        }   
+    }
+
+//Delete Medicine
+
+    public function deleteMedicine()
+    {
+        $c=$this->input('id');
+        $z=$this->input('case_id');
+        if($this->caseStudyModel->deleteMedicine($c)){
+            $this->redirect('caseStudyController/medicine/'.$z);
+            }
+
+        
+        else{
+            $this->redirect('caseStudyController/medicine/'.$z);
+
+        }   
+
+    }
 
 //post images
 
