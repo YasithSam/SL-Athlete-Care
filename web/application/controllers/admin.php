@@ -14,8 +14,8 @@ class admin extends main{
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==1){
             
-           // $data = $this->profileModel->getData($userId);
-            $this->view("admin/home");
+            $data = $this->adminModel->getCounts();
+            $this->view("admin/home",$data);
               
         }
         else{

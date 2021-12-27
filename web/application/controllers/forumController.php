@@ -11,7 +11,7 @@ class forumController extends main{
 
     }
     public function index(){
-            if($this->getSession('userRole')==2){
+            if($this->getSession('userRole')!=4){
             $data=$this->forumModel->getNotices();
             $data2=$this->forumModel->getArticles();
             $top=array_slice($data, 0, 3);

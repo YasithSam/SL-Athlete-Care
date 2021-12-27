@@ -1,5 +1,6 @@
 <?php
-
+include "../../web/config/config.php";
+include "../../web/system/classes/database.php";
 class accountModel extends database
 {
     public function createAccountDoctor($data){
@@ -15,6 +16,16 @@ class accountModel extends database
             return true;
         }
 
+    }
+
+    public function disableUser($id){
+        if($this->Query("UPDATE application_user SET is_disabled=1 where uuid=?",[$id])){
+            if($this->Query("SELECT email from athlete_profile where uuid=?",[$id])){
+                $data=$this->fetch();
+                return $data;
+            }
+
+        }
     }
 
 

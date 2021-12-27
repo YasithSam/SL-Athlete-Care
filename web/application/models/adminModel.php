@@ -26,10 +26,20 @@ class adminModel extends database
         }
 
     }
+
+    public function getCounts(){
+
+        if($this->Query("SELECT count(*) AS c1 FROM athlete_profile union all SELECT count(*) AS c3 FROM post union all SELECT count(*) AS c2 FROM case_study")){
+            $data = $this->fetchall();
+            return $data;
+
+        }
+
+    }   
     public function getUsers($c){
         $m=[];
         $start_from = ($c-1) * 10;  
-        if($this->Query("SELECT u.uuid,u.username,u.phone,r.role from application_user u inner join user_role r on r.id=u.role_id where u.role_id!=1 order by timestamp desc limit $start_from,10")){
+        if($this->Query("SELECT u.uuid,u.username,u.phone,r.role,u.is_disabled from application_user u inner join user_role r on r.id=u.role_id where u.role_id!=1 order by timestamp desc limit $start_from,10")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;

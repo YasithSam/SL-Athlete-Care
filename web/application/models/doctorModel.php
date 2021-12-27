@@ -289,12 +289,12 @@ class doctorModel extends database
     public function getArticles(){
         if($this->Query("SELECT p.id, p.type, p.heading, p.description 
                          from post p
-                         inner join post_type pt on p.type=pt.id
-                         where pt.id<? && pt.id!=?",[7,1] )){
+                         where p.type<? && p.type!=? && p.approval_status=?",[7,1,1])){
             $x=$this->fetchall();
             return $x;
         }
     }
+
     public function createArticle($data){
         $category = $data['category'];
         switch ($category) {

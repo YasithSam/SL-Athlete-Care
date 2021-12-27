@@ -77,8 +77,8 @@ class forumModel extends database
 
     public function getNotices(){
         if($this->Query("SELECT p.id,p.heading,pa.url from post p 
-        inner join post_attachments pa on p.id=pa.post_id 
-        where p.type='1'  ORDER BY p.datetime DESC")){
+        left join post_attachments pa on p.id=pa.post_id 
+        where p.type='1' ORDER BY p.datetime DESC")){
             $data = $this->fetchall();
             return $data;
 
@@ -87,7 +87,7 @@ class forumModel extends database
 
     public function getotherNotices($id){
         if($this->Query("SELECT p.id,p.heading,pa.url from post p 
-        inner join post_attachments pa on p.id=pa.post_id 
+        left join post_attachments pa on p.id=pa.post_id 
         where p.type='1' and p.id<>$id  ORDER BY p.datetime DESC")){
             $data = $this->fetchall();
             return $data;
@@ -97,7 +97,7 @@ class forumModel extends database
 
      public function getNoticeitem($id){
         if($this->Query("SELECT p.id,p.heading,p.description,pa.url from post p 
-        inner join post_attachments pa on p.id=pa.post_id 
+        left join post_attachments pa on p.id=pa.post_id 
         where p.id=$id")){
             $data = $this->fetch();
             return $data;
@@ -118,7 +118,7 @@ class forumModel extends database
 
     public function getArticles(){
         if($this->Query("SELECT p.id,p.heading,pa.url from post p 
-        inner join post_attachments pa on p.id=pa.post_id 
+        left join post_attachments pa on p.id=pa.post_id 
         where p.type in (2,3,4,5,6)  ORDER BY p.datetime DESC")){
             $data = $this->fetchall();
             return $data;
@@ -128,7 +128,7 @@ class forumModel extends database
 
     public function getotherArticles($id){
         if($this->Query("SELECT p.id,p.heading,pa.url from post p 
-        inner join post_attachments pa on p.id=pa.post_id 
+        left join post_attachments pa on p.id=pa.post_id 
         where p.type in (2,3,4,5,6) and p.id<>$id  ORDER BY p.datetime DESC")){
             $data = $this->fetchall();
             return $data;
@@ -138,7 +138,7 @@ class forumModel extends database
 
      public function getArticlesitem($id){
         if($this->Query("SELECT p.id,p.heading,p.description,p.likes,p.comments,p.datetime,pa.url from post p 
-        inner join post_attachments pa on p.id=pa.post_id 
+        left join post_attachments pa on p.id=pa.post_id 
         where p.id=$id")){
             $data = $this->fetch();
             return $data;

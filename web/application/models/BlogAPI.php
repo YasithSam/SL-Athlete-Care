@@ -105,14 +105,30 @@ class BlogAPI extends database
                 }
             }     
         }   
+        if($this->Query("SELECT * from comments where post_id=?",[$id]))
+        {
+
+            if($this->rowCount()>0)
+            {           
+                $this->Query("DELETE from comments where post_id=?",[$id]);
+                
+            }     
+        }
+        if($this->Query("SELECT * from post_reports where post_id=?",[$id]))
+        {
+            if($this->rowCount()>0)
+            {
+                $this->Query("DELETE from post_reports where post_id=?",[$id]);
+            }     
+        }
         if($this->Query("DELETE from post where id=?",[$id]))
         { 
             if($this->rowCount()>0){
-                return true; 
+                return ['status' => 'ok'];
             }  
         }   
         
-        return false; 
+        return ['status' => 'n'];
     }
     public function uploadArticle($title,$desc,$t,$data,$i){
         $type=$this->findType($t);

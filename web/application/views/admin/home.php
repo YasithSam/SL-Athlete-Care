@@ -44,22 +44,22 @@
               <div class="box">
                 <i class="fas fa-user-md icon"></i>
                 <div class="right-side">
-                  <div class="box-topic">Total Doctors</div>
-                  <div class="number">25</div>
+                  <div class="box-topic">Total Athletes</div>
+                  <div class="number"><?php echo($data[0]->c1)?></div>
                 </div>
               </div>
               <div class="box">
                 <i class="fas fa-procedures icon"></i>
                 <div class="right-side">
-                  <div class="box-topic">Total Patients</div>
-                  <div class="number">100</div>
+                  <div class="box-topic">Total Case Studies</div>
+                  <div class="number"><?php echo($data[0]->c2)?></div>
                 </div>
               </div>
               <div class="box">
                 <i class="fas fa-users icon"></i>
                 <div class="right-side">
-                  <div class="box-topic">Total Users</div>
-                  <div class="number">125</div>
+                  <div class="box-topic">Total Posts</div>
+                  <div class="number"><?php echo($data[0]->c3)?></div>
                 </div>
               </div>
             </div>

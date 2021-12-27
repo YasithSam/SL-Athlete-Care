@@ -39,7 +39,8 @@
 
         <!--Single card------------------------------------------------------------------------->
         <?php if(!empty($data)): ?>
-        <?php foreach($data as $item): ?>
+         <?php $arr=array_slice($data,0,3)?>
+          <?php foreach($arr as $item): ?>
         <div class="card">
           <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
           <div class="container">
@@ -60,21 +61,28 @@
     </div>
 
     <!--Horizontal card container-->
-    <!-- <div class="main">
+    <div class="main">
+    <?php if(!empty($data)): ?>
+        <?php $arr=array_slice($data,3,count($data))?>
+        <?php foreach($arr as $item): ?>
         <div class="card">
           <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
           <div class="container">
-                <h4>Notice One</h4> 
-                <p>something something something <br>something something something </p> 
-            <div class="edit">
+            <h4><?php echo($item->heading);?></h4> 
+            <p><?php echo($item->description);?></p> 
+              <div class="edit">
                 <div class="button">
-                    <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a>
-                    <a href=""><i class="fas fa-trash-alt icon"></i></a>
+                    <!-- <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a> -->
+                    <a href="<?php echo BASEURL;?>/admin/deleteNotice/<?php echo $item->id;?>"><i class="fas fa-trash-alt icon"></i></a>
                 </div>
-            </div>
+              </div>
           </div>
         </div>
-    </div> -->
+        <?php endforeach;?>
+        <?php else: ?>
+            <h1>No data </h1>
+        <?php endif; ?> 
+    </div>
 
     <div class="more"><a href="<?php echo BASEURL;?>/forumController/noticeitem"> View All</a></div>
         

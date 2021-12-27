@@ -43,8 +43,13 @@
               <td><?php echo ucwords($item->uuid); ?></td>
               <td><?php echo ucwords($item->role); ?></td>
               <td><?php echo ucwords($item->username); ?></td>  
+              <?php if(!($item->is_disabled)){?>
+                   <td><a href="http://localhost/SL-Athlete-Care/api/v1/emailDisableUser.php?id=<?php echo $item->uuid;?>" onclick='return confirm("Are you sure want to confirm?");'><button class="button1"> Disable</button></a> </td>
+              <?php } else{?>
+                  <td><h6 style="color:red">Disabled User</h6><td>
+             <?php }?>
+  
            
-              <td><input type="button" class="button" value="Disable"> </td>
             </tr>
       <?php endforeach;?>
         <?php else: ?>
