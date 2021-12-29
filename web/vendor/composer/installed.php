@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '632c94888046d3fe3695fd8f80cad32b6ec99f2e',
+        'reference' => '95964d73085a1617da8797182e1dea03182baa3b',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '632c94888046d3fe3695fd8f80cad32b6ec99f2e',
+            'reference' => '95964d73085a1617da8797182e1dea03182baa3b',
             'dev_requirement' => false,
         ),
         'sendgrid/php-http-client' => array(

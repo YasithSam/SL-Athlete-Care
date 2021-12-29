@@ -33,7 +33,7 @@
             <h3>Athlete Name : <?php print_r($data[5]->full_name)?></h3>
            
         </div>
-        <button class="report" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/report/<?php echo($data[1])?>';">Generate Report</button>
+        <button class="report" onclick="window.location.href='http://localhost/SL-Athlete-Care/api/v1/generateReport.php?id=<?php echo($data[1])?>';">Generate Report</button>
     </div>
 
     <!--end of details-->

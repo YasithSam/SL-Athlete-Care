@@ -1,5 +1,6 @@
 <?php
-
+include "../../web/config/config.php";
+include "../../web/system/classes/database.php";
 class caseStudyModel extends database
 {
     public function getCaseStudybyId($id){
@@ -36,6 +37,8 @@ class caseStudyModel extends database
      public function getReportDetails($id){
         if($this->Query("SELECT a.full_name AS aname,d.full_name AS dname, i.id, i.injury, c.title,c.description,c.datetime from case_study c inner join athlete_profile a on c.athlete_id=a.uuid inner join doctor_profile d on c.doctor_id=d.uuid inner join injury i on c.injury_id =i.id where c.case_id=?",[$id])){
             $data=$this->fetch();
+            $a=explode(" ",$data->datetime);
+            $data->datetime=$a[0];
             return $data;
         }
     }

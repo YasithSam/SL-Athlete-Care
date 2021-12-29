@@ -42,6 +42,33 @@
                 <td ><?php echo ucwords($item->heading); ?></td>
                 <td class="longtext"><?php echo ucwords($item->description); ?></td>
                 <td><?php echo ucwords($item->username); ?></td>
+                <?php if($item->approve){?>
+                   <td><h2> approved</h2>
+                 <?php } else{?>
+                  <td>
+                  <!-- change url-->
+                  <form action="<?php echo BASEURL;?>/doctor/filter" method="POST">
+                    <ul class="indicator">
+                        <li data-filter="injury" class="active">                    
+                            <select name="doctors" id="d">
+                                <option value="W.D. Aruna Jayasundara">W.D. Aruna Jayasundara</option>
+                                <option value="Kithsiri Perera">Kithsiri Perera</option>
+                                <option value="Wasana Jayakodi">Wasana Jayakodi</option>
+                                <option value="Radhika Kulathunga">Radhika Kulathunga</option>
+                                <option value="Tharaka Yahathugoda">Tharaka Yahathugoda</option>
+                                <option value="Uditha Illangasinha">Uditha Illangasinha</option>
+                                <option value="Irosha Premathilaka">Irosha Premathilaka</option>
+                                <option value="Oshadha Amarasinha">Oshadha Amarasingha</option>
+                            </select>
+                        </li>                  
+                      
+                          <input type="submit" value="Submit" />
+                    </ul>
+                    
+                </form><td>
+                 <?php }?>
+  
+
                 <td><?php echo ucwords($item->username); ?></td>
                 <td><input type="button" class="button" value="Approve"> </td>
               </tr>
