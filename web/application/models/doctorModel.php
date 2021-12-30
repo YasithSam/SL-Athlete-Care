@@ -349,4 +349,39 @@ class doctorModel extends database
 
     }
 
+    public function getCount2(){
+        if($this->Query("SELECT count(*) as Count from post where type!=1")){
+            $row=$this->fetch();
+            return $row->Count;
+
+        }
+
+    }
+
+    public function getReviews($userId){
+        $m=[];
+        if($this->Query("SELECT p.type, p.heading, p.description, dp.full_name, r.reviewer_id /*, pa.type pt*/
+                        from reviewers r 
+                        inner join post p on r.post_id=p.id
+                        inner join doctor_profile dp on dp.uuid=r.reviewer_id
+                        /*inner join post_attachments pa on pa.post_id=p.id*/
+                        where r.approval=? && r.reviewer_id=?",[0,$userId]
+                        /* order by p.datetime desc  */)){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $m[$i]=$obj;
+                    $i++;
+                     
+                }    
+            } else {
+                return $m;
+            }
+        }
+        return $m;
+    }
+
+
 }

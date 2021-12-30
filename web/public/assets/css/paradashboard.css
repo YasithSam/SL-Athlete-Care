@@ -35,7 +35,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: calc(100% / 3 - 12px);
+  width: calc(100% / 2 - 12px);
   background: #fff;
   padding: 15px 14px;
   border-radius: 12px;
@@ -163,7 +163,7 @@
 
 /* left box */
 .home-content .forum .forum-injury{
-  width: 72%;
+  width: 100%;
   background: #fff;
   padding: 20px 30px;
   margin: 0 20px;
