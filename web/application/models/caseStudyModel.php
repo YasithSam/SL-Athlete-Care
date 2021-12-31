@@ -277,7 +277,7 @@ class caseStudyModel extends database
                  $row = $this->fetchall();
                  foreach ($row as $ob)
                  {
-                     $events=[];
+                    $events=[];
                      if($this->Query("SELECT title,amount,descritption FROM diet_events where diet_id =?",[$ob->id])){
                          if($this->rowCount() > 0 ){
                              $row = $this->fetchall();

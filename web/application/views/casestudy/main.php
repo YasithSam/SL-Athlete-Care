@@ -46,7 +46,7 @@
         <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pre/<?php echo($data[1])?>';">
             Pre
         </button>
-        <button class="postbtn">
+        <button class="btn" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/post/<?php echo($data[1])?>';">
             Post
         </button>
     </div>
@@ -139,7 +139,7 @@ for (var i = 0; i < btns.length; i++) {
 </div>
 </div>
 
-<!--Alert Modal End-->
+<!--Alert Modal End
 
 <script>
 // Get the alertmodal
@@ -200,7 +200,7 @@ if (event.target == modal) {
 }
 </script>
 
-<!--End modal-->
+End modal-->
 
 
 
