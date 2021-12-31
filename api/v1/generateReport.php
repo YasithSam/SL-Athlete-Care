@@ -204,7 +204,7 @@ $html.='<section class="post">
 foreach($data6 as $item):
 $html.='<ul>
 <li style="list-style-type:square;"><b>Title : </b>'.$item->heading.' <b>        Date : </b>'.$item->datetime.'</li>
-   
+
       <p><b>        Description : </b>'.$item->description.'</p> 
 </ul> <br>';
 endforeach;
@@ -212,6 +212,7 @@ $html.='
 <li style="font-size:18px;"><b>Attachments</b></li>
 <ul > 
 <div class="card-deck">';
+
 
 foreach($data7 as $item):
 $html.='
@@ -254,7 +255,7 @@ $html.='</ul>
     <br>';
 
 $html.='             
-<li style="font-size:18px;"><b>Post Diet</b></li>
+<li style="font-size:18px;"><b>Post Diet </b></li>
 <br/>
 <ul>';
 foreach($data9 as $item):
@@ -281,7 +282,7 @@ $html.='</ul>
 $html.='<section class="progress">
 <h2>Progress</h2>
 <ol style="list-style-type:none;">
-    <li style="font-size:18px;"><b>Doctor Progress Update</b></li><br>';
+    <li style="font-size:18px;"> <b>Doctor Progress Update</b></li><br>';
 foreach($data10 as $item):
 $html.='<ul>
 <li style="list-style-type:square;"><b>Feedback :</b>'.$item->feedback.'</li>  

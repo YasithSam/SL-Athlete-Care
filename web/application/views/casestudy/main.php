@@ -14,7 +14,6 @@
             <img src="../../public/assets/img/logo-4040.png" alt="">
             <h2>SL Athlete Care</h2>
         </div>
-        
             
                 <div class="profile">
                     <i class="fas fa-bell"></i>
@@ -28,7 +27,7 @@
      <div class="details_part">
         <div class="description">
            
-            <h2>Case Study Title: <?php print_r($data[2]->title)?></h2>
+            <h2>  Case Study Title: <?php print_r($data[2]->title)?></h2>
             <h4><?php print_r($data[2]->description)?></h4>
             <h3>Athlete Name : <?php print_r($data[2]->full_name)?></h3>
         </div>
