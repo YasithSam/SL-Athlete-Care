@@ -19,10 +19,87 @@ $data14=$db->getReportDetailsPhysiotherapist($id);
 $data15=$db->getReportDetailsNutritionist($id);
 $html ="
 <html>
-<head></head>
+<head>
+<style>
+*{
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+}
+
+hr.top{
+    border-top: 2px solid black;
+}
+  
+.details_part{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.row{
+    display: flex;
+}
+.pre{
+    padding: 20px;
+}
+
+.post{
+    padding: 20px;
+}
+
+.progress{
+    padding: 20px;
+}
+
+li{
+    font-weight: 600;
+    padding-top: 10px;
+}
+
+.card-deck{
+    display: grid;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 10px;
+    align-items: stretch;
+    
+  }
+  
+  .card{
+    overflow-y: hidden;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 20px; 
+  }
+  
+  .card-img-top{
+      height: 80%;
+      width: 80%;
+      padding-bottom: 5px;
+      padding-top: 5px;
+  }
+  
+  
+  .card-body{
+      padding-left: 10px;
+      height: 20%;
+      margin-bottom: 10px;
+  }
+
+    
+</style>
+</head>
 <body>";
 $html.='
-<div class=\"details_part\"> 
+<div class="details_part"> 
   <h2>Case Study Title : '. $data1->title.'</h2>'.
   '<h3>'.$data1->description .'</h3>'.
   '<h3>Injury :'.$data1->injury.'</h3>
@@ -202,7 +279,7 @@ $html.='</ul>
 $html.='<section class="progress">
 <h3>Progress</h3>
 <ol style="list-style-type:none;">
-    <li style="font-size:18px;"><b><u>Doctor Feedback</u></b></li>';
+    <li style="font-size:18px;"><b>Doctor Progress Update</b></li>';
 foreach($data10 as $item):
 $html.='<ul>
 <li style="list-style-type:square;">Feedback : '.$item->feedback.'</li>  
@@ -210,7 +287,7 @@ $html.='<ul>
 </ul>';
 endforeach;
 
-$html.='<li style="font-size:18px;"><b>Physiotherapist Feedback</b></li>
+$html.='<li style="font-size:18px;"><b>Physiotherapist Progress Update</b></li>
 ';
 foreach($data11 as $item):
 $html.='
@@ -222,7 +299,7 @@ endforeach;
 $html.='<br>';
 
 $html.='
-<li style="font-size:18px;"><b><u>Nutritionist Feedback</u></b></li>
+<li style="font-size:18px;"><b>Nutritionist Progress Update</b></li>
 ';
 foreach($data12 as $item):
  $html.= '<ul>
@@ -233,7 +310,7 @@ endforeach;
 $html.='<br>';
 
 $html.='
-<li style="font-size:18px;"><b><u>Athlete Feedback</u></b></li>';
+<li style="font-size:18px;"><b>Athlete Progress Update</b></li>';
 foreach($data13 as $item):
 $html.='<ul>
         <li style="list-style-type:square;">Feedback :'. $item->feedback.'</li>  
@@ -253,7 +330,7 @@ $tcpdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8
 $tcpdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set title of pdf
-$tcpdf->SetTitle('Bill Collection Letter');
+$tcpdf->SetTitle('PDF Report');
 
 // set margins
 $tcpdf->SetMargins(10, 10, 10, 10);
