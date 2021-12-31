@@ -68,8 +68,10 @@
   
     
             <div class="endbtn">
-                <button class="editbtn"><i class="fa fa-trash"></i>Delete</button>
-               
+            
+            <a href="<?php echo BASEURL;?>/caseStudyController/deleteMedicine?id=<?php echo($item->id)?>&&case_id=<?php echo($data[1])?>"
+
+                onclick='return confirm("Are you sure want to confirm?");'><button class="editbtn"><i class="fa fa-trash"></i>Delete</button></a>
             </div>
         <?php endforeach;?>
      <?php else: ?>
@@ -80,57 +82,6 @@
 </div>
 
 <!--end-->
-
- <!-- The Modal -->
- <div id="myModal" class="modal">
-
-    <div class="mcontainer">
-        <div class="top">
-            <h3>Delete Medicine</h3>
-        </div>
-        <div class="texticon">
-            <i class="fa fa-exclamation-triangle fa-5x" aria-hidden="true" ></i>
-            <h3>Are you sure?</h3>
-        </div>
-    
-        <div class="mbtn">
-            <button class="mbuttonno">No</button>
-    
-            <button class="mbutton">Yes</button>
-        </div>
-    </div>
-
-</div>
-
-<script>
-   // Get the modal
-    var modal = document.getElementById('myModal');
-
-    // Get the button that opens the modal
-    var btns = document.getElementsByClassName("editbtn");
-
-    // Get the element that closes the modal
-    var span = document.getElementsByClassName("mbuttonno")[0];
-
-    // When the user clicks the button, open the modal 
-    for (var i = 0; i < btns.length; i++) {
-    btns[i].onclick = function() {
-        modal.style.display = "block";
-    }
-    }
-
-    // When the user clicks on N0, close the modal
-    span.onclick = function() {
-     modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-    }
-    </script>
 
 
 </body>
