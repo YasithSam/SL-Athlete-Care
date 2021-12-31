@@ -28,9 +28,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo BASEURL;?>/doctor/messages">
+                    <a href="<?php echo BASEURL;?>/doctor/reviews">
                             <span class="ti-comments"></span>
-                            <span>Messages</span>
+                            <span>Reviews Section</span>
                         </a>
                     </li>
                     <li>
