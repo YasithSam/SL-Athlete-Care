@@ -42,9 +42,10 @@ class doctor extends main{
         if($this->getSession('userRole')==2){
             $data=$this->doctorModel->getProfile($userId);   
             $data2=$this->doctorModel->getCaseStudyProfile($userId);   
-            //$data3= $this->doctorModel->getArticles($userId); 
+            
+            $data3= $this->doctorModel->getDoctorArticles($userId); 
           
-            $this->view('doctor/profile',[$data,$data2]);
+            $this->view('doctor/profile',[$data,$data2,$data3]);
         }
         else{
             $this->view('404');
@@ -203,6 +204,18 @@ class doctor extends main{
             $this->view('404');
         }
     }
+
+    public function reviews(){
+        $userId = $this->getSession('userId');
+           if($this->getSession('userRole')==2){
+           $data=$this->doctorModel->getReviews($userId);
+           $data2=$this->doctorModel->getCount2();
+           $this->view('doctor/reviewssection',[$data,$data2]);
+       }
+       else{
+           $this->view('404');
+       }
+   }
     
     public function casestudy(){
         $userId = $this->getSession('userId');

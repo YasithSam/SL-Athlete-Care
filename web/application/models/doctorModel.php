@@ -22,6 +22,17 @@ class doctorModel extends database
 
         }
     }
+
+    //Doctor article
+    public function getDoctorArticles($id){
+        if($this->Query("SELECT p.heading, p.description FROM post p inner join doctor_profile d on d.uuid=p.author_id where d.uuid=? && p.type='article' && p.approval_status=? order by datetime desc",[$id,1])){
+            $x=$this->fetchall();
+            return $x;
+
+        }
+    }
+
+    
     public function getProfile($id){
         if($this->Query("SELECT uuid,full_name,province,sex,email,hospital from doctor_profile where uuid=?",[$id])){
             $x=$this->fetch();

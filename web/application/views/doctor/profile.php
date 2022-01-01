@@ -78,37 +78,31 @@
                          </div>
               <!--End of Case studies box box-->
               
-              <!--Articles box-->
-                      <div class="about box">
+               <!--Articles box-->
+               <div class="about box">
                         <div class="title">
                           My Articles
                         </div>
                         <!--card-->
+                        <?php if(!empty($data[2])): ?>
+                        <?php foreach($data[2] as $item): ?>
+
                         <div class="card">
                           <i class="fas fa-notes-medical user"></i>
                           <div class="qual">
-                            Tibial Stress Syndrome<br>
-                          <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome</p>
+                          <?php echo($item->heading);?><br>
+                          <p class="txt"><?php echo($item->description);?></p>
                           </div>
                         </div>
-                        <!--card-->
-                        <div class="card">
-                          <i class="fas fa-notes-medical user"></i>
-                          <div class="qual">
-                            Repetitive Stress Injuries<br>
-                            <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome </p>
-                          </div>
-                        </div>
-                        <!--card-->
-                        <div class="card">
-                          <i class="fas fa-notes-medical user"></i>
-                          <div class="qual">
-                            Common Types of Injuries<br>
-                          <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome </p>
-                          </div>
-                        </div>
+                        <?php endforeach;?>
+                         <?php else: ?>
+                              <h1>No data </h1>
+                        <?php endif; ?> 
+                         </div>
+                       
+
                         <div class="link">
-                        <a href="<?php echo BASEURL;?>/doctor/articles"?>
+                        <a style="float:right; margin-right: 25px;" href="<?php echo BASEURL;?>/doctor/articles"?>
                          View More </a>
                          </div>
                       </div>
