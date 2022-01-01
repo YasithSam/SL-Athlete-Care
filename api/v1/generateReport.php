@@ -114,33 +114,31 @@ $html.='
 
     <!--Pre Section-->
     <section class="pre">
-        <h3>Pre Case Study</h3>
+        <h2>Pre Case Study</h2>
         <ol>
-            <li style="font-size:18px;"><b>Medicine</b></li>';
+            <li style="font-size:18px;"><b>Medicine</b></li><br>';
             
 foreach($data2 as $item):
-  $html.='<ul>
-  <div class="row"> 
-      <li style="list-style-type:square; margin-right:150px;"><b>Title : </b>'.
-      $item->heading.'</li>
-      <span><li style="list-style-type:none;"><b>Date : </b>'.$item->datetime.'</li></span>
-  </div>
-      <li style="list-style-type:none; margin-left:50px;"><b>Description : </b>'.$item->description.'</li> 
+  $html.='<ul> 
+      <li style="list-style-type:square;"><b>Title : </b>'.$item->heading.'<b>           Date : </b>'.$item->datetime. ' </li>
+    
+      <p>           <b>Description : </b>'.$item->description.'</p> 
 </ul> <br>';
 endforeach;
+
 $html.=' 
 <li style="font-size:18px;"><b>Attachments</b></li>
-<ul > 
+<ul> 
 <div class="card-deck">';
 
 foreach($data3 as $item):
 $html.='
   <div class="card">
-    <img class="card-img-top" src="../../web/public/assets/dbimages/'.$item->link.'"alt="icon"> 
+    <img class="card-img-top" width="400px" height="400px" src="../../web/public/assets/dbimages/'.$item->link.'"alt="icon"> 
 
         <div class="card-body">
     <li><b>Title : </b>'.$item->heading.'</li> 
-    <li style="list-style-type:none;"><b>Description :</b>'.$item->description.'</li> 
+    <p><b>                 Description :</b>'.$item->description.'</p> 
     </div>
     </div>
     </div>';
@@ -148,27 +146,29 @@ endforeach;
 $html.='
 </ul>
 <br>';
+
 $html.='
  <li style="font-size:18px;"><b>Workout</b></li>
  <br/>
- <ul>
-   ';
-foreach($data4 as $item):
-$html.='
-<li style="list-style-type:square;"><b>Workout Title : </b>'.$item->title.'</li> 
-<li style="list-style-type:none; margin-left: 25px;"><b>Workout Description : </b>'.$item->description.'</li>
-<ol style="margin-left: 30px;">';
-
-foreach($item->events as $item2):
-$html.='
-<li><b>Event Title : </b>'.$item2->title.'</li>
-<li style="list-style-type:none;"><b>Event Description : </b>'.$item2->description.'</li>';
-endforeach;
-$html.='</ol>';
-endforeach;
-$html.='</ul>';
-$html.='   
-<br>';
+ <ul>';
+ foreach($data4 as $item):
+ $html.='<li style="list-style-type:square;"><b>Workout Title : </b>'.$item->title.'</li> 
+         <p><b>             Workout Description : </b>'.$item->description.'</p>
+             
+         <ol style="margin-left: 30px;">';
+                 
+ foreach($item->events as $item2):
+ $html.='<li><b>Event Title : </b>'.$item2->title.'</li>
+                     <ul> <li style="list-style-type:none;"><b>Repetitions : </b>'.$item2->reps. '<b>          Time : </b>'.$item2->time.'</li>
+                         <li style="list-style-type:none;"><b>Event Description : </b>'.$item2->description.'</li>
+ </ul><br>';
+ 
+ endforeach;
+ $html.='</ol>
+         <br>';
+ endforeach;
+ $html.='</ul>
+     <br>';
 
 $html.='             
 <li style="font-size:18px;"><b>Diet</b></li>
@@ -176,13 +176,14 @@ $html.='
 <ul>';
 foreach($data5 as $item):
 $html.='<li style="list-style-type:square;"><b>Diet Title : </b>'.$item->title.'</li> 
-        <li style="list-style-type:none; margin-left: 25px;"><b>Diet Description : </b>'.$item->description.'</li>
+        <p><b>             Diet Description : </b>'.$item->description.'</p>
             
         <ol style="margin-left: 30px;">';
                 
 foreach($item->events as $item2):
 $html.='<li><b>Event Title : </b>'.$item2->title.'</li>
                     <ul>
+                    <li style="list-style-type:none;"><b>Amount : </b>'.$item2->amount.'</li>
                         <li style="list-style-type:none;"><b>Event Description : </b>'.$item2->descritption.'</li>
 </ul>';
 
@@ -196,18 +197,15 @@ $html.='</ul>
 </section>';
 
 $html.='<section class="post">
-<h3>Post Case Study</h3>
+<h2>Post Case Study</h2>
 <ol>
-    <li style="font-size:18px;"><b>Advices</b></li>';
+    <li style="font-size:18px;"><b>Advices</b></li><br>';
     
 foreach($data6 as $item):
 $html.='<ul>
-<div class="row"> 
-<li style="list-style-type:square; margin-right:150px;"><b>Title : </b>'.
-$item->heading.'</li>
-<span><li style="list-style-type:none;"><b>Date : </b>'.$item->datetime.'</li></span>
-</div>
-<li style="list-style-type:none; margin-left:50px;"><b>Description : </b>'.$item->description.'</li> 
+<li style="list-style-type:square;"><b>Title : </b>'.$item->heading.' <b>        Date : </b>'.$item->datetime.'</li>
+
+      <p><b>        Description : </b>'.$item->description.'</p> 
 </ul> <br>';
 endforeach;
 $html.=' 
@@ -215,56 +213,62 @@ $html.='
 <ul > 
 <div class="card-deck">';
 
+
 foreach($data7 as $item):
 $html.='
 <div class="card">
-<img class="card-img-top" src="../../web/public/assets/dbimages/'.$item->link.'"alt="icon"> 
+<img class="card-img-top" width="400px" height="400px" src="../../web/public/assets/dbimages/'.$item->link.'"alt="icon"> 
 
-<div class="card-body">
-<li><b>Title : </b>'.$item->heading.'</li> 
-<li style="list-style-type:none;"><b>Description :</b>'.$item->description.'</li> 
-</div>
-</div>
-</div>';
+        <div class="card-body">
+    <li><b>Title : </b>'.$item->heading.'</li> 
+    <p><b>             Description :</b>'.$item->description.'</p> 
+    </div>
+    </div>
+    </div>';
 endforeach;
+
 $html.='
 </ul>
 <br>';
 $html.='
 <li style="font-size:18px;"><b>Post Workout</b></li>
 <br/>
-<ul>
-';
+<ul>';
 foreach($data8 as $item):
-$html.='
-<li style="list-style-type:square;"><b>Workout Title : </b>'.$item->title.'</li> 
-<li style="list-style-type:none; margin-left: 25px;"><b>Workout Description : </b>'.$item->description.'</li>
-<ol style="margin-left: 30px;">';
-
+$html.='<li style="list-style-type:square;"><b>Workout Title : </b>'.$item->title.'</li> 
+        <p><b>             Workout Description : </b>'.$item->description.'</p>
+            
+        <ol style="margin-left: 30px;">';
+                
 foreach($item->events as $item2):
-$html.='
-<li><b>Event Title : </b>'.$item2->title.'</li>
-<li style="list-style-type:none;"><b>Event Description : </b>'.$item2->description.'</li>';
+$html.='<li><b>Event Title : </b>'.$item2->title.'</li>
+                    <ul>
+                    <li style="list-style-type:none;"><b>Repetitions : </b>'.$item2->reps. '<b>          Time : </b>'.$item2->time.'</li>
+                        <li style="list-style-type:none;"><b>Event Description : </b>'.$item2->description.'</li>
+</ul><br>';
+
 endforeach;
-$html.='</ol>';
+$html.='</ol>
+        <br>';
 endforeach;
-$html.='</ul>';
-$html.='   
-<br>';
+$html.='</ul>
+    <br>';
 
 $html.='             
-<li style="font-size:18px;"><b>Post Diet</b></li>
+<li style="font-size:18px;"><b>Post Diet </b></li>
 <br/>
 <ul>';
 foreach($data9 as $item):
-$html.='<li style="list-style-type:square;"><b>Diet Title : </b>'.$item->title.'</li> 
-<li style="list-style-type:none; margin-left: 25px;"><b>Diet Description : </b>'.$item->description.'</li>
+$html.='
+<li style="list-style-type:square;"><b>Diet Title : </b>'.$item->title.'</li> 
+        <p><b>             Diet Description : </b>'.$item->description.'</p>
     
 <ol style="margin-left: 30px;">';
         
 foreach($item->events as $item2):
 $html.='<li><b>Event Title : </b>'.$item2->title.'</li>
             <ul>
+            <li style="list-style-type:none;"><b>Amount : </b>'.$item2->amount.'</li>
                 <li style="list-style-type:none;"><b>Event Description : </b>'.$item2->descritption.'</li>
 </ul>';
 
@@ -277,44 +281,47 @@ $html.='</ul>
 </section>';
 
 $html.='<section class="progress">
-<h3>Progress</h3>
-<ol style="list-style-type:none;">
-    <li style="font-size:18px;"><b>Doctor Progress Update</b></li>';
+<h2>Progress</h2>
+<ol>
+    <li style="font-size:18px;"><b>Doctor Progress Update</b></li><br>';
 foreach($data10 as $item):
 $html.='<ul>
-<li style="list-style-type:square;">Feedback : '.$item->feedback.'</li>  
-<li style="list-style-type:none; margin-left:20px">Date : '.$item->datetime.'</li>
+<li style="list-style-type:square;"><b>Feedback : </b>'.$item->feedback.'</li>  
+<p>         <b>Date : </b>'.$item->datetime.'</p>
 </ul>';
 endforeach;
 
-$html.='<li style="font-size:18px;"><b>Physiotherapist Progress Update</b></li>
+$html.='<li style="font-size:18px;"><b>Physiotherapist Progress Update</b></li><br>
+
 ';
 foreach($data11 as $item):
 $html.='
 <ul>
-    <li style="list-style-type:square;">Feedback : '.$item->feedback.'</li>  
-    <li style="list-style-type:none; margin-left:20px">Date :'.$item->datetime.'</li>
+    <li style="list-style-type:square;"><b>Feedback : </b>'.$item->feedback.'</li>  
+    <p>        <b>Date : </b>'.$item->datetime.'</p>
 </ul>';
 endforeach;
 $html.='<br>';
 
 $html.='
-<li style="font-size:18px;"><b>Nutritionist Progress Update</b></li>
+<li style="font-size:18px;"><b>Nutritionist Progress Update</b></li><br>
+
 ';
 foreach($data12 as $item):
  $html.= '<ul>
-        <li style="list-style-type:square;">Feedback :'.$item->feedback.'</li>  
-        <li style="list-style-type:none; margin-left:20px">Date : '.$item->datetime.'</li>
+        <li style="list-style-type:square;"><b>Feedback : </b>'.$item->feedback.'</li>  
+        <p>         <b>Date : </b> '.$item->datetime.'</p>
     </ul>';
 endforeach;
 $html.='<br>';
 
 $html.='
-<li style="font-size:18px;"><b>Athlete Progress Update</b></li>';
+<li style="font-size:18px;"><b>Athlete Progress Update</b></li><br>';
+
 foreach($data13 as $item):
 $html.='<ul>
-        <li style="list-style-type:square;">Feedback :'. $item->feedback.'</li>  
-        <li style="list-style-type:none; margin-left:20px">Date : '.$item->datetime.'</li>
+        <li style="list-style-type:square;"><b>Feedback : </b>'. $item->feedback.'</li>  
+        <p>         <b>Date : </b> '.$item->datetime.'</p>
     </ul>';
 endforeach;
 $html.='<br/> </ol>';
@@ -330,7 +337,9 @@ $tcpdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8
 $tcpdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set title of pdf
-$tcpdf->SetTitle('PDF Report');
+
+$tcpdf->SetTitle('Case Study Report');
+
 
 // set margins
 $tcpdf->SetMargins(10, 10, 10, 10);
@@ -355,6 +364,6 @@ $tcpdf->SetFont('times', '', 10.5);
 $tcpdf->writeHTML($html, true, false, false, false, '');
 
 //Close and output PDF document
-$tcpdf->Output('demo.pdf', 'I');
+$tcpdf->Output('CaseStudyReport.pdf', 'I');
 
 ?>

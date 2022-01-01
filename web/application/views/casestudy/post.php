@@ -31,9 +31,11 @@
             <h2>Case Study Title: <?php print_r($data[4]->title)?></h2>
             <h4><?php print_r($data[4]->description)?></h4>
             <h3>Athlete Name : <?php print_r($data[4]->full_name)?></h3>
-        </div>
-        <button class="report" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/report/<?php echo($data[1])?>';">Generate Report</button>
-    </div>
+      
+            </div>
+              <button class="report" onclick="window.location.href='http://localhost/SL-Athlete-Care/api/v1/generateReport.php?id=<?php echo($data[1])?>';">Generate Report</button>
+            </div>
+
 
     <!--end of details-->
     <!--buttons-->
