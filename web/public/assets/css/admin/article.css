@@ -210,14 +210,14 @@ header{
 }
 
 .wrapper{
-  margin: auto;
+  margin:auto;
   overflow: hidden;
   background: #ffffff;
-  width: 1080px;
+  width: 1280px;
   height: fit-content;
   padding-top: 0;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
 
@@ -259,7 +259,9 @@ header{
 .content-table .name{
     width: 160px;
 }
-
+.content-table .name1{
+  width: 280px;
+}
 .content-table .btnrow{
     width: 120px;
 }

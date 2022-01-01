@@ -30,7 +30,7 @@
                 <th class="title">Title</th>
                 <th class="desc">Description</th>
                 <th class="name">Author Name</th>
-                <th class="name">Reviewer Approval</th>
+                <th class="name1">Reviewer Approval</th>
                 <th class="btnrow">Approve Article</th>
               </tr>
             </thead>
@@ -43,7 +43,7 @@
                 <td class="longtext"><?php echo ucwords($item->description); ?></td>
                 <td><?php echo ucwords($item->username); ?></td>
                 <?php if($item->approve){?>
-                   <td><h2> approved</h2>
+                   <td><h2> approved</h2></td>
                  <?php } else{?>
                   <td>
                   <!-- change url-->
@@ -60,16 +60,16 @@
                                 <option value="Irosha Premathilaka">Irosha Premathilaka</option>
                                 <option value="Oshadha Amarasinha">Oshadha Amarasingha</option>
                             </select>
+                            <input type="submit" value="Submit" />
                         </li>                  
                       
-                          <input type="submit" value="Submit" />
+                        
                     </ul>
                     
-                </form><td>
+                </form></td>
                  <?php }?>
   
 
-                <td><?php echo ucwords($item->username); ?></td>
                 <td><input type="button" class="button" value="Approve"> </td>
               </tr>
               <?php endforeach;?>
