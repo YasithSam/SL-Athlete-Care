@@ -30,7 +30,7 @@
            
             <h2>Case Study Title : <?php print_r($data[5]->title)?></h2>
             <h4><?php print_r($data[5]->description)?></h4>
-            <h3>Athlete Name : <?php print_r($data[5]->full_name)?> </h3>
+            <h3>Athlete Name : <?php print_r($data[5]->full_name)?></h3>
            
         </div>
         <button class="report" onclick="window.location.href='http://localhost/SL-Athlete-Care/api/v1/generateReport.php?id=<?php echo($data[1])?>';">Generate Report</button>

@@ -27,7 +27,7 @@
      <div class="details_part">
         <div class="description">
            
-            <h2>  Case Study Title: <?php print_r($data[2]->title)?></h2>
+            <h2>Case Study Title: <?php print_r($data[2]->title)?></h2>
             <h4><?php print_r($data[2]->description)?></h4>
             <h3>Athlete Name : <?php print_r($data[2]->full_name)?></h3>
         </div>

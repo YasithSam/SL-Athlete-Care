@@ -138,7 +138,7 @@ $html.='
 
         <div class="card-body">
     <li><b>Title : </b>'.$item->heading.'</li> 
-    <p><b>Description :</b>'.$item->description.'</p> 
+    <p><b>                 Description :</b>'.$item->description.'</p> 
     </div>
     </div>
     </div>';
@@ -153,7 +153,7 @@ $html.='
  <ul>';
  foreach($data4 as $item):
  $html.='<li style="list-style-type:square;"><b>Workout Title : </b>'.$item->title.'</li> 
-         <p><b>Workout Description : </b>'.$item->description.'</p>
+         <p><b>             Workout Description : </b>'.$item->description.'</p>
              
          <ol style="margin-left: 30px;">';
                  
@@ -176,7 +176,7 @@ $html.='
 <ul>';
 foreach($data5 as $item):
 $html.='<li style="list-style-type:square;"><b>Diet Title : </b>'.$item->title.'</li> 
-        <p><b>Diet Description : </b>'.$item->description.'</p>
+        <p><b>             Diet Description : </b>'.$item->description.'</p>
             
         <ol style="margin-left: 30px;">';
                 
@@ -221,7 +221,7 @@ $html.='
 
         <div class="card-body">
     <li><b>Title : </b>'.$item->heading.'</li> 
-    <p><b>Description :</b>'.$item->description.'</p> 
+    <p><b>             Description :</b>'.$item->description.'</p> 
     </div>
     </div>
     </div>';
@@ -236,7 +236,7 @@ $html.='
 <ul>';
 foreach($data8 as $item):
 $html.='<li style="list-style-type:square;"><b>Workout Title : </b>'.$item->title.'</li> 
-        <p><b>Workout Description : </b>'.$item->description.'</p>
+        <p><b>             Workout Description : </b>'.$item->description.'</p>
             
         <ol style="margin-left: 30px;">';
                 
@@ -259,8 +259,9 @@ $html.='
 <br/>
 <ul>';
 foreach($data9 as $item):
-$html.='<li style="list-style-type:square;"><b>Diet Title : </b>'.$item->title.'</li> 
-<p><b>Diet Description : </b>'.$item->description.'</p>
+$html.='
+<li style="list-style-type:square;"><b>Diet Title : </b>'.$item->title.'</li> 
+        <p><b>             Diet Description : </b>'.$item->description.'</p>
     
 <ol style="margin-left: 30px;">';
         
@@ -281,11 +282,11 @@ $html.='</ul>
 
 $html.='<section class="progress">
 <h2>Progress</h2>
-<ol style="list-style-type:none;">
-    <li style="font-size:18px;"> <b>Doctor Progress Update</b></li><br>';
+<ol>
+    <li style="font-size:18px;"><b>Doctor Progress Update</b></li><br>';
 foreach($data10 as $item):
 $html.='<ul>
-<li style="list-style-type:square;"><b>Feedback :</b>'.$item->feedback.'</li>  
+<li style="list-style-type:square;"><b>Feedback : </b>'.$item->feedback.'</li>  
 <p>         <b>Date : </b>'.$item->datetime.'</p>
 </ul>';
 endforeach;
@@ -295,7 +296,7 @@ $html.='<li style="font-size:18px;"><b>Physiotherapist Progress Update</b></li><
 foreach($data11 as $item):
 $html.='
 <ul>
-    <li style="list-style-type:square;"><b>Feedback :</b>'.$item->feedback.'</li>  
+    <li style="list-style-type:square;"><b>Feedback : </b>'.$item->feedback.'</li>  
     <p>        <b>Date : </b>'.$item->datetime.'</p>
 </ul>';
 endforeach;
@@ -306,7 +307,7 @@ $html.='
 ';
 foreach($data12 as $item):
  $html.= '<ul>
-        <li style="list-style-type:square;"><b>Feedback :</b>'.$item->feedback.'</li>  
+        <li style="list-style-type:square;"><b>Feedback : </b>'.$item->feedback.'</li>  
         <p>         <b>Date : </b> '.$item->datetime.'</p>
     </ul>';
 endforeach;
@@ -316,7 +317,7 @@ $html.='
 <li style="font-size:18px;"><b>Athlete Progress Update</b></li><br>';
 foreach($data13 as $item):
 $html.='<ul>
-        <li style="list-style-type:square;"><b>Feedback :</b>'. $item->feedback.'</li>  
+        <li style="list-style-type:square;"><b>Feedback : </b>'. $item->feedback.'</li>  
         <p>         <b>Date : </b> '.$item->datetime.'</p>
     </ul>';
 endforeach;

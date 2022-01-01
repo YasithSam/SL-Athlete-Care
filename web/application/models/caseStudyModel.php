@@ -269,7 +269,8 @@ class caseStudyModel extends database
     }
 
      //Case Study Report - getReportPostDiet
-     public function getReportPostDiet($id){
+     public function getReportPostDiet($id)
+     {
          $data=[];
          if($this->Query("SELECT d.id,d.title,d.description FROM schedule s inner join diet_schedule d on s.id=d.schedule_id where s.case_study_id =? && d.state=?",[$id,1])){
              if($this->rowCount() > 0 ){
