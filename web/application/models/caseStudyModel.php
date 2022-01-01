@@ -510,6 +510,28 @@ class caseStudyModel extends database
     }
 
 
+    public function getAdvice($id){
+        $m=[];
+        if($this->Query("SELECT id, heading,description,datetime FROM case_study_records where type_id=? && case_id=? && state=? order by datetime desc",[2,$id,0])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $m[$i]=$obj;
+                    $i++;
+                     
+                }    
+       
+
+            } else {
+                return $m;
+            }
+
+        }
+        return $m;
+
+    }
     //Get feedback - Pre 
     public function getFeedback($id){
         $m=[];
@@ -560,30 +582,35 @@ class caseStudyModel extends database
     }
     
 
-    public function getAdvice($id){
-        $m=[];
-        if($this->Query("SELECT heading,description,datetime FROM case_study_records where type_id=? && case_id=? && state=? order by datetime desc",[2,$id,0])){
-            if($this->rowCount() > 0 ){
-                $row = $this->fetchall();
-                $i=0;
-                foreach ($row as $obj)
-                {
-                    $m[$i]=$obj;
-                    $i++;
-                     
-                }    
-       
+  
 
-            } else {
-                return $m;
-            }
+//Delete Advice
+    public function deleteAdvice($id)
+    {
+        if($this->Query("DELETE from case_study_records where id=?",[$id]))
+        {
+            if($this->rowCount()>0){
+                return true; 
+            }  
+        }  
+        
+        return false;
 
-        }
-        return $m;
+}
+
+//Delete Medicine
+    public function deleteMedicine($id)
+    {
+        if($this->Query("DELETE from case_study_records where id=?",[$id]))
+        {
+            if($this->rowCount()>0){
+                return true; 
+            }  
+        }  
+        
+        return false;
 
     }
-
-
 
 
 

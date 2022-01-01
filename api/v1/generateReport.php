@@ -292,6 +292,7 @@ $html.='<ul>
 endforeach;
 
 $html.='<li style="font-size:18px;"><b>Physiotherapist Progress Update</b></li><br>
+
 ';
 foreach($data11 as $item):
 $html.='
@@ -304,6 +305,7 @@ $html.='<br>';
 
 $html.='
 <li style="font-size:18px;"><b>Nutritionist Progress Update</b></li><br>
+
 ';
 foreach($data12 as $item):
  $html.= '<ul>
@@ -315,6 +317,7 @@ $html.='<br>';
 
 $html.='
 <li style="font-size:18px;"><b>Athlete Progress Update</b></li><br>';
+
 foreach($data13 as $item):
 $html.='<ul>
         <li style="list-style-type:square;"><b>Feedback : </b>'. $item->feedback.'</li>  
@@ -334,7 +337,9 @@ $tcpdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8
 $tcpdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set title of pdf
+
 $tcpdf->SetTitle('Case Study Report');
+
 
 // set margins
 $tcpdf->SetMargins(10, 10, 10, 10);

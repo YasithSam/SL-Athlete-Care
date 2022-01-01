@@ -203,6 +203,18 @@ class doctor extends main{
             $this->view('404');
         }
     }
+
+    public function reviews(){
+        $userId = $this->getSession('userId');
+           if($this->getSession('userRole')==2){
+           $data=$this->doctorModel->getReviews($userId);
+           $data2=$this->doctorModel->getCount2();
+           $this->view('doctor/reviewssection',[$data,$data2]);
+       }
+       else{
+           $this->view('404');
+       }
+   }
     
     public function casestudy(){
         $userId = $this->getSession('userId');
