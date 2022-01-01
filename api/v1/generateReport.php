@@ -143,6 +143,7 @@ $html.='
     </div>
     </div>';
 endforeach;
+
 $html.='
 </ul>
 <br>';

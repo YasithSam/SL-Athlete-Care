@@ -25,6 +25,7 @@
     <!--header ends-->
     
     <!--details-->
+    
     <div class="details_part">
         <div class="description">
            
