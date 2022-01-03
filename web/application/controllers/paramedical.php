@@ -96,6 +96,22 @@ class paramedical extends main{
         }
 
     }
+
+    public function acceptRequest()
+    {
+        $c=$this->input('id');
+        $z=$this->input('case_study_id');
+        if($this->paramedicalModel->acceptRequest($c)){
+            $this->redirect('paramedical/index?id=1/'.$z);
+            }
+
+        
+        else{
+            $this->redirect('paramedical/index?id=1/'.$z);
+
+        }   
+
+    }
   
   
    

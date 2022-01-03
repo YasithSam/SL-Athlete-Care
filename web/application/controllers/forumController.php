@@ -71,9 +71,15 @@ class forumController extends main{
 
     }
     public function grid(){
-        $this->view('grid');
+        if($this->getSession('userRole')!=4){
+            $data=$this->forumModel->getArticles();
+            $this->view('grid',$data);
+            }
+            else{
+                $this->view('404');
+            } 
+        }
 
-    }
     public function articleitem($id){
         if($this->getSession('userRole')==2){
             $data['data']=$this->forumModel->getotherArticles($id);

@@ -106,20 +106,11 @@ class forumModel extends database
     } 
 
     
-/*     public function getArticle(){
-        if($this->Query("SELECT p.id,p.heading,p.datetime,pa.url from post p 
-        inner join post_attachments pa on p.id=pa.post_id 
-        where p.type='Article' ORDER BY p.datetime DESC")){
-            $data = $this->fetchall();
-            return $data;
-
-        }
-    } */
-
     public function getArticles(){
-        if($this->Query("SELECT p.id,p.heading,pa.url from post p 
+        if($this->Query("SELECT p.id,p.heading,pa.url,pt.type from post p 
         left join post_attachments pa on p.id=pa.post_id 
-        where p.type in (2,3,4,5,6)  ORDER BY p.datetime DESC")){
+        inner join post_type pt on pt.id=p.type 
+        where p.type in (2,3,4,5,6) ORDER BY p.datetime DESC;")){
             $data = $this->fetchall();
             return $data;
 
@@ -145,6 +136,9 @@ class forumModel extends database
 
         }
     } 
+
+    
+
 
 
 

@@ -101,8 +101,8 @@
 					<li data-filter="Cricket"><a href="#">Cricket</a></li>
 					<li data-filter="Football"><a href="#">Football</a></li>
 					<li data-filter="Athletics"><a href="#">Athletics</a></li>
-<!-- 					<li data-filter="Others"><a href="#">Others</a></li>
- -->				</ul>
+					<li data-filter="Others"><a href="#">Others</a></li>
+				</ul>
 			</div>
 		</div>
 
