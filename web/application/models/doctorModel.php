@@ -286,10 +286,10 @@ class doctorModel extends database
         }
         return $u;
     }
-    public function getArticles(){
+    public function getArticles($userid){
         if($this->Query("SELECT p.id, p.type, p.heading, p.description 
                          from post p
-                         where p.type<? && p.type!=? && p.approval_status=?",[7,1,1])){
+                         where p.type<? && p.type!=? && p.approval_status=? && p.author_id=?",[7,1,1,$userid])){
             $x=$this->fetchall();
             return $x;
         }

@@ -210,14 +210,13 @@ header{
 }
 
 .wrapper{
-  margin: auto;
+  margin-left: 13%;
   overflow: hidden;
   background: #ffffff;
   width: 960px;
   height: fit-content;
   padding-top: 0;
-  padding-left: 30px;
-  padding-right: 30px;
+  display: flex;
 }
 
 .content-table {
@@ -227,7 +226,7 @@ header{
     min-width: fit-content;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 20px  rgba(0, 0, 0, 0.15);
   }
   
   .content-table thead tr {
@@ -237,45 +236,50 @@ header{
     font-size: 17px;
     height: 60px;
     font-weight: bold;
+    overflow: hidden;
   }
   
   .content-table .uuid{
-      width: 100px;
+      width: 230px;
   }
 
   .content-table .roleid{
-    width: 100px;
-}
-
-.content-table .fullname{
     width: 180px;
 }
 
-.content-table .nic{
-    width: 140px;
+.content-table .fullname{
+    width: 200px;
+}
+
+/* .content-table .nic{
+    width: 160px;
 }
 
 .content-table .email{
     width: 280px;
-}
+} */
 
 .content-table .btnrow{
      width: 160px;
+     text-align: center;
 }
 
   .content-table th,
   .content-table td {
     padding: 4px 15px;
+    overflow: hidden;
   }
+  
   
   .content-table tbody tr {
     border-bottom: 1px solid #dddddd;
     height: 50px;
+    overflow: hidden;
   }
   
-  .content-table tbody tr:nth-of-type(even) {
+ /*  .content-table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
-  }
+  } */
   
   .content-table tbody tr:last-of-type {
     border-bottom: 2px solid #01579b;
@@ -315,6 +319,7 @@ header{
   display: flex;
   text-align: center;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .pagination a {

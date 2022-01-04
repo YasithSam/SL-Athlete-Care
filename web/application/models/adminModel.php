@@ -97,11 +97,10 @@ class adminModel extends database
     ///////////////////
     public function getCasestudy(){
         $m=[];
-        if($this->Query("SELECT title, a.full_name an, d.full_name dn 
+        if($this->Query("SELECT c.case_id,c.title,c.status, a.full_name an, d.full_name dn 
                         from case_study c 
                         inner join athlete_profile a on a.uuid=c.athlete_id 
                         inner join doctor_profile d on d.uuid=c.doctor_id
-                       
                         order by c.case_id asc ")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -120,11 +119,12 @@ class adminModel extends database
     }
     public function getArticles(){
         $m=[];
-        if($this->Query("SELECT type, heading, description, username /*, pa.type pt*/
+        if($this->Query("SELECT p.id, p.type, heading, description, username /* r.approval */ /*, pa.type pt*/
                         from post p 
                         inner join application_user au on au.uuid=p.author_id 
+                        /* inner join reviewers r on r.post_id=p.id */
                         /*inner join post_attachments pa on pa.post_id=p.id*/
-                        where p.approval_status=0 
+                        where p.approval_status IS NULL && p.type!=1
                         order by p.datetime desc ")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -141,14 +141,40 @@ class adminModel extends database
         }
         return $m;
     }
+     public function setReviewer($data){
+     echo($data['postid']);
+     echo($data['doctorid']);
+        $y=[$data['postid'],$data['doctorid']];
+        
+            if($this->Query("INSERT INTO reviewers (post_id,reviewer_id,approval)  VALUES (?,?)",$y)){
+                 return true;
+            }
+            else{
+                return false;
+            }
+    }
+
+    public function getReviewers(){
+        if($this->Query("SELECT uuid, full_name 
+                         from doctor_profile")){
+            $x=$this->fetchall();
+            return $x;
+        }
+    } 
+    public function articleaction($id){
+        if($this->Query("UPDATE post SET approval_status=1 where id=?",[$id])){
+                return true;
+            }
+    }
     public function getComments(){
+        
         $m=[];
-        if($this->Query("SELECT c.comment,c.datetime,p.heading,a.username
+        if($this->Query("SELECT c.comment/* ,c.datetime,p.heading,a.username */
                         from comments c
-                        inner join post p on c.post_id=p.id 
-                        inner join application_user a on c.user_id=a.uuid
+                        /* inner join post p on c.post_id=p.id 
+                        inner join application_user a on c.user_id=a.uuid */
                         where c.approve=0 
-                        order by c.datetime desc ")){
+                        /* order by c.datetime desc */ ")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;
@@ -303,10 +329,9 @@ class adminModel extends database
     public function createNotice($data){
         
         $y=[$data['userid'],$data['type'],$data['heading'],$data['content']];
-         print_r ($y); 
-            if($this->Query("INSERT INTO post (author_id,type,heading,description) VALUES (?,?,?,?)",$y)){
+           if($this->Query("INSERT INTO post (author_id,type,heading,description) VALUES (?,?,?,?)",$y)){
                  return true;
             }
     }
-
+   
 }

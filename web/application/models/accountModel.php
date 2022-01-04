@@ -27,7 +27,15 @@ class accountModel extends database
 
         }
     }
+    public function disableCaseStudy($id){
+        if($this->Query("UPDATE case_study SET status=0 where case_id=?",[$id])){
+            if($this->Query("SELECT c.athlete_id, a.email from case_study c inner join athlete_profile a on c.athlete_id=a.uuid where c.case_id=?",[$id])){
+                $data=$this->fetch();
+                return $data;
+            }
 
+        }
+    }
 
     public function loginUser($username, $password){
 

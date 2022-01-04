@@ -43,8 +43,11 @@
             <td><?php echo ucwords($item->title); ?></td>
             <td><?php echo ucwords($item->an); ?></td>
             <td><?php echo ucwords($item->dn); ?></td>
-          
-            <td><input type="button" class="button" value="Disable"> </td>
+            <?php if(($item->status)){?>
+                   <td style="text-align: center;"><a href="http://localhost/SL-Athlete-Care/api/v1/emailDisableCS.php?id=<?php echo $item->case_id;?>" onclick='return confirm("Delete this case study?");'><button class="button"> Disable</button></a> </td>
+              <?php } else{?>
+                  <td style="text-align: center;"><h4 style="color:red">Disabled</h4></td>
+            <?php }?>
           </tr>
           <?php endforeach;?>
         <?php else: ?>

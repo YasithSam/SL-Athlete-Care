@@ -30,11 +30,11 @@
                             <i class="fas fa-camera cam"></i>
                           </div>-->
                         </div>
-                        <div class="updt"><i class="fas fa-user user"></i>Nimal Perera</div>
-                        <div class="updt"><i class="fas fa-user user"></i>Male</div>
-                        <div class="updt"><i class="fas fa-map-marker-alt user"></i>Colombo</div>
-                        <div class="updt"><i class="fas fa-at user"></i>nimal123@gmail.com</div>
-                        <div class="updt"><i class="fas fa-clinic-medical user"></i>Nawaloka Hospital</div>
+                        <div class="updt"><i class="fas fa-user user"></i><?php echo $data->full_name?></div>
+                        <div class="updt"><i class="fas fa-user user"></i><?php echo ucwords ($data->role) ?></div>
+                        <div class="updt"><i class="fas fa-map-marker-alt user"></i><?php echo $data->district?></div>
+                        <div class="updt"><i class="fas fa-at user"></i><?php echo $data->email?></div>
+                        <div class="updt"><i class="fas fa-clinic-medical user"></i><?php echo $data->hospital?></div>
                         <div class="button" style="justify-content: center;"><a href="<?php echo BASEURL;?>/paramedical/editprofile">Edit Profile</a></div>
                       </div>
               <!--End of Profile box-->

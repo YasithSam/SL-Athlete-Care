@@ -210,14 +210,13 @@ header{
 }
 
 .wrapper{
-  margin: auto;
+  
   overflow: hidden;
   background: #ffffff;
   width: 1060px;
   height: fit-content;
-  padding-top: 0;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 15%;
+  
 }
 
 
@@ -249,19 +248,20 @@ header{
 }
 
 .content-table .doctor{
-    width: 150px;
+    width: 280px;
 }
 
-.content-table .nutri{
+/* .content-table .nutri{
     width: 165px;
 }
 
 .content-table .physio{
     width: 165px;
-}
+} */
 
 .content-table .btnrow{
-    width: 120px;
+    width: 170px;
+    text-align: center;
 }
 
   .content-table th,
