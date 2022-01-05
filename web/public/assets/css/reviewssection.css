@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
 
 :root{
     --main-color: #0562cc;
@@ -210,13 +210,14 @@ header{
 }
 
 .wrapper{
-  
+  margin: auto;
   overflow: hidden;
   background: #ffffff;
-  width: 1060px;
+  width: 1080px;
   height: fit-content;
-  padding-left: 15%;
-  padding-right: 170px;
+  padding-top: 0;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 
 
@@ -239,30 +240,49 @@ header{
     font-weight: bold;
   }
   
-  .content-table .title{
-      width: 240px;
+  .content-table .type{
+      width: 100px;
   }
 
-  .content-table .athlete{
-    width: 150px;
+  .content-table .title{
+    width: 250px;
 }
 
-.content-table .doctor{
-    width: 280px;
+.content-table .desc{
+    width: 160px;
 }
 
-/* .content-table .nutri{
-    width: 165px;
+.content-table .url{
+    width: 160px;
 }
 
-.content-table .physio{
-    width: 165px;
-} */
+.content-table .name{
+    width: 160px;
+}
 
 .content-table .btnrow{
-    width: 170px;
-    text-align: center;
+    width: 120px;
 }
+
+.longtext{
+  display: inline-block;
+  margin-top: 10px;
+  width: 200px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+/*
+ * higher z-index brings element to front
+ * auto width cancels the overflow
+ */
+/* .longtext:hover {
+  z-index: 1;
+  width: auto;
+  background-color: #FFFFCC;
+} */
 
   .content-table th,
   .content-table td {
@@ -307,8 +327,7 @@ header{
       background: #01579b;
   }
 
-
-  /*Pagination*/
+/*Pagination*/
 
 .pagination {
   display: inline-block;
@@ -344,6 +363,7 @@ header{
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
 
 
 @media (max-width:850px) {

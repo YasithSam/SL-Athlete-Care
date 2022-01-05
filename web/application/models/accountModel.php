@@ -33,7 +33,6 @@ class accountModel extends database
                 $data=$this->fetch();
                 return $data;
             }
-
         }
     }
 

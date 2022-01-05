@@ -1,5 +1,6 @@
 <?php
-
+include "../../web/config/config.php";
+include "../../web/system/classes/database.php";
 class caseStudyModel extends database
 {
     public function getCaseStudybyId($id){
@@ -36,6 +37,8 @@ class caseStudyModel extends database
      public function getReportDetails($id){
         if($this->Query("SELECT a.full_name AS aname,d.full_name AS dname, i.id, i.injury, c.title,c.description,c.datetime from case_study c inner join athlete_profile a on c.athlete_id=a.uuid inner join doctor_profile d on c.doctor_id=d.uuid inner join injury i on c.injury_id =i.id where c.case_id=?",[$id])){
             $data=$this->fetch();
+            $a=explode(" ",$data->datetime);
+            $data->datetime=$a[0];
             return $data;
         }
     }
@@ -274,7 +277,7 @@ class caseStudyModel extends database
                  $row = $this->fetchall();
                  foreach ($row as $ob)
                  {
-                     $events=[];
+                    $events=[];
                      if($this->Query("SELECT title,amount,descritption FROM diet_events where diet_id =?",[$ob->id])){
                          if($this->rowCount() > 0 ){
                              $row = $this->fetchall();
@@ -507,6 +510,28 @@ class caseStudyModel extends database
     }
 
 
+    public function getAdvice($id){
+        $m=[];
+        if($this->Query("SELECT id, heading,description,datetime FROM case_study_records where type_id=? && case_id=? && state=? order by datetime desc",[2,$id,0])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $m[$i]=$obj;
+                    $i++;
+                     
+                }    
+       
+
+            } else {
+                return $m;
+            }
+
+        }
+        return $m;
+
+    }
     //Get feedback - Pre 
     public function getFeedback($id){
         $m=[];
@@ -557,30 +582,35 @@ class caseStudyModel extends database
     }
     
 
-    public function getAdvice($id){
-        $m=[];
-        if($this->Query("SELECT heading,description,datetime FROM case_study_records where type_id=? && case_id=? && state=? order by datetime desc",[2,$id,0])){
-            if($this->rowCount() > 0 ){
-                $row = $this->fetchall();
-                $i=0;
-                foreach ($row as $obj)
-                {
-                    $m[$i]=$obj;
-                    $i++;
-                     
-                }    
-       
+  
 
-            } else {
-                return $m;
-            }
+//Delete Advice
+    public function deleteAdvice($id)
+    {
+        if($this->Query("DELETE from case_study_records where id=?",[$id]))
+        {
+            if($this->rowCount()>0){
+                return true; 
+            }  
+        }  
+        
+        return false;
 
-        }
-        return $m;
+}
+
+//Delete Medicine
+    public function deleteMedicine($id)
+    {
+        if($this->Query("DELETE from case_study_records where id=?",[$id]))
+        {
+            if($this->rowCount()>0){
+                return true; 
+            }  
+        }  
+        
+        return false;
 
     }
-
-
 
 
 

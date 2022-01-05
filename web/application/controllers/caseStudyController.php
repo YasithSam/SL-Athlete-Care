@@ -82,7 +82,9 @@ class caseStudyController extends main{
         $dataA=[$data1, $data2, $data3, $data4, $data5, $data6, $data7, $data8, $data9, $data10, $data11, $data12, $data13, $data14, $data15];
 
         $this->view("casestudy/report" ,$dataA);
+       
      }
+     
 
 
     public function item($id){
@@ -121,6 +123,40 @@ class caseStudyController extends main{
         $data3=$this->caseStudyModel->getDiet($id); 
 
         $this->view('casestudy/diet',[$data3,$id]);
+
+    }
+    
+//Delete Advice
+    public function deleteAdvice()
+    {
+        $x=$this->input('id');
+        $v=$this->input('case_id');
+        if($this->caseStudyModel->deleteAdvice($x)){
+            $this->redirect('caseStudyController/advices/'.$v);
+            }
+
+        
+        else{
+            $this->redirect('caseStudyController/advices/'.$v);
+
+        }   
+    }
+
+//Delete Medicine
+
+    public function deleteMedicine()
+    {
+        $c=$this->input('id');
+        $z=$this->input('case_id');
+        if($this->caseStudyModel->deleteMedicine($c)){
+            $this->redirect('caseStudyController/medicine/'.$z);
+            }
+
+        
+        else{
+            $this->redirect('caseStudyController/medicine/'.$z);
+
+        }   
 
     }
 

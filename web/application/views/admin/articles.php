@@ -77,6 +77,7 @@
                 <td><a href="<?php echo BASEURL;?>/admin/articleaction/?id=<?php echo($data[0]->id);?>" onclick='return confirm("Approve this article?");'><input type="button" class="button2" value="Approve"></a></td>
                 <td><a href="<?php echo BASEURL;?>/admin/articleaction/?id=<?php echo($data[0]->id);?>" onclick='return confirm("Delete this article?");'><input type="button" class="button" value="Delete"></a></td>
                
+
               </tr>
               <?php endforeach;?>
         <?php else: ?>

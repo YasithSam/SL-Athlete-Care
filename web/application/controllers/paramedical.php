@@ -13,15 +13,18 @@ class paramedical extends main{
     public function index(){
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==3|| $this->getSession('userRole')==5){
-            
-           // $data = $this->profileModel->getData($userId);
-            $this->view("para/home");
+            $data = $this->paramedicalModel->getCounts($userId);   
+            $x= $this->paramedicalModel->getForumItems($userId);    
+            $dataArray=[$data,$x];
+               
+            $this->view("para/home",$dataArray);
               
         }
         else{
             $this->view('404');
         }
     }
+    
     public function casestudy(){
         if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
            $this->view('para/casestudy');

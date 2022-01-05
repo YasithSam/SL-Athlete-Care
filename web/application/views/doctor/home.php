@@ -27,10 +27,6 @@
                   <div class="forum">
                     <?php include "bodyforum.php";?>
                   
-                    <div class="updates box">
-                      <?php include "bodyupdates.php";?>
-                      
-                    </div>
                   </div>
                 </div>
   </section>
