@@ -107,7 +107,7 @@ class forumModel extends database
 
     
     public function getArticles(){
-        if($this->Query("SELECT p.id,p.heading,pa.url,pt.type from post p 
+        if($this->Query("SELECT p.id,p.heading,pa.url,p.datetime,pt.type from post p 
         left join post_attachments pa on p.id=pa.post_id 
         inner join post_type pt on pt.id=p.type 
         where p.type in (2,3,4,5,6) ORDER BY p.datetime DESC;")){
@@ -136,6 +136,38 @@ class forumModel extends database
 
         }
     } 
+
+    public function getQuetions(){
+        if($this->Query("SELECT p.id,p.heading,pt.type,p.datetime from post p 
+/*         left join post_attachments pa on p.id=pa.post_id 
+ */        inner join post_type pt on pt.id=p.type 
+        where p.type in (7,8,9,10,11) ORDER BY p.datetime DESC;")){
+            $data = $this->fetchall();
+            return $data;
+
+        }
+    }
+
+    public function getotherQuetions($id){
+        if($this->Query("SELECT p.id,p.heading from post p 
+/*         left join post_attachments pa on p.id=pa.post_id 
+ */        where p.type in (7,8,9,10,11) and p.id<>$id  ORDER BY p.datetime DESC")){
+            $data = $this->fetchall();
+            return $data;
+
+        }
+    }
+
+     public function getQuetionsitem($id){
+        if($this->Query("SELECT p.id,p.heading,p.description,p.likes,p.comments,p.datetime from post p 
+/*         left join post_attachments pa on p.id=pa.post_id 
+ */        where p.id=$id")){
+            $data = $this->fetch();
+            return $data;
+
+        }
+    } 
+
 
     
 

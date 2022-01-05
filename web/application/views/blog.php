@@ -94,155 +94,51 @@
 		
  	  </div>
 
-	   <div class="wrapper">
-			<div class="tabs_wrap">
-				<ul class="indicator">
-					<li data-filter="all" class="active"><a href="#">All</a></li>
-					<li data-filter="Cricket"><a href="#">Cricket</a></li>
-					<li data-filter="Football"><a href="#">Football</a></li>
-					<li data-filter="Athletics"><a href="#">Athletics</a></li>
-					<li data-filter="Others"><a href="#">Others</a></li>
-				</ul>
-			</div>
-		</div>
+	   <div class="filter-search-box">
+                <div class="wrapper">
+                    <div class="tabs_wrap">
+                        <ul class="indicator">
+							<li data-filter="all" class="active"><a href="#">All</a></li>
+                            <li data-filter="Cricket - Q"><a href="#">Cricket</a></li>
+                            <li data-filter="Football - Q"><a href="#">Football</a></li>
+                            <li data-filter="Rugby - Q"><a href="#">Rugby</a></li>
+                            <li data-filter="Athletics - Q"><a href="#">Athletics</a></li>
+                            <li data-filter="Other - Q"><a href="#">Others</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
 
-		
-		<div class="container">
-			<div class="card-content" style="display: none">
-			
-				<ul class="items">
-					<li data-category="Cricket">
-						<div class="pag-card">
- 								<div class="card-info">
-									<div class="user-wrapper2">
-										<img src="../../web/public/assets/img/john.jpg"  alt="">
-											<div class="user-name">
-												<h4>John Cronin
-												</h4>
-											</div>
-									</div> 
-										<h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-										<h5>August 2014</h5>
-									<div class="decision-wrapper">
-										<a href="<?php echo BASEURL;?>/forumController/questionitem"><button class="button3">View</button></a>
-									</div>          
+    
+
+        <div class="q-container">
+            <ul class="items">
+				<?php foreach($data[2] as $item2): ?>
+					<li data-category="<?php echo($item2->type)?>">
+						<div class="q-card">
+							<div class="q-user-wrapper2">
+								<img src="avatar.png"  alt="">
+								<div class="user-name">
+									<h4>Kusal Mendis</h4>
 								</div>
-						</div>
-					</li>
-					<li data-category="Football">
-						<div class="pag-card">
-							<div class="card-info">
-							   <div class="user-wrapper2">
-								   <img src="../../web/public/assets/img/john.jpg"  alt="">
-									   <div class="user-name">
-										   <h4>John Cronin
-										   </h4>
-									   </div>
-							   </div> 
-							   <h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-							   <h5>August 2014</h5>
-							   <div class="decision-wrapper">
-								   <a href=""><button class="button3">View</button></a>
-							   </div>          
-						   </div>
-				   </div>
-			   </li>
- 					<li data-category="Athletics">
-						<div class="pag-card">
-							<div class="card-info">
-							   <div class="user-wrapper2">
-								   <img src="../../web/public/assets/img/john.jpg"  alt="">
-									   <div class="user-name">
-										   <h4>John Cronin
-										   </h4>
-									   </div>
-							   </div> 
-							   <h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-							   <h5>August 2014</h5>
-							   <div class="decision-wrapper">
-								   <a href=""><button class="button3">View</button></a>
-							   </div>          
-						   </div>
-				   </div>
-			   </li>
-					<li data-category="Cricket">
-							<div class="pag-card">
-								<div class="card-info">
-								<div class="user-wrapper2">
-									<img src="../../web/public/assets/img/p1.jpg"  alt="">
-										<div class="user-name">
-											<h4>John Cronin
-											</h4>
-										</div>
-								</div> 
-								<h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-								<h5>August 2014</h5>
-								<div class="decision-wrapper">
-									<a href=""><button class="button3">View</button></a>
-								</div>          
+							</div> 	
+							<h3><?php echo $item2->heading?></h3>
+							<h5 class="date"><?php echo $item2->datetime?></h5>
+							<div class="decision-wrapper">
+								<a href="<?php echo BASEURL;?>/forumController/questionitem/<?php echo $item1->id;?>"><button class="button3">View</button></a>
 							</div>
 						</div>
-						</li>
-					<li data-category="Football">
-						<div class="pag-card">
-							<div class="card-info">
-							   <div class="user-wrapper2">
-								   <img src="../../web/public/assets/img/p1.jpg"  alt="">
-									   <div class="user-name">
-										   <h4>John Cronin
-										   </h4>
-									   </div>
-							   </div> 
-							   <h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-							   <h5>August 2014</h5>
-							   <div class="decision-wrapper">
-								   <a href=""><button class="button3">View</button></a>
-							   </div>          
-						   </div>
-				   </div>
-			   </li>
-			        
-					<li data-category="<?php echo("Cricket")?>">
-						<div class="pag-card">
-							<div class="card-info">
-							   <div class="user-wrapper2">
-								   <img src="../../web/public/assets/img/p1.jpg"  alt="">
-									   <div class="user-name">
-										   <h4>John Cronin
-										   </h4>
-									   </div>
-							   </div> 
-							   <h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-							   <h5>August 2014</h5>
-							   
-							   <div class="decision-wrapper">
-								   <a href=""><button class="button3">View</button></a>
-							   </div>          
-						   </div>
-				   </div>
-			   </li>
-		 
-	  
-			  <div class="page-pagination">
-				<!--<li class="page-item previous-page disable"><a class="page-link" href="#">Prev</a></li>
-				<li class="page-item current-page active"><a class="page-link" href="#">1</a></li>
-				<li class="page-item dots"><a class="page-link" href="#">...</a></li>
-				<li class="page-item current-page"><a class="page-link" href="#">5</a></li>
-				<li class="page-item current-page"><a class="page-link" href="#">6</a></li>
-				<li class="page-item dots"><a class="page-link" href="#">...</a></li>
-				<li class="page-item current-page"><a class="page-link" href="#">10</a></li>
-				<li class="page-item next-page"><a class="page-link" href="#">Next</a></li>-->
-			  </div>
-			</ul>
-			</div>
-		  </div>
+					</li>
+				<?php endforeach;?>
+            </ul>
+        </div>
 					  
 
 	
 		
  	</div>
 
-	 
+
 
 
 

@@ -43,18 +43,6 @@
                         </ul>
                     </div>
                 </div>
-<!--             <div class="search-box">
-                    <div class="container1">
-                        <div class="search_wrap search_wrap_3">
-                            <div class="search_box">
-                                <input type="text" class="input" placeholder="search...">
-                                <div class="btn btn_common">
-                                    <i class="fas fa-search"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
         </div>
 
     
