@@ -117,15 +117,16 @@
 					<li data-category="<?php echo($item2->type)?>">
 						<div class="q-card">
 							<div class="q-user-wrapper2">
-								<img src="avatar.png"  alt="">
+								<img src="../../web/public/assets/img/avatar.png"  alt="">
 								<div class="user-name">
-									<h4>Kusal Mendis</h4>
+									<h4><?php echo $item2->username?></h4>
 								</div>
 							</div> 	
 							<h3><?php echo $item2->heading?></h3>
-							<h5 class="date"><?php echo $item2->datetime?></h5>
+							<?php $a=explode(" ",$item2->datetime);?>
+							<h5 class="date"><?php echo $a[0]?></h5>
 							<div class="decision-wrapper">
-								<a href="<?php echo BASEURL;?>/forumController/questionitem/<?php echo $item1->id;?>"><button class="button3">View</button></a>
+								<a href="<?php echo BASEURL;?>/forumController/questionitem/<?php echo $item2->id;?>"><button class="button3">View</button></a>
 							</div>
 						</div>
 					</li>
@@ -152,12 +153,13 @@
 			<div class="user-wrapper2">
 				<img src="../../web/public/assets/img/avatar.png"  alt="">
 				<div class="user-name">
-					<h4>Kusal Mendis</h4>
+					<h4><?php echo $item1->username?></h4>
 				</div>
 			</div> 	
 			 <img src="../../web/public/assets/img/<?php echo($item1->url)?>"  alt="">
 			 <h2><?php echo $item1->heading?></h2>
-			 <h4><?php echo $item1->datetime?></h4>
+			 <?php $b=explode(" ",$item1->datetime);?>
+			 <h4><?php echo $b[0]?></h4>
 
 			 <div class="decision-wrapper">
 				<a href="<?php echo BASEURL;?>/forumController/articleitem/<?php echo $item1->id;?>"><button class="button3">View</button></a>

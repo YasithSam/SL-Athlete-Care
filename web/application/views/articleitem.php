@@ -49,16 +49,19 @@
 		   <div class="user-wrapper1">
 			   <img src="../../../web/public/assets/img/avatar.png"  alt="">
 			   <div class="user-name">
-				   <h4>Kusal Mendis</h4>
+				   <h4><?php echo $data['active']->username; ?></h4>
 			   </div>
 		   </div> 	
    
 			<h2><?php echo $data['active']->heading; ?></h2>
-			<h5><?php echo $data['active']->datetime; ?></h5>
+			<?php $a=explode(" ",$data['active']->datetime);?>
+				<h5><?php echo $a[0] ?></h5>
+				<br>
 		   
 		   <div class="article">
 			<img src="../../../web/public/assets/img/<?php echo($data['active']->url)?>" alt="">
 		   </div>
+		   <br>
 			<p><?php echo $data['active']->description; ?>
 			</p>
 			<br>
@@ -66,12 +69,6 @@
 			<hr>
    
 			<div class="like-comment">
-			   <div class="like">
-				   <i class="bx bxs-like"></i>
-				   <h6><?php echo $data['active']->likes; ?></h6>
-				   <h6>Likes</h6>
-   
-			   </div>
 			   <div class="comment">
 				   <i class="bx bx-comment-dots"></i>
 				   <h6><?php echo $data['active']->comments; ?></h6>
@@ -99,9 +96,9 @@
 			<?php foreach($data['data'] as $item): ?>
 			<div class="card">
 			   <div class="user-wrapper2">
-				   <img src="../../web/public/assets/img/avatar.png"  alt="">
+				   <img src="../../../web/public/assets/img/avatar.png"  alt="">
 				   <div class="user-name">
-					   <h4>Kusal Mendis</h4>
+					   <h4><?php echo $item->username; ?></h4>
 				   </div>
 			   </div> 	
    
@@ -110,8 +107,9 @@
 			   </div>
 		  
 	   
-				<h5><?php echo $item->heading; ?></h4>
-				<h5><?php echo $data['active']->datetime; ?></h5>
+				<h3><?php echo $item->heading; ?></h3>
+				<?php $b=explode(" ",$data['active']->datetime);?>
+				<h5><?php echo $b[0]?></h5>
    
 				<div class="decision-wrapper">
 				   <a href="<?php echo BASEURL;?>/forumController/articleitem/<?php echo $item->id;?>"><button class="button3">View</button></a>

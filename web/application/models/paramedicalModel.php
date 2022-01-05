@@ -41,6 +41,13 @@ class paramedicalModel extends database
         }
     }
 
+    public function acceptRequest($id){
+        if($this->Query("UPDATE case_study_request SET status=1 where case_study_id=?",[$id])){
+                $data=$this->fetch();
+                return $data;
+            }
+    }
+
 
     public function createArticle($data){
         $category = $data['category'];
