@@ -31,6 +31,7 @@
                 <th class="desc">Description</th>
                 <th class="name">Author Name</th>
                 <th class="btnrow">Approve Review</th>
+                <th class="btnrow">Reject Review</th>
               </tr>
             </thead>
             <tbody>
@@ -41,7 +42,8 @@
                 <td><?php echo ucwords($item->heading); ?></td>
                 <td class="longtext"><?php echo ucwords($item->description); ?></td>
                 <td><?php echo ucwords($item->full_name); ?></td>
-                <td><input type="button" class="button" value="Approve"> </td>
+                <td><input type="button" class="button1" value="Approve"> </td>
+                <td><input type="button" class="button" value="Reject"> </td>
               </tr>
             <?php endforeach;?>
             <?php else: ?>
