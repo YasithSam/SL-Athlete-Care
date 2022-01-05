@@ -33,6 +33,7 @@
         <th class="roleid">Role ID</th>
         <th class="fullname">Username</th>
         <th class="btnrow">Disable User</th>
+        <th style="width: 0px;"></th>
       </tr>
     </thead>
     <tbody>
@@ -40,14 +41,14 @@
 
         <?php foreach($data[0] as $item): ?>
             <tr class="">
-              <td><?php echo ucwords($item->uuid); ?></td>
+              <td ><?php echo ucwords($item->uuid); ?></td>
               <td><?php echo ucwords($item->role); ?></td>
               <td><?php echo ucwords($item->username); ?></td>  
               <?php if(!($item->is_disabled)){?>
-                   <td><a href="http://localhost/SL-Athlete-Care/api/v1/emailDisableUser.php?id=<?php echo $item->uuid;?>" onclick='return confirm("Are you sure want to confirm?");'><button class="button1"> Disable</button></a> </td>
+                   <td style="text-align: center;"><a href="http://localhost/SL-Athlete-Care/api/v1/emailDisableUser.php?id=<?php echo $item->uuid;?>" onclick='return confirm("Delete this user?");'><button class="button"> Disable</button></a> </td>
               <?php } else{?>
-                  <td><h6 style="color:red">Disabled User</h6><td>
-             <?php }?>
+                  <td style="text-align: center;"><h4 style="color:red">Disabled User</h4><td>
+              <?php }?>
   
            
             </tr>
@@ -58,6 +59,7 @@
      
     </tbody>
   </table>
+        </div>
   <br>
   <div class="pagination">
     <?php 
@@ -74,8 +76,9 @@
     }?>
 
   </div>
+
 </div> 
-</div>
+
 
 
        </body>

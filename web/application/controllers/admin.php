@@ -102,13 +102,43 @@ class admin extends main{
         $c=$this->input('id');
         if($this->getSession('userRole')==1){
           $data=$this->adminModel->getArticles($c);
+          $data1=$this->adminModel->getReviewers();
           $data2=$this->adminModel->getCount2();
-          $this->view('admin/articles',[$data,$data2,$c]);
+          $this->view('admin/articles',[$data,$data2,$c,$data1]);
         }  
         else{
             $this->view('404');
         }
     }
+    public function assignReviewer(){
+        $data = [
+
+            'doctorid'  => $this->input('doctor'),
+            'postid' => $this->input('postid'),
+        ];
+        echo($data['postid']);
+     echo($data['doctorid']);
+        if($this->adminModel->setReviewer($data)){
+            
+            $this->redirect('admin/articles');
+         }
+        else {
+        $this->view('admin/articles');
+        }
+    } 
+    
+    public function articleaction($id){
+        echo($id);
+        if($this->getSession('userRole')==1){
+        if ($this->adminModel->articleaction($id)){}
+        
+          $this->redirect('admin/articles');
+        }  
+        else{
+            $this->view('admin/articles');
+        }
+    }
+
     public function comments(){
         $c=$this->input('id');
         if($this->getSession('userRole')==1){
@@ -304,7 +334,8 @@ class admin extends main{
         $data = htmlspecialchars($data);
         return $data;
 
-    }  
+    } 
+    
 
 }
 ?>    

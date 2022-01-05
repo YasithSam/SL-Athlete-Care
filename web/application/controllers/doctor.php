@@ -141,8 +141,9 @@ class doctor extends main{
 
     }
     public function articles(){
+        $userid = $this->getSession('userId');
         if($this->getSession('userRole')==2){
-            $data=$this->doctorModel->getArticles();
+            $data=$this->doctorModel->getArticles($userid);
           $this->view('doctor/articles',$data);
         }  
         else{
@@ -168,7 +169,7 @@ class doctor extends main{
         ];
         
         if($this->doctorModel->createArticle($userData)){
-            $this->setFlash('addart', 'Article added successfully!');
+            $this->setFlash('addart', 'The article will be processed in a few hours!');
             $this->redirect('doctor/articles');
          }
         else {

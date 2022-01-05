@@ -241,23 +241,23 @@ header{
   }
   
   .content-table .type{
-      width: 100px;
+      width: 60px;
   }
 
   .content-table .title{
-    width: 250px;
+    width: 150px;
 }
 
 .content-table .desc{
-    width: 160px;
+    width: 100px;
 }
 
-.content-table .url{
-    width: 160px;
-}
 
 .content-table .name{
-    width: 160px;
+    width: 80px;
+}
+.content-table .rname{
+  width: 150px;
 }
 
 .content-table .btnrow{
@@ -266,13 +266,14 @@ header{
 
 .longtext{
   display: inline-block;
-  margin-top: 10px;
-  width: 200px;
+  margin-top: 20px;
+  width: 180px;
   position: relative;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: top;
+  
 }
 /*
  * higher z-index brings element to front
@@ -307,11 +308,10 @@ header{
     color: #01579b;
   }
 
-  .button{
+  .button, .button2{
   overflow:hidden;
   cursor: pointer;
   text-align: center;
-  background: #ff0000;
   color: #ffffff;
   border: none;
   border-radius: 4px;
@@ -322,10 +322,18 @@ header{
   height: 38px;
   width: 100px;
   }
-  
-  .button:hover{
-      background: #01579b;
+  .button{
+    background: #ff0000;
   }
+  .button2{
+    background: #006400;
+  }
+  .button:hover{
+      background: #f84747;
+  }
+  .button2:hover{
+    background: #37c924;
+}
 
 /*Pagination*/
 
@@ -334,6 +342,7 @@ header{
   display: flex;
   text-align: center;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .pagination a {
@@ -364,7 +373,72 @@ header{
   border-bottom-right-radius: 5px;
 }
 
+/*Filter*/
+ /* .review ul{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+} */
+.review{
+  text-align: center;
+}
+.review ul li{
+	width: 230px;
+	text-align: center;
+/* 	background-color: #ffffff;
+	border-right: 1px solid #0046b8;
+	padding: 10px 15px; */
+	cursor: pointer;
+	transition: all 0.4s ease;
+  padding-bottom: 8px;
+}
+.review ul li:first-child{
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+.review ul li:last-child{
+	border-right: 0;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
 
+.review ul li:hover,
+.review ul li.active{
+	/* background-color: #007aff; */
+	color: #fff;
+}
+
+
+*{
+	list-style: none;
+}
+
+ ul li a{
+    text-decoration: none;
+}
+
+.button1{
+  overflow:hidden;
+  cursor: pointer;
+  text-align: center;
+  color: #ffffff;
+  background-color: #0562cc;
+  border: none;
+  border-radius: 4px;
+  font-size: .9em;
+  font-weight: bold;
+  padding: 0;
+  margin-bottom: 5px;
+  height: 28px;
+  width: 60px;
+  
+  }
+  .button1:hover{
+    background: #2b87f1;
+}
 
 @media (max-width:850px) {
     .wrapper{

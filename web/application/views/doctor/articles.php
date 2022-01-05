@@ -22,13 +22,13 @@
     <div class="head">
         <div class="title">My Articles</div>
         <div class="add">
-            <a href="<?php echo BASEURL;?>/doctor/addnewarticle"><i class="fas fa-plus" ></i>Add</a>
+            <a href="<?php echo BASEURL;?>/doctor/addarticle"><i class="fas fa-plus" ></i>Add</a>
         </div>
     </div>
     <div style="margin-left: 40px; margin-bottom: 10px;">
-    <?php $this->flash('dltart', 'alert alert-success') ?>
-    <?php $this->flash('addart', 'alert alert-success') ?>
-  </div>
+        <?php $this->flash('dltart', 'alert alert-success') ?>
+        <?php $this->flash('addart', 'alert alert-success') ?>
+    </div>
 
     <!--Horizontal card container-->
 
@@ -45,7 +45,7 @@
             <div class="edit">
                 <div class="button">
                     <!-- <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a> -->
-                    <a href="<?php echo BASEURL;?>/doctor/deletearticle/<?php echo $item->id;?>"><i class="fas fa-trash-alt icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/doctor/deletearticle/<?php echo $item->id;?>" onclick='return confirm("Delete this article?");'><i class="fas fa-trash-alt icon"></i></a>
                 </div>
             </div>
           </div>
@@ -70,7 +70,7 @@
             <div class="edit">
                 <div class="button">
                     <!-- <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a> -->
-                    <a href="<?php echo BASEURL;?>/doctor/deletearticle/<?php echo $item->id;?>"><i class="fas fa-trash-alt icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/doctor/deletearticle/<?php echo $item->id;?>" onclick='return confirm("Delete this article?");'><i class="fas fa-trash-alt icon"></i></a>
                 </div>
             </div>
           </div>
