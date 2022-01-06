@@ -56,8 +56,8 @@
 
                       <!--  ****************select dropdown list*********************************** -->                   
                           <select name="doctor" id="d">
-                            <?php if(!empty($data[3])): ?>
-                            <?php foreach($data[3] as $item): ?> 
+                            <?php if(!empty($data[4])): ?>
+                            <?php foreach($data[4] as $item): ?> 
                                 <option value="<?php echo($item->uuid);?>"><?php echo($item->full_name);?></option>
                             <?php endforeach;?>
                             <?php else: ?>

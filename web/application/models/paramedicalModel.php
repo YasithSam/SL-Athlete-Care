@@ -21,10 +21,15 @@ class paramedicalModel extends database
 
         }
 
-    } 
+    }
+
 
     public function getForumItems($id){
-        if($this->Query("SELECT cr.id,cr.case_study_id,cr.req_user_id,c.athlete_id,c.title,a.full_name athlete,a.email,d.full_name doctor,cr.status FROM case_study_request cr inner join case_study c on cr.case_study_id=c.case_id inner join athlete_profile a on c.athlete_id=a.uuid inner join doctor_profile d on d.uuid=cr.req_user_id where cr.rec_user_id=? && cr.status IS NULL",[$id])){
+        if($this->Query("SELECT pr.id,pr.case_study_id,pr.doctor_id,c.athlete_id,c.title,a.full_name athlete,a.email,d.full_name doctor,pr.status FROM paramedical_case_study pr 
+        inner join case_study c on pr.case_study_id=c.case_id 
+        inner join athlete_profile a on c.athlete_id=a.uuid 
+        inner join doctor_profile d on d.uuid=pr.doctor_id 
+        where pr.paramedical_id=? && pr.status=0 ",[$id])){
             $data = $this->fetchall();
             return $data;
         }
@@ -32,7 +37,7 @@ class paramedicalModel extends database
     }
 
     public function declineRequest($id){
-        if($this->Query("UPDATE case_study_request SET status=0 where case_study_id=?",[$id])){
+        if($this->Query("UPDATE paramedical_case_study SET status=-1 where case_study_id=?",[$id])){
             if($this->Query("SELECT doctor_id,email from case_study c inner join doctor_profile d on c.doctor_id=d.uuid where case_id=?",[$id])){
                 $data=$this->fetch();
                 return $data;
@@ -41,8 +46,9 @@ class paramedicalModel extends database
         }
     }
 
+
     public function acceptRequest($id){
-        if($this->Query("UPDATE case_study_request SET status=1 where case_study_id=?",[$id])){
+        if($this->Query("UPDATE paramedical_case_study SET status=1 where case_study_id=?",[$id])){
                 $data=$this->fetch();
                 return $data;
             }
@@ -103,14 +109,28 @@ class paramedicalModel extends database
 
     }
 ////////////////-----Articles----------///////////////////////////////
-public function getProfile($userid){
-    if($this->Query("SELECT p.full_name,p.type,p.district,p.email,p.hospital,u.role,p.sex,p.paramedical_number,p.province
-                     from paramedical_profile p
-                     inner join user_role u on p.type=u.id
-                     where p.uuid=?",[$userid])){
-        $x=$this->fetch();
-        return $x;
+    public function getProfile($userid){
+        if($this->Query("SELECT p.full_name,p.type,p.district,p.email,p.hospital,u.role,p.sex,p.paramedical_number,p.province
+                        from paramedical_profile p
+                        inner join user_role u on p.type=u.id
+                        where p.uuid=?",[$userid])){
+            $x=$this->fetch();
+            return $x;
+        }
     }
-}
+
+
+    public function getuserName($id){
+        if($this->Query("SELECT au.username,au.role_id,ur.role
+                         from application_user au
+                         inner join user_role ur on ur.id=au.role_id
+                         where au.uuid=? ",[$id])){
+            $data=$this->fetch();
+            return $data;
+        }
+    }
+
+
+
 
 }

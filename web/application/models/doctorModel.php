@@ -395,4 +395,16 @@ class doctorModel extends database
     }
 
 
+    public function getuserName($id){
+        if($this->Query("SELECT au.username,au.role_id,ur.role
+                         from application_user au
+                         inner join user_role ur on ur.id=au.role_id
+                         where au.uuid=? ",[$id])){
+            $data=$this->fetch();
+            return $data;
+        }
+    }
+
+
+
 }

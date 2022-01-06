@@ -123,6 +123,11 @@
 		<h1>No data </h1>
 	<?php endif; ?> 
 
+	<div class="view">
+			<a href="<?php echo BASEURL;?>/forumController/grid"><button class="viewall">View All</button></a>
+		</div>
+
+
    
 		</div>
 	</div>

@@ -159,6 +159,25 @@ class caseStudyController extends main{
         }   
 
     }
+    
+
+//Delete Feedback
+
+public function deleteFeedback()
+{
+    $id=$this->input('id');
+
+    if($this->caseStudyModel->deleteFeedback($id)){
+        $this->redirect('caseStudyController/feedback/');
+        }
+
+    
+    else{
+        $this->redirect('caseStudyController/feedback/');
+
+    }   
+
+}
 
 //post images
 

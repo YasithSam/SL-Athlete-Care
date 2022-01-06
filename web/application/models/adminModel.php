@@ -29,7 +29,9 @@ class adminModel extends database
 
     public function getCounts(){
 
-        if($this->Query("SELECT count(*) AS c1 FROM athlete_profile union all SELECT count(*) AS c3 FROM post union all SELECT count(*) AS c2 FROM case_study")){
+        if($this->Query("SELECT count(*) AS c1 FROM athlete_profile 
+        union all SELECT count(*) AS c2 FROM case_study
+        union all SELECT count(*) AS c3 FROM post")){
             $data = $this->fetchall();
             return $data;
 
@@ -124,7 +126,7 @@ class adminModel extends database
                         inner join application_user au on au.uuid=p.author_id 
                         /* inner join reviewers r on r.post_id=p.id */
                         /*inner join post_attachments pa on pa.post_id=p.id*/
-                        where p.approval_status IS NULL && p.type!=1
+                        where p.approval_status =-1 && p.type!=1
                         order by p.datetime desc ")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -333,5 +335,16 @@ class adminModel extends database
                  return true;
             }
     }
+
+    public function getuserName($id){
+        if($this->Query("SELECT au.username,au.role_id,ur.role
+                         from application_user au
+                         inner join user_role ur on ur.id=au.role_id
+                         where au.uuid=? ",[$id])){
+            $data=$this->fetch();
+            return $data;
+        }
+    }
+
 
 }

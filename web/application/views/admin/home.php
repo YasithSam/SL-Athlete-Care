@@ -27,8 +27,8 @@
             <div class="user-wrapper">
                 <img src="../../web/public/assets/img/doctor.jpg" width="40px" height="40px" alt="">
                 <div>
-                    <h4>Administrator</h4>
-                    <small>Administrator</small>
+                    <h4><?php echo($data[1]->username)?></h4>
+                    <small><?php echo($data[1]->role)?></small>
                 </div>
             </div>                
         </div>
@@ -45,21 +45,21 @@
                 <i class="fas fa-user-md icon"></i>
                 <div class="right-side">
                   <div class="box-topic">Total Athletes</div>
-                  <div class="number"><?php echo($data[0]->c1)?></div>
+                  <div class="number"><?php echo($data['patients'])?></div>
                 </div>
               </div>
               <div class="box">
                 <i class="fas fa-procedures icon"></i>
                 <div class="right-side">
                   <div class="box-topic">Total Case Studies</div>
-                  <div class="number"><?php echo($data[0]->c2)?></div>
+                  <div class="number"><?php echo($data['casestudies'])?></div>
                 </div>
               </div>
               <div class="box">
                 <i class="fas fa-users icon"></i>
                 <div class="right-side">
                   <div class="box-topic">Total Posts</div>
-                  <div class="number"><?php echo($data[0]->c3)?></div>
+                  <div class="number"><?php echo($data['post'])?></div>
                 </div>
               </div>
             </div>

@@ -69,9 +69,7 @@
     
             <div class="endbtn">
             
-            <a href="<?php echo BASEURL;?>/caseStudyController/deleteMedicine?id=<?php echo($item->id)?>&&case_id=<?php echo($data[1])?>"
-
-                onclick='return confirm("Are you sure want to confirm?");'><button class="editbtn"><i class="fa fa-trash"></i>Delete</button></a>
+            <a href="<?php echo BASEURL;?>/caseStudyController/deleteMedicine?id=<?php echo($item->id)?>&&case_id=<?php echo($data[1])?>"onclick='return confirm("Are you sure want to confirm?");'><button class="editbtn"><i class="fa fa-trash"></i>Delete</button></a>
             </div>
         <?php endforeach;?>
      <?php else: ?>

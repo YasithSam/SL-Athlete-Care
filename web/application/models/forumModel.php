@@ -123,7 +123,7 @@ class forumModel extends database
         if($this->Query("SELECT p.id,p.heading,pa.url,au.username from post p 
         left join post_attachments pa on p.id=pa.post_id 
         inner join application_user au on au.uuid=p.author_id
-        where p.type in (2,3,4,5,6) and p.id<>$id  ORDER BY p.datetime DESC")){
+        where p.type in (2,3,4,5,6) and p.id<>$id  ORDER BY p.datetime DESC limit 4")){
             $data = $this->fetchall();
             return $data;
 
