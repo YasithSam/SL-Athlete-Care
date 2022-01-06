@@ -8,6 +8,7 @@
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' rel='stylesheet'>
         <?php linkCSS("assets/css/profile.css") ?>
         <?php linkCSS("assets/css/profilemain.css") ?>
+        <?php linkCSS("assets/css/alert.css") ?>
     </head>
 
     <body>
@@ -19,7 +20,9 @@
             <?php include "header.php"?>
 <!--Body section-->
             <main>
-                  
+            <div style="margin-left: 40px; margin-top: 70px;">
+              <?php $this->flash('updtpro', 'alert alert-success') ?>
+            </div> 
               <div class="home">
               <!--Profile box-->
                       <div class="profile box">

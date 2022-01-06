@@ -64,7 +64,7 @@ class paramedical extends main{
         
         if($this->paramedicalModel->createArticle($userData)){
             $this->setFlash('addart', 'The article will be processed in a few hours!');
-            $this->redirect('para/articles');
+            $this->redirect('paramedical/articles');
          }
         else {
         $this->view('para/addArticle',$userData);
@@ -75,11 +75,11 @@ class paramedical extends main{
        
         if($this->paramedicalModel->deleteArticle($id)){
             $this->setFlash('dltart', 'Article deleted successfully!');
-            $this->redirect('para/articles');
+            $this->redirect('paramedical/articles');
             // add user has succesfully deleted message ( same as used in registering)
           }  
           else{
-              $this->view('para/articles');
+              $this->view('paramedical/articles');
           } 
     }
     ///////////////////////////////////////////////
@@ -150,6 +150,21 @@ class paramedical extends main{
             $this->view('404');
         }
 
+    }
+    public function updateprofile(){
+        $u = $this->getSession('userId');
+        $e = $this->input('email');
+        $h = $this->input('hospital');
+        $p = $this->input('province');
+        $d = $this->input('district');
+       
+        if($this->paramedicalModel->updateprofile($u,$e,$h,$p,$d)){
+            $this->setFlash('updtpro', 'Profile updated!');
+            $this->redirect('paramedical/profile');
+         }
+        else {
+        $this->view('para/editprofile',$data);
+        }
     }
 
 }

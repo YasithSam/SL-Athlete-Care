@@ -105,5 +105,15 @@ public function getProfile($userid){
         return $x;
     }
 }
-
+public function updateprofile($u,$e,$h,$p,$d){
+    
+    if($this->Query("UPDATE paramedical_profile set email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){       
+         return true;
+    }
 }
+
+
+
+
+
+} 

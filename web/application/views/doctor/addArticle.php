@@ -35,7 +35,7 @@
                </div> -->
                 <!--description-->
                <!-- <div class="field">
-                  <input type="text" placeholder="Short description" required>
+                  <input type="text" placeholder="Short description" name="shortdes" required>
                </div> -->
                <!--category-->
                <div class="field">

@@ -116,8 +116,7 @@ class admin extends main{
             'doctorid'  => $this->input('doctor'),
             'postid' => $this->input('postid'),
         ];
-        echo($data['postid']);
-     echo($data['doctorid']);
+        
         if($this->adminModel->setReviewer($data)){
             
             $this->redirect('admin/articles');
@@ -127,13 +126,27 @@ class admin extends main{
         }
     } 
     
-    public function articleaction($id){
-        echo($id);
+    public function articleapprove(){
+        $id=$this->input('id');
         if($this->getSession('userRole')==1){
-        if ($this->adminModel->articleaction($id)){}
-        
+        if ($this->adminModel->articleapprove($id)){
+          $this->setFlash('approveart', 'Article approved!');
           $this->redirect('admin/articles');
-        }  
+        } 
+        } 
+        else{
+            $this->view('admin/articles');
+        }
+    }
+    public function articlereject(){
+        $id=$this->input('postid');
+        $r=$this->input('feedback');
+        if($this->getSession('userRole')==1){
+        if ($this->adminModel->articlereject($id,$r)){
+          $this->setFlash('rejecteart', 'Article removed!');
+          $this->redirect('admin/articles');
+        } 
+        } 
         else{
             $this->view('admin/articles');
         }
