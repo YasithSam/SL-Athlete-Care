@@ -32,7 +32,6 @@ class doctorModel extends database
         }
     }
 
-    //Doctor profile
     public function getProfile($id){
         if($this->Query("SELECT uuid,full_name,province,district,sex,email,hospital,doctor_number from doctor_profile where uuid=?",[$id])){
             $x=$this->fetch();

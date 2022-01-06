@@ -30,8 +30,9 @@
                 <th class="title">Title</th>
                 <th class="desc">Description</th>
                 <th class="name">Author Name</th>
-                <th class="name">Reviewer Approval</th>
+                <th class="rname">Reviewer Approval</th>
                 <th class="btnrow">Approve Article</th>
+                <th class="btnrow">Delete Article</th>
               </tr>
             </thead>
             <tbody>
@@ -42,35 +43,41 @@
                 <td ><?php echo ucwords($item->heading); ?></td>
                 <td class="longtext"><?php echo ucwords($item->description); ?></td>
                 <td><?php echo ucwords($item->username); ?></td>
-                <?php if($item->approve){?>
-                   <td><h2> approved</h2>
-                 <?php } else{?>
-                  <td>
-                  <!-- change url-->
-                  <form action="<?php echo BASEURL;?>/doctor/filter" method="POST">
+                <!-- <td><?php echo ucwords($item->username); ?></td> -->
+                <?php if($item->approval){?>
+                   <td>Approved</td>
+                    <!-- <?php //} else if($item->approved==2){?>
+                      <td>Pending</td> -->
+              <?php } else{?>
+                  <td class="review">
+                  <form action="<?php echo BASEURL;?>/admin/assignReviewer" method="POST">
                     <ul class="indicator">
-                        <li data-filter="injury" class="active">                    
-                            <select name="doctors" id="d">
-                                <option value="W.D. Aruna Jayasundara">W.D. Aruna Jayasundara</option>
-                                <option value="Kithsiri Perera">Kithsiri Perera</option>
-                                <option value="Wasana Jayakodi">Wasana Jayakodi</option>
-                                <option value="Radhika Kulathunga">Radhika Kulathunga</option>
-                                <option value="Tharaka Yahathugoda">Tharaka Yahathugoda</option>
-                                <option value="Uditha Illangasinha">Uditha Illangasinha</option>
-                                <option value="Irosha Premathilaka">Irosha Premathilaka</option>
-                                <option value="Oshadha Amarasinha">Oshadha Amarasingha</option>
-                            </select>
-                        </li>                  
-                      
-                          <input type="submit" value="Submit" />
-                    </ul>
-                    
-                </form><td>
-                 <?php }?>
-  
+                      <li data-filter="injury" class="active"> 
 
-                <td><?php echo ucwords($item->username); ?></td>
-                <td><input type="button" class="button" value="Approve"> </td>
+                      <!--  ****************select dropdown list*********************************** -->                   
+                          <select name="doctor" id="d">
+                            <?php if(!empty($data[3])): ?>
+                            <?php foreach($data[3] as $item): ?> 
+                                <option value="<?php echo($item->uuid);?>"><?php echo($item->full_name);?></option>
+                            <?php endforeach;?>
+                            <?php else: ?>
+                              <h1>No data </h1>
+                            <?php endif; ?> 
+                          </select>
+                      <!--  ****************select dropdown list*********************************** -->
+
+                          <input type="hidden" id="postid" name="postid" value="<?php echo($data[0]->id);?>"/> 
+                      </li> 
+                      <input type="submit" class="button1" value="submit">
+                    </ul>
+                  </form>   
+                  </td>
+            <?php }?>
+            
+                <td><a href="<?php echo BASEURL;?>/admin/articleaction/?id=<?php echo($data[0]->id);?>" onclick='return confirm("Approve this article?");'><input type="button" class="button2" value="Approve"></a></td>
+                <td><a href="<?php echo BASEURL;?>/admin/articleaction/?id=<?php echo($data[0]->id);?>" onclick='return confirm("Delete this article?");'><input type="button" class="button" value="Delete"></a></td>
+               
+
               </tr>
               <?php endforeach;?>
         <?php else: ?>

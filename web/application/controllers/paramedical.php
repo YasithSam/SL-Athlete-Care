@@ -33,14 +33,56 @@ class paramedical extends main{
             $this->view('404');
         }
     }
+     //////////////////Articles/////////////////////////////
     public function articles(){
+        $userid = $this->getSession('userId');
         if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
-           $this->view('para/articles');
+            $data=$this->paramedicalModel->getArticles($userid);
+           $this->view('para/articles',$data);
         }
         else{
             $this->view('404');
         }
     }
+    public function addarticle(){
+        if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
+            $this->view('para/addArticle');
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
+    public function addnewarticle(){
+        $userid = $this->getSession('userId');
+        $userData = [
+            'heading'        => $this->input('heading'),
+            'content'           => $this->input('content'),
+            'category'           => $this->input('category'),
+            'userid' => $userid,
+        ];
+        
+        if($this->paramedicalModel->createArticle($userData)){
+            $this->setFlash('addart', 'The article will be processed in a few hours!');
+            $this->redirect('para/articles');
+         }
+        else {
+        $this->view('para/addArticle',$userData);
+        }
+    }
+    public function deletearticle($id)
+    {
+       
+        if($this->paramedicalModel->deleteArticle($id)){
+            $this->setFlash('dltart', 'Article deleted successfully!');
+            $this->redirect('para/articles');
+            // add user has succesfully deleted message ( same as used in registering)
+          }  
+          else{
+              $this->view('para/articles');
+          } 
+    }
+    ///////////////////////////////////////////////
     public function dschedule(){
         $this->view('para/dschedule');
 
@@ -88,19 +130,27 @@ class paramedical extends main{
 
     }
     public function profile(){
+        $userid = $this->getSession('userId');
         if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
-          $this->view('para/profile');
+          $data=$this->paramedicalModel->getProfile($userid);
+          $this->view('para/profile',$data);
         }
         else{
             $this->view('404');
         }
 
     }
-  
-  
-   
-   
-   
+    public function editprofile(){
+        $userid = $this->getSession('userId');
+        if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
+          $data=$this->paramedicalModel->getProfile($userid);
+          $this->view('para/editprofile',$data);
+        }
+        else{
+            $this->view('404');
+        }
+
+    }
 
 }
 ?>    

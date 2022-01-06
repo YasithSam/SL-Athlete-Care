@@ -60,7 +60,7 @@ class doctor extends main{
         if($this->getSession('userRole')==2){
             $data=$this->doctorModel->getProfile($userId);
             $this->view("doctor/editprofile",$data);
-              
+             
         }
         else{
             $this->view('404');
