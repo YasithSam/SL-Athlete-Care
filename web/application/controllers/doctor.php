@@ -53,6 +53,39 @@ class doctor extends main{
 
     }
 
+
+    //get doctor profile - Update
+    public function editprofile(){
+        $userId = $this->getSession('userId');
+        if($this->getSession('userRole')==2){
+            $data=$this->doctorModel->getProfile($userId);
+            $this->view("doctor/editprofile",$data);
+             
+        }
+        else{
+            $this->view('404');
+        }
+    }
+
+    //Update doctor profile
+    public function updateprofile(){
+        $u = $this->getSession('userId');
+        $e = $this->input('email');
+        $h = $this->input('hospital');
+        $p = $this->input('province');
+        $d = $this->input('district');
+       
+        if($this->doctorModel->updateprofile($u,$e,$h,$p,$d)){
+            $this->setFlash('updtpro', 'Profile updated!');
+            $this->redirect('doctor/profile');
+         }
+        else {
+        $this->view('doctor/editprofile',$data);
+        }
+    }
+
+
+
     public function athlete($uuid){
         $id=$uuid;
         if($this->getSession('userRole')==2){
@@ -188,15 +221,8 @@ class doctor extends main{
               $this->view('doctor/articles');
           } 
     }
-    public function editprofile(){
-        if($this->getSession('userRole')==2){
-            $this->view('doctor/editprofile');
-        }
-        else{
-            $this->view('404');
-        }
-
-    }
+    
+    
     public function messages(){
         if($this->getSession('userRole')==2){
           $this->view('doctor/chat');

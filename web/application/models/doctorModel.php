@@ -25,21 +25,32 @@ class doctorModel extends database
 
     //Doctor article
     public function getDoctorArticles($id){
-        if($this->Query("SELECT p.heading, p.description FROM post p inner join doctor_profile d on d.uuid=p.author_id where d.uuid=? && p.type='article' && p.approval_status=? order by datetime desc",[$id,1])){
+        if($this->Query("SELECT p.heading, p.description FROM post p left join doctor_profile d on d.uuid=p.author_id where d.uuid=? && p.type=? && p.approval_status=? order by datetime desc",[$id,1,1])){
             $x=$this->fetchall();
             return $x;
 
         }
     }
 
-    
     public function getProfile($id){
-        if($this->Query("SELECT uuid,full_name,province,sex,email,hospital from doctor_profile where uuid=?",[$id])){
+        if($this->Query("SELECT uuid,full_name,province,district,sex,email,hospital,doctor_number from doctor_profile where uuid=?",[$id])){
             $x=$this->fetch();
             return $x;
 
         }
     }
+
+
+    //Doctor profile update
+    public function updateprofile($u,$e,$h,$p,$d){
+    
+        if($this->Query("UPDATE doctor_profile set email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){         
+             return true;
+        }
+    }
+
+
+
     public function getCaseStudyProfile($id){
         if($this->Query("SELECT a.full_name,c.case_id,c.title FROM case_study c inner join athlete_profile a on a.uuid=c.athlete_id where doctor_id=? && status=?",[$id,1])){
             $x=$this->fetchall();
