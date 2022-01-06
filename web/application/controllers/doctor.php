@@ -42,15 +42,49 @@ class doctor extends main{
         if($this->getSession('userRole')==2){
             $data=$this->doctorModel->getProfile($userId);   
             $data2=$this->doctorModel->getCaseStudyProfile($userId);   
-            //$data3= $this->doctorModel->getArticles($userId); 
+            
+            $data3= $this->doctorModel->getDoctorArticles($userId); 
           
-            $this->view('doctor/profile',[$data,$data2]);
+            $this->view('doctor/profile',[$data,$data2,$data3]);
         }
         else{
             $this->view('404');
         }
 
     }
+
+
+    //get doctor profile - Update
+    public function editprofile(){
+        $userId = $this->getSession('userId');
+        if($this->getSession('userRole')==2){
+            $data=$this->doctorModel->getProfile($userId);
+            $this->view("doctor/editprofile",$data);
+              
+        }
+        else{
+            $this->view('404');
+        }
+    }
+
+    //Update doctor profile
+    public function updateprofile(){
+        $u = $this->getSession('userId');
+        $e = $this->input('email');
+        $h = $this->input('hospital');
+        $p = $this->input('province');
+        $d = $this->input('district');
+       
+        if($this->doctorModel->updateprofile($u,$e,$h,$p,$d)){
+            $this->setFlash('updtpro', 'Profile updated!');
+            $this->redirect('doctor/profile');
+         }
+        else {
+        $this->view('doctor/editprofile',$data);
+        }
+    }
+
+
 
     public function athlete($uuid){
         $id=$uuid;
@@ -140,8 +174,9 @@ class doctor extends main{
 
     }
     public function articles(){
+        $userid = $this->getSession('userId');
         if($this->getSession('userRole')==2){
-            $data=$this->doctorModel->getArticles();
+            $data=$this->doctorModel->getArticles($userid);
           $this->view('doctor/articles',$data);
         }  
         else{
@@ -167,7 +202,7 @@ class doctor extends main{
         ];
         
         if($this->doctorModel->createArticle($userData)){
-            $this->setFlash('addart', 'Article added successfully!');
+            $this->setFlash('addart', 'The article will be processed in a few hours!');
             $this->redirect('doctor/articles');
          }
         else {
@@ -186,15 +221,8 @@ class doctor extends main{
               $this->view('doctor/articles');
           } 
     }
-    public function editprofile(){
-        if($this->getSession('userRole')==2){
-            $this->view('doctor/editprofile');
-        }
-        else{
-            $this->view('404');
-        }
-
-    }
+    
+    
     public function messages(){
         if($this->getSession('userRole')==2){
           $this->view('doctor/chat');

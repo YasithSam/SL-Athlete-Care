@@ -24,6 +24,7 @@
             <div class="alrt">
             <?php $this->flash('addcs', 'alert alert-success') ?>
             <?php $this->flash('assign', 'alert alert-success') ?>
+            <?php $this->flash('updtpro', 'alert alert-success') ?>
             </div>
                   
               <div class="home">
@@ -41,10 +42,10 @@
                           </div>-->
                       
                         <div class="updt"><i class="fas fa-user user"></i>Dr.<?php echo $data[0]->full_name?></div>
-                        <div class="updt"><i class="fas fa-user user"></i><?php echo ($data[0]->sex) ?></div>
-                        <div class="updt"><i class="fas fa-map-marker-alt user"></i><?php echo($data[0]->province)?></div>
+                        <div class="updt"><i class="fas fa-user user"></i><?php echo ucwords ($data[0]->sex) ?></div>
+                        <div class="updt"><i class="fas fa-map-marker-alt user"></i><?php echo ucwords($data[0]->district)?>,<?php echo ucwords($data[0]->province)?></div>
                         <div class="updt"><i class="fas fa-at user"></i><?php echo($data[0]->email)?></div>
-                        <div class="updt"><i class="fas fa-clinic-medical user"></i><?php echo($data[0]->hospital)?></div>
+                        <div class="updt"><i class="fas fa-clinic-medical user"></i><?php echo ucwords($data[0]->hospital)?></div>
                         <div class="button" style="justify-content: center;"><a href="<?php echo BASEURL;?>/doctor/editprofile">Edit Profile</a></div>
                       </div>
                       
@@ -78,37 +79,31 @@
                          </div>
               <!--End of Case studies box box-->
               
-              <!--Articles box-->
-                      <div class="about box">
+               <!--Articles box-->
+               <div class="about box">
                         <div class="title">
                           My Articles
                         </div>
                         <!--card-->
-                        <div class="card">
+                        <?php if(!empty($data[2])): ?>
+                        <?php foreach($data[2] as $item): ?>
+
+                        <div class="card-2">
                           <i class="fas fa-notes-medical user"></i>
                           <div class="qual">
-                            Tibial Stress Syndrome<br>
-                          <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome</p>
+                          <?php echo($item->heading);?><br>
+                          <p class="txt"><?php echo($item->description);?></p>
                           </div>
                         </div>
-                        <!--card-->
-                        <div class="card">
-                          <i class="fas fa-notes-medical user"></i>
-                          <div class="qual">
-                            Repetitive Stress Injuries<br>
-                            <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome </p>
-                          </div>
-                        </div>
-                        <!--card-->
-                        <div class="card">
-                          <i class="fas fa-notes-medical user"></i>
-                          <div class="qual">
-                            Common Types of Injuries<br>
-                          <p class="txt">Are leg muscle, tendon and functional characteristics associated with medial tibial stress syndrome </p>
-                          </div>
-                        </div>
+                        <?php endforeach;?>
+                         <?php else: ?>
+                              <h1>No data </h1>
+                        <?php endif; ?> 
+                         </div>
+                       
+
                         <div class="link">
-                        <a href="<?php echo BASEURL;?>/doctor/articles"?>
+                        <a style="float:right; margin-right: 25px;" href="<?php echo BASEURL;?>/doctor/articles">
                          View More </a>
                          </div>
                       </div>
