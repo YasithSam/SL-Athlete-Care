@@ -14,8 +14,9 @@ class doctor extends main{
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==2){
             $data = $this->doctorModel->getCounts($userId);   
-            $x= $this->doctorModel->getForumItems($userId);    
-            $dataArray=[$data,$x];
+            $x= $this->doctorModel->getForumItems($userId);  
+            $data3 = $this->doctorModel->getuserName($userId);  
+            $dataArray=[$data,$x,$data3];
             $this->view("doctor/home",$dataArray);
               
         }
@@ -23,6 +24,7 @@ class doctor extends main{
             $this->view('404');
         }
     }
+
     public function patients(){
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==2){
@@ -41,10 +43,8 @@ class doctor extends main{
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==2){
             $data=$this->doctorModel->getProfile($userId);   
-            $data2=$this->doctorModel->getCaseStudyProfile($userId);   
-            
+            $data2=$this->doctorModel->getCaseStudyProfile($userId); 
             $data3= $this->doctorModel->getDoctorArticles($userId); 
-          
             $this->view('doctor/profile',[$data,$data2,$data3]);
         }
         else{
@@ -221,16 +221,7 @@ class doctor extends main{
               $this->view('doctor/articles');
           } 
     }
-    
-    
-    public function messages(){
-        if($this->getSession('userRole')==2){
-          $this->view('doctor/chat');
-        }
-        else{
-            $this->view('404');
-        }
-    }
+
 
     public function reviews(){
         $userId = $this->getSession('userId');

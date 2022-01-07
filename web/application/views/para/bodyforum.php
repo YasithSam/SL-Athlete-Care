@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="btn-grp">
-        <div class="button2"><a href=""><i class="fas fa-check"></i></a></div>
+        <div class="button2"><a href="<?php echo BASEURL;?>/paramedical/acceptRequest?id=<?php echo $item->case_study_id;?>" onclick='return confirm("Accept this Case Study?");'><i class="fas fa-check"></i></a></div>
         <div class="button1"><a href="http://localhost/SL-Athlete-Care/api/v1/emailRejectCasestudy.php?id=<?php echo $item->case_study_id;?>" onclick='return confirm("Reject this Case Study?");'><i class="fas fa-times"></i></a></div>
       </div>
     </div>

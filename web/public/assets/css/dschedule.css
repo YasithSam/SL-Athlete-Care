@@ -109,7 +109,7 @@ p.card-text{
     left: 0;
     top: 0;
     z-index: 100;
-    background: var(--main-color);
+    background: #01579b;
     color: #ffffff;
     overflow-y: auto;
     transition: width 500ms;

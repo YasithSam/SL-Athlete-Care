@@ -55,13 +55,13 @@
                         <div class="user-wrapper2">
                             <img src="../../web/public/assets/img/avatar.png"  alt="">
                             <div class="user-name">
-                                <h4>Kusal Mendis</h4>
+                                <h4><?php echo $item1->username?></h4>
                             </div>
                         </div> 	
                         <div class="article">
                             <img src="../../web/public/assets/img/<?php echo($item1->url)?>" alt="">
                         </div>
-                         <h5><?php echo $item1->heading?></h4>
+                         <h3><?php echo $item1->heading?></h3>
                          <h5 class="date"><?php echo $item1->datetime?></h5>
                          <div class="decision-wrapper">
                             <a href="<?php echo BASEURL;?>/forumController/articleitem/<?php echo $item1->id;?>"><button class="button3">View</button></a>

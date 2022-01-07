@@ -327,7 +327,7 @@ header{
     overflow:hidden;
     cursor: pointer;
     text-align: center;
-    background: #24a7cf;
+    background: #006400;
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -344,7 +344,7 @@ header{
   }
 
   .button1:hover{
-    background: #01579b;
+    background: #37c924;
 }
 
 /*Pagination*/

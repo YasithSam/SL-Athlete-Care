@@ -535,7 +535,7 @@ class caseStudyModel extends database
     //Get feedback - Pre 
     public function getFeedback($id){
         $m=[];
-        if($this->Query("SELECT t.name, f.feedback,f.datetime FROM feedback f inner join case_study_type t on f.type=t.id where f.case_id=? && f.state=? order by datetime desc",[$id,0])){
+        if($this->Query("SELECT t.name, f.feedback,f.datetime,f.id FROM feedback f inner join case_study_type t on f.type=t.id where f.case_id=? && f.state=? order by datetime desc",[$id,0])){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;
@@ -612,7 +612,19 @@ class caseStudyModel extends database
 
     }
 
+//Delete Feedback
+public function deleteFeedback($id)
+{
+    if($this->Query("DELETE from feedback where id=?",[$id]))
+    {
+        if($this->rowCount()>0){
+            return true; 
+        }  
+    }  
+    
+    return false;
 
+}
 
     public function getWorkout($id){
         $m=[];

@@ -40,7 +40,7 @@
 	  
 			<div class="in-card">
 				<img src="../../../web/public/assets/img/<?php echo($data['active']->url)?>"  alt="">
-				<h2><?php echo $data['active']->heading; ?></h2>
+				<h1><?php echo $data['active']->heading; ?></h1>
 				<h2><?php echo $data['active']->description; ?></h2>
 				
 <!-- 								<h5>Dec 7, 2017</h5>
