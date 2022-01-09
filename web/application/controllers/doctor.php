@@ -70,12 +70,19 @@ class doctor extends main{
     //Update doctor profile
     public function updateprofile(){
         $u = $this->getSession('userId');
+       
+        $i = $_FILES['image']['name'];
+        $image_tmp = $_FILES['image']['tmp_name'];
+        
         $e = $this->input('email');
         $h = $this->input('hospital');
         $p = $this->input('province');
         $d = $this->input('district');
        
-        if($this->doctorModel->updateprofile($u,$e,$h,$p,$d)){
+        move_uploaded_file($image_tmp,"../../web/public/assets/dbimages/$i");
+
+
+        if($this->doctorModel->updateprofile($u,$i,$e,$h,$p,$d)){
             $this->setFlash('updtpro', 'Profile updated!');
             $this->redirect('doctor/profile');
          }

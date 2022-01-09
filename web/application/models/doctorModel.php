@@ -25,7 +25,8 @@ class doctorModel extends database
 
     //Doctor article
     public function getDoctorArticles($id){
-        if($this->Query("SELECT p.heading, p.description FROM post p left join doctor_profile d on d.uuid=p.author_id where d.uuid=? && p.type=? && p.approval_status=? order by datetime desc",[$id,1,1])){
+        if($this->Query("SELECT p.heading, p.description FROM post p left join doctor_profile d on d.uuid=p.author_id 
+        where d.uuid=? && p.type!=1 && p.type<7 && p.approval_status=? order by datetime desc",[$id,1])){
             $x=$this->fetchall();
             return $x;
 
@@ -33,7 +34,7 @@ class doctorModel extends database
     }
 
     public function getProfile($id){
-        if($this->Query("SELECT uuid,full_name,province,district,sex,email,hospital,doctor_number from doctor_profile where uuid=?",[$id])){
+        if($this->Query("SELECT uuid,full_name,province,district,sex,email,image,hospital,doctor_number from doctor_profile where uuid=?",[$id])){
             $x=$this->fetch();
             return $x;
 
@@ -42,9 +43,9 @@ class doctorModel extends database
 
 
     //Doctor profile update
-    public function updateprofile($u,$e,$h,$p,$d){
-    
-        if($this->Query("UPDATE doctor_profile set email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){         
+    public function updateprofile($u,$i,$e,$h,$p,$d){
+        
+        if($this->Query("UPDATE doctor_profile set image='$i', email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){         
              return true;
         }
     }
