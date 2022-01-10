@@ -49,7 +49,7 @@
               <div class="edit">
                 <div class="button">
                     <!-- <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a> -->
-                    <a href="<?php echo BASEURL;?>/admin/deleteNotice/<?php echo $item->id;?>"><i class="fas fa-trash-alt icon"></i></a>
+                    <a href="<?php echo BASEURL;?>/admin/deleteNotice/<?php echo $item->id;?>" onclick='return confirm("Delete this notice?");'><i class="fas fa-trash-alt icon"></i></a>
                 </div>
               </div>
           </div>

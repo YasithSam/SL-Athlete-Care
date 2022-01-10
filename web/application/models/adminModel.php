@@ -121,12 +121,13 @@ class adminModel extends database
     }
     public function getArticles(){
         $m=[];
-        if($this->Query("SELECT p.id, p.type, heading, description, username /* r.approval */ /*, pa.type pt*/
+        if($this->Query("SELECT p.id, pt.type, heading, description, username, r.approval, d.full_name 
                         from post p 
                         inner join application_user au on au.uuid=p.author_id 
-                        /* inner join reviewers r on r.post_id=p.id */
-                        /*inner join post_attachments pa on pa.post_id=p.id*/
-                        where p.approval_status =-1 && p.type!=1
+                        left join reviewers r on r.post_id=p.id 
+                        left join doctor_profile d on d.uuid=r.reviewer_id 
+                        inner join post_type pt on p.type=pt.id
+                        where p.approval_status=-1 && p.type!=1
                         order by p.datetime desc ")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -143,12 +144,12 @@ class adminModel extends database
         }
         return $m;
     }
-     public function setReviewer($data){
-     echo($data['postid']);
-     echo($data['doctorid']);
+    public function setReviewer($data){
+        
+    
         $y=[$data['postid'],$data['doctorid']];
         
-            if($this->Query("INSERT INTO reviewers (post_id,reviewer_id,approval)  VALUES (?,?)",$y)){
+            if($this->Query("INSERT INTO reviewers (post_id,reviewer_id)  VALUES (?,?)",$y)){
                  return true;
             }
             else{
@@ -163,8 +164,14 @@ class adminModel extends database
             return $x;
         }
     } 
-    public function articleaction($id){
+    public function articleapprove($id){
         if($this->Query("UPDATE post SET approval_status=1 where id=?",[$id])){
+                return true;
+            }
+    }
+    public function articlereject($id,$r){
+        echo $id;
+        if($this->Query("UPDATE post SET approval_status=0, reason='$r' where id=?",[$id])){
                 return true;
             }
     }
@@ -330,8 +337,8 @@ class adminModel extends database
 
     public function createNotice($data){
         
-        $y=[$data['userid'],$data['type'],$data['heading'],$data['content']];
-           if($this->Query("INSERT INTO post (author_id,type,heading,description) VALUES (?,?,?,?)",$y)){
+        $y=[$data['userid'],$data['type'],$data['heading'],$data['content'],1];
+           if($this->Query("INSERT INTO post (author_id,type,heading,description,approval_status) VALUES (?,?,?,?,?,?)",$y)){
                  return true;
             }
     }
