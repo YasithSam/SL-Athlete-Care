@@ -97,6 +97,7 @@ class admin extends main{
     public function users(){
         $userId = $this->getSession('userId');
         $c=$this->input('id');
+        
         if($this->getSession('userRole')==1){
           $data=$this->adminModel->getUsers($c);
           $data2=$this->adminModel->getCount();

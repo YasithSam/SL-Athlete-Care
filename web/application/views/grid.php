@@ -53,7 +53,20 @@
                 <li data-category="<?php echo($item1->type)?>">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
+                        <?php 
+                            if ($item1->role_id==2){
+                                echo "<img src='$item1->doctorImg'  alt='doctor'>";
+                            }
+                            else if ($item1->role_id==3){
+                                echo "<img src='$item1->paraImg'  alt='physio'>";
+                            }
+                            else if ($item1->role_id==4){
+                                echo "<img src='$item1->athleteImg'  alt='athlete'>";
+                            }
+                            else if ($item1->role_id==5){
+                                echo "<img src='$item1->paraImg'  alt='nutritionist'>";
+                            }
+                        ?>	
                             <div class="user-name">
                                 <h4><?php echo $item1->username?></h4>
                             </div>

@@ -92,22 +92,6 @@ class forumController extends main{
         }
     }
 
-/*     public function index(){
-        if($this->getSession('userRole')!=4){
-        $data=$this->forumModel->getNotices();
-        $data2=$this->forumModel->getArticles();
-        $data3=$this->forumModel->getQuetions();
-        $top=array_slice($data, 0, 3);
-        $top2=array_slice($data2, 0, 4);
-        $top3=array_slice($data3, 0, 3);
-        $data4=[$top,$top2,$top3];
-        $this->view('blog',$data4);
-        }
-        else{
-            $this->view('404');
-        } 
-    } */
-
 
     public function questionitem($id){
         if($this->getSession('userRole')==2){

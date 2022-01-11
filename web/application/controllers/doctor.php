@@ -274,6 +274,33 @@ class doctor extends main{
             $this->view('404');
         }  
     }
+
+    public function reviewapprove(){
+        $id=$this->input('id');
+        if($this->getSession('userRole')==2){
+        if ($this->doctorModel->reviewapprove($id)){
+          $this->setFlash('approveart', 'Review approved!');
+          $this->redirect('doctor/reviews');
+        } 
+        } 
+        else{
+            $this->view('doctor/reviews');
+        }
+    }
+    public function reviewreject(){
+        $id=$this->input('postid');
+        $r=$this->input('feedback');
+        if($this->getSession('userRole')==2){
+        if ($this->doctorModel->reviewreject($id,$r)){
+          $this->setFlash('rejecteart', 'Review removed!');
+          $this->redirect('doctor/reviews');
+        } 
+        } 
+        else{
+            $this->view('doctor/reviews');
+        }
+    }
+
     
    
    
