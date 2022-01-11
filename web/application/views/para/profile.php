@@ -8,6 +8,7 @@
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' rel='stylesheet'>
         <?php linkCSS("assets/css/profile.css") ?>
         <?php linkCSS("assets/css/profilemain.css") ?>
+        <?php linkCSS("assets/css/alert.css") ?>
     </head>
 
     <body>
@@ -19,7 +20,9 @@
             <?php include "header.php"?>
 <!--Body section-->
             <main>
-                  
+            <div style="margin-left: 40px; margin-top: 70px;">
+              <?php $this->flash('updtpro', 'alert alert-success') ?>
+            </div> 
               <div class="home">
               <!--Profile box-->
                       <div class="profile box">
@@ -30,11 +33,11 @@
                             <i class="fas fa-camera cam"></i>
                           </div>-->
                         </div>
-                        <div class="updt"><i class="fas fa-user user"></i><?php echo $data->full_name?></div>
+                        <div class="updt"><i class="fas fa-user user"></i><?php echo ($data->full_name)?></div>
                         <div class="updt"><i class="fas fa-user user"></i><?php echo ucwords ($data->role) ?></div>
-                        <div class="updt"><i class="fas fa-map-marker-alt user"></i><?php echo $data->district?></div>
-                        <div class="updt"><i class="fas fa-at user"></i><?php echo $data->email?></div>
-                        <div class="updt"><i class="fas fa-clinic-medical user"></i><?php echo $data->hospital?></div>
+                        <div class="updt"><i class="fas fa-map-marker-alt user"></i><?php echo ($data->district)?></div>
+                        <div class="updt"><i class="fas fa-at user"></i><?php echo ($data->email)?></div>
+                        <div class="updt"><i class="fas fa-clinic-medical user"></i><?php echo ($data->hospital)?></div>
                         <div class="button" style="justify-content: center;"><a href="<?php echo BASEURL;?>/paramedical/editprofile">Edit Profile</a></div>
                       </div>
               <!--End of Profile box-->

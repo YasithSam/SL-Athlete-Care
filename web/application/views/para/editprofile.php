@@ -24,35 +24,35 @@
                         <div class="title">Edit Profile</div>
                     
                       <div class="form-inner">
-                      <form action="<?php echo BASEURL;?>/paramedical/updateProfile" class="login" method="POST">              
+                      <form action="<?php echo BASEURL;?>/paramedical/updateprofile" class="login" method="POST">              
                              <!--name-->
                              <div class="field">
-                                <input type="text" placeholder="<?php echo $data->full_name?>" name="fullname" required>
+                                <input type="text" placeholder="<?php echo $data->full_name?>" name="fullname" required readonly>
                              </div>
                              <!--email-->
                              <div class="field">
-                                <input type="text" placeholder="<?php echo $data->email?>" name="email" required>
+                                <input type="text" value="<?php echo $data->email?>" name="email" required>
                              </div>
                              <!--gender-->
                              <div class="field">
-                                <select name="gender" id="gender" required>
-                                   <option value="" disabled selected hidden><?php echo $data->sex?></option>
-                                   <option value="male">Male</option>
-                                   <option value="female">Female</option>
+                                <select name="gender" id="gender" required disabled>
+                                   <option disabled selected hidden><?php echo $data->sex?></option>
+                                   <option disabled value="male">Male</option>
+                                   <option disabled value="female">Female</option>
                                 </select>
                              </div>
                             <!--hospital-->
                                 <div class="field">
-                                   <input type="text" placeholder="<?php echo $data->hospital?>" name="hospital" required>
+                                   <input type="text" value="<?php echo $data->hospital?>" name="hospital" required>
                                 </div>
                              <!--id-->
                                 <div class="field">
-                                   <input type="text" placeholder="<?php echo $data->paramedical_number?>" name="paranumber" required>
+                                   <input type="text" placeholder="<?php echo $data->paramedical_number?>" name="paranumber" required readonly>
                                 </div>                     
                              <!--province-->
                              <div class="field">
                                 <select name="province" id="province" required>
-                                   <option value="" disabled selected hidden><?php echo $data->province?></option>
+                                   <option value="<?php echo $data->province?>" disabled selected hidden><?php echo $data->province?></option>
                                    <option value="western">Western</option>
                                    <option value="southern">Southern</option>
                                    <option value="eastern">Eastern</option>
@@ -66,7 +66,7 @@
                              </div>
                              <!--district-->
                              <div class="field">
-                                <input type="text" placeholder="<?php echo $data->district?>" name="district" required>
+                                <input type="text" value="<?php echo $data->district?>" name="district" required>
                              </div>
                             
                              <!--submit-->

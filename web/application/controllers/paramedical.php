@@ -132,6 +132,7 @@ class paramedical extends main{
     }
     public function profile(){
         $userid = $this->getSession('userId');
+        
         if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
           $data=$this->paramedicalModel->getProfile($userid);
           $this->view('para/profile',$data);
@@ -151,6 +152,21 @@ class paramedical extends main{
             $this->view('404');
         }
 
+    }
+    public function updateprofile(){
+        $u = $this->getSession('userId');
+        $e = $this->input('email');
+        $h = $this->input('hospital');
+        $p = $this->input('province');
+        $d = $this->input('district');
+       
+        if($this->paramedicalModel->updateprofile($u,$e,$h,$p,$d)){
+            $this->setFlash('updtpro', 'Profile updated!');
+            $this->redirect('paramedical/profile');
+         }
+        else {
+        $this->view('para/editprofile',$data);
+        }
     }
 
     public function acceptRequest()
