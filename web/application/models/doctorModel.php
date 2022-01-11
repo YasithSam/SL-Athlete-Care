@@ -383,12 +383,12 @@ class doctorModel extends database
 
     public function getReviews($userId){
         $m=[];
-        if($this->Query("SELECT p.type, p.heading, p.description, dp.full_name, r.reviewer_id /*, pa.type pt*/
+        if($this->Query("SELECT p.type, p.heading, p.description, dp.full_name, r.reviewer_id,r.id /*, pa.type pt*/
                         from reviewers r 
                         inner join post p on r.post_id=p.id
                         inner join doctor_profile dp on dp.uuid=r.reviewer_id
                         /*inner join post_attachments pa on pa.post_id=p.id*/
-                        where r.approval=? && r.reviewer_id=?",[0,$userId]
+                        where r.approval=? && r.reviewer_id=?",[1,$userId]
                         /* order by p.datetime desc  */)){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -404,6 +404,18 @@ class doctorModel extends database
             }
         }
         return $m;
+    }
+
+    public function reviewapprove($id){
+        if($this->Query("UPDATE reviewers SET approval=2 where id=?",[$id])){
+                return true;
+            }
+    }
+    public function reviewreject($id,$r){
+        echo $id;
+        if($this->Query("UPDATE reviewers SET approval=3, reason='$r' where id=?",[$id])){
+                return true;
+            }
     }
 
 
