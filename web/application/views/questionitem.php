@@ -47,7 +47,21 @@
 		  <div class="card">
    
 		   <div class="user-wrapper1">
-			   <img src="../../../web/public/assets/img/avatar.png"  alt="">
+		   <?php 
+					if ($data['active']->role_id==2){
+						echo "<img src='".$data['active']->doctorImg."'  alt='doctor'>";
+					}
+					else if ($data['active']->role_id==3){
+						echo "<img src='".$data['active']->paraImg."'  alt='physio'>";
+					}
+					else if ($data['active']->role_id==4){
+						echo "<img src='".$data['active']->athleteImg."'  alt='athlete'>";
+					}
+					else if ($data['active']->role_id==5){
+						echo "<img src='".$data['active']->paraImg."'  alt='nutritionist'>";
+					}
+				?>
+
 			   <div class="user-name">
 				   <h4><?php echo $data['active']->username; ?></h4>
 			   </div>
@@ -91,7 +105,20 @@
 
 			<div class="card">
 			   <div class="user-wrapper2">
-				   <img src="../../../web/public/assets/img/avatar.png"  alt="">
+			   <?php 
+					if ($item->role_id==2){
+						echo "<img src='$item->doctorImg'  alt='doctor'>";
+					}
+					else if ($item->role_id==3){
+						echo "<img src='$item->paraImg'  alt='physio'>";
+					}
+					else if ($item->role_id==4){
+						echo "<img src='$item->athleteImg'  alt='athlete'>";
+					}
+					else if ($item->role_id==5){
+						echo "<img src='$item->paraImg'  alt='nutritionist'>";
+					}
+				?>	
 				   <div class="user-name">
 					   <h4><?php echo $item->username; ?></h4>
 				   </div>

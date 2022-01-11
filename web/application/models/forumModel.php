@@ -104,13 +104,15 @@ class forumModel extends database
 
         }
     } 
-
     
     public function getArticles(){
-        if($this->Query("SELECT p.id,p.heading,pa.url,p.datetime,p.author_id,pt.type,au.username from post p 
+        if($this->Query("SELECT p.id,p.heading,pa.url,p.datetime,p.author_id,pt.type,au.username,au.role_id,ap.profile_image_url AS 'athleteImg',dp.profile_image_url AS 'doctorImg',pp.profile_image_url AS 'paraImg' from post p 
         left join post_attachments pa on p.id=pa.post_id 
         inner join post_type pt on pt.id=p.type 
         inner join application_user au on au.uuid=p.author_id
+        left join athlete_profile ap on ap.uuid=p.author_id
+        left join doctor_profile dp on dp.uuid=p.author_id
+        left join paramedical_profile pp on pp.uuid=p.author_id
         where p.type in (2,3,4,5,6) ORDER BY p.datetime DESC;")){
             $data = $this->fetchall();
 
@@ -120,9 +122,12 @@ class forumModel extends database
     }
 
     public function getotherArticles($id){
-        if($this->Query("SELECT p.id,p.heading,pa.url,au.username from post p 
+        if($this->Query("SELECT p.id,p.heading,pa.url,au.username,au.role_id,ap.profile_image_url AS 'athleteImg',dp.profile_image_url AS 'doctorImg',pp.profile_image_url AS 'paraImg' from post p 
         left join post_attachments pa on p.id=pa.post_id 
         inner join application_user au on au.uuid=p.author_id
+        left join athlete_profile ap on ap.uuid=p.author_id
+        left join doctor_profile dp on dp.uuid=p.author_id
+        left join paramedical_profile pp on pp.uuid=p.author_id
         where p.type in (2,3,4,5,6) and p.id<>$id  ORDER BY p.datetime DESC limit 4")){
             $data = $this->fetchall();
             return $data;
@@ -131,9 +136,12 @@ class forumModel extends database
     }
 
      public function getArticlesitem($id){
-        if($this->Query("SELECT p.id,p.heading,p.description,p.likes,p.comments,p.datetime,pa.url,au.username from post p 
+        if($this->Query("SELECT p.id,p.heading,p.description,p.likes,p.comments,p.datetime,pa.url,au.username,au.role_id,ap.profile_image_url AS 'athleteImg',dp.profile_image_url AS 'doctorImg',pp.profile_image_url AS 'paraImg' from post p 
         left join post_attachments pa on p.id=pa.post_id 
         inner join application_user au on au.uuid=p.author_id
+        left join athlete_profile ap on ap.uuid=p.author_id
+        left join doctor_profile dp on dp.uuid=p.author_id
+        left join paramedical_profile pp on pp.uuid=p.author_id
         where p.id=$id")){
             $data = $this->fetch();
             return $data;
@@ -142,10 +150,13 @@ class forumModel extends database
     } 
 
     public function getQuetions(){
-        if($this->Query("SELECT p.id,p.heading,pt.type,p.datetime,au.username from post p 
+        if($this->Query("SELECT p.id,p.heading,pt.type,p.datetime,au.username,au.role_id,ap.profile_image_url AS 'athleteImg',dp.profile_image_url AS 'doctorImg',pp.profile_image_url AS 'paraImg' from post p 
         inner join post_type pt on pt.id=p.type 
         inner join application_user au on au.uuid=p.author_id
-        where p.type in (7,8,9,10,11) ORDER BY p.datetime DESC;")){
+        left join athlete_profile ap on ap.uuid=p.author_id
+        left join doctor_profile dp on dp.uuid=p.author_id
+        left join paramedical_profile pp on pp.uuid=p.author_id
+        where p.type in (7,8,9,10,11) ORDER BY p.datetime DESC")){
             $data = $this->fetchall();
             return $data;
 
@@ -153,8 +164,11 @@ class forumModel extends database
     }
 
     public function getotherQuetions($id){
-        if($this->Query("SELECT p.id,p.heading,au.username from post p 
+        if($this->Query("SELECT p.id,p.heading,au.username,au.role_id,ap.profile_image_url AS 'athleteImg',dp.profile_image_url AS 'doctorImg',pp.profile_image_url AS 'paraImg' from post p 
         inner join application_user au on au.uuid=p.author_id
+        left join athlete_profile ap on ap.uuid=p.author_id
+        left join doctor_profile dp on dp.uuid=p.author_id
+        left join paramedical_profile pp on pp.uuid=p.author_id
         where p.type in (7,8,9,10,11) and p.id<>$id  ORDER BY p.datetime DESC")){
             $data = $this->fetchall();
             return $data;
@@ -163,8 +177,11 @@ class forumModel extends database
     }
 
      public function getQuetionsitem($id){
-        if($this->Query("SELECT p.id,p.heading,p.description,p.likes,p.comments,p.datetime,au.username from post p 
+        if($this->Query("SELECT p.id,p.heading,p.description,p.likes,p.comments,p.datetime,au.username,au.role_id,ap.profile_image_url AS 'athleteImg',dp.profile_image_url AS 'doctorImg',pp.profile_image_url AS 'paraImg' from post p 
         inner join application_user au on au.uuid=p.author_id
+        left join athlete_profile ap on ap.uuid=p.author_id
+        left join doctor_profile dp on dp.uuid=p.author_id
+        left join paramedical_profile pp on pp.uuid=p.author_id
         where p.id=$id")){
             $data = $this->fetch();
             return $data;
