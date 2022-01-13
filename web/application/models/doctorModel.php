@@ -34,7 +34,8 @@ class doctorModel extends database
     }
 
     public function getProfile($id){
-        if($this->Query("SELECT uuid,full_name,province,district,sex,email,image,hospital,doctor_number from doctor_profile where uuid=?",[$id])){
+        if($this->Query("SELECT uuid,full_name,province,district,sex,email,profile_image_url,hospital,doctor_number 
+        from doctor_profile where uuid=?",[$id])){
             $x=$this->fetch();
             return $x;
 
@@ -45,7 +46,7 @@ class doctorModel extends database
     //Doctor profile update
     public function updateprofile($u,$i,$e,$h,$p,$d){
         
-        if($this->Query("UPDATE doctor_profile set image='$i', email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){         
+        if($this->Query("UPDATE doctor_profile set profile_image_url='$i', email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){         
              return true;
         }
     }
@@ -420,9 +421,10 @@ class doctorModel extends database
 
 
     public function getuserName($id){
-        if($this->Query("SELECT au.username,au.role_id,ur.role
+        if($this->Query("SELECT au.username,au.role_id,ur.role,dp.profile_image_url
                          from application_user au
                          inner join user_role ur on ur.id=au.role_id
+                         inner join doctor_profile dp on dp.uuid=au.uuid
                          where au.uuid=? ",[$id])){
             $data=$this->fetch();
             return $data;

@@ -15,7 +15,7 @@
 
         <div class="main-content">
         <header>
-                <div class="social-icons">
+               <!--  <div class="social-icons">
                     <span class="ti-bell"></span>
                     <div class="user-wrapper">
                          <img src="../../web/public/assets/img/doctor.jpg" width="40px" height="40px" alt="">    
@@ -25,7 +25,12 @@
                         </div>   
                                
                     </div>                                  
-                </div>   
+                </div>   --> 
+
+                <div class="profile">
+                    <i class="fas fa-bell"></i>
+                    <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
+                </div>
             </header>
 
             </div>
@@ -40,7 +45,7 @@
         <div class="card">
             <a href="#">
             <div class="img-top">
-            <img class="card-img-top" src="diet (3).png" alt="icon"> 
+            <img class="card-img-top" src="../public/assets/img/diet (3).png" alt="icon"> 
             </div>
             <div class="card-body"> 
                 <h5 class="card-title">Diet Schedule - Ankle Sprain</h5>
@@ -53,7 +58,7 @@
         <div class="card">
             <a href="#">
             <div class="img-top">
-            <img class="card-img-top" src="diet (3).png" alt="icon"> 
+            <img class="card-img-top" src="../public/assets/img/diet (3).png" alt="icon"> 
             </div>
             <div class="card-body"> 
                 <h5 class="card-title">Diet Schedule - Pulled Hamstring</h5>
@@ -66,7 +71,7 @@
         <div class="card">
             <a href="#">
             <div class="img-top">
-            <img class="card-img-top" src="diet (3).png" alt="icon"> 
+            <img class="card-img-top" src="../public/assets/img/diet (3).png" alt="icon"> 
             </div>
             <div class="card-body"> 
                 <h5 class="card-title">Diet Schedule - Tennis Elbow</h5>
@@ -81,7 +86,7 @@
     <div class="card">
         <a href="#">
         <div class="img-top">
-        <img class="card-img-top" src="diet (3).png" alt="icon"> 
+        <img class="card-img-top" src="../public/assets/img/diet (3).png" alt="icon"> 
         </div>
         <div class="card-body"> 
             <h5 class="card-title">Diet Schedule - Ankle Sprain</h5>
@@ -94,7 +99,7 @@
     <div class="card">
         <a href="#">
         <div class="img-top">
-        <img class="card-img-top" src="diet (3).png" alt="icon"> 
+        <img class="card-img-top" src="../public/assets/img/diet (3).png" alt="icon"> 
         </div>
         <div class="card-body"> 
             <h5 class="card-title">Diet Schedule - Pulled Hamstring</h5>
@@ -107,7 +112,7 @@
     <div class="card">
         <a href="#">
         <div class="img-top">
-        <img class="card-img-top" src="diet (3).png" alt="icon"> 
+        <img class="card-img-top" src="../public/assets/img/diet (3).png" alt="icon"> 
         </div>
         <div class="card-body"> 
             <h5 class="card-title">Diet Schedule - Tennis Elbow</h5>

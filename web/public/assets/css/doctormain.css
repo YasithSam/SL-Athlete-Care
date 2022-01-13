@@ -220,5 +220,57 @@ header{
 
 
 
+/* notification icon and user icon */
 
+/* .profile{
+    margin-top: 0.8rem;
+  padding-right: 30px;
+  text-align: right;
+} */
 
+.social-icons i{
+    margin-top: 1rem;
+  font-size: 1.3rem;
+  color: #01579b;
+}
+
+/* Style buttons */
+
+/* .btn1 {
+  background-color: #01579b; 
+  border: #58a5f0;
+  height: 33px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 10px;
+  font-size: 12px;
+  width: fit-content;
+  cursor: pointer; 
+  border-radius: 55px;
+  color:#01579b;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.btn1 i{
+  font-size: 18px;
+  margin-top: 2.5px;
+  margin-right: 1.5px;
+  color:#ffffff;
+}
+
+.btn1:hover {
+    background-color: #58a5f0;
+    color: #000000;
+  }
+
+  .btn1:hover i {
+    color: #ffffff;
+  }
+
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+	}
+ */

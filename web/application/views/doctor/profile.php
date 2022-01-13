@@ -33,7 +33,7 @@
                       <br>
                         <div class="title" style="justify-content: center;">Personal Profile</div>
                         <div class="img">
-                          <img src="../../web/public/assets/dbimages/<?php echo $data[0]->image?>" alt="user" class="user"  style="width: 100px; height:100px">
+                          <img src="../../web/public/assets/dbimages/<?php echo $data[0]->profile_image_url?>" alt="user" class="user"  style="width: 100px; height:100px">
                         </div>
 
                 
