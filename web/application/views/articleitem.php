@@ -111,16 +111,16 @@
 			   <div class="user-wrapper2">
 			   <?php 
 					if ($item->role_id==2){
-						echo "<img src='$item->doctorImg'  alt='doctor'>";
+						echo "<img src='../../../web/public/assets/dbimages/$item->doctorImg'  alt='doctor'>";
 					}
 					else if ($item->role_id==3){
-						echo "<img src='$item->paraImg'  alt='physio'>";
+						echo "<img src='../../../web/public/assets/dbimages/$item->paraImg'  alt='physio'>";
 					}
 					else if ($item->role_id==4){
-						echo "<img src='$item->athleteImg'  alt='athlete'>";
+						echo "<img src='../../../web/public/assets/dbimages/$item->athleteImg'  alt='athlete'>";
 					}
 					else if ($item->role_id==5){
-						echo "<img src='$item->paraImg'  alt='nutritionist'>";
+						echo "<img src='../../../web/public/assets/dbimages/$item->paraImg'  alt='nutritionist'>";
 					}
 				?>	
 				   <div class="user-name">
