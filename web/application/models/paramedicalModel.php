@@ -119,9 +119,10 @@ class paramedicalModel extends database
     }
 
     public function getuserName($id){
-        if($this->Query("SELECT au.username,au.role_id,ur.role
+        if($this->Query("SELECT au.username,au.role_id,ur.role,pp.profile_image_url
                          from application_user au
                          inner join user_role ur on ur.id=au.role_id
+                         inner join paramedical_profile pp on pp.uuid=au.uuid
                          where au.uuid=? ",[$id])){
             $data=$this->fetch();
             return $data;

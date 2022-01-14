@@ -23,9 +23,13 @@
         </div>
         
         <div class="social-icons">
-            <span class="ti-bell"></span>
+            <!-- <span class="ti-bell"></span> -->
+            <div class="profile">
+              <i class="fas fa-bell"></i>
+              <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
+            </div>
             <div class="user-wrapper">
-                <img src="../../web/public/assets/img/doctor.jpg" width="40px" height="40px" alt="">
+                <!-- <img src="../../web/public/assets/img/doctor.jpg" width="40px" height="40px" alt=""> -->
                 <div>
                     <h4><?php echo($data[1]->username)?></h4>
                     <small><?php echo($data[1]->role)?></small>
@@ -45,21 +49,21 @@
                 <i class="fas fa-user-md icon"></i>
                 <div class="right-side">
                   <div class="box-topic">Total Athletes</div>
-                  <div class="number"><?php echo($data['patients'])?></div>
+                  <div class="number"><?php echo($data[0]['patients'])?></div>
                 </div>
               </div>
               <div class="box">
                 <i class="fas fa-procedures icon"></i>
                 <div class="right-side">
                   <div class="box-topic">Total Case Studies</div>
-                  <div class="number"><?php echo($data['casestudies'])?></div>
+                  <div class="number"><?php echo($data[0]['casestudies'])?></div>
                 </div>
               </div>
               <div class="box">
                 <i class="fas fa-users icon"></i>
                 <div class="right-side">
                   <div class="box-topic">Total Posts</div>
-                  <div class="number"><?php echo($data['post'])?></div>
+                  <div class="number"><?php echo($data[0]['post'])?></div>
                 </div>
               </div>
             </div>
