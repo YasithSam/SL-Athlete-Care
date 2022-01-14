@@ -103,7 +103,7 @@ class paramedicalModel extends database
     }
 ////////////////-----Articles----------///////////////////////////////
     public function getProfile($userid){
-        if($this->Query("SELECT p.full_name,p.type,p.district,p.email,p.hospital,u.role,p.sex,p.paramedical_number,p.province,p.image_url
+        if($this->Query("SELECT p.full_name,p.type,p.district,p.email,p.hospital,u.role,p.sex,p.paramedical_number,p.province,p.profile_image_url
                         from paramedical_profile p
                         inner join user_role u on p.type=u.id
                         where p.uuid=?",[$userid])){
@@ -113,7 +113,7 @@ class paramedicalModel extends database
     }
     public function updateprofile($u,$e,$h,$p,$d,$f){
     
-        if($this->Query("UPDATE paramedical_profile set email='$e',hospital='$h',province='$p',district='$d',image_url='$f' where uuid=?",[$u] )){       
+        if($this->Query("UPDATE paramedical_profile set email='$e',hospital='$h',province='$p',district='$d',profile_image_url='$f' where uuid=?",[$u] )){       
              return true;
         }
     }

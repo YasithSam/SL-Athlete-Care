@@ -29,7 +29,7 @@
                         <div class="title" style="justify-content: center;">Personal Profile</div>
                         <div class="img">
                          <!--  <i class="fas fa-user prof"></i> -->
-                          <img class="prof" src="../../web/public/assets/dbimages/<?php echo($data->image_url);?>">
+                          <img class="prof" src="../../web/public/assets/dbimages/<?php echo($data->profile_image_url);?>">
                           <!--<div class="edit">
                             <i class="fas fa-camera cam"></i>
                           </div>-->
