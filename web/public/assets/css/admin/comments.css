@@ -210,10 +210,10 @@ header{
 }
 
 .wrapper{
-  margin-left: 200px;
+  margin-left: 10px;
   overflow: hidden;
   background: #ffffff;
-  width: 900px;
+  /* width: 900px; */
   height: fit-content;
   padding-top: 0;
   padding-left: 30px;
@@ -224,7 +224,8 @@ header{
     border-collapse: collapse;
     margin: 15px 0;
     font-size: 0.9em;
-    min-width: fit-content;
+   /*  min-width: fit-content; */
+   width: auto;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -240,15 +241,22 @@ header{
   }
   
   .content-table .article-name{
-      width: 200px;
+      width: 600px;
   }
 
   .content-table .comment{
     width: 450px;
 }
+.content-table .comment1{
+  width: 1000px;
+}
+.content-table .comment2{
+  width: 800px;
+}
 
 .content-table .btnrow{
-     width: 160px;
+     width: 300px;
+     text-align: center;
 }
 
   .content-table th,
@@ -274,12 +282,11 @@ header{
     color: #01579b;
   }
 
-  .button{
+  .button, .button1{
   overflow:hidden;
   cursor: pointer;
   text-align: center;
   justify-content: center;
-  background: #ff0000;
   color: #ffffff;
   border: none;
   border-radius: 4px;
@@ -290,10 +297,18 @@ header{
   height: 38px;
   width: 100px;
   }
-  
-  .button:hover{
-      background: #01579b;
+  .button{
+    background: #ff0000;
   }
+  .button1{
+    background: #006400;
+  }
+  .button:hover{
+    background: #f84747;
+  }
+  .button1:hover{
+    background: #37c924;
+}
 
 
   /*Pagination*/
@@ -334,6 +349,29 @@ header{
 }
 /* notification icon and user icon */
 
+
+/*feedback modal*/
+.fmodal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 15px; /* Location of the box */
+  margin-left: 60px;
+  margin-top: 40px;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
 .profile{
   margin-top: 0.8rem;
 padding-right: 30px;
@@ -386,3 +424,127 @@ box-sizing: border-box;
 /* 		font-family: 'Noto Sans KR', sans-serif;
 */	}
 
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.mcontainer {
+  width: 50%;
+  margin-left: 30%;
+  margin-top: 80px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.header2{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-top: 7px;
+  height: 85px;
+  width: 100%;
+  background-color: #01579b;
+
+}
+
+.myheader{
+   padding-top: 20px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+.mcontainer .form-cont{
+  padding: 20px 70px 20px 30px;
+  background-color: #ecedee;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.row .col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.row .col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.fback{
+  background-color: #01579b;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 4px;
+  width: 100px;
+  cursor: pointer;
+  float: left;
+  margin-left: 40px;
+}
+
+
+.fback a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  display: inline-block;     
+  position: relative;    
+  z-index: 1;     
+  padding: 2em;     
+  margin: -2em; 
+}
+
+.fback:hover{
+  background-color: #80c0ff;
+}
+
+.fback a:hover{
+  color: #01579b;
+}
+.form-cont input[type=text], select, textarea {
+  width: 94%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.form-cont input[type=date] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-cont label {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.form-cont input[type=submit] {
+  background-color: #01579b;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  width: 100px;
+  cursor: pointer;
+  float: right;
+}
+
+.form-cont input[type=submit]:hover {
+  background-color:  #80c0ff;
+  color: #01579b;
+}

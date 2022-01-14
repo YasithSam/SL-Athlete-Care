@@ -73,8 +73,8 @@ body{
   text-align: center;
   color: #66b0ff;
   border-radius: 100px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
   margin-bottom: 20px;
   overflow: hidden;
   object-fit: cover;

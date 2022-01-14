@@ -28,7 +28,8 @@
                       <div class="profile box">
                         <div class="title" style="justify-content: center;">Personal Profile</div>
                         <div class="img">
-                          <i class="fas fa-user prof"></i>
+                         <!--  <i class="fas fa-user prof"></i> -->
+                          <img class="prof" src="../../web/public/assets/dbimages/<?php echo($data->image_url);?>">
                           <!--<div class="edit">
                             <i class="fas fa-camera cam"></i>
                           </div>-->

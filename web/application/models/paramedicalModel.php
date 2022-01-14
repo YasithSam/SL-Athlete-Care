@@ -4,25 +4,13 @@ include "../../web/config/config.php";
 include "../../web/system/classes/database.php";
 class paramedicalModel extends database
 {
-
-    public function getArticles($userid){
-        if($this->Query("SELECT p.id, p.type, p.heading, p.description 
-                         from post p
-                         where p.type<? && p.type!=? && p.approval_status=? && p.author_id=?",[7,1,1,$userid])){
-            $x=$this->fetchall();
-            return $x;
-        }
-    }
-
     public function getCounts($id){
         if($this->Query("SELECT count(*) AS COUNT1 FROM paramedical_case_study where paramedical_id=?",[$id])){
             $data = $this->fetch();
             return $data;
 
         }
-
     }
-
 
     public function getForumItems($id){
         if($this->Query("SELECT pr.id,pr.case_study_id,pr.doctor_id,c.athlete_id,c.title,a.full_name athlete,a.email,d.full_name doctor,pr.status FROM paramedical_case_study pr 
@@ -33,7 +21,6 @@ class paramedicalModel extends database
             $data = $this->fetchall();
             return $data;
         }
-
     }
 
     public function declineRequest($id){
@@ -42,10 +29,8 @@ class paramedicalModel extends database
                 $data=$this->fetch();
                 return $data;
             }
-
         }
     }
-
 
     public function acceptRequest($id){
         if($this->Query("UPDATE paramedical_case_study SET status=1 where case_study_id=?",[$id])){
@@ -53,7 +38,15 @@ class paramedicalModel extends database
                 return $data;
             }
     }
-
+    public function getArticles($userid){
+        if($this->Query("SELECT p.id, p.type, p.heading, p.description, pa.url 
+                         from post p
+                         inner join post_attachments pa on pa.post_id=p.id
+                         where p.type<? && p.type!=? && p.approval_status=? && p.author_id=?",[7,1,1,$userid])){
+            $x=$this->fetchall();
+            return $x;
+        }
+    }
 
     public function createArticle($data){
         $category = $data['category'];
@@ -74,9 +67,9 @@ class paramedicalModel extends database
             $type = 6;
             break;
         }
-        $y=[$data['userid'],$type,$data['heading'],$data['content']]; 
-            if($this->Query("INSERT INTO post (author_id,type,heading,description) VALUES (?,?,?,?)",$y)){
-                 return true;
+            $x=[$data['userid'],$type,$data['heading'],$data['content'],$data['filename']]; 
+            if($this->Query("INSERT INTO post (author_id,type,heading,description) VALUES (?,?,?,?);SET @last_id_in_table1 = LAST_INSERT_ID();INSERT INTO post_attachments (post_id,url) VALUES (@last_id_in_table1,?)",$x)){
+                return true;
             }
     }
     public function deleteArticle($id)
@@ -110,7 +103,7 @@ class paramedicalModel extends database
     }
 ////////////////-----Articles----------///////////////////////////////
     public function getProfile($userid){
-        if($this->Query("SELECT p.full_name,p.type,p.district,p.email,p.hospital,u.role,p.sex,p.paramedical_number,p.province
+        if($this->Query("SELECT p.full_name,p.type,p.district,p.email,p.hospital,u.role,p.sex,p.paramedical_number,p.province,p.image_url
                         from paramedical_profile p
                         inner join user_role u on p.type=u.id
                         where p.uuid=?",[$userid])){
@@ -118,9 +111,9 @@ class paramedicalModel extends database
             return $x;
         }
     }
-    public function updateprofile($u,$e,$h,$p,$d){
+    public function updateprofile($u,$e,$h,$p,$d,$f){
     
-        if($this->Query("UPDATE paramedical_profile set email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){       
+        if($this->Query("UPDATE paramedical_profile set email='$e',hospital='$h',province='$p',district='$d',image_url='$f' where uuid=?",[$u] )){       
              return true;
         }
     }

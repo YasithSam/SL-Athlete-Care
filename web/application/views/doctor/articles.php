@@ -38,13 +38,14 @@
     <?php foreach($arr as $item): ?>
         <!--Single card------------------------------------------------------------------------->
         <div class="card">
-          <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
+          <img src="../../web/public/assets/dbimages/<?php echo($item->url);?>" alt="Avatar" style="width:100%; height:200px;">
           <div class="container">
+              
                   <h4><?php echo($item->heading);?></h4> 
                   <p><?php echo($item->description);?></p> 
+            
             <div class="edit">
                 <div class="button">
-                    <!-- <a href="<?php echo BASEURL;?>/doctor/editarticle"><i class="fas fa-pen icon"></i></a> -->
                     <a href="<?php echo BASEURL;?>/doctor/deletearticle/<?php echo $item->id;?>" onclick='return confirm("Delete this article?");'><i class="fas fa-trash-alt icon"></i></a>
                 </div>
             </div>

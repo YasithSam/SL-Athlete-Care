@@ -112,3 +112,17 @@ form .btn:hover{
 .home .box .button a:hover{
   background:  #0d3073;
 }
+
+.form-inner form .cover{
+  display: flex;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+.form-inner form .cover .coverimg{
+  color: rgb(95, 95, 95);
+  font-size: 13px;
+  margin-right: 20px;
+  margin-top: 5px;
+  width: 500px;
+}

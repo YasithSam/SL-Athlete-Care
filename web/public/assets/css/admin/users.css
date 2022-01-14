@@ -200,7 +200,7 @@ header{
     display: inline-block;
     text-align: center;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 50px;
     padding-top: 0;
     margin-bottom: 20px;
     display: flex;
@@ -210,22 +210,26 @@ header{
 }
 
 .wrapper{
-  margin-left: 13%;
+  margin-left: 60px;
   overflow: hidden;
   background: #ffffff;
-  width: 960px;
+  width: 1000px;
+ /* width: auto; */
   height: fit-content;
   padding-top: 0;
-  display: flex;
-  padding-left: 170px;
-  padding-right: 170px;
+ /*  display: flex; */
+ /*  padding-left: 100px; */
+ /*  padding-right: 170px; */
 }
-
+#sidebar-toggle:checked ~ .wrapper{
+  margin-left: 200px;
+}
 .content-table {
     border-collapse: collapse;
-    margin: 15px 0;
+    /* margin: 15px 0; */
     font-size: 0.9em;
-    min-width: fit-content;
+   /*  min-width: fit-content; */
+   width: auto;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px  rgba(0, 0, 0, 0.15);
@@ -242,15 +246,16 @@ header{
   }
   
   .content-table .uuid{
-      width: 230px;
+      width: 2000px;
+      padding-left: 50px;
   }
 
   .content-table .roleid{
-    width: 180px;
+    width: 2000px;
 }
 
 .content-table .fullname{
-    width: 200px;
+    width: 2000px;
 }
 
 /* .content-table .nic{
@@ -262,7 +267,7 @@ header{
 } */
 
 .content-table .btnrow{
-     width: 160px;
+     width: 500px;
      text-align: center;
 }
 
