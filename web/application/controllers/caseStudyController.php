@@ -166,14 +166,14 @@ class caseStudyController extends main{
 public function deleteFeedback()
 {
     $id=$this->input('id');
-
+    $z=$this->input('case_id');
     if($this->caseStudyModel->deleteFeedback($id)){
-        $this->redirect('caseStudyController/feedback/');
+        $this->redirect('caseStudyController/feedback/'.$z);
         }
 
     
     else{
-        $this->redirect('caseStudyController/feedback/');
+        $this->redirect('caseStudyController/feedback/'.$z);
 
     }   
 

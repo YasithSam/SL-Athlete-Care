@@ -59,7 +59,7 @@
                         </div>
                       
                       <div class="form-cont">
-                        <form action="<?php echo BASEURL;?>/doctor/reviewreject" method="POST">
+                        <form action="http://localhost/SL-Athlete-Care/api/v1/doctorReview.php" method="POST">
                       
                         <div class="row">
                           <div class="col-25">
