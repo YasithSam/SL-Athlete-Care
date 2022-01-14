@@ -42,6 +42,7 @@ class doctorModel extends database
         }
     }
 
+
     //Doctor profile update
     public function updateprofile($u,$i,$e,$h,$p,$d){
         
@@ -49,6 +50,8 @@ class doctorModel extends database
              return true;
         }
     }
+
+
 
     public function getCaseStudyProfile($id){
         if($this->Query("SELECT a.full_name,c.case_id,c.title FROM case_study c inner join athlete_profile a on a.uuid=c.athlete_id where doctor_id=? && status=?",[$id,1])){
@@ -308,9 +311,8 @@ class doctorModel extends database
         return $u;
     }
     public function getArticles($userid){
-        if($this->Query("SELECT p.id, p.type, p.heading, p.description, pa.url 
+        if($this->Query("SELECT p.id, p.type, p.heading, p.description 
                          from post p
-                         inner join post_attachments pa on pa.post_id=p.id
                          where p.type<? && p.type!=? && p.approval_status=? && p.author_id=?",[7,1,1,$userid])){
             $x=$this->fetchall();
             return $x;
@@ -336,20 +338,11 @@ class doctorModel extends database
             $type = 6;
             break;
         }
-        $x=[$data['userid'],$type,$data['heading'],$data['content'],$data['filename']]; 
-            if($this->Query("INSERT INTO post (author_id,type,heading,description) VALUES (?,?,?,?);SET @last_id_in_table1 = LAST_INSERT_ID();INSERT INTO post_attachments (post_id,url) VALUES (@last_id_in_table1,?)",$x)){
-                return true;
+        $y=[$data['userid'],$type,$data['heading'],$data['content']]; 
+            if($this->Query("INSERT INTO post (author_id,type,heading,description) VALUES (?,?,?,?)",$y)){
+                 return true;
             }
-    
     }
-    //Doctor profile update
-    public function updateprofile($u,$i,$e,$h,$p,$d){
-        
-        if($this->Query("UPDATE doctor_profile set image='$i', email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){         
-             return true;
-        }
-    }
-
     public function deleteArticle($id)
     {
         
