@@ -18,7 +18,26 @@
 
         <div class="main-content">
 
-           <?php include "header.php";?>
+        <header>
+  
+
+    <div class="social-icons">
+        <!-- <span class="ti-bell"></span> -->
+        <i class="fas fa-bell"></i>
+        <div class="user-wrapper">
+             <img src="../../web/public/assets/dbimages/<?php echo $data[2]->profile_image_url?>" width="40px" height="40px" alt="">    
+             <div>
+                 <h4><?php echo($data[2]->username)?></h4>
+                 <small><?php echo($data[2]->role)?></small>
+            </div>   
+                   
+        </div>                                  
+    </div>   
+
+              
+</header>
+
+           <!-- ?php include "header.php";? -->
 
             <main>
             <section class="home-section">
