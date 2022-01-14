@@ -200,9 +200,9 @@ header{
     display: inline-block;
     text-align: center;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 50px;
     padding-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     display: flex;
     color: #01579b;
     font-weight: 800;

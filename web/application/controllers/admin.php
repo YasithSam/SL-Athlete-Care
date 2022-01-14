@@ -66,13 +66,16 @@ class admin extends main{
     public function addnewnotice(){
         $userid = $this->getSession('userId');
         $type = 1;
+        $filename = $_FILES["image"]["name"];
+        $tempname = $_FILES["image"]["tmp_name"]; 
         $userData = [
             'heading'        => $this->input('heading'),
             'content'           => $this->input('content'),
             'userid' => $userid,
             'type' => $type,
+            'filename' => $filename,
         ];
-        
+        move_uploaded_file($tempname,"../../web/public/assets/dbimages/$filename");
         if($this->adminModel->createNotice($userData)){
             $this->setFlash('addnot', 'Notice added successfully!');
             $this->redirect('admin/notices');
@@ -174,6 +177,31 @@ class admin extends main{
         }  
         else{
             $this->view('404');
+        }
+    }
+    public function commentapprove(){
+        $id=$this->input('id');
+        if($this->getSession('userRole')==1){
+        if ($this->adminModel->commentapprove($id)){
+          $this->setFlash('approveart', 'Comment approved!');
+          $this->redirect('admin/comments');
+        } 
+        } 
+        else{
+            $this->view('admin/comments');
+        }
+    }
+    public function commentreject(){
+        $id=$this->input('postid');
+        $r=$this->input('feedback');
+        if($this->getSession('userRole')==1){
+        if ($this->adminModel->commentreject($id,$r)){
+          $this->setFlash('rejecteart', 'comment removed!');
+          $this->redirect('admin/comments');
+        } 
+        } 
+        else{
+            $this->view('admin/comments');
         }
     }
     public function profile(){

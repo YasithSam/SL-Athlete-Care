@@ -24,7 +24,7 @@
           <div class="title">Create Article</div>
       
         <div class="form-inner">
-        <form action="<?php echo BASEURL;?>/paramedical/addnewarticle" class="login" method="post">             
+        <form action="<?php echo BASEURL;?>/paramedical/addnewarticle" class="login" method="post" enctype="multipart/form-data">             
                <!--heading-->
                <div class="field">
                   <input type="text" placeholder="Article heading" name="heading" required>
@@ -56,7 +56,7 @@
                   </div>-->
                   <div class="cover">
                   <p class="coverimg" ><label for="file" style="cursor: pointer; ">Upload a cover image:</label></p>
-                  <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"></p>
+                  <p><input type="file"  accept="image/*" name="image" id="image"  onchange="loadFile(event)"></p>
                   </div>
                   <p style="text-align: center;"><img id="output" width="500"></p>
 <script>

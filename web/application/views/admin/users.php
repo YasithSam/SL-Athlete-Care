@@ -41,7 +41,7 @@
 
         <?php foreach($data[0] as $item): ?>
             <tr class="">
-              <td ><?php echo ucwords($item->uuid); ?></td>
+              <td style="padding-left: 50px;" ><?php echo ucwords($item->uuid); ?></td>
               <td><?php echo ucwords($item->role); ?></td>
               <td><?php echo ucwords($item->username); ?></td>  
               <?php if(!($item->is_disabled)){?>

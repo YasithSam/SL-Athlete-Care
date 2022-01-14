@@ -178,12 +178,12 @@ class adminModel extends database
     public function getComments(){
         
         $m=[];
-        if($this->Query("SELECT c.comment/* ,c.datetime,p.heading,a.username */
+        if($this->Query("SELECT c.id,c.comment,p.heading,a.username,c.datetime 
                         from comments c
-                        /* inner join post p on c.post_id=p.id 
-                        inner join application_user a on c.user_id=a.uuid */
-                        where c.approve=0 
-                        /* order by c.datetime desc */ ")){
+                        inner join post p on c.post_id=p.id 
+                        inner join application_user a on c.user_id=a.uuid
+                        where c.approve=1
+                        order by c.datetime desc")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;
@@ -199,6 +199,17 @@ class adminModel extends database
         }
         return $m;
 
+    }
+    public function commentapprove($id){
+        if($this->Query("UPDATE comments SET approve=2 where id=?",[$id])){
+                return true;
+            }
+    }
+    public function commentreject($id,$r){
+        echo $id;
+        if($this->Query("UPDATE comments SET approve=3, reason='$r' where id=?",[$id])){
+                return true;
+            }
     }
     ///////////////////
     public function createAccountPara($data){
@@ -326,9 +337,10 @@ class adminModel extends database
     }
 
     public function getNotices(){
-        if($this->Query("SELECT p.id, p.type, p.heading, p.description 
+        if($this->Query("SELECT p.id, p.type, p.heading, p.description, pa.url
                          from post p
                          inner join post_type pt on p.type=pt.id
+                         inner join post_attachments pa on pa.post_id=p.id
                          where pt.id=? ",[1])){
             $x=$this->fetchall();
             return $x;
@@ -337,8 +349,8 @@ class adminModel extends database
 
     public function createNotice($data){
         
-        $y=[$data['userid'],$data['type'],$data['heading'],$data['content'],1];
-           if($this->Query("INSERT INTO post (author_id,type,heading,description,approval_status) VALUES (?,?,?,?,?,?)",$y)){
+        $y=[$data['userid'],$data['type'],$data['heading'],$data['content'],1,$data['filename']];
+           if($this->Query("INSERT INTO post (author_id,type,heading,description,approval_status) VALUES (?,?,?,?,?);SET @last_id_in_table1 = LAST_INSERT_ID();INSERT INTO post_attachments (post_id,url) VALUES (@last_id_in_table1,?)",$y)){
                  return true;
             }
     }

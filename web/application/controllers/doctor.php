@@ -67,32 +67,6 @@ class doctor extends main{
         }
     }
 
-    //Update doctor profile
-    public function updateprofile(){
-        $u = $this->getSession('userId');
-       
-        $i = $_FILES['image']['name'];
-        $image_tmp = $_FILES['image']['tmp_name'];
-        
-        $e = $this->input('email');
-        $h = $this->input('hospital');
-        $p = $this->input('province');
-        $d = $this->input('district');
-       
-        move_uploaded_file($image_tmp,"../../web/public/assets/dbimages/$i");
-
-
-        if($this->doctorModel->updateprofile($u,$i,$e,$h,$p,$d)){
-            $this->setFlash('updtpro', 'Profile updated!');
-            $this->redirect('doctor/profile');
-         }
-        else {
-        $this->view('doctor/editprofile',$data);
-        }
-    }
-
-
-
     public function athlete($uuid){
         $id=$uuid;
         if($this->getSession('userRole')==2){
@@ -200,15 +174,22 @@ class doctor extends main{
 
     }
     public function addnewarticle(){
+        /* $msg=""; */
         $userid = $this->getSession('userId');
+        $filename = $_FILES["image"]["name"];
+        $tempname = $_FILES["image"]["tmp_name"];    
+       /*  $folder = "SL-Athlete-Care/web/public/assets/dbimages/".$filename; */
         $userData = [
             'heading'        => $this->input('heading'),
             'content'           => $this->input('content'),
             'category'           => $this->input('category'),
             'userid' => $userid,
+            'filename' => $filename,
         ];
-        
+        move_uploaded_file($tempname,"../../web/public/assets/dbimages/$filename");
+
         if($this->doctorModel->createArticle($userData)){
+           
             $this->setFlash('addart', 'The article will be processed in a few hours!');
             $this->redirect('doctor/articles');
          }
@@ -216,6 +197,30 @@ class doctor extends main{
         $this->view('doctor/addArticle',$userData);
         }
     }
+    public function updateprofile(){
+        $u = $this->getSession('userId');
+       
+        $i = $_FILES['image']['name'];
+        $image_tmp = $_FILES['image']['tmp_name'];
+        
+        $e = $this->input('email');
+        $h = $this->input('hospital');
+        $p = $this->input('province');
+        $d = $this->input('district');
+       
+        move_uploaded_file($image_tmp,"../../web/public/assets/dbimages/$i");
+
+
+        if($this->doctorModel->updateprofile($u,$i,$e,$h,$p,$d)){
+            $this->setFlash('updtpro', 'Profile updated!');
+            $this->redirect('doctor/profile');
+         }
+        else {
+        $this->view('doctor/editprofile',$data);
+        }
+    }
+
+
     public function deletearticle($id)
     {
        

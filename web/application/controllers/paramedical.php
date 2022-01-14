@@ -56,16 +56,19 @@ class paramedical extends main{
     }
     public function addnewarticle(){
         $userid = $this->getSession('userId');
+        $filename = $_FILES["image"]["name"];
+        $tempname = $_FILES["image"]["tmp_name"]; 
         $userData = [
             'heading'        => $this->input('heading'),
             'content'           => $this->input('content'),
             'category'           => $this->input('category'),
             'userid' => $userid,
+            'filename' => $filename,
         ];
-        
+        move_uploaded_file($tempname,"../../web/public/assets/dbimages/$filename");
         if($this->paramedicalModel->createArticle($userData)){
             $this->setFlash('addart', 'The article will be processed in a few hours!');
-            $this->redirect('para/articles');
+            $this->redirect('paramedical/articles');
          }
         else {
         $this->view('para/addArticle',$userData);
@@ -76,7 +79,7 @@ class paramedical extends main{
        
         if($this->paramedicalModel->deleteArticle($id)){
             $this->setFlash('dltart', 'Article deleted successfully!');
-            $this->redirect('para/articles');
+            $this->redirect('paramedical/articles');
             // add user has succesfully deleted message ( same as used in registering)
           }  
           else{
@@ -159,8 +162,10 @@ class paramedical extends main{
         $h = $this->input('hospital');
         $p = $this->input('province');
         $d = $this->input('district');
-       
-        if($this->paramedicalModel->updateprofile($u,$e,$h,$p,$d)){
+        $f = $_FILES["image"]["name"];
+        $tempname = $_FILES["image"]["tmp_name"]; 
+        move_uploaded_file($tempname,"../../web/public/assets/dbimages/$f");
+        if($this->paramedicalModel->updateprofile($u,$e,$h,$p,$d,$f)){
             $this->setFlash('updtpro', 'Profile updated!');
             $this->redirect('paramedical/profile');
          }
