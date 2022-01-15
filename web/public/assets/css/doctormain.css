@@ -438,10 +438,12 @@ header .social-icons .profile .navbar_right .icon_wrap:hover,
 }
 
 .popup .shadow {
+  position: absolute;
     width: 100%;
     height: 100%;
     background: #000;
     opacity: 0.5;
+    z-index: 1;
 }
 
 .popup .inner_popup {
@@ -451,6 +453,7 @@ header .social-icons .profile .navbar_right .icon_wrap:hover,
     transform: translate(-50%,-50%);
     width: 100%;
     height: auto;
+    z-index: 1;
 }
 
 .popup .notification_dd{
@@ -459,6 +462,7 @@ header .social-icons .profile .navbar_right .icon_wrap:hover,
   margin: 0 auto;
   height: 357px;
   overflow: auto;
+  z-index: 1;
 }
 
 .popup .notification_dd:before{

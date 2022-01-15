@@ -8,6 +8,7 @@
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' rel='stylesheet'>
         <?php linkCSS("assets/css/doctormain.css") ?>
         <?php linkCSS("assets/css/doctordashboard.css") ?>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         
 
     </head>
@@ -77,6 +78,38 @@
            <!-- ?php include "header.php";? -->
 
             <main>
+
+            <div class="popup">
+      <div class="shadow"></div>
+        <div class="inner_popup">
+            <div class="notification_dd">
+                <ul class="notification_ul">
+                    <li class="title">
+                        <p>All Notifications</p>
+                        <p class="close"><i class="fas fa-times" aria-hidden="true"></i></p>
+                    </li> 
+                    <li class="starbucks success">
+                        <div class="notify_icon">
+                            <span class="icon"></span>  
+                        </div>
+                        <div class="notify_data">
+                            <div class="title">
+                                Lorem, ipsum dolor.  
+                            </div>
+                            <div class="sub_title">
+                              Lorem ipsum dolor sit amet consectetur.
+                          </div>
+                        </div>
+                        <div class="notify_status">
+                            <p>Success</p>  
+                        </div>
+                    </li>  
+              </ul>
+          </div>
+      </div>
+    </div>
+
+
             <section class="home-section">
                 <div class="home-content">
                   <?php include "top.php";?> 
@@ -103,5 +136,6 @@ sidebarBtn.onclick = function() {
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
 }
  </script>
+      <?php linkJS("assets/js/notifications.js") ?>
     </body>
 </html>
