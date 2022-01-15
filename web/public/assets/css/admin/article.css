@@ -228,7 +228,7 @@ header{
     min-width: fit-content;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
   }
   
   .content-table thead tr {
@@ -266,14 +266,16 @@ header{
 
 .longtext{
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 28px;
   width: 180px;
   position: relative;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  vertical-align: top;
-  
+  /* vertical-align: top;
+  padding-top: 10px; */
+  /* padding: 4px 15px; */
+  /* text-align: center; */
 }
 /*
  * higher z-index brings element to front

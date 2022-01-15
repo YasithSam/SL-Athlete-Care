@@ -67,6 +67,8 @@ class admin extends main{
         $userid = $this->getSession('userId');
         $type = 1;
         $filename = $_FILES["image"]["name"];
+        if(empty($filename)){$filename="notice.jpg";}
+
         $tempname = $_FILES["image"]["tmp_name"]; 
         $userData = [
             'heading'        => $this->input('heading'),
@@ -170,15 +172,15 @@ class admin extends main{
         $userId = $this->getSession('userId');
         $c=$this->input('id');
         if($this->getSession('userRole')==1){
-            $data=$this->adminModel->getComments($c);
-            $data2=$this->adminModel->getCount3();
-            $data3 = $this->adminModel->getuserName($userId);
-          $this->view('admin/comments',[$data,$data2,$c,$data3]);
+           $data=$this->adminModel->getComments();
+           $data2=$this->adminModel->getCount3();
+          $this->view('admin/comments',[$data,$data2]);
         }  
         else{
             $this->view('404');
         }
     }
+    
     public function commentapprove(){
         $id=$this->input('id');
         if($this->getSession('userRole')==1){
