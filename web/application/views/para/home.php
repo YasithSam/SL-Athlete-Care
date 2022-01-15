@@ -18,20 +18,61 @@
 
         <div class="main-content">
 
-            <header>
-                <div class="social-icons">
+        <header>
+            <div class="social-icons">
                     <!-- <span class="ti-bell"></span> -->
-                    <i class="fas fa-bell"></i>
+                    <div class="profile">
+                      <!-- <i class="fas fa-bell"></i> -->
+
+                      <div class="navbar_right">
+                        <div class="notifications">
+                          <div class="icon_wrap">
+                            <i class="far fa-bell"></i>
+                            <span>4</span>
+                          </div>
+                          
+                          <div class="notification_dd">
+                              <ul class="notification_ul">
+                                  <li class="starbucks success">
+                                      <div class="notify_icon">
+                                          <span class="icon"></span>  
+                                      </div>
+                                      <div class="notify_data">
+                                          <div class="title">
+                                              Lorem, ipsum dolor.  
+                                          </div>
+                                          <div class="sub_title">
+                                            Lorem ipsum dolor sit amet consectetur.
+                                          </div>
+                                      </div>
+                                      <div class="notify_status">
+                                          <p>Success</p>  
+                                      </div>
+                                  </li>  
+
+                                  <li class="show_all">
+                                      <p class="link">Show All Activities</p>
+                                  </li> 
+                              </ul>
+                          </div>
+                          
+                        </div>
+                      </div>
+
+                    </div>
+                      <img src="../../web/public/assets/dbimages/<?php echo $data[2]->profile_image_url?>" width="40px" height="40px" alt="">    
+                    
                     <div class="user-wrapper">
-                        <img src="../../web/public/assets/dbimages/<?php echo $data[2]->profile_image_url?>" width="40px" height="40px" alt="">    
+                        <!-- <img src="../../web/public/assets/img/doctor.jpg" width="40px" height="40px" alt=""> -->
                         <div>
-                            <h4><?php echo($data[2]->username)?></h4>
-                            <small><?php echo($data[2]->role)?></small>
-                        </div>   
-                              
-                    </div>                                  
-                </div>   
-            </header>
+                          <h4><?php echo($data[2]->username)?></h4>
+                          <small><?php echo($data[2]->role)?></small>
+                        </div>
+                    </div>                
+                 </div>
+
+                      
+        </header>
 
            <!-- ?php include "header.php";? -->
 

@@ -9,6 +9,8 @@
         <?php linkCSS("assets/css/admin/adminmain.css") ?>
         <?php linkCSS("assets/css/admin/admin.css") ?>
         <?php linkCSS("assets/css/alert.css") ?>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        
     </head>
 
     <body>
@@ -18,28 +20,96 @@
 <div class="main-content">
    
         <header>
-        <div class="register-wrapper">
-            <a href="<?php echo BASEURL;?>/admin/register"><button>Register User <span class="ti-plus"></span></button></a>
-        </div>
-        
-        <div class="social-icons">
-            <!-- <span class="ti-bell"></span> -->
-            <div class="profile">
-              <i class="fas fa-bell"></i>
-              <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
-            </div>
-            <div class="user-wrapper">
-                <!-- <img src="../../web/public/assets/img/doctor.jpg" width="40px" height="40px" alt=""> -->
-                <div>
-                    <h4><?php echo($data[1]->username)?></h4>
-                    <small><?php echo($data[1]->role)?></small>
+                <div class="register-wrapper">
+                    <a href="<?php echo BASEURL;?>/admin/register"><button>Register User <span class="ti-plus"></span></button></a>
                 </div>
-            </div>                
-        </div>
-</header>
+                
+                <div class="social-icons">
+                    <!-- <span class="ti-bell"></span> -->
+                    <div class="profile">
+                      <!-- <i class="fas fa-bell"></i> -->
+
+                      <div class="navbar_right">
+                        <div class="notifications">
+                          <div class="icon_wrap">
+                            <i class="far fa-bell"></i>
+                            <span>4</span>
+                          </div>
+                          
+                          <div class="notification_dd">
+                              <ul class="notification_ul">
+                                  <li class="starbucks success">
+                                      <div class="notify_icon">
+                                          <span class="icon"></span>  
+                                      </div>
+                                      <div class="notify_data">
+                                          <div class="title">
+                                              Lorem, ipsum dolor.  
+                                          </div>
+                                          <div class="sub_title">
+                                            Lorem ipsum dolor sit amet consectetur.
+                                          </div>
+                                      </div>
+                                      <div class="notify_status">
+                                          <p>Success</p>  
+                                      </div>
+                                  </li>  
+
+                                  <li class="show_all">
+                                      <p class="link">Show All Activities</p>
+                                  </li> 
+                              </ul>
+                          </div>
+                          
+                        </div>
+                      </div>
+
+                    </div>
+                      <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
+                    
+                    <div class="user-wrapper">
+                        <!-- <img src="../../web/public/assets/img/doctor.jpg" width="40px" height="40px" alt=""> -->
+                        <div>
+                            <h4><?php echo($data[1]->username)?></h4>
+                            <small><?php echo($data[1]->role)?></small>
+                        </div>
+                    </div>                
+                 </div>
+        </header>
    
     <!--Body section-->
     <main>
+
+    <div class="popup">
+    <div class="shadow"></div>
+    <div class="inner_popup">
+        <div class="notification_dd">
+            <ul class="notification_ul">
+                <li class="title">
+                    <p>All Notifications</p>
+                    <p class="close"><i class="fas fa-times" aria-hidden="true"></i></p>
+                </li> 
+                <li class="starbucks success">
+                    <div class="notify_icon">
+                        <span class="icon"></span>  
+                    </div>
+                    <div class="notify_data">
+                        <div class="title">
+                            Lorem, ipsum dolor.  
+                        </div>
+                        <div class="sub_title">
+                          Lorem ipsum dolor sit amet consectetur.
+                      </div>
+                    </div>
+                    <div class="notify_status">
+                        <p>Success</p>  
+                    </div>
+                </li>  
+            </ul>
+        </div>
+    </div>
+  </div>
+
           <div class="home-content">
           <?php $this->flash('docreg', 'alert alert-success') ?>
           <?php $this->flash('parareg', 'alert alert-success') ?>
@@ -109,5 +179,6 @@
                 });
               }
               </script>
+               <?php linkJS("assets/js/notifications.js") ?>
     </body>
 </html>

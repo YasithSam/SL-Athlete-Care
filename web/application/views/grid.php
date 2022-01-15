@@ -22,7 +22,6 @@
         
             
                 <div class="profile">
-                    <i class="fas fa-bell"></i>
                     <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
                 </div>
         

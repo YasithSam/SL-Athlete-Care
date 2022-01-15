@@ -8,7 +8,7 @@
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' rel='stylesheet'>
         <?php linkCSS("assets/css/admin/adminmain.css") ?>
         <?php linkCSS("assets/css/admin/admin.css") ?>
-        <?php linkCSS("assets/css/articlemain.css") ?>
+        <?php linkCSS("assets/css/notices.css") ?>
         <?php linkCSS("assets/css/myarticles.css") ?>
         <?php linkCSS("assets/css/alert.css") ?>
 
