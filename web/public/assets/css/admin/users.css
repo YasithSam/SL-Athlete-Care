@@ -210,7 +210,7 @@ header{
 }
 
 .wrapper{
-  margin-left: 60px;
+  margin: auto;
   overflow: hidden;
   background: #ffffff;
   width: 1000px;

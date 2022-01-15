@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 :root{
     --main-color: #0562cc;
@@ -51,6 +51,12 @@
     margin-left: 0.3rem;
     margin-top: 1.1rem;
 }
+
+#sidebar-toggle ~ .sidebar .sidebar-header .ti-menu-alt{
+    float: left;
+    margin-left: 0.6rem;
+}
+
 
 .sidebar-menu{
     padding: 1rem;
@@ -114,7 +120,6 @@
     width: 60px;
 }
 
-
 #sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
 #sidebar-toggle:checked ~ .sidebar li span:last-child,
 #sidebar-toggle:checked ~ .sidebar .dropdown-btn .arti,
@@ -122,22 +127,11 @@
     display: none;
 }
 
-#sidebar-toggle:checked ~ .sidebar .sidebar-header .ti-menu-alt{
-    float: left;
-    margin-right: 0.8rem;
-}
-
-
-#sidebar-toggle:checked ~ .sidebar .sidebar-menu .dropdown-container{
-    position:fixed;
-}
-
-/*#sidebar-toggle:checked ~ .sidebar .sidebar-menu,
 #sidebar-toggle:checked ~ .sidebar .sidebar-header,
 #sidebar-toggle:checked ~ .sidebar li{
     display: flex;
     justify-content: center;
-}*/
+}
 #sidebar-toggle:checked ~ .main-content{
     margin-left: 60px;
 }
@@ -162,31 +156,11 @@ header{
     height: 60px;
     padding: 0rem 1rem;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: right;
     border-bottom: 1px solid #ccc;
     transition: left 500ms;
 }
-.register-wrapper{
-    display: flex;
-    align-items: center;
-}
-.register-wrapper button {
-    background: var(--main-color);
-    border-radius: 10px;
-    color: #fff;
-    font-size: .8rem;
-    padding: .5rem 1rem;
-    border: 1px solid var(--main-color);
 
-}
-.register-wrapper button:hover{
-    background-color: #000051;
-}
-.main-content .main{
-    width: auto;
-    margin-right: 15px;
-}
 .social-icons{
     display: flex;
 }
@@ -217,20 +191,14 @@ header{
         width: 60px;
         z-index: 150;
     }
-
-    
     .sidebar-header h3 span,
     .sidebar li span:last-child{
         display: none;
     }
-    .sidebar .sidebar-header
-    /*.sidebar li*/{
+    .sidebar .sidebar-header,
+    .sidebar li{
         display: flex;
-        /*justify-content: center;*/
-        padding-right: 27px;
-    }
-    #sidebar-toggle:checked ~ .sidebar .sidebar-header{
-        padding-right: 0;
+        justify-content: center;
     }
     
     .main-content{
@@ -277,17 +245,12 @@ header{
         left: 60px;
     }
 }
-.alert {
-    width: 80%;
-    margin: 20px auto;
-  }
-
 
 /* notification icon and user icon */
 
 .profile{
-    margin-top: 0.5rem;
-  padding-right: 0.2rem;
+    margin-top: 0.8rem;
+  padding-right: 30px;
   text-align: right;
 }
 
@@ -304,8 +267,8 @@ header{
   height: 33px;
   padding-left: 8px;
   padding-right: 8px;
-/*   margin-left: 10px;
- */  margin-top: 0.8rem;
+  margin-left: 10px;
+  margin-bottom: 1.3rem;
   font-size: 12px;
   width: fit-content;
   cursor: pointer; 
@@ -337,223 +300,6 @@ header{
       box-sizing: border-box;
 /* 		font-family: 'Noto Sans KR', sans-serif;
 */	}
-
-
-/* /////////////////////////////////// */
-
-
-
-
-header .social-icons .profile .navbar_right .icon_wrap .fa-bell{
-    margin-bottom: 1rem;
-    cursor: pointer;
-}
-
-header .social-icons .profile .navbar_right .notifications{
-  margin-right: 25px;
-}
-
-header .social-icons .profile .navbar_right .notifications .icon_wrap i{
-  font-size: 23px;
-  margin-top: 0.7rem;
-}
-
-.icon_wrap span {
-    position: absolute;
-    top: -23px;
-    right: -12px;
-    padding: 1px 7px;
-    border-radius: 50%;
-    background: red;
-    color: white;
-    cursor: pointer;
-}
-
-
- 
-
-header .social-icons .profile .navbar_right .notifications{
-  position: relative;
-}
-
-.notification_dd{
-  position: absolute;
-  top: 51px;
-  right: -15px;
-  user-select: none;
-  background: #fff;
-  border: 1px solid #c7d8e2;
-  width: 350px;
-  height: auto;
-  display: none;
-  border-radius: 3px;
-  box-shadow: 10px 10px 35px rgba(0,0,0,0.125),
-              -10px -10px 35px rgba(0,0,0,0.125);
-}
-
-
-.notification_dd:before{
-    content: "";
-    position: absolute;
-    top: -20px;
-    right: 15px;
-    border: 10px solid;
-    border-color: transparent transparent #fff transparent;
-}
-
-.notification_dd li {
-    border-bottom: 1px solid #f1f2f4;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-}
-
-.notification_dd li .notify_icon{
-  display: flex;
-}
-
-.notification_dd li .notify_icon .icon{
-  display: inline-block;
-  background: url('https://i.imgur.com/MVJNkqW.png') no-repeat 0 0;
-	width: 40px;
-	height: 42px;
-}
-
-.notification_dd li.baskin_robbins .notify_icon .icon{
-  background-position: 0 -43px;
-}
-
-.notification_dd li.mcd .notify_icon .icon{
-  background-position: 0 -86px;
-}
-
-.notification_dd li.pizzahut .notify_icon .icon{
-  background-position: 0 -129px;
-}
-
-.notification_dd li.kfc .notify_icon .icon{
-  background-position: 0 -178px;
-}
-
-.notification_dd li .notify_data{
-  margin: 0 15px;
-  width: 185px;
-}
-
-.notification_dd li .notify_data .title{
-  color: #000;
-  font-weight: 600;
-  text-align: left;
-}
-
-.notification_dd li .notify_data .sub_title{
-  font-size: 14px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-top: 5px;
-}
-
-.notification_dd li .notify_status p{
-  font-size: 12px;
-}
-
-.notification_dd li.success .notify_status p{
-  color: #47da89;
-}
-
-.notification_dd li.failed .notify_status p{
-  color: #fb0001;
-}
-
-.notification_dd li.show_all{
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.notification_dd li.show_all p{
-  font-weight: 700;
-  color: #3b80f9;
-  cursor: pointer;
-}
-
-.notification_dd li.show_all p:hover{
-  text-decoration: underline;
-}
-
-
-header .social-icons .profile .navbar_right .icon_wrap:hover,
-.navbar .navbar_right .notifications.active .icon_wrap{
-  color: #3b80f9;
-}
- 
-
- header .social-icons .profile .notifications.active .notification_dd{
-  display: block;
-}
-
-.popup {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: all 0.2s ease;
-    display: none;
-}
-
-.popup .shadow {
-    width: 100%;
-    height: 100%;
-    background: #000;
-    opacity: 0.5;
-}
-
-.popup .inner_popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 100%;
-    height: auto;
-}
-
-.popup .notification_dd{
-  display: block;
-  position: static;
-  margin: 0 auto;
-  height: 357px;
-  overflow: auto;
-}
-
-.popup .notification_dd:before{
-   display: none;
-}
-
-.popup .notification_dd li.title{
-  font-weight: 700;
-  color: #3b80f9;
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
-
-.popup .notification_dd li.title .close{
-  position: absolute;
-  top: 2px;
-  right: 10px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.popup .notification_dd li.title .close:hover{
-  opacity: 0.5;
-}
-
-
-
-
 
 
 
