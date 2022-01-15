@@ -57,6 +57,7 @@ class paramedical extends main{
     public function addnewarticle(){
         $userid = $this->getSession('userId');
         $filename = $_FILES["image"]["name"];
+        if(empty($filename)){$filename="article.jpg";}
         $tempname = $_FILES["image"]["tmp_name"]; 
         $userData = [
             'heading'        => $this->input('heading'),

@@ -42,7 +42,7 @@ class paramedicalModel extends database
         if($this->Query("SELECT p.id, p.type, p.heading, p.description, pa.url 
                          from post p
                          inner join post_attachments pa on pa.post_id=p.id
-                         where p.type<? && p.type!=? && p.approval_status=? && p.author_id=?",[7,1,1,$userid])){
+                         where p.type<? && p.type!=? && p.approval_status=? && p.author_id=?",[7,1,2,$userid])){
             $x=$this->fetchall();
             return $x;
         }
@@ -90,14 +90,24 @@ class paramedicalModel extends database
                 }
             }     
         }  
-        if($this->Query("DELETE from post where id=?",[$id]))
+        if($this->Query("DELETE from comments where post_id=?",[$id]))
+                { 
+                    if($this->Query("DELETE from post where id=?",[$id]))
+                    { 
+                        
+                        if($this->rowCount()>0){
+                            return true; 
+                        }  
+                    }  
+                }
+       /*  if($this->Query("DELETE from post where id=?",[$id]))
         { 
             
             if($this->rowCount()>0){
                 return true; 
             }  
         }  
-        
+         */
         return false;
 
     }

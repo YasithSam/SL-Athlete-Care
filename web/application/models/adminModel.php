@@ -79,7 +79,7 @@ class adminModel extends database
 
     }
     public function getCount3(){
-        if($this->Query("SELECT count(*) as Count from comments where approve!=1")){
+        if($this->Query("SELECT count(*) as Count from comments where approval!=1")){
             $row=$this->fetch();
             return $row->Count;
 
@@ -127,7 +127,7 @@ class adminModel extends database
                         left join reviewers r on r.post_id=p.id 
                         left join doctor_profile d on d.uuid=r.reviewer_id 
                         inner join post_type pt on p.type=pt.id
-                        where p.approval_status=-1 && p.type!=1
+                        where p.approval_status=1 && p.type!=1 
                         order by p.datetime desc ")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -182,7 +182,7 @@ class adminModel extends database
                         from comments c
                         inner join post p on c.post_id=p.id 
                         inner join application_user a on c.user_id=a.uuid
-                        where c.approve=1
+                        where c.approval=1
                         order by c.datetime desc")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -201,13 +201,13 @@ class adminModel extends database
 
     }
     public function commentapprove($id){
-        if($this->Query("UPDATE comments SET approve=2 where id=?",[$id])){
+        if($this->Query("UPDATE comments SET approval=2 where id=?",[$id])){
                 return true;
             }
     }
     public function commentreject($id,$r){
         echo $id;
-        if($this->Query("UPDATE comments SET approve=3, reason='$r' where id=?",[$id])){
+        if($this->Query("UPDATE comments SET approval=3, reason='$r' where id=?",[$id])){
                 return true;
             }
     }

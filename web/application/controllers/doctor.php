@@ -174,11 +174,10 @@ class doctor extends main{
 
     }
     public function addnewarticle(){
-        /* $msg=""; */
         $userid = $this->getSession('userId');
         $filename = $_FILES["image"]["name"];
         $tempname = $_FILES["image"]["tmp_name"];    
-       /*  $folder = "SL-Athlete-Care/web/public/assets/dbimages/".$filename; */
+        if(empty($filename)){$filename="article.jpg";}
         $userData = [
             'heading'        => $this->input('heading'),
             'content'           => $this->input('content'),
@@ -202,7 +201,7 @@ class doctor extends main{
        
         $i = $_FILES['image']['name'];
         $image_tmp = $_FILES['image']['tmp_name'];
-        
+       
         $e = $this->input('email');
         $h = $this->input('hospital');
         $p = $this->input('province');
@@ -216,7 +215,7 @@ class doctor extends main{
             $this->redirect('doctor/profile');
          }
         else {
-        $this->view('doctor/editprofile',$data);
+        $this->view('doctor/editprofile');
         }
     }
 

@@ -64,7 +64,7 @@
     <?php foreach($arr as $item): ?>
         <!--Single card------------------------------------------------------------------------->
         <div class="card">
-          <img src="../../web/public/assets/img/article.jpg" alt="Avatar" style="width:100%">
+          <img src="../../web/public/assets/dbimages/<?php echo $item->url;?>" alt="Avatar" style="width:100%; height:200px;">
           <div class="container">
                   <h4><?php echo($item->heading);?></h4> 
                   <p><?php echo($item->description);?></p> 

@@ -41,9 +41,9 @@
                <div class="field">
                   <select name="category" id="category" required>
                      <option value="" disabled selected hidden>Notice Category</option>
-                     <option value="male">Athletics</option>
-                     <option value="female">Injuries</option>
-                     <option value="female">Health</option>
+                     <option value="male">System</option>
+                     <option value="female">Users</option>
+                     <option value="female">Other</option>
                   </select>
                </div>
               <!--content-->

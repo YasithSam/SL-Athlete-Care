@@ -66,7 +66,9 @@
         <?php $arr=array_slice($data,3,count($data))?>
         <?php foreach($arr as $item): ?>
         <div class="card">
-          <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
+  
+          <img src="../../web/public/assets/dbimages/<?php echo $item->url;?>" alt="Avatar" style="width:100%; height:200px;">
+        
           <div class="container">
             <h4><?php echo($item->heading);?></h4> 
             <p><?php echo($item->description);?></p> 
