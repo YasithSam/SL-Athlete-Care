@@ -134,12 +134,12 @@ $html.='
 foreach($data3 as $item):
 $html.='
   <div class="card">
-    <img class="card-img-top" width="400px" height="400px" src="../../web/public/assets/dbimages/'.$item->link.'"alt="icon"> 
+    <img class="card-img-top" width="200px" height="200px" src="../../web/public/assets/dbimages/'.$item->link.'"alt="icon"> 
 
-        <div class="card-body">
-    <li><b>Title : </b>'.$item->heading.'</li> 
+        <li>
+        <b>Title : </b>'.$item->heading.'</li> 
     <p><b>                 Description :</b>'.$item->description.'</p> 
-    </div>
+    
     </div>
     </div>';
 endforeach;
@@ -217,13 +217,13 @@ $html.='
 foreach($data7 as $item):
 $html.='
 <div class="card">
-<img class="card-img-top" width="400px" height="400px" src="../../web/public/assets/dbimages/'.$item->link.'"alt="icon"> 
+<img class="card-img-top" width="200px" height="200px" src="../../web/public/assets/dbimages/'.$item->link.'"alt="icon"> 
 
-        <div class="card-body">
+        
     <li><b>Title : </b>'.$item->heading.'</li> 
     <p><b>             Description :</b>'.$item->description.'</p> 
     </div>
-    </div>
+    
     </div>';
 endforeach;
 
