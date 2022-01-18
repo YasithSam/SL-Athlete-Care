@@ -37,99 +37,115 @@
     <div class="filter-search-box">
         <div class="wrapper">
             <div class="tabs_wrap">
+            <form action="<?php echo BASEURL;?>/doctor/filter" method="POST">
                 <ul class="indicator">
-                    <li data-filter="all" class="active"><a href="#">All</a></li>
-                    <li data-filter="date"><a href="#">By Date</a></li>
-                    <li data-filter="injury"><a href="#">By Injury</a></li>
-                    <li data-filter="sport"><a href="#">By sport</a></li>
-                    <li data-filter="doctor"><a href="#">By doctor</a></li>
+                    <li data-filter="injury" class="active">                    
+                        <select name="doctors" id="d">
+                            <option value="W.D. Aruna Jayasundara">W.D. Aruna Jayasundara</option>
+                            <option value="Kithsiri Perera">Kithsiri Perera</option>
+                            <option value="Wasana Jayakodi">Wasana Jayakodi</option>
+                            <option value="Radhika Kulathunga">Radhika Kulathunga</option>
+                            <option value="Tharaka Yahathugoda">Tharaka Yahathugoda</option>
+                            <option value="Uditha Illangasinha">Uditha Illangasinha</option>
+                            <option value="Irosha Premathilaka">Irosha Premathilaka</option>
+                            <option value="Oshadha Amarasinha">Oshadha Amarasingha</option>
+                        </select>
+                    </li>                  
+                    <li data-filter="sport">
+                        <select name="sport" id="s">
+                            <option value="1">Cricket</option>
+                            <option value="2">Athletics</option>
+                            <option value="3">Rugby</option>
+                            <option value="4">Football</option>
+                            <option value="5">Other</option>
+                           
+                        </select></li>
+                    <li data-filter="injury">  
+                        <select name="injury" id="i">
+                            <option value="1">Fractured collarbone</option>
+                            <option value="2">Tennis elbow</option>
+                            <option value="3">Stress fracture</option>
+                            <option value="4">Achilles</option>
+                            <option value="5">Pulled hamstring</option>
+                            <option value="6">Hip pointer stress fractures</option>
+                            <option value="7">Shin splints</option>
+                            <option value="8">Ankle sprain</option>
+                            <option value="9">Piriformis syndrome</option>
+                            <option value="10">Low back strain</option>
+                            <option value="11">Side stitch</option>
+                            <option value="12">Torn ACL</option>
+                        </select></li>
+                        <input type="submit" value="Submit" />
                 </ul>
+                
+            </form>    
             </div>
         </div>
-        <div class="search-box">
-            <div class="container1">
-                <div class="search_wrap search_wrap_3">
-                    <div class="search_box">
-                        <input type="text" class="input" placeholder="search...">
-                        <div class="btn btn_common">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
     </div>
     <section class="target_box">
         <!--Old case studies-->
         <div id="div1" class="target">
             <!--Update card-->
-            <div class="injury">
-                <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
-                <div class="description">
-                    <div class="col"> Name: A.B.C. Perera </div>
-                    <div class="col"><span> Injury: Arm strain </span> </div>
-                </div>
-                <div class="btn-grp">
-                    
-                    <div class="button2">
-                        <div class="date">21/10/2021</div>
-                        <a href="<?php echo BASEURL;?>/caseStudyController/index/1">View</a>
+            <?php if(!empty($data[0])): ?>
+              <?php foreach($data[0] as $item): ?>
+                <div class="injury">
+                  
+                    <div class="description">
+                        <div class="col"> Name: <?php echo ucwords($item->username); ?></div>
+                        <div class="col"><span> Injury:  <?php echo ucwords($item->injury); ?></span> </div>
+                        
+                    </div>
+               
+                    <div class="col"> Name:  <?php echo ucwords($item->full_name); ?></div>
+                    <div class="date"><?php echo ucwords($item->datetime); ?></div>
+                
+                    <div class="btn-grp">
+                        
+                        <div class="button2">
+                           
+                            <a href="<?php echo BASEURL;?>/caseStudyController/index/<?php echo ucwords($item->case_id); ?>">View</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach;?>
+        <?php else: ?>
+          <h1>No data </h1>
+        <?php endif; ?> 
             <!--Update card-->
-            <div class="injury">
-                <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
-                <div class="description">
-                    <div class="col"> Name: A.B.C. Perera </div>
-                    <div class="col"><span> Injury: Arm strain </span> </div>
-                </div>
-                <div class="btn-grp">
-                    
-                    <div class="button2">
-                        <div class="date">21/10/2021</div>
-                        <a href="athleteprofile.html">View</a>
-                    </div>
-                </div>
-            </div>         
+               
         </div>
                           
         <!--Current case studies-->
         <div id="div2" class="target">
              <!--Update card-->
-             <div class="injury">
-                <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
-                <div class="description">
-                    <div class="col"> Name: P.Q.R. Perera </div>
-                    <div class="col"><span> Injury: Arm strain </span> </div>
-                </div>
-                <div class="btn-grp">
-                    <div class="button1">
-                        <a href="">Request</a>
-                    </div>
-                    <div class="button2">
-                        <div class="date">21/10/2021</div>
-                        <a href="athleteprofile.html">View</a>
-                    </div>
-                </div>
-            </div>  
+           
             <!--Update card-->
-            <div class="injury">
-                <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
-                <div class="description">
-                    <div class="col"> Name: P.Q.R. Perera </div>
-                    <div class="col"><span> Injury: Arm strain </span> </div>
-                </div>
-                <div class="btn-grp">
-                    <div class="button1">
-                        <a href="">Request</a>
+            <?php if(!empty($data[1])): ?>
+              <?php foreach($data[1] as $item): ?>
+                <div class="injury">
+                  
+                    <div class="description">
+                        <div class="col"> Name: <?php echo ucwords($item->username); ?></div>
+                        <div class="col"><span> Injury:  <?php echo ucwords($item->injury); ?></span> </div>
+                        
                     </div>
-                    <div class="button2">
-                        <div class="date">21/10/2021</div>
-                        <a href="athleteprofile.html">View</a>
+               
+                    <div class="col"> Name:  <?php echo ucwords($item->full_name); ?></div>
+                    <div class="date"><?php echo ucwords($item->datetime); ?></div>
+                
+                    <div class="btn-grp">
+                        
+                        <div class="button2">
+                           
+                            <a href="<?php echo BASEURL;?>/caseStudyController/index/<?php echo ucwords($item->case_id); ?>">View</a>
+                        </div>
                     </div>
                 </div>
-            </div>   
+            <?php endforeach;?>
+        <?php else: ?>
+          <h1>No data </h1>
+        <?php endif; ?> 
                               
         </div>
     </section>
