@@ -196,38 +196,42 @@ header{
 
 /*Table*/
 
-.description{
-    display: inline-block;
-    text-align: center;
-    justify-content: center;
-    margin-top: 50px;
-    padding-top: 0;
-    margin-bottom: 0px;
-    display: flex;
-    color: #01579b;
-    font-weight: 800;
-    font-size: 26px;
-}
+
 
 .wrapper{
   margin: auto;
-  overflow: hidden;
+ /*  overflow: hidden; */
   background: #ffffff;
-  width: 1099px;
+  width: 1410px;
   height: fit-content;
   padding-top: 0;
+  margin-left: 5px;
+  margin-right: 10px;
+  /* overflow-x: scroll; */
   /* padding-left: 30px;
   padding-right: 30px; */
 }
-
+.wrapper .description{
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  margin-top: 70px;
+  padding-top: 0;
+  margin-bottom: 0px;
+  display: flex;
+  color: #01579b;
+  font-weight: 800;
+  font-size: 26px;
+}
 
 .content-table {
     border-collapse: collapse;
     margin: 15px 0;
     font-size: 0.9em;
-    min-width: fit-content;
+    /* min-width: fit-content; */
     border-radius: 5px 5px 0 0;
-    overflow: hidden;
+    /* overflow-x: scroll; */
+    /* overflow: hidden; */
     /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
   }
   
@@ -249,7 +253,7 @@ header{
 }
 
 .content-table .desc{
-    width: 100px;
+    width: 250px;
 }
 
 
@@ -261,13 +265,13 @@ header{
 }
 
 .content-table .btnrow{
-    width: 120px;
+    width: 170px;
 }
 
 .longtext{
   display: inline-block;
   margin-top: 28px;
-  width: 180px;
+  width: 250px;
   position: relative;
   white-space: nowrap;
   overflow: hidden;
@@ -336,7 +340,21 @@ header{
   .button2:hover{
     background: #37c924;
 }
-
+.button4{
+  overflow:hidden;
+  /* cursor: pointer; */
+  text-align: center;
+  color: #ffffff;
+  background: #acacac;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.0em;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  height: 38px;
+  width: 100px;
+}
 /*Pagination*/
 
 .pagination {
