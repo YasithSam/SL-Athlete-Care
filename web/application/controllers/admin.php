@@ -146,7 +146,7 @@ class admin extends main{
         $id=$this->input('id');
         if($this->getSession('userRole')==1){
         if ($this->adminModel->articleapprove($id)){
-          $this->setFlash('approveart', 'Article approved!');
+          /* $this->setFlash('approveart', 'Article approved!'); */
           $this->redirect('admin/articles');
         } 
         } 
