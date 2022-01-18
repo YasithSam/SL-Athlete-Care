@@ -254,7 +254,59 @@ public function deleteFeedback()
   
 
 
+//Add Feedback - Pre
+public function addFeedbackPre($id){
+        
+    $uid=$this->getSession('userId');
+    $data = [
 
+        'type'        => $this->input('type'),
+        'feedback'    => $this->input('feedback'),
+        'id' => $id,
+        'uid'=>$uid
+      
+    ];
+    if(!empty($data['type']) && !empty($data['feedback'])){
+        if($this->caseStudyModel->addFeedbackPre($data)){
+            
+            $this->redirect('caseStudyController/pre/'.$id);     
+        }
+
+    } 
+    else{
+        $this->redirect('caseStudyController/pre/'.$id);   
+
+    }   
+
+}
+
+
+
+//Add Feedback - Post
+public function addFeedbackPost($id){
+        
+    $uid=$this->getSession('userId');
+    $data = [
+
+        'type'        => $this->input('type'),
+        'feedback'    => $this->input('feedback'),
+        'id' => $id,
+        'uid'=>$uid
+      
+    ];
+    if(!empty($data['type']) && !empty($data['feedback'])){
+        if($this->caseStudyModel->addFeedbackPost($data)){
+            
+            $this->redirect('caseStudyController/post/'.$id);     
+        }
+
+    } 
+    else{
+        $this->redirect('caseStudyController/post/'.$id);   
+
+    }   
+
+}
 
 
 

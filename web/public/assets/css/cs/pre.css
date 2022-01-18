@@ -572,14 +572,22 @@ color:#01579b;
 
   /* Modal Content */
 
-.form-cont input[type=text], select, textarea {
-    width: 100%;
+.form-cont input[type=text], textarea {
+    width: 94%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
   }
   
+  .form-cont select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
   .form-cont input[type=date] {
     width: 100%;
     padding: 12px;

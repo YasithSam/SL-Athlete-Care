@@ -785,7 +785,7 @@ public function deleteFeedback($id)
 
  
 
-
+//Add Advice
     public function addAdvice($data){
         $x=[$data['id'],2,$data['uid'],$data['heading'],$data['description'],0];
         if($this->Query("INSERT into case_study_records (case_id,type_id,recording_user_id,heading,description,state) VALUES (?,?,?,?,?,?)",$x)){
@@ -795,7 +795,31 @@ public function deleteFeedback($id)
 
     }
 
-         
+       
+    
+
+//Add Feedback - Pre
+    public function addFeedbackPre($data){
+        $x=[$data['type'],$data['feedback'],$data['id'],$data['uid'],0];
+        if($this->Query("INSERT into feedback (type,feedback,case_id,user_id,state) VALUES (?,?,?,?,?)",$x)){
+            return true;
+        }
+        return false;
+
+    }
+
+
+//Add Feedback - Post
+public function addFeedbackPost($data){
+    $x=[$data['type'],$data['feedback'],$data['id'],$data['uid'],1];
+    if($this->Query("INSERT into feedback (type,feedback,case_id,user_id,state) VALUES (?,?,?,?,?)",$x)){
+        return true;
+    }
+    return false;
+
+}
+
+
     public function getDietById($id){
         $m=[];
         if($this->Query("SELECT e.id,e.title,e.amount,e.descritption, d.title AS htitle,d.description AS hdesc FROM diet_events e inner join diet_schedule d on d.id=e.diet_id where d.id=? ",[$id])){
