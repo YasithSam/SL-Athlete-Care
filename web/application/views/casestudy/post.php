@@ -270,8 +270,6 @@ for (var i = 0; i < btns.length; i++) {
     <!--end-->
 
 
-
-    
 <!--Feedback Modal-->
     
 <div id="FeedbackModal" class="fmodal">       
@@ -281,14 +279,20 @@ for (var i = 0; i < btns.length; i++) {
         </div>
    
   <div class="form-cont">
-    <form action="<?php echo BASEURL;?>/CaseStudyController/addFeedback/<?php echo($data[1])?>" method="POST">
+    <form action="<?php echo BASEURL;?>/CaseStudyController/addFeedbackPost/<?php echo($data[1])?>" method="POST">
   
     <div class="row">
       <div class="col-25">
         <label for="title">Type :</label>
       </div>
       <div class="col-75">
-        <input type="text" id="type" name="type" required>
+        <select name="type" id="type"   required>
+        <option value="2">Advice</option>
+        <option value="3">Workout</option>
+        <option value="4">Diet</option>
+            
+                                   
+      </select>
       </div>
     </div>
   
@@ -309,6 +313,7 @@ for (var i = 0; i < btns.length; i++) {
     </div>
     </div>
 </div>
+
 
 <script>
    // Get the modal
