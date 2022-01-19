@@ -55,7 +55,7 @@
 								<div class="testi-item">
 									<div class="testimonials-text">
 										<div class="notice">
-											<img src="../../web/public/assets/img/<?php echo($item->url)?>" alt="">
+											<img src="../../web/public/assets/dbimages/<?php echo($item->url)?>" alt="">
 										</div>
 										
 										<p><?php echo $item->heading?></p>
@@ -182,7 +182,7 @@
 					<h4><?php echo $item1->username?></h4>
 				</div>
 			</div> 	
-			 <img src="../../web/public/assets/img/<?php echo($item1->url)?>"  alt="">
+			 <img src="../../web/public/assets/dbimages/<?php echo($item1->url)?>"  alt="">
 			 <h2><?php echo $item1->heading?></h2>
 			 <?php $b=explode(" ",$item1->datetime);?>
 			 <h4><?php echo $b[0]?></h4>

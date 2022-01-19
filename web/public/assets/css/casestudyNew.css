@@ -125,9 +125,10 @@ button:focus {
     padding-top: 5px;
     margin: 0 auto;
     margin-bottom: 20px;
-    font-size: 13px;
+    font-size: 16px;
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    align-items: center;
   }
   .injury .user{
     display: inline-block;
@@ -140,7 +141,8 @@ button:focus {
   .injury .description{
     display: flex;
     width: 70%;
-    padding-top: 17px;
+   /*  padding-top: 17px; */
+    padding-left: 10px;
     font-size: 17px;
     font-weight: 500;
   }

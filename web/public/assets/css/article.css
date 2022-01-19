@@ -342,7 +342,7 @@ hr {
 }
 
 
-.card span input {
+.card .commentarea {
     width: 100%;
     margin-top: 10px;
     outline: none;
@@ -390,7 +390,7 @@ hr {
     font-size: 1 rem;
     padding: .5rem 1rem;
     border: 1px solid var(--main-color);
-	cursor: pointer;
+	/* cursor: pointer; */
 
 }
 
@@ -399,7 +399,23 @@ hr {
     background-color: #000051;
 }
 
+.card input{
+    cursor: pointer;
+}
 
+.card input:hover{
+    background-color: #949494;
+    color: #ffffff;
+}
+
+.comment-user{
+    margin-left: 1rem;
+}
+
+
+.comment-user .commentitem{
+    margin-left: 2rem;
+}
 	
 	
 
