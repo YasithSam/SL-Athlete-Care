@@ -71,7 +71,7 @@
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="../../web/public/assets/img/<?php echo($item1->url)?>" alt="">
+                            <img src="../../web/public/assets/dbimages/<?php echo($item1->url)?>" alt="">
                         </div>
                          <h3><?php echo $item1->heading?></h3>
                          <h5 class="date"><?php echo $item1->datetime?></h5>
