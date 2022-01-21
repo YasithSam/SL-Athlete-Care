@@ -38,7 +38,7 @@
  	  <div class="card">
 	  
 			<div class="in-card">
-				<img src="../../../web/public/assets/img/<?php echo($data['active']->url)?>"  alt="">
+				<img src="../../../web/public/assets/dbimages/<?php echo($data['active']->url)?>"  alt="">
 				<h1><?php echo $data['active']->heading; ?></h1>
 				<h2><?php echo $data['active']->description; ?></h2>
 				
@@ -65,7 +65,7 @@
  <?php foreach($data['data'] as $item): ?>
    	<div class="column">
 		<div class="grid-card">
-		<img src="../../../web/public/assets/img/<?php echo($item->url)?>"  alt="">
+		<img src="../../../web/public/assets/dbimages/<?php echo($item->url)?>"  alt="">
 				<h2><?php echo $item->heading; ?></h2>
 				
 			<div class="decision-wrapper">

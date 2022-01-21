@@ -343,8 +343,7 @@ hr {
     margin-left: 1rem;
 }
 
-
-.card span input {
+.card .commentarea {
     width: 100%;
     margin-top: 10px;
     outline: none;
@@ -380,9 +379,25 @@ hr {
 }
 
 
+.card input{
+    cursor: pointer;
+}
+
+.card input:hover{
+    background-color: #949494;
+    color: #ffffff;
+}
+
+.comment-user{
+    margin-left: 1rem;
+}
 
 
-
+.comment-user .commentitem{
+    margin-left: 2rem;
+}
+	
+	
 
 
 

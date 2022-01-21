@@ -75,7 +75,7 @@
                             <option value="11">Side stitch</option>
                             <option value="12">Torn ACL</option>
                         </select></li>
-                        <input type="submit" value="Submit" />
+                        <input type="submit" class="submitbtn" value="Submit" />
                 </ul>
                 
             </form>    
