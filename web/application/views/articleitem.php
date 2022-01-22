@@ -71,7 +71,7 @@
 				<br>
 		   
 		   <div class="article">
-			<img src="../../../web/public/assets/img/<?php echo($data['active']->url)?>" alt="">
+		   <img src="../../../web/public/assets/dbimages/<?php echo($data['active']->url)?>" alt="">
 		   </div>
 		   <br>
 			<p><?php echo $data['active']->description; ?>
@@ -88,16 +88,27 @@
 			   </div>
 			</div>
    
-		   
+			<h2>All Comments</h2>
+			<div class="comment-user">
+				<div class="username">
+						<h3>Kusal Mendis</h3>
+				</div>
+				<div class="commentitem">
+					<p>Great article</p>
+				</div>
+				<hr style="width:50%;text-align:left;margin-left:0">
+			</div>
+			<br>
+			
 		  </div>
-		  <div class="card">
-			  <h3>Add Comments</h3>
-			  <hr>
-			  <form action="">
-				   <span><input class="" type="text" placeholder="type here..."></span>
-					 <input type="submit" value="Submit" >
-			   </form> 
-		  </div>
+			<div class="card">
+				<h3>Add Comments</h3>
+				<hr>
+				<form action="">
+				<textarea class="commentarea" rows="6"  type="text" placeholder="type comment..."></textarea>
+						<input type="submit" value="Submit">
+				</form> 
+			</div>
    
    
 		</div>
@@ -128,7 +139,7 @@
 			   </div> 	
    
 			   <div class="article">
-				   <img src="../../../web/public/assets/img/<?php echo($item->url)?>" alt="">
+				<img src="../../../web/public/assets/dbimages/<?php echo($item->url)?>" alt="">
 			   </div>
 		  
 	   
