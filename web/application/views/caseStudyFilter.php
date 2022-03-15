@@ -144,7 +144,7 @@
                 </div>
             <?php endforeach;?>
         <?php else: ?>
-          <h1>No data </h1>
+         
         <?php endif; ?> 
                               
         </div>
