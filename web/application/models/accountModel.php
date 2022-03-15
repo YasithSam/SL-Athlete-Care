@@ -1,6 +1,5 @@
 <?php
-include "../../web/config/config.php";
-include "../../web/system/classes/database.php";
+
 class accountModel extends database
 {
     public function createAccountDoctor($data){
