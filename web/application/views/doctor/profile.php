@@ -82,7 +82,7 @@
                <!--Articles box-->
                <div class="about box">
                         <div class="title">
-                          My Articles
+                          Selected Injuries
                         </div>
                         <!--card-->
                         <?php if(!empty($data[2])): ?>
@@ -90,10 +90,13 @@
 
                         <div class="card-2">
                           <i class="fas fa-notes-medical user"></i>
-                          <div class="qual">
-                          <?php echo($item->heading);?><br>
-                          <p class="txt"><?php echo($item->description);?></p>
+                          <div class="qual"> Name : 
+                          <?php echo($item->full_name);?><br>
+                          <p class="txt"> Injury : <?php echo($item->injury);?></p>
                           </div>
+
+                          <div class="button" > <a href="<?php echo BASEURL;?>/forumController/item/<?php echo $item->id; ?>" style="float:right; margin-right: 25px; font-size:13px:">View</a></div>
+                          
                         </div>
                         <?php endforeach;?>
                          <?php else: ?>
@@ -101,11 +104,6 @@
                         <?php endif; ?> 
                          </div>
                        
-
-                        <div class="link">
-                        <a style="float:right; margin-right: 25px;" href="<?php echo BASEURL;?>/doctor/articles">
-                         View More </a>
-                         </div>
                       </div>
               <!--End of Articles box-->
               

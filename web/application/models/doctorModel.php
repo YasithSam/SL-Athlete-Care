@@ -23,15 +23,30 @@ class doctorModel extends database
         }
     }
 
-    //Doctor article
-    public function getDoctorArticles($id){
-        if($this->Query("SELECT p.heading, p.description FROM post p left join doctor_profile d on d.uuid=p.author_id 
-        where d.uuid=? && p.type!=1 && p.type<7 && p.approval_status=? order by datetime desc",[$id,1])){
+    //Selected Injuries - Profile page
+
+    public function getSelectedInjuries($id){
+        if($this->Query("SELECT r.id,a.full_name,i.injury,r.con,r.doctor_id 
+                         from athlete_reported_injury AS r 
+                         inner join athlete_profile AS a On r.athlete_id=a.uuid 
+                         inner join injury As i on i.id=r.injury_id 
+                         where (r.doctor_id=? || r.doctor_id=?) && r.status=?",[$id,0,1])){
             $x=$this->fetchall();
             return $x;
 
         }
     }
+
+
+    //Doctor article
+   // public function getDoctorArticles($id){
+//    if($this->Query("SELECT p.heading, p.description FROM post p left join doctor_profile d on d.uuid=p.author_id 
+    //    where d.uuid=? && p.type!=1 && p.type<7 && p.approval_status=? order by datetime desc",[$id,1])){
+    //        $x=$this->fetchall();
+    //        return $x;
+
+//        }
+   // }
 
     public function getProfile($id){
         if($this->Query("SELECT uuid,full_name,province,district,sex,email,profile_image_url,hospital,doctor_number 
