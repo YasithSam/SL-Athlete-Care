@@ -202,26 +202,12 @@ header{
   margin: auto;
  /*  overflow: hidden; */
   background: #ffffff;
-  width: 1410px;
+
+  width: 1099px;
   height: fit-content;
   padding-top: 0;
-  margin-left: 5px;
-  margin-right: 10px;
-  /* overflow-x: scroll; */
   /* padding-left: 30px;
   padding-right: 30px; */
-}
-.wrapper .description{
-  display: inline-block;
-  text-align: center;
-  justify-content: center;
-  margin-top: 70px;
-  padding-top: 0;
-  margin-bottom: 0px;
-  display: flex;
-  color: #01579b;
-  font-weight: 800;
-  font-size: 26px;
 }
 
 .content-table {
@@ -612,7 +598,6 @@ header{
   background-color:  #80c0ff;
   color: #01579b;
 }
-  
   
   /* notification icon and user icon */
 

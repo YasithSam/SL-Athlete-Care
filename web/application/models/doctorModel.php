@@ -69,7 +69,12 @@ class doctorModel extends database
 
 
     public function getCaseStudyProfile($id){
-        if($this->Query("SELECT a.full_name,c.case_id,c.title FROM case_study c inner join athlete_profile a on a.uuid=c.athlete_id where doctor_id=? && status=?",[$id,1])){
+        if($this->Query("SELECT a.full_name af,c.case_id,c.title/* ,pp.full_name pf  */
+                        FROM case_study c 
+                        inner join athlete_profile a on a.uuid=c.athlete_id 
+                       /*  left join paramedical_case_study pc on pc.case_study_id=c.case_id
+                        left join paramedical_profile pp on pp.uuid=pc.paramedical_id  */
+                        where doctor_id=? && status=?",[$id,1])){
             $x=$this->fetchall();
             return $x;
 
@@ -354,12 +359,10 @@ class doctorModel extends database
             $type = 6;
             break;
         }
-        $y=[$data['userid'],$type,$data['heading'],$data['content'],$data['filename']]; 
-            
-        if($this->Query("INSERT INTO post (author_id,type,heading,description) VALUES (?,?,?,?);SET @last_id_in_table1 = LAST_INSERT_ID();INSERT INTO post_attachments (post_id,url) VALUES (@last_id_in_table1,?)",$y))
-        {
-             return true;
-        }
+        $y=[$data['userid'],$type,$data['heading'],$data['content'],0,0,-1]; 
+            if($this->Query("INSERT INTO post (author_id,type,heading,description,likes,comments,approval_status) VALUES (?,?,?,?,?,?,?)",$y)){
+                 return true;
+            }
     }
 
     public function deleteArticle($id)

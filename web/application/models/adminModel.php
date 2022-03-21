@@ -121,13 +121,12 @@ class adminModel extends database
     }
     public function getArticles(){
         $m=[];
-        if($this->Query("SELECT p.id, pt.type, p.heading, p.description, p.approval_status, username, r.approval, d.full_name 
+        if($this->Query("SELECT p.id, p.type, heading, description, username, r.approval, d.full_name 
                         from post p 
                         inner join application_user au on au.uuid=p.author_id 
                         left join reviewers r on r.post_id=p.id 
                         left join doctor_profile d on d.uuid=r.reviewer_id 
-                        inner join post_type pt on p.type=pt.id
-                        where (p.approval_status=1 || p.approval_status=2) && p.type!=1  
+                        where p.approval_status=-1 && p.type!=1
                         order by p.datetime desc ")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -144,9 +143,7 @@ class adminModel extends database
         }
         return $m;
     }
-    public function setReviewer($data){
-        
-    
+     public function setReviewer($data){
         $y=[$data['postid'],$data['doctorid']];
         
             if($this->Query("INSERT INTO reviewers (post_id,reviewer_id)  VALUES (?,?)",$y)){
@@ -165,13 +162,13 @@ class adminModel extends database
         }
     } 
     public function articleapprove($id){
-        if($this->Query("UPDATE post SET approval_status=2 where id=?",[$id])){
+        if($this->Query("UPDATE post SET approval_status=1 where id=?",[$id])){
                 return true;
             }
     }
     public function articlereject($id,$r){
         echo $id;
-        if($this->Query("UPDATE post SET approval_status=3, reason='$r' where id=?",[$id])){
+        if($this->Query("UPDATE post SET approval_status=0, reason='$r' where id=?",[$id])){
                 return true;
             }
     }
@@ -349,8 +346,8 @@ class adminModel extends database
 
     public function createNotice($data){
         
-        $y=[$data['userid'],$data['type'],$data['heading'],$data['content'],1,$data['filename']];
-           if($this->Query("INSERT INTO post (author_id,type,heading,description,approval_status) VALUES (?,?,?,?,?);SET @last_id_in_table1 = LAST_INSERT_ID();INSERT INTO post_attachments (post_id,url) VALUES (@last_id_in_table1,?)",$y)){
+        $y=[$data['userid'],$data['type'],$data['heading'],$data['content'],1];
+           if($this->Query("INSERT INTO post (author_id,type,heading,description,approval_status) VALUES (?,?,?,?,?,?)",$y)){
                  return true;
             }
     }

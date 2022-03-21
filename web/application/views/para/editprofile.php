@@ -24,7 +24,8 @@
                         <div class="title">Edit Profile</div>
                     
                       <div class="form-inner">
-                      <form action="<?php echo BASEURL;?>/paramedical/updateprofile" class="login" method="POST" enctype="multipart/form-data">              
+                      <form action="<?php echo BASEURL;?>/paramedical/updateprofile" class="login" method="POST">              
+
                              <!--name-->
                              <div class="field">
                                 <input type="text" placeholder="<?php echo $data->full_name?>" name="fullname" required readonly>

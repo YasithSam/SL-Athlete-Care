@@ -132,7 +132,7 @@ class admin extends main{
             'doctorid'  => $this->input('doctor'),
             'postid' => $this->input('postid'),
         ];
-       
+
         if($this->adminModel->setReviewer($data)){
             
             $this->redirect('admin/articles');
@@ -146,7 +146,7 @@ class admin extends main{
         $id=$this->input('id');
         if($this->getSession('userRole')==1){
         if ($this->adminModel->articleapprove($id)){
-          /* $this->setFlash('approveart', 'Article approved!'); */
+          $this->setFlash('approveart', 'Article approved!');
           $this->redirect('admin/articles');
         } 
         } 

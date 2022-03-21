@@ -121,25 +121,17 @@ class paramedicalModel extends database
             return $x;
         }
     }
-    public function updateprofile($u,$e,$h,$p,$d,$f){
-    
-        if($this->Query("UPDATE paramedical_profile set email='$e',hospital='$h',province='$p',district='$d',profile_image_url='$f' where uuid=?",[$u] )){       
-             return true;
-        }
-    }
-
-    public function getuserName($id){
-        if($this->Query("SELECT au.username,au.role_id,ur.role,pp.profile_image_url
-                         from application_user au
-                         inner join user_role ur on ur.id=au.role_id
-                         inner join paramedical_profile pp on pp.uuid=au.uuid
-                         where au.uuid=? ",[$id])){
-            $data=$this->fetch();
-            return $data;
-        }
-    }
-
-
-
 
 }
+public function updateprofile($u,$e,$h,$p,$d){
+    
+    if($this->Query("UPDATE paramedical_profile set email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){       
+         return true;
+    }
+}
+
+
+
+
+
+} 

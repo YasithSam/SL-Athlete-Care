@@ -84,7 +84,7 @@ class paramedical extends main{
             // add user has succesfully deleted message ( same as used in registering)
           }  
           else{
-              $this->view('para/articles');
+              $this->view('paramedical/articles');
           } 
     }
     ///////////////////////////////////////////////
@@ -163,10 +163,8 @@ class paramedical extends main{
         $h = $this->input('hospital');
         $p = $this->input('province');
         $d = $this->input('district');
-        $f = $_FILES["image"]["name"];
-        $tempname = $_FILES["image"]["tmp_name"]; 
-        move_uploaded_file($tempname,"../../web/public/assets/dbimages/$f");
-        if($this->paramedicalModel->updateprofile($u,$e,$h,$p,$d,$f)){
+       
+        if($this->paramedicalModel->updateprofile($u,$e,$h,$p,$d)){
             $this->setFlash('updtpro', 'Profile updated!');
             $this->redirect('paramedical/profile');
          }
@@ -191,7 +189,6 @@ class paramedical extends main{
 
     }
   
-
 
 }
 ?>    

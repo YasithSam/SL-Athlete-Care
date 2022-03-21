@@ -23,11 +23,14 @@
             All Articles and Questions
        </div>
 
-       <div style="margin-left: 40px; margin-bottom: 10px;">
+      <div style="margin-left: 40px; margin-bottom: 10px;">
+
         <?php $this->flash('approveart', 'alert alert-success') ?>
         <?php $this->flash('rejecteart', 'alert') ?>
       </div>
 
+
+        <div class="wrapper">
            <table class="content-table">
             <thead>
               <tr>
@@ -35,11 +38,12 @@
                 <th class="title">Title</th>
                 <th class="desc">Description</th>
                 <th class="name">Author</th>
-                <!-- <th class="name">Reviewer</th> -->
+
+                <th class="name">Reviewer</th>
                 <th class="rname" style="text-align: center;">Reviewer Approval</th>
                 <th class="btnrow">Approve Article</th>
                 <th class="btnrow">Reject Article</th>
-                <th class="btnrow" style="text-align: center;">Reject Reported Article</th>
+
               </tr>
             </thead>
             <tbody>
@@ -50,7 +54,7 @@
                 <td ><?php echo ucwords($item->heading); ?></td>
                 <td class="longtext"><?php echo ucwords($item->description); ?></td>
                 <td><?php echo ucwords($item->username); ?></td>
-               <!--  <td><?php echo ucwords($item->full_name); ?></td> -->
+                <td><?php echo ucwords($item->full_name); ?></td>
                 <?php if($item->approval==2){?>
                   <td style="text-align: center;"><h3 style="font-weight: bold; color: green;">Approved</h3></td>
                 <?php } else if($item->approval==1){?>
@@ -65,8 +69,8 @@
 
                       <!--  ****************select dropdown list*********************************** -->                   
                           <select name="doctor" id="d">
-                            <?php if(!empty($data[4])): ?>
-                            <?php foreach($data[4] as $item2): ?> 
+                            <?php if(!empty($data[3])): ?>
+                            <?php foreach($data[3] as $item2): ?> 
                                 <option value="<?php echo($item2->uuid);?>"><?php echo($item2->full_name);?></option>
                             <?php endforeach;?>
                             <?php else: ?>
@@ -83,17 +87,10 @@
                   </td>
             <?php }?>
 
-            <?php if($item->approval_status==2){?>
-              <td style="text-align: center;"><h3 style="font-weight: bold; color: green;">Approved</h3></td>
-            <?php } else if($item->approval_status==1){?>
-                <td style="text-align: center;"><a href="<?php echo BASEURL;?>/admin/articleapprove?id=<?php echo($item->id);?>" onclick='return confirm("Approve this article?");'><input type="button" class="button2" value="Approve"></a></td>
-            <?php }?>
-            <?php if($item->approval_status==2){?>
-                <td style="text-align: center;"><button class="button4">Reject</button></td>
-            <?php } else if($item->approval_status==1){?>
-              <td style="text-align: center;"><button class="button3">Reject</button></td>
-            <?php }?>
-                <td style="text-align: center;"><button class="button3">Reject</button></td>
+            
+                <td><a href="<?php echo BASEURL;?>/admin/articleapprove?id=<?php echo($item->id);?>" onclick='return confirm("Approve this article?");'><input type="button" class="button2" value="Approve"></a></td>
+                <td><button class="button3">Reject</button></td>
+
 
 <!--Feedback Modal-->
 <div id="FeedbackModal" class="fmodal">       
