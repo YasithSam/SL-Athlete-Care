@@ -14,8 +14,9 @@ class doctor extends main{
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==2){
             $data = $this->doctorModel->getCounts($userId);   
-            $x= $this->doctorModel->getForumItems($userId);    
-            $dataArray=[$data,$x];
+            $x= $this->doctorModel->getForumItems($userId);  
+            $data3 = $this->doctorModel->getuserName($userId);  
+            $dataArray=[$data,$x,$data3];
             $this->view("doctor/home",$dataArray);
               
         }
@@ -23,6 +24,7 @@ class doctor extends main{
             $this->view('404');
         }
     }
+
     public function patients(){
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==2){
@@ -41,16 +43,28 @@ class doctor extends main{
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==2){
             $data=$this->doctorModel->getProfile($userId);   
-            $data2=$this->doctorModel->getCaseStudyProfile($userId);   
-            
-            $data3= $this->doctorModel->getDoctorArticles($userId); 
-          
+            $data2=$this->doctorModel->getCaseStudyProfile($userId); 
+            $data3= $this->doctorModel->getSelectedInjuries($userId); 
             $this->view('doctor/profile',[$data,$data2,$data3]);
         }
         else{
             $this->view('404');
         }
 
+    }
+
+
+    //get doctor profile - Update
+    public function editprofile(){
+        $userId = $this->getSession('userId');
+        if($this->getSession('userRole')==2){
+            $data=$this->doctorModel->getProfile($userId);
+            $this->view("doctor/editprofile",$data);
+             
+        }
+        else{
+            $this->view('404');
+        }
     }
 
     public function athlete($uuid){
@@ -161,14 +175,20 @@ class doctor extends main{
     }
     public function addnewarticle(){
         $userid = $this->getSession('userId');
+        $filename = $_FILES["image"]["name"];
+        $tempname = $_FILES["image"]["tmp_name"];    
+        if(empty($filename)){$filename="article.jpg";}
         $userData = [
             'heading'        => $this->input('heading'),
             'content'           => $this->input('content'),
             'category'           => $this->input('category'),
             'userid' => $userid,
+            'filename' => $filename,
         ];
-        
+        move_uploaded_file($tempname,"../../web/public/assets/dbimages/$filename");
+
         if($this->doctorModel->createArticle($userData)){
+           
             $this->setFlash('addart', 'The article will be processed in a few hours!');
             $this->redirect('doctor/articles');
          }
@@ -176,6 +196,30 @@ class doctor extends main{
         $this->view('doctor/addArticle',$userData);
         }
     }
+    public function updateprofile(){
+        $u = $this->getSession('userId');
+       
+        $i = $_FILES['image']['name'];
+        $image_tmp = $_FILES['image']['tmp_name'];
+       
+        $e = $this->input('email');
+        $h = $this->input('hospital');
+        $p = $this->input('province');
+        $d = $this->input('district');
+       
+        move_uploaded_file($image_tmp,"../../web/public/assets/dbimages/$i");
+
+
+        if($this->doctorModel->updateprofile($u,$i,$e,$h,$p,$d)){
+            $this->setFlash('updtpro', 'Profile updated!');
+            $this->redirect('doctor/profile');
+         }
+        else {
+        $this->view('doctor/editprofile');
+        }
+    }
+
+
     public function deletearticle($id)
     {
        
@@ -188,23 +232,7 @@ class doctor extends main{
               $this->view('doctor/articles');
           } 
     }
-    public function editprofile(){
-        if($this->getSession('userRole')==2){
-            $this->view('doctor/editprofile');
-        }
-        else{
-            $this->view('404');
-        }
 
-    }
-    public function messages(){
-        if($this->getSession('userRole')==2){
-          $this->view('doctor/chat');
-        }
-        else{
-            $this->view('404');
-        }
-    }
 
     public function reviews(){
         $userId = $this->getSession('userId');
@@ -250,6 +278,35 @@ class doctor extends main{
             $this->view('404');
         }  
     }
+
+
+    public function reviewapprove(){
+        $id=$this->input('id');
+        if($this->getSession('userRole')==2){
+        if ($this->doctorModel->reviewapprove($id)){
+          $this->setFlash('approveart', 'Review approved!');
+          $this->redirect('doctor/reviews');
+        } 
+        } 
+        else{
+            $this->view('doctor/reviews');
+        }
+    }
+    public function reviewreject(){
+        $id=$this->input('postid');
+        $r=$this->input('feedback');
+        if($this->getSession('userRole')==2){
+        if ($this->doctorModel->reviewreject($id,$r)){
+          $this->setFlash('rejecteart', 'Review removed!');
+          $this->redirect('doctor/reviews');
+        } 
+        } 
+        else{
+            $this->view('doctor/reviews');
+        }
+    }
+
+    
     
    
    

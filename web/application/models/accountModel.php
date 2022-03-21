@@ -100,5 +100,36 @@ class accountModel extends database
 
 
     }
+    public function getUsersByMonth()
+    {
+        $array=[0,0,0,0,0,0,0,0,0,0,0,0];
+        if($this->Query("Select month(timestamp) as c from application_user ORDER by(month(timestamp))")){
+            if($this->rowCount() > 0 ){
+                $row=$this->fetchall();
+                foreach($row as $data){
+                    $array[($data->c)-1]=$array[($data->c)-1]+1;
+                }
+
+            }
+        }
+        return $array;
+
+    }
+    public function getUsersBySport()
+    {
+        $a=[1,2,3];
+        if($this->Query("Select count(sport_id) as c from athlete_sport GROUP by(sport_id)")){
+            if($this->rowCount() > 0 ){
+                $row=$this->fetchall();
+                foreach($row as $data){
+                    array_push($a,$data->c);
+                }
+
+            }
+        }
+        return $a;
+
+    }
+
 
 }

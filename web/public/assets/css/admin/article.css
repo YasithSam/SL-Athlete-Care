@@ -196,23 +196,13 @@ header{
 
 /*Table*/
 
-.description{
-    display: inline-block;
-    text-align: center;
-    justify-content: center;
-    margin-top: 80px;
-    padding-top: 0;
-    margin-bottom: 20px;
-    display: flex;
-    color: #01579b;
-    font-weight: 800;
-    font-size: 26px;
-}
+
 
 .wrapper{
   margin: auto;
-  overflow: hidden;
+ /*  overflow: hidden; */
   background: #ffffff;
+
   width: 1099px;
   height: fit-content;
   padding-top: 0;
@@ -220,15 +210,15 @@ header{
   padding-right: 30px; */
 }
 
-
 .content-table {
     border-collapse: collapse;
     margin: 15px 0;
     font-size: 0.9em;
-    min-width: fit-content;
+    /* min-width: fit-content; */
     border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    /* overflow-x: scroll; */
+    /* overflow: hidden; */
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
   }
   
   .content-table thead tr {
@@ -241,7 +231,7 @@ header{
   }
   
   .content-table .type{
-      width: 60px;
+      width: 120px;
   }
 
   .content-table .title{
@@ -249,7 +239,7 @@ header{
 }
 
 .content-table .desc{
-    width: 100px;
+    width: 250px;
 }
 
 
@@ -261,19 +251,21 @@ header{
 }
 
 .content-table .btnrow{
-    width: 120px;
+    width: 170px;
 }
 
 .longtext{
   display: inline-block;
-  margin-top: 20px;
-  width: 180px;
+  margin-top: 28px;
+  width: 250px;
   position: relative;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  vertical-align: top;
-  
+  /* vertical-align: top;
+  padding-top: 10px; */
+  /* padding: 4px 15px; */
+  /* text-align: center; */
 }
 /*
  * higher z-index brings element to front
@@ -334,7 +326,21 @@ header{
   .button2:hover{
     background: #37c924;
 }
-
+.button4{
+  overflow:hidden;
+  /* cursor: pointer; */
+  text-align: center;
+  color: #ffffff;
+  background: #acacac;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.0em;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  height: 38px;
+  width: 100px;
+}
 /*Pagination*/
 
 .pagination {
@@ -593,5 +599,56 @@ header{
   color: #01579b;
 }
   
-  
-  
+  /* notification icon and user icon */
+
+  .profile{
+    margin-top: 0.8rem;
+padding-right: 30px;
+text-align: right;
+}
+
+.profile i{
+  font-size: 1.3rem;
+color: #01579b;
+}
+
+/* Style buttons */
+
+.btn1 {
+background-color: #01579b; 
+border: #58a5f0;
+height: 33px;
+padding-left: 8px;
+padding-right: 8px;
+margin-left: 10px;
+font-size: 12px;
+width: fit-content;
+cursor: pointer; 
+border-radius: 55px;
+color:#01579b;
+letter-spacing: 0.5px;
+font-weight: 600;
+}
+
+.btn1 i{
+font-size: 18px;
+margin-top: 2.5px;
+margin-right: 1.5px;
+color:#ffffff;
+}
+
+.btn1:hover {
+  background-color: #58a5f0;
+  color: #000000;
+}
+
+.btn1:hover i {
+  color: #ffffff;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+/* 		font-family: 'Noto Sans KR', sans-serif;
+*/	}

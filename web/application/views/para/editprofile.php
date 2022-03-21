@@ -25,6 +25,7 @@
                     
                       <div class="form-inner">
                       <form action="<?php echo BASEURL;?>/paramedical/updateprofile" class="login" method="POST">              
+
                              <!--name-->
                              <div class="field">
                                 <input type="text" placeholder="<?php echo $data->full_name?>" name="fullname" required readonly>
@@ -68,7 +69,19 @@
                              <div class="field">
                                 <input type="text" value="<?php echo $data->district?>" name="district" required>
                              </div>
-                            
+                             <div class="cover">
+                                 <p class="coverimg" ><label for="file" style="cursor: pointer; ">Profile picture:</label></p>
+                                 <p><input type="file"  accept="image/*" name="image" id="image"  onchange="loadFile(event)"></p>
+                              </div>
+                              <p style="text-align: center;"><img id="output" width="500"></p>
+
+                              <script>
+                              var loadFile = function(event) {
+                                 var image = document.getElementById('output');
+                                 image.src = URL.createObjectURL(event.target.files[0]);
+                              };
+                              </script>
+
                              <!--submit-->
                              <div class="btn">
                                 <input type="submit" value="Submit">

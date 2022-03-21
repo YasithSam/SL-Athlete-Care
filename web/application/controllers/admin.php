@@ -13,15 +13,18 @@ class admin extends main{
     public function index(){
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==1){
-            
             $data = $this->adminModel->getCounts();
-            $this->view("admin/home",$data);
+          
+            $data2 = $this->adminModel->getuserName($userId);
+            $this->view("admin/home",[$data,$data2]);
               
         }
         else{
             $this->view('404');
         }
     }
+
+
     public function register(){
        if($this->getSession('userRole')==1){
          $this->view('admin/reg');
@@ -30,12 +33,14 @@ class admin extends main{
         $this->view('404');
     } 
     }
-    public function casestudy(){     
+    public function casestudy(){   
+        $userId = $this->getSession('userId');
         $c=$this->input('id');
         if($this->getSession('userRole')==1){
           $data=$this->adminModel->getCasestudy($c);
           $data2=$this->adminModel->getCount4();
-          $this->view('admin/casestudy',[$data,$data2,$c]);
+          $data3 = $this->adminModel->getuserName($userId);
+          $this->view('admin/casestudy',[$data,$data2,$c,$data3]);
         }  
         else{
             $this->view('404');
@@ -44,7 +49,7 @@ class admin extends main{
     public function notices(){
         if($this->getSession('userRole')==1){
             $data=$this->adminModel->getNotices();
-          $this->view('admin/notices',$data);
+            $this->view('admin/notices',$data);
         }  
         else{
             $this->view('404');
@@ -61,13 +66,18 @@ class admin extends main{
     public function addnewnotice(){
         $userid = $this->getSession('userId');
         $type = 1;
+        $filename = $_FILES["image"]["name"];
+        if(empty($filename)){$filename="notice.jpg";}
+
+        $tempname = $_FILES["image"]["tmp_name"]; 
         $userData = [
             'heading'        => $this->input('heading'),
             'content'           => $this->input('content'),
             'userid' => $userid,
             'type' => $type,
+            'filename' => $filename,
         ];
-        
+        move_uploaded_file($tempname,"../../web/public/assets/dbimages/$filename");
         if($this->adminModel->createNotice($userData)){
             $this->setFlash('addnot', 'Notice added successfully!');
             $this->redirect('admin/notices');
@@ -87,7 +97,10 @@ class admin extends main{
               $this->view('admin/notices');
           } 
     }
+
+    
     public function users(){
+        $userId = $this->getSession('userId');
         $c=$this->input('id');
         if($this->getSession('userRole')==1){
           $data=$this->adminModel->getUsers($c);
@@ -98,13 +111,16 @@ class admin extends main{
             $this->view('404');
         }
     }
+
     public function articles(){
+        $userId = $this->getSession('userId');
         $c=$this->input('id');
         if($this->getSession('userRole')==1){
           $data=$this->adminModel->getArticles($c);
           $data1=$this->adminModel->getReviewers();
           $data2=$this->adminModel->getCount2();
-          $this->view('admin/articles',[$data,$data2,$c,$data1]);
+          $data3 = $this->adminModel->getuserName($userId);
+          $this->view('admin/articles',[$data,$data2,$c,$data3,$data1]);
         }  
         else{
             $this->view('404');
@@ -116,7 +132,7 @@ class admin extends main{
             'doctorid'  => $this->input('doctor'),
             'postid' => $this->input('postid'),
         ];
-        
+
         if($this->adminModel->setReviewer($data)){
             
             $this->redirect('admin/articles');
@@ -153,14 +169,41 @@ class admin extends main{
     }
 
     public function comments(){
+        $userId = $this->getSession('userId');
         $c=$this->input('id');
         if($this->getSession('userRole')==1){
-            $data=$this->adminModel->getComments($c);
-            $data2=$this->adminModel->getCount3();
-          $this->view('admin/comments',[$data,$data2,$c]);
+           $data=$this->adminModel->getComments();
+           $data2=$this->adminModel->getCount3();
+          $this->view('admin/comments',[$data,$data2]);
         }  
         else{
             $this->view('404');
+        }
+    }
+    
+    public function commentapprove(){
+        $id=$this->input('id');
+        if($this->getSession('userRole')==1){
+        if ($this->adminModel->commentapprove($id)){
+          $this->setFlash('approveart', 'Comment approved!');
+          $this->redirect('admin/comments');
+        } 
+        } 
+        else{
+            $this->view('admin/comments');
+        }
+    }
+    public function commentreject(){
+        $id=$this->input('postid');
+        $r=$this->input('feedback');
+        if($this->getSession('userRole')==1){
+        if ($this->adminModel->commentreject($id,$r)){
+          $this->setFlash('rejecteart', 'comment removed!');
+          $this->redirect('admin/comments');
+        } 
+        } 
+        else{
+            $this->view('admin/comments');
         }
     }
     public function profile(){
@@ -348,6 +391,18 @@ class admin extends main{
         return $data;
 
     } 
+
+/*     public function userName(){
+        $id=$this->getSession('userId');
+        if($this->getSession('userRole')==1){
+            $data=$this->adminModel->getuserName($id);
+            $this->view('admin/header',$data);
+        }  
+        else{
+            $this->view('404');
+        }
+    }
+ */
     
 
 }

@@ -8,7 +8,7 @@
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' rel='stylesheet'>
         <?php linkCSS("assets/css/admin/adminmain.css") ?>
         <?php linkCSS("assets/css/admin/admin.css") ?>
-        <?php linkCSS("assets/css/articlemain.css") ?>
+        <?php linkCSS("assets/css/notices.css") ?>
         <?php linkCSS("assets/css/myarticles.css") ?>
         <?php linkCSS("assets/css/alert.css") ?>
 
@@ -42,7 +42,7 @@
          <?php $arr=array_slice($data,0,3)?>
           <?php foreach($arr as $item): ?>
         <div class="card">
-          <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
+          <img src="../../web/public/assets/dbimages/<?php echo($item->url);?>" alt="Avatar" style="width:100%; height:200px;">
           <div class="container">
             <h4><?php echo($item->heading);?></h4> 
             <p><?php echo($item->description);?></p> 
@@ -66,7 +66,9 @@
         <?php $arr=array_slice($data,3,count($data))?>
         <?php foreach($arr as $item): ?>
         <div class="card">
-          <img src="../../web/public/assets/img/notice.jpg" alt="Avatar" style="width:100%">
+  
+          <img src="../../web/public/assets/dbimages/<?php echo $item->url;?>" alt="Avatar" style="width:100%; height:200px;">
+        
           <div class="container">
             <h4><?php echo($item->heading);?></h4> 
             <p><?php echo($item->description);?></p> 

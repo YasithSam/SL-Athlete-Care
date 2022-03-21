@@ -18,13 +18,12 @@
  <div class="main-content">
  <header>
 	 <div class="logo">
-		<img src="../../web/public/assets/img/logo-4040.png" alt="">
+		<img src="../../../web/public/assets/img/logo-4040.png" alt="">
 		<h2>SL Athlete Care</h2>
 	</div>
 	
 		
 			<div class="profile">
-				<i class="fas fa-bell"></i>
 				<button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
 			</div>
 	
@@ -39,8 +38,8 @@
  	  <div class="card">
 	  
 			<div class="in-card">
-				<img src="../../../web/public/assets/img/<?php echo($data['active']->url)?>"  alt="">
-				<h2><?php echo $data['active']->heading; ?></h2>
+				<img src="../../../web/public/assets/dbimages/<?php echo($data['active']->url)?>"  alt="">
+				<h1><?php echo $data['active']->heading; ?></h1>
 				<h2><?php echo $data['active']->description; ?></h2>
 				
 <!-- 								<h5>Dec 7, 2017</h5>
@@ -66,7 +65,7 @@
  <?php foreach($data['data'] as $item): ?>
    	<div class="column">
 		<div class="grid-card">
-		<img src="../../../web/public/assets/img/<?php echo($item->url)?>"  alt="">
+		<img src="../../../web/public/assets/dbimages/<?php echo($item->url)?>"  alt="">
 				<h2><?php echo $item->heading; ?></h2>
 				
 			<div class="decision-wrapper">

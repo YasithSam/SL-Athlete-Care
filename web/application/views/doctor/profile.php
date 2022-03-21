@@ -24,6 +24,7 @@
             <div class="alrt">
             <?php $this->flash('addcs', 'alert alert-success') ?>
             <?php $this->flash('assign', 'alert alert-success') ?>
+            <?php $this->flash('updtpro', 'alert alert-success') ?>
             </div>
                   
               <div class="home">
@@ -32,7 +33,7 @@
                       <br>
                         <div class="title" style="justify-content: center;">Personal Profile</div>
                         <div class="img">
-                          <img src="../../web/public/assets/img/doctor.jpg" alt="user" class="user"  style="width: 100px; height:100px">
+                          <img src="../../web/public/assets/dbimages/<?php echo $data[0]->profile_image_url?>" alt="user" class="user"  style="width: 100px; height:100px">
                         </div>
 
                 
@@ -41,10 +42,10 @@
                           </div>-->
                       
                         <div class="updt"><i class="fas fa-user user"></i>Dr.<?php echo $data[0]->full_name?></div>
-                        <div class="updt"><i class="fas fa-user user"></i><?php echo ($data[0]->sex) ?></div>
-                        <div class="updt"><i class="fas fa-map-marker-alt user"></i><?php echo($data[0]->province)?></div>
+                        <div class="updt"><i class="fas fa-user user"></i><?php echo ucwords ($data[0]->sex) ?></div>
+                        <div class="updt"><i class="fas fa-map-marker-alt user"></i><?php echo ucwords($data[0]->district)?>,<?php echo ucwords($data[0]->province)?></div>
                         <div class="updt"><i class="fas fa-at user"></i><?php echo($data[0]->email)?></div>
-                        <div class="updt"><i class="fas fa-clinic-medical user"></i><?php echo($data[0]->hospital)?></div>
+                        <div class="updt"><i class="fas fa-clinic-medical user"></i><?php echo ucwords($data[0]->hospital)?></div>
                         <div class="button" style="justify-content: center;"><a href="<?php echo BASEURL;?>/doctor/editprofile">Edit Profile</a></div>
                       </div>
                       
@@ -81,18 +82,21 @@
                <!--Articles box-->
                <div class="about box">
                         <div class="title">
-                          My Articles
+                          Selected Injuries
                         </div>
                         <!--card-->
                         <?php if(!empty($data[2])): ?>
                         <?php foreach($data[2] as $item): ?>
 
-                        <div class="card">
+                        <div class="card-2">
                           <i class="fas fa-notes-medical user"></i>
-                          <div class="qual">
-                          <?php echo($item->heading);?><br>
-                          <p class="txt"><?php echo($item->description);?></p>
+                          <div class="qual"> Name : 
+                          <?php echo($item->full_name);?><br>
+                          <p class="txt"> Injury : <?php echo($item->injury);?></p>
                           </div>
+
+                          <div class="button" > <a href="<?php echo BASEURL;?>/forumController/item/<?php echo $item->id; ?>" style="float:right; margin-right: 25px; font-size:13px:">View</a></div>
+                          
                         </div>
                         <?php endforeach;?>
                          <?php else: ?>
@@ -100,11 +104,6 @@
                         <?php endif; ?> 
                          </div>
                        
-
-                        <div class="link">
-                        <a style="float:right; margin-right: 25px;" href="<?php echo BASEURL;?>/doctor/articles"?>
-                         View More </a>
-                         </div>
                       </div>
               <!--End of Articles box-->
               

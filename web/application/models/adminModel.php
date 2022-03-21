@@ -29,7 +29,9 @@ class adminModel extends database
 
     public function getCounts(){
 
-        if($this->Query("SELECT count(*) AS c1 FROM athlete_profile union all SELECT count(*) AS c3 FROM post union all SELECT count(*) AS c2 FROM case_study")){
+        if($this->Query("SELECT count(*) AS c1 FROM athlete_profile 
+        union all SELECT count(*) AS c2 FROM case_study
+        union all SELECT count(*) AS c3 FROM post")){
             $data = $this->fetchall();
             return $data;
 
@@ -77,7 +79,7 @@ class adminModel extends database
 
     }
     public function getCount3(){
-        if($this->Query("SELECT count(*) as Count from comments where approve!=1")){
+        if($this->Query("SELECT count(*) as Count from comments where approval!=1")){
             $row=$this->fetch();
             return $row->Count;
 
@@ -142,8 +144,6 @@ class adminModel extends database
         return $m;
     }
      public function setReviewer($data){
-        
-    
         $y=[$data['postid'],$data['doctorid']];
         
             if($this->Query("INSERT INTO reviewers (post_id,reviewer_id)  VALUES (?,?)",$y)){
@@ -175,12 +175,12 @@ class adminModel extends database
     public function getComments(){
         
         $m=[];
-        if($this->Query("SELECT c.comment/* ,c.datetime,p.heading,a.username */
+        if($this->Query("SELECT c.id,c.comment,p.heading,a.username,c.datetime 
                         from comments c
-                        /* inner join post p on c.post_id=p.id 
-                        inner join application_user a on c.user_id=a.uuid */
-                        where c.approve=0 
-                        /* order by c.datetime desc */ ")){
+                        inner join post p on c.post_id=p.id 
+                        inner join application_user a on c.user_id=a.uuid
+                        where c.approval=1
+                        order by c.datetime desc")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;
@@ -196,6 +196,17 @@ class adminModel extends database
         }
         return $m;
 
+    }
+    public function commentapprove($id){
+        if($this->Query("UPDATE comments SET approval=2 where id=?",[$id])){
+                return true;
+            }
+    }
+    public function commentreject($id,$r){
+        echo $id;
+        if($this->Query("UPDATE comments SET approval=3, reason='$r' where id=?",[$id])){
+                return true;
+            }
     }
     ///////////////////
     public function createAccountPara($data){
@@ -323,9 +334,10 @@ class adminModel extends database
     }
 
     public function getNotices(){
-        if($this->Query("SELECT p.id, p.type, p.heading, p.description 
+        if($this->Query("SELECT p.id, p.type, p.heading, p.description, pa.url
                          from post p
                          inner join post_type pt on p.type=pt.id
+                         inner join post_attachments pa on pa.post_id=p.id
                          where pt.id=? ",[1])){
             $x=$this->fetchall();
             return $x;
@@ -339,5 +351,16 @@ class adminModel extends database
                  return true;
             }
     }
+
+    public function getuserName($id){
+        if($this->Query("SELECT au.username,au.role_id,ur.role
+                         from application_user au
+                         inner join user_role ur on ur.id=au.role_id
+                         where au.uuid=? ",[$id])){
+            $data=$this->fetch();
+            return $data;
+        }
+    }
+
 
 }

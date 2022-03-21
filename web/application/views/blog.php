@@ -30,7 +30,6 @@
 	
 		
 			<div class="profile">
-				<i class="fas fa-bell"></i>
 				<button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
 			</div>
 	
@@ -56,7 +55,7 @@
 								<div class="testi-item">
 									<div class="testimonials-text">
 										<div class="notice">
-											<img src="../../web/public/assets/img/<?php echo($item->url)?>" alt="">
+											<img src="../../web/public/assets/dbimages/<?php echo($item->url)?>" alt="">
 										</div>
 										
 										<p><?php echo $item->heading?></p>
@@ -94,155 +93,66 @@
 		
  	  </div>
 
-	   <div class="wrapper">
-			<div class="tabs_wrap">
-				<ul class="indicator">
-					<li data-filter="all" class="active"><a href="#">All</a></li>
-					<li data-filter="Cricket"><a href="#">Cricket</a></li>
-					<li data-filter="Football"><a href="#">Football</a></li>
-					<li data-filter="Athletics"><a href="#">Athletics</a></li>
-<!-- 					<li data-filter="Others"><a href="#">Others</a></li>
- -->				</ul>
-			</div>
-		</div>
+	   <div class="filter-search-box">
+                <div class="wrapper">
+                    <div class="tabs_wrap">
+                        <ul class="indicator">
+							<li data-filter="all" class="active"><a href="#">All</a></li>
+                            <li data-filter="Cricket - Q"><a href="#">Cricket</a></li>
+                            <li data-filter="Football - Q"><a href="#">Football</a></li>
+                            <li data-filter="Rugby - Q"><a href="#">Rugby</a></li>
+                            <li data-filter="Athletics - Q"><a href="#">Athletics</a></li>
+                            <li data-filter="Other - Q"><a href="#">Others</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
 
 		
-		<div class="container">
-			<div class="card-content" style="display: none">
-			
-				<ul class="items">
-					<li data-category="Cricket">
-						<div class="pag-card">
- 								<div class="card-info">
-									<div class="user-wrapper2">
-										<img src="../../web/public/assets/img/john.jpg"  alt="">
-											<div class="user-name">
-												<h4>John Cronin
-												</h4>
-											</div>
-									</div> 
-										<h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-										<h5>August 2014</h5>
-									<div class="decision-wrapper">
-										<a href="<?php echo BASEURL;?>/forumController/questionitem"><button class="button3">View</button></a>
-									</div>          
+
+        <div class="q-container">
+            <ul class="items">
+				<?php foreach($data[2] as $item2): ?>
+					<li data-category="<?php echo($item2->type)?>">
+						<div class="q-card">
+							<div class="q-user-wrapper2">
+								<?php 
+									if ($item2->role_id==2){
+										echo "<img src='../../web/public/assets/dbimages/$item2->doctorImg'  alt='doctor'>";
+									}
+									else if ($item2->role_id==3){
+										echo "<img src='../../web/public/assets/dbimages/$item2->paraImg'  alt='physio'>";
+									}
+									else if ($item2->role_id==4){
+										echo "<img src='../../web/public/assets/dbimages/$item2->athleteImg'  alt='athlete'>";
+									}
+									else if ($item2->role_id==5){
+										echo "<img src='../../web/public/assets/dbimages/$item2->paraImg'  alt='nutritionist'>";
+									}
+								?>
+								
+								<div class="user-name">
+									<h4><?php echo $item2->username?></h4>
 								</div>
-						</div>
-					</li>
-					<li data-category="Football">
-						<div class="pag-card">
-							<div class="card-info">
-							   <div class="user-wrapper2">
-								   <img src="../../web/public/assets/img/john.jpg"  alt="">
-									   <div class="user-name">
-										   <h4>John Cronin
-										   </h4>
-									   </div>
-							   </div> 
-							   <h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-							   <h5>August 2014</h5>
-							   <div class="decision-wrapper">
-								   <a href=""><button class="button3">View</button></a>
-							   </div>          
-						   </div>
-				   </div>
-			   </li>
- 					<li data-category="Athletics">
-						<div class="pag-card">
-							<div class="card-info">
-							   <div class="user-wrapper2">
-								   <img src="../../web/public/assets/img/john.jpg"  alt="">
-									   <div class="user-name">
-										   <h4>John Cronin
-										   </h4>
-									   </div>
-							   </div> 
-							   <h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-							   <h5>August 2014</h5>
-							   <div class="decision-wrapper">
-								   <a href=""><button class="button3">View</button></a>
-							   </div>          
-						   </div>
-				   </div>
-			   </li>
-					<li data-category="Cricket">
-							<div class="pag-card">
-								<div class="card-info">
-								<div class="user-wrapper2">
-									<img src="../../web/public/assets/img/p1.jpg"  alt="">
-										<div class="user-name">
-											<h4>John Cronin
-											</h4>
-										</div>
-								</div> 
-								<h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-								<h5>August 2014</h5>
-								<div class="decision-wrapper">
-									<a href=""><button class="button3">View</button></a>
-								</div>          
+							</div> 	
+							<h3><?php echo $item2->heading?></h3>
+							<?php $a=explode(" ",$item2->datetime);?>
+							<h5 class="date"><?php echo $a[0]?></h5>
+							<div class="decision-wrapper">
+								<a href="<?php echo BASEURL;?>/forumController/questionitem/<?php echo $item2->id;?>"><button class="button3">View</button></a>
 							</div>
 						</div>
-						</li>
-					<li data-category="Football">
-						<div class="pag-card">
-							<div class="card-info">
-							   <div class="user-wrapper2">
-								   <img src="../../web/public/assets/img/p1.jpg"  alt="">
-									   <div class="user-name">
-										   <h4>John Cronin
-										   </h4>
-									   </div>
-							   </div> 
-							   <h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-							   <h5>August 2014</h5>
-							   <div class="decision-wrapper">
-								   <a href=""><button class="button3">View</button></a>
-							   </div>          
-						   </div>
-				   </div>
-			   </li>
-			        
-					<li data-category="<?php echo("Cricket")?>">
-						<div class="pag-card">
-							<div class="card-info">
-							   <div class="user-wrapper2">
-								   <img src="../../web/public/assets/img/p1.jpg"  alt="">
-									   <div class="user-name">
-										   <h4>John Cronin
-										   </h4>
-									   </div>
-							   </div> 
-							   <h4>Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers. Biomechanics, Injury Surveillance and Predictors of Injury for Cricket Fast Bowlers</h4>
-							   <h5>August 2014</h5>
-							   
-							   <div class="decision-wrapper">
-								   <a href=""><button class="button3">View</button></a>
-							   </div>          
-						   </div>
-				   </div>
-			   </li>
-		 
-	  
-			  <div class="page-pagination">
-				<!--<li class="page-item previous-page disable"><a class="page-link" href="#">Prev</a></li>
-				<li class="page-item current-page active"><a class="page-link" href="#">1</a></li>
-				<li class="page-item dots"><a class="page-link" href="#">...</a></li>
-				<li class="page-item current-page"><a class="page-link" href="#">5</a></li>
-				<li class="page-item current-page"><a class="page-link" href="#">6</a></li>
-				<li class="page-item dots"><a class="page-link" href="#">...</a></li>
-				<li class="page-item current-page"><a class="page-link" href="#">10</a></li>
-				<li class="page-item next-page"><a class="page-link" href="#">Next</a></li>-->
-			  </div>
-			</ul>
-			</div>
-		  </div>
+					</li>
+				<?php endforeach;?>
+            </ul>
+        </div>
 					  
 
 	
 		
  	</div>
 
-	 
+
 
 
 
@@ -254,14 +164,28 @@
 
  		<div class="card2">
 			<div class="user-wrapper2">
-				<img src="../../web/public/assets/img/avatar.png"  alt="">
+			<?php 
+					if ($item1->role_id==2){
+						echo "<img src='../../web/public/assets/dbimages/$item1->doctorImg'  alt='doctor'>";
+					}
+					else if ($item1->role_id==3){
+						echo "<img src='../../web/public/assets/dbimages/$item1->paraImg'  alt='physio'>";
+					}
+					else if ($item1->role_id==4){
+						echo "<img src='../../web/public/assets/dbimages/$item1->athleteImg'  alt='athlete'>";
+					}
+					else if ($item1->role_id==5){
+						echo "<img src='../../web/public/assets/dbimages/$item1->paraImg'  alt='nutritionist'>";
+					}
+				?>	
 				<div class="user-name">
-					<h4>Kusal Mendis</h4>
+					<h4><?php echo $item1->username?></h4>
 				</div>
 			</div> 	
-			 <img src="../../web/public/assets/img/<?php echo($item1->url)?>"  alt="">
+			<img src="../../web/public/assets/dbimages/<?php echo($item1->url)?>"  alt="">
 			 <h2><?php echo $item1->heading?></h2>
-			 <h4><?php echo $item1->datetime?></h4>
+			 <?php $b=explode(" ",$item1->datetime);?>
+			 <h4><?php echo $b[0]?></h4>
 
 			 <div class="decision-wrapper">
 				<a href="<?php echo BASEURL;?>/forumController/articleitem/<?php echo $item1->id;?>"><button class="button3">View</button></a>

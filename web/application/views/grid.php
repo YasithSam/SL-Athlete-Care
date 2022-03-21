@@ -22,7 +22,6 @@
         
             
                 <div class="profile">
-                    <i class="fas fa-bell"></i>
                     <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
                 </div>
         
@@ -35,23 +34,12 @@
                     <div class="tabs_wrap">
                         <ul class="indicator">
                             <li data-filter="all" class="active"><a href="#">All</a></li>
-                            <li data-filter="Cricket"><a href="#">Cricket</a></li>
-                            <li data-filter="Football"><a href="#">Football</a></li>
-                            <li data-filter="Athletics"><a href="#">Athletics</a></li>
-                            <li data-filter="Others"><a href="#">Others</a></li>
+                            <li data-filter="Cricket - A"><a href="#">Cricket</a></li>
+                            <li data-filter="Football - A"><a href="#">Football</a></li>
+                            <li data-filter="Rugby - A"><a href="#">Rugby</a></li>
+                            <li data-filter="Athletics - A"><a href="#">Athletics</a></li>
+                            <li data-filter="Other - A"><a href="#">Others</a></li>
                         </ul>
-                    </div>
-                </div>
-            <div class="search-box">
-                    <div class="container1">
-                        <div class="search_wrap search_wrap_3">
-                            <div class="search_box">
-                                <input type="text" class="input" placeholder="search...">
-                                <div class="btn btn_common">
-                                    <i class="fas fa-search"></i>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
         </div>
@@ -60,294 +48,39 @@
 
         <div class="container">
             <ul class="items">
-                <li data-category="Others">
+            <?php foreach($data as $item1): ?>
+                <li data-category="<?php echo($item1->type)?>">
                     <div class="card">
                         <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
+                        <?php 
+                            if ($item1->role_id==2){
+                                echo "<img src='../../web/public/assets/dbimages/$item1->doctorImg'  alt='doctor'>";
+                            }
+                            else if ($item1->role_id==3){
+                                echo "<img src='../../web/public/assets/dbimages/$item1->paraImg'  alt='physio'>";
+                            }
+                            else if ($item1->role_id==4){
+                                echo "<img src='../../web/public/assets/dbimages/$item1->athleteImg'  alt='athlete'>";
+                            }
+                            else if ($item1->role_id==5){
+                                echo "<img src='../../web/public/assets/dbimages/$item1->paraImg'  alt='nutritionist'>";
+                            }
+                        ?>	
                             <div class="user-name">
-                                <h4>Kusal Mendis</h4>
+                                <h4><?php echo $item1->username?></h4>
                             </div>
                         </div> 	
                         <div class="article">
-                            <img src="../../web/public/assets/img/question.jpg" alt="">
+                            <img src="../../web/public/assets/dbimages/<?php echo($item1->url)?>" alt="">
                         </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
+                         <h3><?php echo $item1->heading?></h3>
+                         <h5 class="date"><?php echo $item1->datetime?></h5>
                          <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
+                            <a href="<?php echo BASEURL;?>/forumController/articleitem/<?php echo $item1->id;?>"><button class="button3">View</button></a>
                         </div>
                      </div>
                 </li>
-                <li data-category="Cricket">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/cricket.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Football">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/football.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Athletics">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/athletics.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Others">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/question.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Cricket">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/cricket.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Football">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/football.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Athletics">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/athletics.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Others">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/question.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Cricket">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/cricket.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Football">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/football.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Athletics">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/athletics.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Others">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/question.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Cricket">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/cricket.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Football">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/football.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
-                <li data-category="Athletics">
-                    <div class="card">
-                        <div class="user-wrapper2">
-                            <img src="../../web/public/assets/img/avatar.png"  alt="">
-                            <div class="user-name">
-                                <h4>Kusal Mendis</h4>
-                            </div>
-                        </div> 	
-                        <div class="article">
-                            <img src="../../web/public/assets/img/athletics.jpg" alt="">
-                        </div>
-                         <h5>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-                         <h5 class="date">Dec 7, 2017</h5>
-                         <div class="decision-wrapper">
-                            <a href=""><button class="button3">View</button></a>
-                        </div>
-                     </div>
-                </li>
+            <?php endforeach;?>
 
             </ul>
         </div>

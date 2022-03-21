@@ -28,13 +28,12 @@
  <div class="main-content">
  <header>
 	 <div class="logo">
-		<img src="../../web/public/assets/img/logo-4040.png" alt="">
+		<img src="../../../web/public/assets/img/logo-4040.png" alt="">
 		<h2>SL Athlete Care</h2>
 	</div>
 	
 		
 			<div class="profile">
-				<i class="fas fa-bell"></i>
 				<button class="btn1" onclick="window.location.href='#';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
 			</div>
 	
@@ -47,18 +46,34 @@
 		  <div class="card">
    
 		   <div class="user-wrapper1">
-			   <img src="../../../web/public/assets/img/avatar.png"  alt="">
+		   <?php 
+					if ($data['active']->role_id==2){
+						echo "<img src='../../../web/public/assets/dbimages/".$data['active']->doctorImg."'  alt='doctor'>";
+					}	
+					else if ($data['active']->role_id==3){
+						echo "<img src='../../../web/public/assets/dbimages/".$data['active']->paraImg."'  alt='physio'>";
+					}
+					else if ($data['active']->role_id==4){
+						echo "<img src='../../../web/public/assets/dbimages/".$data['active']->athleteImg."'  alt='athlete'>";
+					}
+					else if ($data['active']->role_id==5){
+						echo "<img src='../../../web/public/assets/dbimages/".$data['active']->paraImg."'  alt='nutritionist'>";
+					}
+				?>
 			   <div class="user-name">
-				   <h4>Kusal Mendis</h4>
+				   <h4><?php echo $data['active']->username; ?></h4>
 			   </div>
 		   </div> 	
    
 			<h2><?php echo $data['active']->heading; ?></h2>
-			<h5><?php echo $data['active']->datetime; ?></h5>
+			<?php $a=explode(" ",$data['active']->datetime);?>
+				<h5><?php echo $a[0] ?></h5>
+				<br>
 		   
 		   <div class="article">
-			<img src="../../../web/public/assets/img/<?php echo($data['active']->url)?>" alt="">
+		   <img src="../../../web/public/assets/dbimages/<?php echo($data['active']->url)?>" alt="">
 		   </div>
+		   <br>
 			<p><?php echo $data['active']->description; ?>
 			</p>
 			<br>
@@ -66,12 +81,6 @@
 			<hr>
    
 			<div class="like-comment">
-			   <div class="like">
-				   <i class="bx bxs-like"></i>
-				   <h6><?php echo $data['active']->likes; ?></h6>
-				   <h6>Likes</h6>
-   
-			   </div>
 			   <div class="comment">
 				   <i class="bx bx-comment-dots"></i>
 				   <h6><?php echo $data['active']->comments; ?></h6>
@@ -79,16 +88,27 @@
 			   </div>
 			</div>
    
-		   
+			<h2>All Comments</h2>
+			<div class="comment-user">
+				<div class="username">
+						<h3>Kusal Mendis</h3>
+				</div>
+				<div class="commentitem">
+					<p>Great article</p>
+				</div>
+				<hr style="width:50%;text-align:left;margin-left:0">
+			</div>
+			<br>
+			
 		  </div>
-		  <div class="card">
-			  <h3>Add Comments</h3>
-			  <hr>
-			  <form action="">
-				   <span><input class="" type="text" placeholder="type here..."></span>
-					 <input type="submit" value="Submit" >
-			   </form> 
-		  </div>
+			<div class="card">
+				<h3>Add Comments</h3>
+				<hr>
+				<form action="">
+				<textarea class="commentarea" rows="6"  type="text" placeholder="type comment..."></textarea>
+						<input type="submit" value="Submit">
+				</form> 
+			</div>
    
    
 		</div>
@@ -99,19 +119,33 @@
 			<?php foreach($data['data'] as $item): ?>
 			<div class="card">
 			   <div class="user-wrapper2">
-				   <img src="../../web/public/assets/img/avatar.png"  alt="">
+			   <?php 
+					if ($item->role_id==2){
+						echo "<img src='../../../web/public/assets/dbimages/$item->doctorImg'  alt='doctor'>";
+					}
+					else if ($item->role_id==3){
+						echo "<img src='../../../web/public/assets/dbimages/$item->paraImg'  alt='physio'>";
+					}
+					else if ($item->role_id==4){
+						echo "<img src='../../../web/public/assets/dbimages/$item->athleteImg'  alt='athlete'>";
+					}
+					else if ($item->role_id==5){
+						echo "<img src='../../../web/public/assets/dbimages/$item->paraImg'  alt='nutritionist'>";
+					}
+				?>	
 				   <div class="user-name">
-					   <h4>Kusal Mendis</h4>
+					   <h4><?php echo $item->username; ?></h4>
 				   </div>
 			   </div> 	
    
 			   <div class="article">
-				   <img src="../../../web/public/assets/img/<?php echo($item->url)?>" alt="">
+				<img src="../../../web/public/assets/dbimages/<?php echo($item->url)?>" alt="">
 			   </div>
 		  
 	   
-				<h5><?php echo $item->heading; ?></h4>
-				<h5><?php echo $data['active']->datetime; ?></h5>
+				<h3><?php echo $item->heading; ?></h3>
+				<?php $b=explode(" ",$data['active']->datetime);?>
+				<h5><?php echo $b[0]?></h5>
    
 				<div class="decision-wrapper">
 				   <a href="<?php echo BASEURL;?>/forumController/articleitem/<?php echo $item->id;?>"><button class="button3">View</button></a>
@@ -124,6 +158,11 @@
 	<?php else: ?>
 		<h1>No data </h1>
 	<?php endif; ?> 
+
+	<div class="view">
+			<a href="<?php echo BASEURL;?>/forumController/grid"><button class="viewall">View All</button></a>
+		</div>
+
 
    
 		</div>

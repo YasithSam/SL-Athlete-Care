@@ -18,14 +18,17 @@
         <div class="main-content">
         <?php include "header.php"?>
 
+        <div class="wrapper">
         <div class="description">
             All Articles and Questions
        </div>
 
       <div style="margin-left: 40px; margin-bottom: 10px;">
+
         <?php $this->flash('approveart', 'alert alert-success') ?>
         <?php $this->flash('rejecteart', 'alert') ?>
       </div>
+
 
         <div class="wrapper">
            <table class="content-table">
@@ -35,10 +38,12 @@
                 <th class="title">Title</th>
                 <th class="desc">Description</th>
                 <th class="name">Author</th>
+
                 <th class="name">Reviewer</th>
                 <th class="rname" style="text-align: center;">Reviewer Approval</th>
                 <th class="btnrow">Approve Article</th>
                 <th class="btnrow">Reject Article</th>
+
               </tr>
             </thead>
             <tbody>
@@ -81,9 +86,11 @@
                   </form>   
                   </td>
             <?php }?>
+
             
                 <td><a href="<?php echo BASEURL;?>/admin/articleapprove?id=<?php echo($item->id);?>" onclick='return confirm("Approve this article?");'><input type="button" class="button2" value="Approve"></a></td>
                 <td><button class="button3">Reject</button></td>
+
 
 <!--Feedback Modal-->
 <div id="FeedbackModal" class="fmodal">       

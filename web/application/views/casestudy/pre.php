@@ -353,14 +353,19 @@
         </div>
    
   <div class="form-cont">
-    <form action="<?php echo BASEURL;?>/CaseStudyController/addFeedback/<?php echo($data[1])?>" method="POST">
+    <form action="<?php echo BASEURL;?>/CaseStudyController/addFeedbackPre/<?php echo($data[1])?>" method="POST">
   
     <div class="row">
       <div class="col-25">
         <label for="title">Type :</label>
       </div>
       <div class="col-75">
-        <input type="text" id="type" name="type" required>
+        <select name="type" id="type"   required>
+            <option value="1">Medicine</option>
+            <option value="3">Workout</option>
+            <option value="4">Diet</option>
+                                   
+      </select>
       </div>
     </div>
   

@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,13 +28,12 @@
  <div class="main-content">
  <header>
 	 <div class="logo">
-		<img src="../../web/public/assets/img/logo-4040.png" alt="">
+		<img src="../../../web/public/assets/img/logo-4040.png" alt="">
 		<h2>SL Athlete Care</h2>
 	</div>
 	
 		
 			<div class="profile">
-				<i class="fas fa-bell"></i>
 				<button class="btn1" onclick="window.location.href='#';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
 			</div>
 	
@@ -47,43 +46,62 @@
 		  <div class="card">
    
 		   <div class="user-wrapper1">
-			   <img src="../../web/public/assets/img/avatar.png"  alt="">
+		   <?php 
+					if ($data['active']->role_id==2){
+						echo "<img src='../../../web/public/assets/dbimages/".$data['active']->doctorImg."'  alt='doctor'>";
+					}	
+					else if ($data['active']->role_id==3){
+						echo "<img src='../../../web/public/assets/dbimages/".$data['active']->paraImg."'  alt='physio'>";
+					}
+					else if ($data['active']->role_id==4){
+						echo "<img src='../../../web/public/assets/dbimages/".$data['active']->athleteImg."'  alt='athlete'>";
+					}
+					else if ($data['active']->role_id==5){
+						echo "<img src='../../../web/public/assets/dbimages/".$data['active']->paraImg."'  alt='nutritionist'>";
+					}
+				?>
+
 			   <div class="user-name">
-				   <h4>Kusal Mendis</h4>
+				   <h4><?php echo $data['active']->username; ?></h4>
 			   </div>
 		   </div> 	
    
-			<h2>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h2>
-			<h5>Dec 7, 2017</h5>
-		   
-		   <div class="article">
-<!-- 			<img src="img/article.jpg" alt="">
- -->		   </div>
-			<p>There have been growing discussions across international societies since 2017 focused on athlete wellness and athlete care. The human condition of high-performance athletes requires life balance, holistic personhood, and a functional athletic career with the support of integrative resources from sport organisations. During two successive International Society of Sport Psychology Think Tanks on Athlete Mental Health in 2018 and 2019, an international group of practitioners from Olympic and professional sport organisations discussed topics spanning what athlete mental health should look like, while problematising an overly narrow focus on athlete mental ill-health (i.e., an unbalanced approach to the topic), how it is being diagnosed, and how it is understood through research. Discussions have advanced into structural suggestions regarding standards of care for athletes in their daily training environments and at major international tournament events. Within this consensus statement, the authors focus our discussions onto athlete acute care. Emphasis is placed on how an integrated support team can work efficiently with high-performance athletes when acute care is required in two general contexts: within the training environment, and onsite at major events. A model is proposed to spur discussions and better standards to guide the athlete acute care process. Recommendations are provided for sport psychology practitioners, researchers, and high-performance sport organizations. There have been growing discussions across international societies since 2017 focused on athlete wellness and athlete care. The human condition of high-performance athletes requires life balance, holistic personhood, and a functional athletic career with the support of integrative resources from sport organisations. 
-			</p>
+				<h2><?php echo $data['active']->heading; ?></h2>
+				<?php $a=explode(" ",$data['active']->datetime);?>
+				<h4><?php echo $a[0] ?></h4>
+				<br>
+			<p><?php echo $data['active']->description; ?></p>
 			<br>
    
 			<hr>
    
 			<div class="like-comment">
-			   <div class="like">
-				   <i class="bx bxs-like"></i>
-				   <h6>Likes</h6>
-   
-			   </div>
 			   <div class="comment">
 				   <i class="bx bx-comment-dots"></i>
+				   <h6><?php echo $data['active']->comments; ?></h6>
 				   <h6>Comments</h6>
 			   </div>
 			</div>
    
+			<h2>All Comments</h2>
+			<div class="comment-user">
+				<div class="username">
+						<h3>Kusal Mendis</h3>
+				</div>
+				<div class="commentitem">
+					<p>Great article</p>
+				</div>
+				<hr style="width:50%;text-align:left;margin-left:0">
+			</div>
+			<br>
 		   
 		  </div>
+		  
 		  <div class="card">
 			  <h3>Add Comments</h3>
 			  <hr>
 			  <form action="">
-				   <span><input class="" type="text" placeholder="type here..."></span>
+			  <textarea class="commentarea" rows="6"  type="text" placeholder="type comment..."></textarea>
 					 <input type="submit" value="Submit" >
 			   </form> 
 		  </div>
@@ -93,72 +111,46 @@
    
 		<div class="right-column">
 			<h1 style="font-size:30px">Similar Questions</h1>
+			<?php if(!empty($data['data'])): ?>
+			<?php foreach($data['data'] as $item): ?>
+
 			<div class="card">
 			   <div class="user-wrapper2">
-				   <img src="../../web/public/assets/img/avatar.png"  alt="">
+			   <?php 
+					if ($item->role_id==2){
+						echo "<img src='../../../web/public/assets/dbimages/$item->doctorImg'  alt='doctor'>";
+					}
+					else if ($item->role_id==3){
+						echo "<img src='../../../web/public/assets/dbimages/$item->paraImg'  alt='physio'>";
+					}
+					else if ($item->role_id==4){
+						echo "<img src='../../../web/public/assets/dbimages/$item->athleteImg'  alt='athlete'>";
+					}
+					else if ($item->role_id==5){
+						echo "<img src='../../../web/public/assets/dbimages/$item->paraImg'  alt='nutritionist'>";
+					}
+				?>	
 				   <div class="user-name">
-					   <h4>Kusal Mendis</h4>
+					   <h4><?php echo $item->username; ?></h4>
 				   </div>
 			   </div> 	
    
-			   <div class="article">
-<!-- 				   <img src="img/article.jpg" alt="">
- -->			   </div>
-		  
-	   
-				<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-				<h5>Dec 7, 2017</h5>
+				<h2><?php echo $item->heading; ?></h2>
+				<?php $b=explode(" ",$data['active']->datetime);?>
+				<h4><?php echo $b[0]?></h4>
    
 				<div class="decision-wrapper">
-				   <a href="<?php echo BASEURL;?>/forumController/questionitem"><button class="button3">View</button></a>
+				   <a href="<?php echo BASEURL;?>/forumController/questionitem/<?php echo $item->id;?>"><button class="button3">View</button></a>
 			   </div>
 	   
 					 
 			</div>
+			<?php endforeach;?>
+	<?php else: ?>
+		<h1>No data </h1>
+	<?php endif; ?> 
+
 		   
-			<div class="card">
-			   <div class="user-wrapper2">
-				   <img src="../../web/public/assets/img/avatar.png"  alt="">
-				   <div class="user-name">
-					   <h4>Kusal Mendis</h4>
-				   </div>
-			   </div> 
-			   
-			   <div class="article">
-<!-- 				   <img src="img/article.jpg" alt="">
- -->			   </div>
-	   
-				<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-				<h5>Dec 7, 2017</h5>
-   
-				<div class="decision-wrapper">
-				   <a href=""><button class="button3">View</button></a>
-			   </div>
-	   
-					 
-			</div>
-   
-			<div class="card">
-			   <div class="user-wrapper2">
-				   <img src="../../web/public/assets/img/avatar.png"  alt="">
-				   <div class="user-name">
-					   <h4>Kusal Mendis</h4>
-				   </div>
-			   </div> 	
-   
-			   <div class="article">
-<!-- 				   <img src="img/article.jpg" alt="">
- -->			   </div>
-	   
-				<h4>Pathways through acute athlete care during training and major tournaments: a multi-national conceptualised process</h4>
-				<h5>Dec 7, 2017</h5>
-   
-				<div class="decision-wrapper">
-				   <a href=""><button class="button3">View</button></a>
-			   </div>
-	   
-					 
-			</div>
    
    
 		</div>

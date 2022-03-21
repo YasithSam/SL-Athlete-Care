@@ -81,7 +81,8 @@
 	justify-content: center;
 }
 .wrapper .tabs_wrap ul li{
-	width: 118px;
+	width: auto;
+	margin-bottom: 1rem;
 	text-align: center;
 	background-color: #ffffff;
 	border-right: 1px solid #0046b8;
@@ -114,8 +115,27 @@
     text-decoration: none;
 }
 
-.filter-search-box{
+.filter-search-box{ 
     display: flex;
     float: none;
     justify-content: center;
+}
+
+.indicator .submitbtn{
+	width: auto;
+	margin-bottom: 1rem;
+	text-align: center;
+	background-color: #ffffff;
+/* 	border-right: 1px solid #0046b8;
+ */	padding: 10px 15px;
+	cursor: pointer;
+/* 	transition: all 0.4s ease; */
+	border: 0;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+
+.indicator .submitbtn:hover{
+	background-color: #007aff;
+	color: #fff;
 }

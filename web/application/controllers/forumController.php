@@ -11,18 +11,20 @@ class forumController extends main{
 
     }
     public function index(){
-            if($this->getSession('userRole')!=4){
-            $data=$this->forumModel->getNotices();
-            $data2=$this->forumModel->getArticles();
-            $top=array_slice($data, 0, 3);
-            $top2=array_slice($data2, 0, 4);
-            $data3=[$top,$top2];
-            $this->view('blog',$data3);
-            }
-            else{
-                $this->view('404');
-            } 
+        if($this->getSession('userRole')!=4){
+        $data=$this->forumModel->getNotices();
+        $data2=$this->forumModel->getArticles();
+        $data3=$this->forumModel->getQuetions();
+        $top=array_slice($data, 0, 3);
+        $top2=array_slice($data2, 0, 4);
+        $top3=array_slice($data3, 0, 3);
+        $data4=[$top,$top2,$top3];
+        $this->view('blog',$data4);
         }
+        else{
+            $this->view('404');
+        } 
+    }
 
     
 
@@ -71,9 +73,14 @@ class forumController extends main{
 
     }
     public function grid(){
-        $this->view('grid');
-
-    }
+        if($this->getSession('userRole')!=4){
+            $data=$this->forumModel->getArticles();
+            $this->view('grid',$data);
+            }
+            else{
+                $this->view('404');
+            } 
+        }
     public function articleitem($id){
         if($this->getSession('userRole')==2){
             $data['data']=$this->forumModel->getotherArticles($id);
@@ -85,9 +92,15 @@ class forumController extends main{
         }
     }
 
-    public function questionitem(){
-        $this->view('questionitem');
-
+    public function questionitem($id){
+        if($this->getSession('userRole')==2){
+            $data['data']=$this->forumModel->getotherQuetions($id);
+            $data['active']=$this->forumModel->getQuetionsitem($id);
+            $this->view('questionitem',$data);
+        }
+        else{
+            $this->view('404');
+        }
     }
     public function noticeitem($id){
             if($this->getSession('userRole')==2){

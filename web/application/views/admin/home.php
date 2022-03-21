@@ -9,6 +9,8 @@
         <?php linkCSS("assets/css/admin/adminmain.css") ?>
         <?php linkCSS("assets/css/admin/admin.css") ?>
         <?php linkCSS("assets/css/alert.css") ?>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
     <body>
@@ -45,21 +47,21 @@
                 <i class="fas fa-user-md icon"></i>
                 <div class="right-side">
                   <div class="box-topic">Total Athletes</div>
-                  <div class="number"><?php echo($data[0]->c1)?></div>
+                  <div class="number"><?php print_r($data[0][0]->c1)?></div>
                 </div>
               </div>
               <div class="box">
                 <i class="fas fa-procedures icon"></i>
                 <div class="right-side">
                   <div class="box-topic">Total Case Studies</div>
-                  <div class="number"><?php echo($data[0]->c2)?></div>
+                  <div class="number"><?php print_r($data[0][1]->c1)?></div>
                 </div>
               </div>
               <div class="box">
                 <i class="fas fa-users icon"></i>
                 <div class="right-side">
                   <div class="box-topic">Total Posts</div>
-                  <div class="number"><?php echo($data[0]->c3)?></div>
+                  <div class="number"><?php echo($data[0][2]->c1)?></div>
                 </div>
               </div>
             </div>
@@ -67,9 +69,10 @@
             <div class="charts">
               <div class="chart1 box">
                 <p>User movement</p>
-                <div class="graph">
-                    <img class="line" src="../../web/public/assets/img/line.jpeg" alt="">
+                <div id="chart-container">
+                  <canvas id="mycanvas"></canvas>
                 </div>
+
                 
               </div>
       
@@ -77,7 +80,9 @@
                     <div class="piechartbox">
                         <p>Athletes by sport</p>
                         
-                        <img class="pie" src="../../web/public/assets/img/pie.jpeg" alt="pie chart">
+                        <div class="chart-container pie-chart">
+								           <canvas id="pie_chart"></canvas>
+							         </div>
                     </div>
                     
               </div>
@@ -105,5 +110,9 @@
                 });
               }
               </script>
+              
+              <?php linkJS("assets/js/users.js") ?>
+                  
+              <?php linkJS("assets/js/sports.js") ?>
     </body>
 </html>

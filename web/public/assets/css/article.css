@@ -196,7 +196,7 @@ body{
 }
 
 .row .left-column .card p{
-    font-size:12px;
+    font-size:medium;
 }
 
 .left-column{
@@ -322,8 +322,8 @@ hr {
 .like-comment .comment{
     display: flex;
     font-size: 1.5rem;
-	margin-left: 3rem;
-	color: #636363;
+/* 	margin-left: 3rem;
+ */	color: #636363;
 }
 
 
@@ -342,7 +342,7 @@ hr {
 }
 
 
-.card span input {
+.card .commentarea {
     width: 100%;
     margin-top: 10px;
     outline: none;
@@ -377,9 +377,45 @@ hr {
     margin-top: 1rem;
 }
 
+.user-wrapper2 h4{
+    margin-bottom: 1rem;
+}
+
+.view .viewall {
+	float: right;
+	margin-top: 20px;
+    background: #8d8d8d;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1 rem;
+    padding: .5rem 1rem;
+    border: 1px solid var(--main-color);
+	/* cursor: pointer; */
+
+}
 
 
+.view button:hover{
+    background-color: #000051;
+}
 
+.card input{
+    cursor: pointer;
+}
+
+.card input:hover{
+    background-color: #949494;
+    color: #ffffff;
+}
+
+.comment-user{
+    margin-left: 1rem;
+}
+
+
+.comment-user .commentitem{
+    margin-left: 2rem;
+}
 	
 	
 

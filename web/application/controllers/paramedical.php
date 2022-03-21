@@ -14,16 +14,17 @@ class paramedical extends main{
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==3|| $this->getSession('userRole')==5){
             $data = $this->paramedicalModel->getCounts($userId);   
-            $x= $this->paramedicalModel->getForumItems($userId);    
-            $dataArray=[$data,$x];
-               
+            $x= $this->paramedicalModel->getForumItems($userId); 
+            $data3 = $this->paramedicalModel->getuserName($userId);   
+            $dataArray=[$data,$x,$data3];
             $this->view("para/home",$dataArray);
-              
         }
         else{
             $this->view('404');
         }
     }
+
+
     
     public function casestudy(){
         if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
@@ -55,13 +56,17 @@ class paramedical extends main{
     }
     public function addnewarticle(){
         $userid = $this->getSession('userId');
+        $filename = $_FILES["image"]["name"];
+        if(empty($filename)){$filename="article.jpg";}
+        $tempname = $_FILES["image"]["tmp_name"]; 
         $userData = [
             'heading'        => $this->input('heading'),
             'content'           => $this->input('content'),
             'category'           => $this->input('category'),
             'userid' => $userid,
+            'filename' => $filename,
         ];
-        
+        move_uploaded_file($tempname,"../../web/public/assets/dbimages/$filename");
         if($this->paramedicalModel->createArticle($userData)){
             $this->setFlash('addart', 'The article will be processed in a few hours!');
             $this->redirect('paramedical/articles');
@@ -131,6 +136,7 @@ class paramedical extends main{
     }
     public function profile(){
         $userid = $this->getSession('userId');
+        
         if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
           $data=$this->paramedicalModel->getProfile($userid);
           $this->view('para/profile',$data);
@@ -166,6 +172,23 @@ class paramedical extends main{
         $this->view('para/editprofile',$data);
         }
     }
+
+    public function acceptRequest()
+    {
+        $c=$this->input('id');
+        $z=$this->input('case_study_id');
+        if($this->paramedicalModel->acceptRequest($c)){
+            $this->redirect('paramedical/index?id=1/'.$z);
+            }
+
+        
+        else{
+            $this->redirect('paramedical/index?id=1/'.$z);
+
+        }   
+
+    }
+  
 
 }
 ?>    

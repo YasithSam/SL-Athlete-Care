@@ -322,10 +322,30 @@ header{
   height: 38px;
   width: 100px;
   }
+
+  .button1{
+    overflow:hidden;
+    cursor: pointer;
+    text-align: center;
+    background: #006400;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.0em;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    height: 38px;
+    width: 100px;
+    }
   
   .button:hover{
       background: #01579b;
   }
+
+  .button1:hover{
+    background: #37c924;
+}
 
 /*Pagination*/
 
@@ -371,6 +391,211 @@ header{
       width: 90%;
     }  
 }
+
+/*reviews modal*/
+.fmodal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 15px; /* Location of the box */
+  margin-left: 60px;
+  margin-top: 40px;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.mcontainer {
+  width: 50%;
+  margin-left: 30%;
+  margin-top: 80px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.header2{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-top: 7px;
+  height: 85px;
+  width: 100%;
+  background-color: #01579b;
+
+}
+
+.myheader{
+   padding-top: 20px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+.mcontainer .form-cont{
+  padding: 20px 70px 20px 30px;
+  background-color: #ecedee;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.row .col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.row .col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.fback{
+  background-color: #01579b;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 4px;
+  width: 100px;
+  cursor: pointer;
+  float: left;
+  margin-left: 40px;
+}
+
+
+.fback a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  display: inline-block;     
+  position: relative;    
+  z-index: 1;     
+  padding: 2em;     
+  margin: -2em; 
+}
+
+.fback:hover{
+  background-color: #80c0ff;
+}
+
+.fback a:hover{
+  color: #01579b;
+}
+.form-cont input[type=text], select, textarea {
+  width: 94%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.form-cont input[type=date] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-cont label {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.form-cont input[type=submit] {
+  background-color: #01579b;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  width: 100px;
+  cursor: pointer;
+  float: right;
+}
+
+.form-cont input[type=submit]:hover {
+  background-color:  #80c0ff;
+  color: #01579b;
+}
+
+
+/* notification icon and user icon */
+
+.profile{
+  margin-top: 0.8rem;
+padding-right: 30px;
+text-align: right;
+}
+
+.profile i{
+font-size: 1.3rem;
+color: #01579b;
+}
+
+/* Style buttons */
+
+.btn1 {
+background-color: #01579b; 
+border: #58a5f0;
+height: 33px;
+padding-left: 8px;
+padding-right: 8px;
+margin-left: 10px;
+font-size: 12px;
+width: fit-content;
+cursor: pointer; 
+border-radius: 55px;
+color:#01579b;
+letter-spacing: 0.5px;
+font-weight: 600;
+}
+
+.btn1 i{
+font-size: 18px;
+margin-top: 2.5px;
+margin-right: 1.5px;
+color:#ffffff;
+}
+
+.btn1:hover {
+background-color: #58a5f0;
+color: #000000;
+}
+
+.btn1:hover i {
+color: #ffffff;
+}
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+/* 		font-family: 'Noto Sans KR', sans-serif;
+*/	}
+  
+  
+  
 
   
   

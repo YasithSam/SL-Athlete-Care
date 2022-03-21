@@ -138,10 +138,7 @@ header{
     align-items: center;
 }
 
-.user-wrapper img {
-    border-radius: 50%;
-    margin-right: 1rem;
-}
+
 
 .user-wrapper small {
     display: inline-block;
@@ -220,5 +217,279 @@ header{
 
 
 
+/* notification icon and user icon */
+
+.profile{
+    margin-top: 0.5rem;
+  padding-right: 0.2rem;
+  text-align: right;
+}
+
+.profile i{
+  font-size: 1.3rem;
+  color: #01579b;
+}
+
+/* Style buttons */
+
+.btn1 {
+  background-color: #01579b; 
+  border: #58a5f0;
+  height: 33px;
+  padding-left: 8px;
+  padding-right: 8px;
+/*   margin-left: 10px;
+ */  margin-top: 0.4rem;
+  font-size: 12px;
+  width: fit-content;
+  cursor: pointer; 
+  border-radius: 55px;
+  color:#01579b;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.btn1 i{
+  font-size: 18px;
+  margin-top: 2.5px;
+  margin-right: 1.5px;
+  color:#ffffff;
+}
+
+.btn1:hover {
+    background-color: #58a5f0;
+    color: #000000;
+  }
+
+  .btn1:hover i {
+    color: #ffffff;
+  }
+
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+/* 		font-family: 'Noto Sans KR', sans-serif;
+*/	}
 
 
+/* /////////////////////////////////// */
+
+
+
+
+header .social-icons .profile .navbar_right .icon_wrap .fa-bell{
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+header .social-icons .profile .navbar_right .notifications{
+  margin-right: 25px;
+}
+
+header .social-icons .profile .navbar_right .notifications .icon_wrap i{
+  font-size: 23px;
+  margin-top: 0.7rem;
+}
+
+.icon_wrap span {
+    position: absolute;
+    top: -23px;
+    right: -12px;
+    padding: 1px 7px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+    cursor: pointer;
+}
+
+
+ 
+
+header .social-icons .profile .navbar_right .notifications{
+  position: relative;
+}
+
+.notification_dd{
+  position: absolute;
+  top: 51px;
+  right: -15px;
+  user-select: none;
+  background: #fff;
+  border: 1px solid #c7d8e2;
+  width: 350px;
+  height: auto;
+  display: none;
+  border-radius: 3px;
+  box-shadow: 10px 10px 35px rgba(0,0,0,0.125),
+              -10px -10px 35px rgba(0,0,0,0.125);
+}
+
+
+.notification_dd:before{
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 15px;
+    border: 10px solid;
+    border-color: transparent transparent #fff transparent;
+}
+
+.notification_dd li {
+    border-bottom: 1px solid #f1f2f4;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.notification_dd li .notify_icon{
+  display: flex;
+}
+
+.notification_dd li .notify_icon .icon{
+  display: inline-block;
+  background: url('https://i.imgur.com/MVJNkqW.png') no-repeat 0 0;
+	width: 40px;
+	height: 42px;
+}
+
+.notification_dd li.baskin_robbins .notify_icon .icon{
+  background-position: 0 -43px;
+}
+
+.notification_dd li.mcd .notify_icon .icon{
+  background-position: 0 -86px;
+}
+
+.notification_dd li.pizzahut .notify_icon .icon{
+  background-position: 0 -129px;
+}
+
+.notification_dd li.kfc .notify_icon .icon{
+  background-position: 0 -178px;
+}
+
+.notification_dd li .notify_data{
+  margin: 0 15px;
+  width: 185px;
+}
+
+.notification_dd li .notify_data .title{
+  color: #000;
+  font-weight: 600;
+  text-align: left;
+}
+
+.notification_dd li .notify_data .sub_title{
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 5px;
+}
+
+.notification_dd li .notify_status p{
+  font-size: 12px;
+}
+
+.notification_dd li.success .notify_status p{
+  color: #47da89;
+}
+
+.notification_dd li.failed .notify_status p{
+  color: #fb0001;
+}
+
+.notification_dd li.show_all{
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.notification_dd li.show_all p{
+  font-weight: 700;
+  color: #3b80f9;
+  cursor: pointer;
+}
+
+.notification_dd li.show_all p:hover{
+  text-decoration: underline;
+}
+
+
+header .social-icons .profile .navbar_right .icon_wrap:hover,
+.navbar .navbar_right .notifications.active .icon_wrap{
+  color: #3b80f9;
+}
+ 
+
+ header .social-icons .profile .notifications.active .notification_dd{
+  display: block;
+}
+
+.popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease;
+    display: none;
+}
+
+.popup .shadow {
+  position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.popup .inner_popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.popup .notification_dd{
+  display: block;
+  position: static;
+  margin: 0 auto;
+  height: 357px;
+  overflow: auto;
+  z-index: 1;
+}
+
+.popup .notification_dd:before{
+   display: none;
+}
+
+.popup .notification_dd li.title{
+  font-weight: 700;
+  color: #3b80f9;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.popup .notification_dd li.title .close{
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup .notification_dd li.title .close:hover{
+  opacity: 0.5;
+}
+
+.social-icons img {
+    border-radius: 50%;
+    margin-top: 0.5rem;
+}

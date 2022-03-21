@@ -23,23 +23,51 @@ class doctorModel extends database
         }
     }
 
-    //Doctor article
-    public function getDoctorArticles($id){
-        if($this->Query("SELECT p.heading, p.description FROM post p inner join doctor_profile d on d.uuid=p.author_id where d.uuid=? && p.type='article' && p.approval_status=? order by datetime desc",[$id,1])){
+    //Selected Injuries - Profile page
+
+    public function getSelectedInjuries($id){
+        if($this->Query("SELECT r.id,a.full_name,i.injury,r.con,r.doctor_id 
+                         from athlete_reported_injury AS r 
+                         inner join athlete_profile AS a On r.athlete_id=a.uuid 
+                         inner join injury As i on i.id=r.injury_id 
+                         where (r.doctor_id=? || r.doctor_id=?) && r.status=?",[$id,0,1])){
             $x=$this->fetchall();
             return $x;
 
         }
     }
 
-    
+
+    //Doctor article
+   // public function getDoctorArticles($id){
+//    if($this->Query("SELECT p.heading, p.description FROM post p left join doctor_profile d on d.uuid=p.author_id 
+    //    where d.uuid=? && p.type!=1 && p.type<7 && p.approval_status=? order by datetime desc",[$id,1])){
+    //        $x=$this->fetchall();
+    //        return $x;
+
+//        }
+   // }
+
     public function getProfile($id){
-        if($this->Query("SELECT uuid,full_name,province,sex,email,hospital from doctor_profile where uuid=?",[$id])){
+        if($this->Query("SELECT uuid,full_name,province,district,sex,email,profile_image_url,hospital,doctor_number 
+        from doctor_profile where uuid=?",[$id])){
             $x=$this->fetch();
             return $x;
 
         }
     }
+
+
+    //Doctor profile update
+    public function updateprofile($u,$i,$e,$h,$p,$d){
+        
+        if($this->Query("UPDATE doctor_profile set profile_image_url='$i', email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){         
+             return true;
+        }
+    }
+
+
+
     public function getCaseStudyProfile($id){
         if($this->Query("SELECT a.full_name af,c.case_id,c.title/* ,pp.full_name pf  */
                         FROM case_study c 
@@ -303,9 +331,10 @@ class doctorModel extends database
         return $u;
     }
     public function getArticles($userid){
-        if($this->Query("SELECT p.id, p.type, p.heading, p.description 
+        if($this->Query("SELECT p.id, p.type, p.heading, p.description,pa.url
                          from post p
-                         where p.type<? && p.type!=? && p.approval_status=? && p.author_id=?",[7,1,1,$userid])){
+                         inner join post_attachments pa on pa.post_id=p.id
+                         where p.type<? && p.type!=? && p.approval_status=? && p.author_id=?",[7,1,2,$userid])){
             $x=$this->fetchall();
             return $x;
         }
@@ -335,6 +364,7 @@ class doctorModel extends database
                  return true;
             }
     }
+
     public function deleteArticle($id)
     {
         
@@ -353,13 +383,19 @@ class doctorModel extends database
                 }
             }     
         }  
-        if($this->Query("DELETE from post where id=?",[$id]))
-        { 
-            
-            if($this->rowCount()>0){
-                return true; 
-            }  
-        }  
+       
+                if($this->Query("DELETE from comments where post_id=?",[$id]))
+                { 
+                    if($this->Query("DELETE from post where id=?",[$id]))
+                    { 
+                        
+                        if($this->rowCount()>0){
+                            return true; 
+                        }  
+                    }  
+                }
+           
+       
         
         return false;
 
@@ -376,12 +412,12 @@ class doctorModel extends database
 
     public function getReviews($userId){
         $m=[];
-        if($this->Query("SELECT p.type, p.heading, p.description, dp.full_name, r.reviewer_id /*, pa.type pt*/
+        if($this->Query("SELECT p.type, p.heading, p.description, dp.full_name, r.reviewer_id,r.id /*, pa.type pt*/
                         from reviewers r 
                         inner join post p on r.post_id=p.id
                         inner join doctor_profile dp on dp.uuid=r.reviewer_id
                         /*inner join post_attachments pa on pa.post_id=p.id*/
-                        where r.approval=? && r.reviewer_id=?",[0,$userId]
+                        where r.approval=? && r.reviewer_id=?",[1,$userId]
                         /* order by p.datetime desc  */)){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -398,6 +434,31 @@ class doctorModel extends database
         }
         return $m;
     }
+
+    public function reviewapprove($id){
+        if($this->Query("UPDATE reviewers SET approval=2 where id=?",[$id])){
+                return true;
+            }
+    }
+    public function reviewreject($id,$r){
+        echo $id;
+        if($this->Query("UPDATE reviewers SET approval=3, reason='$r' where id=?",[$id])){
+                return true;
+            }
+    }
+
+
+    public function getuserName($id){
+        if($this->Query("SELECT au.username,au.role_id,ur.role,dp.profile_image_url
+                         from application_user au
+                         inner join user_role ur on ur.id=au.role_id
+                         inner join doctor_profile dp on dp.uuid=au.uuid
+                         where au.uuid=? ",[$id])){
+            $data=$this->fetch();
+            return $data;
+        }
+    }
+
 
 
 }
