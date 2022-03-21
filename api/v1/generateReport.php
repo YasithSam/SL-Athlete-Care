@@ -102,11 +102,11 @@ $html.='
 <div class="details_part"> 
   <h2>Case Study Title : '. $data1->title.'</h2>'.
   '<h3>'.$data1->description .'</h3>'.
-  '<h3>Injury :'.$data1->injury.'</h3>
-  <h3>Athlete :'.$data1->aname.' </h3> 
-  <h3>Doctor :' .$data1->dname.'</h3>
+  '<h3>Injury : '.$data1->injury.'</h3>
+  <h3>Athlete : '.$data1->aname.' </h3> 
+  <h3>Doctor : ' .$data1->dname.'</h3>
   <h3>Physiotherapist : '.$data14->full_name.'</h3>
-  <h3>Nutritionist :' .$data15->full_name.'</h3>
+  <h3>Nutritionist : ' .$data15->full_name.'</h3>
   <h3>Date : '.$data1->datetime.'</h3>
 </div>
 <hr class="top">
