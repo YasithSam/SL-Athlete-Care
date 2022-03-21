@@ -49,9 +49,18 @@ class injuryModel extends database
      public function postInjury($athleteId,$injuryId,$doc,$con,$d){
         $doctor=$this->findDoctor($doc);    
         $injuryId=$this->findInjury($injuryId);
-
+        $maxId=0;
         if($this->Query("INSERT INTO athlete_reported_injury(athlete_id,injury_id,status,doctor_id,con,description) VALUES (?,?,?,?,?,?)",[$athleteId,$injuryId,0,$doctor,$con,$d])){
-            return ['status' => 'ok'];
+            if($this->Query("SELECT id from athlete_reported_injury where id=(select max(id) from athlete_reported_injury)")){
+                $row=$this->fetch();
+                $maxId=$row->id;
+
+            }
+            if($this->Query("INSERT INTO doctor_notifications(doctor_id,title,forum_id) VALUES (?,?,?)",[$doctor,$con,$maxId])){
+            
+                return ['status' => 'ok'];
+            }
+           
         }else{
             return false;
         }
@@ -61,7 +70,6 @@ class injuryModel extends database
         $doctorId=$x[0];
         if($this->Query("SELECT * FROM doctor_profile WHERE full_name=?",[$doctorId])){
             $row=$this->fetch();
-          
             return $row->uuid;
         }
      }

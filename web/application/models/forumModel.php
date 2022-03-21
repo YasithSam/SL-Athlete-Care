@@ -25,6 +25,14 @@ class forumModel extends database
         }
 
     } 
+    
+    public function updateStatus($id){
+        if($this->Query("UPDATE doctor_notifications set status=1 where forum_id=?",[$id])){
+            return true;
+        }
+        return false;
+    }
+    
     public function updateForumbyId($id,$status){
       if($status==1){
         if($this->Query("UPDATE athlete_reported_injury set status=? where id=?",[$status,$id])){

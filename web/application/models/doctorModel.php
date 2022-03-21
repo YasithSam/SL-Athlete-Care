@@ -23,6 +23,36 @@ class doctorModel extends database
         }
     }
 
+    public function getNotifications($id){
+        $viewed=[];
+        $not=[];
+        if($this->Query("Select title,forum_id from doctor_notifications where status=0 && doctor_id=?",[$id])){
+            if($this->rowCount() > 0 ){
+                $row=$this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $not[$i]=$obj;
+                    $i++;
+                    
+                }                      
+            } 
+        }
+        if($this->Query("Select title,forum_id from doctor_notifications where status=1 && doctor_id=?",[$id])){
+            if($this->rowCount() > 0 ){
+                $row=$this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $viewed[$i]=$obj;
+                    $i++;
+                    
+                }                      
+            } 
+        }
+        return [$viewed,$not];
+    }
+
     //Selected Injuries - Profile page
 
     public function getSelectedInjuries($id){
@@ -141,7 +171,7 @@ class doctorModel extends database
     public function getCaseStudy(){
         $current=[];
         $old=[];
-        if($this->Query("SELECT c.case_id,d.full_name,i.injury,c.datetime,a.username FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid inner join doctor_profile d on c.doctor_id=d.uuid where c.view_status=?",[1])){
+        if($this->Query("SELECT c.case_id,d.full_name,i.injury,c.datetime FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid inner join doctor_profile d on c.doctor_id=d.uuid where c.view_status=? && c.status=?",[1,0])){
    
             if($this->rowCount() > 0 ){
                 $row=$this->fetchall();
@@ -154,7 +184,7 @@ class doctorModel extends database
                 }         
             
             } 
-            if($this->Query("SELECT c.case_id,c.title,i.injury,c.datetime,a.username FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid where c.view_status=?",[0])){
+            if($this->Query("SELECT c.case_id,d.full_name,i.injury,c.datetime FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid inner join doctor_profile d on c.doctor_id=d.uuid where c.view_status=? && c.status=?",[1,1])){
                 if($this->rowCount() > 0 ){
                     $row=$this->fetchall();
                     $i=0;
@@ -179,43 +209,102 @@ class doctorModel extends database
 
 
     }
-    public function getCaseStudyFilter($d,$a,$i){
+    public function getCaseStudyFilter($d,$a){
         $current=[];
         $old=[];
-        if($this->Query("SELECT c.case_id,d.full_name,i.injury,c.datetime,a.username FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid inner join doctor_profile d on c.doctor_id=d.uuid where c.view_status=? && d.full_name=? && i.id=? && a.username=?",[1,$d,$i,$a])){
-   
-            if($this->rowCount() > 0 ){
-                $row=$this->fetchall();
-                $i=0;
-                foreach ($row as $obj)
-                {
-                    $current[$i]=$obj;
-                    $i++;
-                     
-                }         
-            
-            } 
-            if($this->Query("SELECT c.case_id,c.title,i.injury,c.datetime,a.username FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid where c.view_status=? && d.full_name=? && i.id=? && a.username=?",[0,$d,$i,$a])){
-                if($this->rowCount() > 0 ){
-                    $row=$this->fetchall();
-                    $i=0;
-                    foreach ($row as $obj)
-                    {
-                        $old[$i]=$obj;
-                        $i++;
-                         
-                    }         
-                
-                } 
-                
-            }
-
-            
-        }
-        else {
-            return ['status' => 'n'];
-        }
        
+        if($d==1 && $a!=0){       
+               if($this->Query("SELECT c.case_id,d.full_name,i.injury,c.datetime FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid inner join doctor_profile d on c.doctor_id=d.uuid where c.view_status=? && c.status=? && c.injury_id=?",[1,0,$a])){
+                    if($this->rowCount() > 0 ){
+                        $row=$this->fetchall();
+                        $i=0;
+                        foreach ($row as $obj)
+                        {
+                            $current[$i]=$obj;
+                            $i++;
+                            
+                        }                      
+                    } 
+               }    
+                if($this->Query("SELECT c.case_id,d.full_name,i.injury,c.datetime FROM case_study c inner join injury i on c.injury_id=i.id inner join application_user a on c.athlete_id=a.uuid inner join doctor_profile d on c.doctor_id=d.uuid where c.view_status=? && c.status=? && c.injury_id=?",[1,1,$a])){  
+                    if($this->rowCount() > 0 ){
+                        $row=$this->fetchall();
+                        $i=0;     
+                        foreach ($row as $obj)
+                        {
+                            $old[$i]=$obj;
+                            $i++;
+                             
+                        }         
+                    
+                    } 
+                    
+                }
+            
+
+        }else if($d!=1 && $a==0){
+           
+                if($this->Query("SELECT c.case_id,d.full_name,i.injury,c.datetime FROM case_study c inner join injury i on c.injury_id=i.id  inner join doctor_profile d on c.doctor_id=d.uuid where c.view_status=? && d.full_name=? && c.status=?",[1,$d,0])){
+   
+                    if($this->rowCount() > 0 ){
+                        $row=$this->fetchall();
+                        $i=0;
+                        foreach ($row as $obj)
+                        {
+                            $current[$i]=$obj;
+                            $i++;
+                            
+                        }         
+                    
+                    } 
+                }    
+                if($this->Query("SELECT c.case_id,d.full_name,i.injury,c.datetime FROM case_study c inner join injury i on c.injury_id=i.id  inner join doctor_profile d on c.doctor_id=d.uuid where c.view_status=? && d.full_name=? && c.status=?",[1,$d,1])){
+                    if($this->rowCount() > 0 ){
+                        $row=$this->fetchall();
+                        $i=0;
+                        foreach ($row as $obj)
+                        {
+                            $old[$i]=$obj;
+                            $i++;
+                             
+                        }         
+                    
+                    } 
+                    
+                }
+
+        }
+        else{
+                if($this->Query("SELECT c.case_id,d.full_name,i.injury,c.datetime FROM case_study c inner join injury i on c.injury_id=i.id  inner join doctor_profile d on c.doctor_id=d.uuid where c.view_status=? && d.full_name=? && c.injury_id=? && c.status=?",[1,$d,$a,0])){
+    
+                    if($this->rowCount() > 0 ){
+                        $row=$this->fetchall();
+                        $i=0;
+                        foreach ($row as $obj)
+                        {
+                            $current[$i]=$obj;
+                            $i++;
+                            
+                        }         
+                    
+                    } 
+                }
+                if($this->Query("SELECT c.case_id,c.title,i.injury,c.datetime FROM case_study c inner join injury i on c.injury_id=i.id  where c.view_status=? && d.full_name=? && i.id=? && c.status=?",[1,$d,$a,1])){
+                    if($this->rowCount() > 0 ){
+                        $row=$this->fetchall();
+                        $i=0;
+                        foreach ($row as $obj)
+                        {
+                            $old[$i]=$obj;
+                            $i++;
+                             
+                        }         
+                    
+                    } 
+                    
+                }
+
+        }
         return [$current,$old];
 
 

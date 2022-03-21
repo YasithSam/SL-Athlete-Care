@@ -137,12 +137,15 @@ class AthleteAPI extends database
         $x=[$f,$u,$c];
         if( $this->Query("INSERT INTO forum_comment (forum_id,user_id,comment) VALUES (?,?,?)",$x)){
             if($this->rowCount()>0){
-                if($this->Query("Select comment from athlete_reported_injury where id=?",[$f])){
+                if($this->Query("Select comment,doctor_id from athlete_reported_injury where id=?",[$f])){
                     $row=$this->fetch();
                     $x=$row->comment;
                     $x+=1;
+                    $doctor=$row->doctor_id;
                     if($this->Query("UPDATE athlete_reported_injury set comment = ? where id=?",[$x,$f])){
-                        return['status'=>'ok'];
+                        if($this->Query("INSERT INTO doctor_notifications(doctor_id,title,forum_id) VALUES (?,?,?)",[$doctor,$c,$f])){
+                            return['status'=>'ok'];
+                        }
                     }
                 }
                

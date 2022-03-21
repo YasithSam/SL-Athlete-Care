@@ -39,10 +39,7 @@ class paramedicalModel extends database
             }
     }
     public function getArticles($userid){
-        if($this->Query("SELECT p.id, p.type, p.heading, p.description, pa.url 
-                         from post p
-                         inner join post_attachments pa on pa.post_id=p.id
-                         where p.type<? && p.type!=? && p.approval_status=? && p.author_id=?",[7,1,2,$userid])){
+        if($this->Query("SELECT p.id, p.type, p.heading, p.description, pa.url from post p inner join post_attachments pa on pa.post_id=p.id where p.type < ? && p.type!=? && p.approval_status=? && p.author_id=?",[7,1,2,$userid])){
             $x=$this->fetchall();
             return $x;
         }
@@ -113,25 +110,18 @@ class paramedicalModel extends database
     }
 ////////////////-----Articles----------///////////////////////////////
     public function getProfile($userid){
-        if($this->Query("SELECT p.full_name,p.type,p.district,p.email,p.hospital,u.role,p.sex,p.paramedical_number,p.province,p.profile_image_url
+        if($this->Query("SELECT p.full_name,p.district,p.email,p.hospital,p.sex,p.paramedical_number,p.province
                         from paramedical_profile p
-                        inner join user_role u on p.type=u.id
                         where p.uuid=?",[$userid])){
             $x=$this->fetch();
             return $x;
         }
     }
-
-}
-public function updateprofile($u,$e,$h,$p,$d){
-    
-    if($this->Query("UPDATE paramedical_profile set email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){       
-         return true;
+    public function updateprofile($u,$e,$h,$p,$d){
+        
+        if($this->Query("UPDATE paramedical_profile set email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u])){       
+            return true;
+        }
     }
-}
-
-
-
-
 
 } 
