@@ -58,6 +58,13 @@ class forumController extends main{
         // }
        
     }
+    public function forumUpdate($id){
+        if($this->forumModel->updateStatus($id)){
+            $this->redirect('forumController/item/'.$id);
+
+        }  
+
+    }
     public function confirm($id){
         $user=$this->getSession("userId");
         if($this->getSession('userRole')==2){

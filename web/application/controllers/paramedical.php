@@ -15,8 +15,8 @@ class paramedical extends main{
         if($this->getSession('userRole')==3|| $this->getSession('userRole')==5){
             $data = $this->paramedicalModel->getCounts($userId);   
             $x= $this->paramedicalModel->getForumItems($userId); 
-            $data3 = $this->paramedicalModel->getuserName($userId);   
-            $dataArray=[$data,$x,$data3];
+            $dataArray=[$data,$x];
+           
             $this->view("para/home",$dataArray);
         }
         else{
@@ -139,6 +139,7 @@ class paramedical extends main{
         
         if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
           $data=$this->paramedicalModel->getProfile($userid);
+         
           $this->view('para/profile',$data);
         }
         else{
@@ -169,7 +170,7 @@ class paramedical extends main{
             $this->redirect('paramedical/profile');
          }
         else {
-        $this->view('para/editprofile',$data);
+          //$this->view('para/editprofile',$data);
         }
     }
 
