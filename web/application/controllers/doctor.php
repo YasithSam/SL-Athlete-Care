@@ -44,7 +44,7 @@ class doctor extends main{
         if($this->getSession('userRole')==2){
             $data=$this->doctorModel->getProfile($userId);   
             $data2=$this->doctorModel->getCaseStudyProfile($userId); 
-            $data3= $this->doctorModel->getDoctorArticles($userId); 
+            $data3= $this->doctorModel->getSelectedInjuries($userId); 
             $this->view('doctor/profile',[$data,$data2,$data3]);
         }
         else{
