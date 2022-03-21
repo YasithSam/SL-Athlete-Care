@@ -28,15 +28,81 @@ class AthleteAPI extends database
 
     public function deleteUserForum($id)
     {
-        if($this->Query("DELETE from athlete_reported_injury where id=?",[$id])){
-            return true;
+        if($this->Query("DELETE from forum_comment where forum_id=?",[$id])){
+            if($this->Query("DELETE from athlete_reported_injury where id=?",[$id])){
+                return true;
+            }
+
         }
+        
         return false;
 
     }
 
-    public function editUserForum()
+    public function addMessage($id,$message)
     {
+        $x=[$message,$id];
+        if($this->Query("INSERT INTO message (message,type) VALUES (?,?)",$x)){
+            return['status'=>'ok'];  
+                 
+        }else{
+           
+            return false;
+        }
+
+    }
+
+
+    public function getMessage($id)
+    {
+        $data=[];
+        if($this->Query("Select message,datetime from message where type=?",[$id])){
+            if($this->rowCount()>0){
+                $row = $this->fetchall();
+                foreach ($row as $obj)
+                {
+                    $arr=explode(" ",$obj->datetime);
+                    $current=$arr[0];
+                    $current2=explode("-",$current);
+                    $obj->datetime=$current2[1]."-".$current2[2];
+                    $temp=explode(":",$arr[1]);
+                    if($temp[1]>12){
+                        $x=((int)$temp[1])-12;
+                        $temp[1]=strval($x);
+                        $obj->time=$temp[1].":".$temp[2]." PM";
+
+                    }else{
+                        $obj->time=$temp[1].":".$temp[2]." AM";
+                    }
+                    
+
+                   
+                    array_push($data,$obj);
+                     
+                }  
+                return ['status'=>'ok','data'=>$data];  
+
+
+            } else {
+                return ['status' => 'n'];
+            }  
+                 
+        }else{
+           
+            return false;
+        }
+
+    }
+
+    public function uploadProfileImage($u,$data){
+        $link=strval($u).".jpeg";
+        if($this->Query("UPDATE athlete_profile set profile_image=? where uuid=?",[$link,$u])){
+            file_put_contents("/Applications/XAMPP/xamppfiles/htdocs/SL-Athlete-Care/web/public/assets/dbimages/".$link,base64_decode($data));
+            return true;
+        }else{
+            echo "noo";
+            return false;
+        }
 
     }
 
@@ -47,6 +113,11 @@ class AthleteAPI extends database
                 $row = $this->fetchall();
                 foreach ($row as $obj)
                 {
+                    $datetime1 = new DateTime();
+                    $datetime2 = new DateTime($obj->date);
+                    $interval = $datetime1->diff($datetime2);
+                    $intervalFormat=$interval->format('%H');
+                    $obj->date=$intervalFormat;
                     array_push($data,$obj);
                      
                 }    
@@ -66,7 +137,15 @@ class AthleteAPI extends database
         $x=[$f,$u,$c];
         if( $this->Query("INSERT INTO forum_comment (forum_id,user_id,comment) VALUES (?,?,?)",$x)){
             if($this->rowCount()>0){
-                return['status'=>'ok'];
+                if($this->Query("Select comment from athlete_reported_injury where id=?",[$f])){
+                    $row=$this->fetch();
+                    $x=$row->comment;
+                    $x+=1;
+                    if($this->Query("UPDATE athlete_reported_injury set comment = ? where id=?",[$x,$f])){
+                        return['status'=>'ok'];
+                    }
+                }
+               
             }
             else{
                 return false;
@@ -110,6 +189,8 @@ class AthleteAPI extends database
             return false;
         }
     }
+
+
     public function addUserProfile($email,$sex,$uuid){
         $x=[$uuid,$email,$sex];
         if($this->Query("INSERT INTO athlete_profile (uuid,email,sex) VALUES (?,?,?)",$x)){
@@ -120,6 +201,29 @@ class AthleteAPI extends database
             return false;
         }
 
+
+    }
+    public function getUserImage($id)
+    {
+
+        if($this->Query("SELECT profile_image FROM athlete_profile where uuid=?",[$id])){
+            if($this->rowCount() > 0 ){
+                $row=$this->fetch();     
+                if(!is_null($row->profile_image)){
+                    $row->profile_image="http://192.168.8.143/SL-Athlete-Care/web/public/assets/dbimages/".$row->profile_image;
+                }
+                else{
+                        $row->profile_image="";
+                    } 
+                return ['status'=>'ok','data'=>$row];         
+                          
+            }   
+           
+        }
+        else {
+            return ['status' => 'n'];
+        }
+    
 
     }
     public function validateUser($userData){
@@ -177,6 +281,8 @@ class AthleteAPI extends database
 
         }
     }
+
+
     public function calBMI($h,$w){
      return $w / ($h**2);
     }
@@ -263,6 +369,49 @@ class AthleteAPI extends database
         return ['status'=>'ok','data'=>$u];
 
     }
+    public function getMySchedules($id){
+        $w=[];
+        $d=[];
+        if($this->Query("SELECT d.id,d.title,d.description FROM schedule s inner join diet_schedule d on s.id=d.schedule_id inner join case_study c on s.case_study_id=c.case_id where c.athlete_id =?",[$id])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+               
+                foreach ($row as $obj)
+                {
+                    $d[$i]=$obj;
+                    $i++;
+                     
+                }    
+       
+
+            } else {
+                return ['status' => 'n'];
+            }
+
+        }
+        if($this->Query("SELECT w.id,w.title,w.description FROM schedule s inner join workout_schedule w on s.id=w.schedule_id inner join case_study c on s.case_study_id=c.case_id where c.athlete_id =?",[$id])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $w[$i]=$obj;
+                    $i++;
+                     
+                }    
+       
+
+            } else {
+                return ['status' => 'n'];
+            }
+
+        }
+        return ['status'=>'ok','diet'=>$d,'workout'=>$w];
+
+    }
+
+
     public function getUserData($id)
     {
         if($this->Query("SELECT * FROM athlete_profile WHERE uuid= ?", [$id])){
@@ -276,10 +425,8 @@ class AthleteAPI extends database
                 $d=$row->dob;
                 $s=$row->sex;
                 $c=$row->city;
-                $dateOfBirth = $d;
-                $today = date("Y-m-d");
-                $diff = date_diff(date_create($dateOfBirth), date_create($today));
-                return ['status' => 'ok', 'data' => [$f,$e,$re,$a,$n,$diff->format('%y'),$s,$c]];
+               
+                return ['status' => 'ok', 'data' => [$f,$e,$re,$a,$n,$d,$s,$c]];
 
 
             } else {

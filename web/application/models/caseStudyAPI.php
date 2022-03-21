@@ -82,6 +82,7 @@ class caseStudyAPI extends database
 
         
     }
+    
     public function getMedicine($id,$state){
         $m=[];
         if($this->Query("SELECT heading,description FROM case_study_records where type_id=? && case_id=? && state=? order by datetime desc",[1,$id,$state])){
@@ -104,6 +105,7 @@ class caseStudyAPI extends database
         return ['status'=>'ok','data'=>$m];
 
     }
+
     public function getAdvices($id,$s){
         $a=[];
         if($this->Query("SELECT heading,description,datetime FROM case_study_records where type_id=? && case_id=? && state=? order by datetime desc",[2,$id,$s])){
@@ -290,6 +292,12 @@ class caseStudyAPI extends database
                     if(strcmp($obj->user_id,$user)==0){
                       $obj->type="0";
                     }
+
+                    $datetime1 = new DateTime();
+                    $datetime2 = new DateTime($obj->datetime);
+                    $interval = $datetime1->diff($datetime2);
+                    $intervalFormat=$interval->format('%H');
+                    $obj->datetime=$intervalFormat;
                     $feedbacks[$i]=$obj;
                     $i++;
                      
@@ -302,16 +310,16 @@ class caseStudyAPI extends database
     }
     public function getDietEvents($id){
         $e=[];
-        if($this->Query("SELECT title,amount,description FROM diet_events where diet_id =?",[$id])){
+        if($this->Query("SELECT title,amount,descritption FROM diet_events where diet_id =?",[$id])){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
-                $i=0;
+                
                 foreach ($row as $obj)
                 {
-                    $e[$i]=$obj;
-                    $i++;
+                    array_push($e,$obj); 
                      
                 }    
+                return ['status'=>'ok','data'=>$e];
        
 
             } else {
@@ -319,7 +327,7 @@ class caseStudyAPI extends database
             }
 
         }
-        return ['status'=>'ok','data'=>$e];
+      
 
     }
 

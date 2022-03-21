@@ -15,7 +15,7 @@ class BlogAPI extends database
                 $i=0;
                 foreach ($row as $obj)
                 {
-                    $obj->url="http://192.168.8.106/SL-Athlete-Care/web/public/assets/dbimages/".$obj->url;
+                    $obj->url="http://192.168.8.143/SL-Athlete-Care/web/public/assets/dbimages/".$obj->url;
                     $n[$i]=$obj;
                     $i++;                  
                 }            
@@ -31,7 +31,15 @@ class BlogAPI extends database
     {
         $x=[$c,0,$p,$i];
         if($this->Query("INSERT INTO comments (comment,approve,post_id,user_id) VALUES (?,?,?,?)",$x)){
-          return true;
+            if($this->Query("Select comments from post where id=?",[$p])){
+                $row=$this->fetch();
+                $x=$row->comments;
+                $x+=1;
+                if($this->Query("UPDATE post set comments = ? where id=?",[$x,$p])){
+                    return['status'=>'ok'];
+                }
+            }
+            
                  
         }else{
             echo "noo";
@@ -48,6 +56,11 @@ class BlogAPI extends database
                 $i=0;
                 foreach ($row as $obj)
                 {
+                    $datetime1 = new DateTime();
+                    $datetime2 = new DateTime($obj->datetime);
+                    $interval = $datetime1->diff($datetime2);
+                    $intervalFormat=$interval->format('%H');
+                    $obj->datetime=$intervalFormat;
                     $c[$i]=$obj;
                     $i++;                  
                 }            
@@ -59,6 +72,38 @@ class BlogAPI extends database
         return ['status'=>'ok','data'=>$c];
 
     }
+
+    public function addLikePost($id,$userId){
+
+        if($this->Query("SELECT likes from post where id=?",[$id])){
+            $row=$this->fetch();
+            $count=$row->likes;
+            $count+=1;
+            if($this->Query("UPDATE post set likes=? where id=?",[$count,$id])){
+                if($this->Query("INSERT into liked_users (userId,postId) values(?,?)",[$userId,$id])){
+                    return ['status'=>'ok'];
+                }
+                return ['status'=>'n'];
+            }
+            return ['status' => 'n'];
+        }
+        return ['status' => 'n'];
+    }
+
+    public function isLiked($userId,$postId){
+        if($this->Query("Select * from liked_users where userId=? && postId=?",[$userId,$postId])){
+            if($this->rowCount() >0){
+                return ['status'=>'400'];
+            }
+            else{
+                return ['status'=>'200'];
+
+            }
+           
+        }
+        return ['status'=>'400'];
+    }
+
     public function getBlogs($id)
     {
         $a=[];
@@ -69,7 +114,7 @@ class BlogAPI extends database
                 foreach ($row as $obj)
                 {
                     if(!is_null($obj->url)){
-                        $obj->url="http://192.168.8.100/SL-Athlete-Care/web/public/assets/dbimages/".$obj->url;
+                        $obj->url="http://192.168.8.143/SL-Athlete-Care/web/public/assets/dbimages/".$obj->url;
                     }
                     else{
                         $obj->url="";
@@ -154,75 +199,65 @@ class BlogAPI extends database
 
     public function uploadQuestion($title,$desc,$t,$i)
     {
-        $type=$this->findType($t);
-        $x=[$type,$i,$title,$desc,0,0,0];
-        if($this->Query("INSERT INTO post (type,author_id,heading,description,likes,comments,approval_status) VALUES (?,?,?,?,?,?,?)",$x)){
-           
+        $tx=$this->findTypeQ($t);
+        $x=[$tx,$i,$title,$desc,0,0,0];
+        print_r($x);
+        if($this->Query("INSERT INTO post (type,author_id,heading,description,likes,comments,approval_status) VALUES (?,?,?,?,?,?,?)",$x)){    
             return ['status' => 'ok'];
-           
         }else{
             echo "noo";
             return ['status' => 'n'];
         }
         
     }
+
     public function findType($type)
     {
-        $t=0;
-        switch($type){
-            case "Cricket":
-                $t=2;
-                break;
-            case "Football":
-                $t=3;
-                break;
-
-            case "Athletics":
-                $t=5;
-                break;
-
-            case "Rugby":
-                $t=4;
-                break;
-
-            case "Other":
-                $t=6;
-                break;
-            
+        if($type == "Cricket"){
+            return 2;
+        } 
+        if($type == "Football"){
+            return 3;
         }
-        return $t;
+        if($type == "Athletics"){
+            return 5;
+        }
+        if($type=="Rugby"){
+            return 4;
+
+        }
+        if($type=="Other"){
+            return 6;
+        }
+        return -1;
+    
 
     }
     public function findTypeQ($type)
     {
-        $t=0;
-        switch($type){
-            case "Cricket":
-                $t=7;
-                break;
-            case "Football":
-                $t=8;
-                break;
-
-            case "Athletics":
-                $t=9;
-                break;
-
-            case "Rugby":
-                $t=10;
-                break;
-
-            case "Other":
-                $t=11;
-                break;
-            
+        if($type == "Cricket"){
+            return 7;
+        } 
+        if($type == "Football"){
+            return 8;
         }
-        return $t;
+        if($type == "Athletics"){
+            return 9;
+        }
+        if($type=="Rugby"){
+            return 10;
+
+        }
+        if($type=="Other"){
+            return 11;
+        }
+        return -1;
 
     }
 
     public function addReport($p,$s){
         $x=[$s,$p];
+     
         if($this->Query("INSERT INTO post_reports (section,post_id) VALUES (?,?)",$x)){
             return ['status'=>'ok'];
                  
@@ -230,7 +265,6 @@ class BlogAPI extends database
             return ['status'=>'n'];
             
         }
-
 
     }
 
@@ -244,7 +278,7 @@ class BlogAPI extends database
                 foreach ($row as $obj)
                 {
                     if(!is_null($obj->url)){
-                        $obj->url="http://192.168.8.106/SL-Athlete-Care/web/public/assets/dbimages/".$obj->url;
+                        $obj->url="http://192.168.8.143/SL-Athlete-Care/web/public/assets/dbimages/".$obj->url;
                     }
                     else{
                         $obj->null="";
