@@ -29,28 +29,29 @@
                         <div class="notifications">
                           <div class="icon_wrap">
                             <i class="far fa-bell"></i>
-                            <span>4</span>
+                            <span><?php echo (count($data[3][1]))?></span>
                           </div>
                           
                           <div class="notification_dd">
                               <ul class="notification_ul">
-                                  <li class="starbucks success">
+                               
+                                  <?php if(!empty($data[3][1])): ?>
+                                    <?php foreach($data[3][1] as $item): ?>
+                                      <li class="starbucks success">
                                       <div class="notify_icon">
                                           <span class="icon"></span>  
                                       </div>
                                       <div class="notify_data">
                                           <div class="title">
-                                              Lorem, ipsum dolor.  
+                                          <?php echo ucwords($item->title); ?>  
                                           </div>
-                                          <div class="sub_title">
-                                            Lorem ipsum dolor sit amet consectetur.
-                                          </div>
+                                         
                                       </div>
-                                      <div class="notify_status">
-                                          <p>Success</p>  
-                                      </div>
-                                  </li>  
-
+                                      </li>  
+                                    <?php endforeach;?>  
+                                      
+                                
+                                  <?php endif;?>
                                   <li class="show_all">
                                       <p class="link">Show All Activities</p>
                                   </li> 
@@ -88,22 +89,51 @@
                         <p>All Notifications</p>
                         <p class="close"><i class="fas fa-times" aria-hidden="true"></i></p>
                     </li> 
-                    <li class="starbucks success">
-                        <div class="notify_icon">
-                            <span class="icon"></span>  
-                        </div>
-                        <div class="notify_data">
-                            <div class="title">
-                                Lorem, ipsum dolor.  
-                            </div>
-                            <div class="sub_title">
-                              Lorem ipsum dolor sit amet consectetur.
-                          </div>
-                        </div>
-                        <div class="notify_status">
-                            <p>Success</p>  
-                        </div>
-                    </li>  
+                    <?php if(!empty($data[3][1])): ?>
+                                    <?php foreach($data[3][1] as $item): ?>
+                                      <li class="starbucks success" style="background-color: #f5f5f5;">
+                                      <div class="notify_icon">
+                                          <span class="icon"></span>  
+                                      </div>
+                                      <div class="notify_data">
+                                          <div class="title">
+                                          <?php echo ucwords($item->title); ?>  
+                                          </div>
+                                         
+                                      </div>
+                                      <div class="notify_status">
+                                              <a href="<?php echo BASEURL;?>/forumController/forumUpdate/<?php echo $item->forum_id; ?>">VIEW</a>  
+                                          </div>
+                                      </li> 
+                                     
+                                    <?php endforeach;?>  
+                                      
+                                
+                                  <?php endif;?>
+
+                                  <?php if(!empty($data[3][0])): ?>
+                                    <?php foreach($data[3][0] as $item): ?>
+                                      <li class="starbucks success">
+                                      <div class="notify_icon">
+                                          <span class="icon"></span>  
+                                      </div>
+                                      <div class="notify_data">
+                                          <div class="title">
+                                          <?php echo ucwords($item->title); ?>  
+                                          </div>
+                                         
+                                      </div>
+                                      <div class="notify_status">
+                                              <a href="<?php echo BASEURL;?>/forumController/forumUpdate/<?php echo $item->forum_id;?>">VIEW</a>  
+                                          </div>
+                                      </li> 
+                                     
+                                    <?php endforeach;?>  
+                                      
+                                
+                                  <?php endif;?>
+                                  
+                         
               </ul>
           </div>
       </div>
