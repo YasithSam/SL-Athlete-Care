@@ -198,7 +198,8 @@ class paramedical extends main{
         else{
             $this->redirect('paramedical/index');
 
-        }   
+        }  
+        
 
     }
   

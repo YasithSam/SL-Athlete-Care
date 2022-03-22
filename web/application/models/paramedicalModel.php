@@ -24,8 +24,9 @@ class paramedicalModel extends database
     }
 
     public function declineRequest($id){
-        if($this->Query("UPDATE paramedical_case_study SET status=-1 where case_study_id=?",[$id])){
-            if($this->Query("SELECT doctor_id,email from case_study c inner join doctor_profile d on c.doctor_id=d.uuid where case_id=?",[$id])){
+        $uid=$_SESSION['userId'];
+        if($this->Query("UPDATE paramedical_case_study SET status=-1 where paramedical_id=? && case_study_id=?",[$uid,$id])){
+            if($this->Query("SELECT doctor_id,email,case_id from case_study c inner join doctor_profile d on c.doctor_id=d.uuid where case_id=?",[$id])){
                 $data=$this->fetch();
                 return $data;
             }
@@ -33,9 +34,10 @@ class paramedicalModel extends database
     }
 
     public function acceptRequest($id,$uid){
-        if($this->Query("UPDATE paramedical_case_study SET status=1 where case_study_id=? && paramedical_id=?",[$id,$uid])){
-                $data=$this->fetch();
-                return $data;
+      
+        if($this->Query("UPDATE paramedical_case_study SET status=1 where paramedical_id=? && case_study_id=?",[$uid,$id])){
+              
+                return true;
             }
     }
     public function getArticles($userid){
