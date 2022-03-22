@@ -338,7 +338,6 @@ input[type=text], select, textarea {
 }
 
 .dropdown-content {
-  display: none;
   background-color: #80c0ff;
   box-shadow: 1px 4px 8px 0 rgba(0,0,0,0.2);
   margin-left: 50px;
