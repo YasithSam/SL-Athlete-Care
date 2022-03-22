@@ -383,43 +383,114 @@ public function addFeedbackPost($id){
 
     }
 
-    public function adddiet(){
-        $this->view('casestudy/forms/add-diet');
+    public function adddiet($id){
+        $this->view('casestudy/forms/add-diet',$id);
 
     }
 
     public function addworkoutlist($id){
-        $userData = [
+        $x=$this->input('id');
+        $mainData = [
 
             'title'        => $this->input('title'),
             'description'      => $this->input('description'),
-            'itemtitle'        => $this->input('itemheading'),
-            'itemdescription'  => $this->input('itemdesc'),
-            'time'    => $this->input('time'),
-            'reps' => $this->input('reps'),
-            'id' => $id
+            'id' => $this->input('id')
         ];
-        $data=$this->caseStudyModel->addworkout($userData); 
+        $item1 = [
+
+            'title'        => $this->input('itemheading1'),
+            'description'      => $this->input('itemdesc1'),
+            'time'        => $this->input('time1'),
+            'reps'      => $this->input('reps1')
+            
+        ];
+        $item2 = [
+
+            'title'        => $this->input('itemheading2'),
+            'description'      => $this->input('itemdesc2'),
+            'time'        => $this->input('time2'),
+            'reps'      => $this->input('reps2')
+        ];
+        $item3 = [
+
+            'title'        => $this->input('itemheading3'),
+            'description'      => $this->input('itemdesc3'),
+            'time'        => $this->input('time3'),
+            'reps'      => $this->input('reps3')
+        ];
+        $item4 = [
+            'title'        => $this->input('itemheading4'),
+            'description'      => $this->input('itemdesc4'),
+            'time'        => $this->input('time4'),
+            'reps'      => $this->input('reps4')
+        ];
+        $item5 = [
+
+            'title'        => $this->input('itemheading5'),
+            'description'      => $this->input('itemdesc5'),
+            'time'        => $this->input('time5'),
+            'reps'      => $this->input('reps5')
+        ];
+        $arr=[$mainData,$item1,$item2,$item3,$item4,$item5];
+        $a=array_filter($arr, function($v){return array_filter($v) != array();});
+       
+        $data=$this->caseStudyModel->addworkout($a); 
         if($data){
-            $this->redirect('caseStudyController/workout/'.$id);     
+            $this->redirect('caseStudyController/workout/'.$x);     
         }
         $this->view('casestudy/forms/add-workout');
 
     }
 
     public function adddietlist($id){
-        $userData = [
+        $x=$this->input('id');
+        $mainData = [
 
             'title'        => $this->input('title'),
             'description'      => $this->input('description'),
-            'itemtitle'        => $this->input('itemheading'),
-            'itemdescription'  => $this->input('itemdesc'),
-            'amount'  => $this->input('amount'),
-            'id' => $id
+            'id' => $this->input('id')
         ];
-        $data=$this->caseStudyModel->addDiet($userData); 
+        $item1 = [
+
+            'title'        => $this->input('itemheading1'),
+            'description'      => $this->input('itemdesc1'),
+            'time'        => $this->input('time1'),
+       
+            
+        ];
+        $item2 = [
+
+            'title'        => $this->input('itemheading2'),
+            'description'      => $this->input('itemdesc2'),
+            'time'        => $this->input('time2'),
+     
+        ];
+        $item3 = [
+
+            'title'        => $this->input('itemheading3'),
+            'description'      => $this->input('itemdesc3'),
+            'time'        => $this->input('time3'),
+          
+        ];
+        $item4 = [
+            'title'        => $this->input('itemheading4'),
+            'description'      => $this->input('itemdesc4'),
+            'time'        => $this->input('time4'),
+            
+        ];
+        $item5 = [
+
+            'title'        => $this->input('itemheading5'),
+            'description'      => $this->input('itemdesc5'),
+            'time'        => $this->input('time5'),
+          
+        ];
+        $arr=[$mainData,$item1,$item2,$item3,$item4,$item5];
+        $a=array_filter($arr, function($v){return array_filter($v) != array();});
+       
+        $data=$this->caseStudyModel->adddiet($a); 
         if($data){
-            $this->redirect('caseStudyController/diet/'.$id);     
+            $this->redirect('caseStudyController/diet/'.$x);     
         }
        
         $this->view('casestudy/forms/add-diet');

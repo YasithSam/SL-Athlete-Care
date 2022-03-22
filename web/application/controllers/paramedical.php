@@ -27,13 +27,25 @@ class paramedical extends main{
 
     
     public function casestudy(){
-        if($this->getSession('userRole')==3 || $this->getSession('userRole')==5){
-           $this->view('para/casestudy');
-        }
-        else{
-            $this->view('404');
-        }
+        $userId = $this->getSession('userId');
+       
+          $data=$this->paramedicalModel->getCaseStudy();
+         
+          $this->view('para/casestudy',$data);
+        
     }
+
+    public function filter(){
+        $d=$this->input('doctors');
+        $i=$this->input('injury');
+       
+          $data=$this->paramedicalModel->getCaseStudyFilter($d,$i);
+        
+          $this->view('para/casestudy',$data);
+        
+      
+    }
+
      //////////////////Articles/////////////////////////////
     public function articles(){
         $userid = $this->getSession('userId');

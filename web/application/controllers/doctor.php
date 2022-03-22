@@ -156,16 +156,18 @@ class doctor extends main{
         }
 
     }
+
     public function articles(){
         $userid = $this->getSession('userId');
         if($this->getSession('userRole')==2){
             $data=$this->doctorModel->getArticles($userid);
-          $this->view('doctor/articles',$data);
+            $this->view('doctor/articles',$data);
         }  
         else{
             $this->view('404');
         }
     }
+
     public function addarticle(){
         if($this->getSession('userRole')==2){
             $this->view('doctor/addArticle');
@@ -173,8 +175,8 @@ class doctor extends main{
         else{
             $this->view('404');
         }
-
     }
+
     public function addnewarticle(){
         $userid = $this->getSession('userId');
         $filename = $_FILES["image"]["name"];
@@ -252,8 +254,8 @@ class doctor extends main{
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==2){   
           $data=$this->doctorModel->getCaseStudy();
-           //print_r($data);
-         $this->view('doctor/casestudy',$data);
+         
+          $this->view('doctor/casestudy',$data);
         } 
         else{
             $this->view('404');
@@ -265,7 +267,7 @@ class doctor extends main{
        
         if($this->getSession('userRole')==2){   
           $data=$this->doctorModel->getCaseStudyFilter($d,$i);
-          print_r($data);
+        
           $this->view('doctor/casestudy',$data);
         } 
         else{
