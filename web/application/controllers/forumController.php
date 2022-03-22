@@ -68,8 +68,7 @@ class forumController extends main{
     public function confirm($id){
         $user=$this->getSession("userId");
         if($this->getSession('userRole')==2){
-            $this->forumModel->updateForumbyId($id,1,$user);
-            
+            $this->forumModel->updateForumbyId($id,1,$user);         
             $this->redirect('doctor/profile');
         }
         else{
@@ -110,7 +109,7 @@ class forumController extends main{
     public function reject($id){
         if($this->getSession('userRole')==2){
             $data=$this->forumModel->updateForumbyId($id,2);
-            $this->redirect('forumController');
+            $this->redirect('doctor/index');
 
         }
         else{

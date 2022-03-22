@@ -94,6 +94,31 @@ class BlogAPI extends database
         return ['status'=>'ok','data'=>$c];
 
     }
+    public function GetCommentsD($id)
+    {
+        $c=[];
+        if($this->Query("SELECT c.comment,c.datetime,a.username FROM comments c inner join application_user a on c.user_id=a.uuid where c.post_id=? && c.approve=1",[$id])){
+            if($this->rowCount() > 0 ){
+                $row=$this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $datetime1 = new DateTime();
+                    $datetime2 = new DateTime($obj->datetime);
+                    $interval = $datetime1->diff($datetime2);
+                    $intervalFormat=$interval->format('%H');
+                    $obj->datetime=$intervalFormat;
+                    $c[$i]=$obj;
+                    $i++;                  
+                }            
+            } 
+        }
+        else {
+            return ['status' => 'n'];
+        }
+        return $c;
+
+    }
 
     public function addLikePost($id,$userId){
 

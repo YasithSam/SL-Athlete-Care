@@ -4,7 +4,7 @@ include "../../web/system/classes/database.php";
 class forumModel extends database
 {
     public function getForumbyId($id){
-        if($this->Query("SELECT r.id,a.full_name,i.injury,r.con,r.doctor_id,r.date,r.description from athlete_reported_injury r inner join athlete_profile a On r.athlete_id=a.uuid inner join injury i on i.id=r.injury_id where r.id=?",[$id])){
+        if($this->Query("SELECT r.id,a.full_name,i.injury,r.con,r.doctor_id,r.date,r.description,r.status from athlete_reported_injury r inner join athlete_profile a On r.athlete_id=a.uuid inner join injury i on i.id=r.injury_id where r.id=?",[$id])){
             $data = $this->fetch();
             return $data;
 
@@ -109,6 +109,8 @@ class forumModel extends database
        
 
     }
+
+    
 
     public function getNotices(){
         if($this->Query("SELECT p.id,p.heading,pa.url from post p 

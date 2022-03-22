@@ -18,7 +18,80 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script>
 
 <script src="https://kit.fontawesome.com/4e3a3a38a1.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
 
+.comment-form-container {
+	background: #F0F0F0;
+	border: #e0dfdf 1px solid;
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.input-row {
+	margin-bottom: 20px;
+}
+
+.input-field {
+	width: 100%;
+	border-radius: 2px;
+	padding: 10px;
+	border: #e0dfdf 1px solid;
+}
+
+.btn-submit {
+	padding: 10px 20px;
+	background: #333;
+	border: #1d1d1d 1px solid;
+	color: #f0f0f0;
+	font-size: 0.9em;
+	width: 100px;
+	border-radius: 2px;
+    cursor:pointer;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.comment-row {
+	border-bottom: #e0dfdf 1px solid;
+	margin-bottom: 15px;
+	padding: 15px;
+}
+
+.outer-comment {
+	background: #F0F0F0;
+	padding: 20px;
+	border: #dedddd 1px solid;
+}
+
+span.commet-row-label {
+	font-style: italic;
+}
+
+span.posted-by {
+	color: #09F;
+}
+
+.comment-info {
+	font-size: 1.2em;
+}
+.comment-text {
+    margin: 10px 0px;
+}
+.btn-reply {
+    font-size: 0.8em;
+    text-decoration: underline;
+    color: #888787;
+    cursor:pointer;
+}
+#comment-message {
+    margin-left: 20px;
+    color: #189a18;
+    display: none;
+}
+</style>
 <body>
 
 <!--  <header>
@@ -34,7 +107,7 @@
 	
 		
 			<div class="profile">
-				<button class="btn1" onclick="window.location.href='#';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
+				<button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
 			</div>
 	
 </header> 
@@ -78,8 +151,6 @@
 			</p>
 			<br>
    
-			<hr>
-   
 			<div class="like-comment">
 			   <div class="comment">
 				   <i class="bx bx-comment-dots"></i>
@@ -88,27 +159,16 @@
 			   </div>
 			</div>
    
-			<h2>All Comments</h2>
-			<div class="comment-user">
-				<div class="username">
-						<h3>Kusal Mendis</h3>
-				</div>
-				<div class="commentitem">
-					<p>Great article</p>
-				</div>
-				<hr style="width:50%;text-align:left;margin-left:0">
-			</div>
 			<br>
 			
 		  </div>
-			<div class="card">
-				<h3>Add Comments</h3>
-				<hr>
-				<form action="">
-				<textarea class="commentarea" rows="6"  type="text" placeholder="type comment..."></textarea>
-						<input type="submit" value="Submit">
-				</form> 
-			</div>
+		
+		  <br><br>
+		  <h2>All Comments</h2>
+			
+		  <div id="output"></div>
+		  
+			
    
    
 		</div>
@@ -179,6 +239,46 @@
 		   <h1 class="credit">copyright@ Sri Lanka Sports medicine Association </h1>
 	   </div> 
 	   <!--footer ends-->    
+	   <script>
+	   $(document).ready(function () {
+            	   listComment();
+            });
+
+            function listComment() {
+				var t="http://localhost/SL-Athlete-Care/api/v1/getPostCommentsD.php?id="+<?php echo $data['active']->id;?>;
+		
+                $.post(t,
+                        function (data) {
+                               var data = JSON.parse(data);
+							
+                            console.log(data);
+                            var comments = "";
+                            var replies = "";
+                            var item = "";
+                            var results = new Array();
+
+                            var list = $("<ul class='outer-comment'>");
+                            var item = $("<li>").html(comments);
+
+                            for (var i = 0; (i < data.length); i++)
+                            {
+                               
+                                    comments = "<div class='comment-row'>"+
+                                    "<div class='comment-info'><span class='commet-row-label'>from</span> <span class='posted-by'>" + data[i]['username'] + " </span> <span class='posted-at'>" + data[i]['datetime'] + "</span> <span class='commet-row-label'> Hours Ago</span></div>" + 
+                                    "<div class='comment-text'>" + data[i]['comment'] + "</div>";
+
+                                    var item = $("<li>").html(comments);
+                                    list.append(item);
+                                    var reply_list = $('<ul>');
+                                    item.append(reply_list);
+                                    
+                                
+                            }
+                            $("#output").html(list);
+                        });
+            }
+            
+		</script>  
    
    
    </body>

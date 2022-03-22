@@ -118,8 +118,18 @@ span.posted-by {
  		<p><?php echo ($data[0]->description)?></p>
 		 <br>
 		 <div class="decision-wrapper">
-			<a href="http://localhost/SL-Athlete-Care/api/v1/email.php?id=<?php echo $data[0]->id;?>" onclick='return confirm("Are you sure want to confirm?");'><button class="button1"> Accpet</button></a>
-			<a href="<?php echo BASEURL;?>/forumController/reject/<?php echo $data[0]->id;?>"><button class="button2">Reject</button></a>
+			<?php if($data[0]->status==0){?>
+				<a href="http://localhost/SL-Athlete-Care/api/v1/email.php?id=<?php echo $data[0]->id;?>" onclick='return confirm("Are you sure want to confirm?");'><button class="button1"> Accpet</button></a>
+				<a href="<?php echo BASEURL;?>/forumController/reject/<?php echo $data[0]->id;?>"><button class="button2">Reject</button></a>
+		    <?php } else if($data[0]->status==1){?>
+				<h3 style="color: #189a18;">Accepted</h3>
+				<a href="<?php echo BASEURL;?>/forumController/reject/<?php echo $data[0]->id;?>"><button class="button2">Reject</button></a>
+			<?php } else {?>	
+				<a href="http://localhost/SL-Athlete-Care/api/v1/email.php?id=<?php echo $data[0]->id;?>" onclick='return confirm("Are you sure want to confirm?");'><button class="button1"> Accpet</button></a>
+				<h3 style="color: red;">Rejected</h3>
+				
+		   <?php } ?>		
+			
 		</div>
 
 		
