@@ -111,20 +111,21 @@ class paramedicalModel extends database
 
     }
 ////////////////-----Articles----------///////////////////////////////
-    public function getProfile($userid){
-        if($this->Query("SELECT p.full_name,p.district,p.email,p.hospital,p.sex,p.paramedical_number,p.province
-                        from paramedical_profile p
-                        where p.uuid=?",[$userid])){
-            $x=$this->fetch();
-            return $x;
-        }
+public function getProfile($userid){
+    if($this->Query("SELECT p.full_name,p.type,p.district,p.email,p.hospital,u.role,p.sex,p.paramedical_number,p.province,p.profile_image_url
+                    from paramedical_profile p
+                    inner join user_role u on p.type=u.id
+                    where p.uuid=?",[$userid])){
+        $x=$this->fetch();
+        return $x;
     }
-    public function updateprofile($u,$e,$h,$p,$d){
-        
-        if($this->Query("UPDATE paramedical_profile set email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u])){       
-            return true;
-        }
+}
+public function updateprofile($u,$e,$h,$p,$d,$f){
+    
+    if($this->Query("UPDATE paramedical_profile set email='$e',hospital='$h',province='$p',district='$d',profile_image_url='$f' where uuid=?",[$u] )){       
+         return true;
     }
+}
 
     public function getCaseStudy(){
         $current=[];
