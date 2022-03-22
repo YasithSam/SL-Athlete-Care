@@ -125,7 +125,7 @@
                         
                     </div>
                
-                    <div class="col" style="margin-top: 6px;"> Doctor Name:  <?php echo ucwords($item->full_name); ?></div>
+                    <div class="col" style="margin-top: 6px;"> Name:  <?php echo ucwords($item->full_name); ?></div>
                     <div class="date" style="margin-top: 6px;">Datetime: <?php echo ucwords($item->datetime); ?></div>
                 
                     <div class="btn-grp">

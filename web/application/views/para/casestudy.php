@@ -36,11 +36,12 @@
     </div> -->
     <div class="filter-search-box">
         <div class="wrapper">
-            <div class="tabs_wrap">
-            <form action="<?php echo BASEURL;?>/doctor/filter" method="POST">
+       
+            <form action="<?php echo BASEURL;?>/paramedical/filter" method="POST">
                 <ul class="indicator">
-                    <li data-filter="injury" class="active">                    
+                    <li class="active">                    
                         <select name="doctors" id="d">
+                            <option value="1">Select Doctor</option>
                             <option value="W.D. Aruna Jayasundara">W.D. Aruna Jayasundara</option>
                             <option value="Kithsiri Perera">Kithsiri Perera</option>
                             <option value="Wasana Jayakodi">Wasana Jayakodi</option>
@@ -51,17 +52,10 @@
                             <option value="Oshadha Amarasinha">Oshadha Amarasingha</option>
                         </select>
                     </li>                  
-                    <li data-filter="sport">
-                        <select name="sport" id="s">
-                            <option value="1">Cricket</option>
-                            <option value="2">Athletics</option>
-                            <option value="3">Rugby</option>
-                            <option value="4">Football</option>
-                            <option value="5">Other</option>
-                           
-                        </select></li>
-                    <li data-filter="injury">  
+                   
+                    <li >  
                         <select name="injury" id="i">
+                            <option value="0">Select Injury</option>
                             <option value="1">Fractured collarbone</option>
                             <option value="2">Tennis elbow</option>
                             <option value="3">Stress fracture</option>
@@ -75,8 +69,9 @@
                             <option value="11">Side stitch</option>
                             <option value="12">Torn ACL</option>
                         </select></li>
-                        <input type="submit" class="submitbtn" value="Submit" />
+                       
                 </ul>
+                <input type="submit" class="submitbtn" value="Submit" />
                 
             </form>    
             </div>
@@ -89,28 +84,27 @@
             <!--Update card-->
             <?php if(!empty($data[0])): ?>
               <?php foreach($data[0] as $item): ?>
-                <div class="injury">
+                <div class="injury" style="margin-left: 45px;">
                   
                     <div class="description">
-                        <div class="col"> Name: <?php echo ucwords($item->username); ?></div>
+                       
                         <div class="col"><span> Injury:  <?php echo ucwords($item->injury); ?></span> </div>
                         
                     </div>
                
-                    <div class="col"> Name:  <?php echo ucwords($item->full_name); ?></div>
-                    <div class="date"><?php echo ucwords($item->datetime); ?></div>
+                    <div class="col" style="margin-top: 6px;"> Name:  <?php echo ucwords($item->full_name); ?></div>
+                    <div class="date" style="margin-top: 6px;">Datetime: <?php echo ucwords($item->datetime); ?></div>
                 
                     <div class="btn-grp">
                         
-                        <div class="button2">
+                        <div class="button2" style="margin-top: 8px;">
                            
                             <a href="<?php echo BASEURL;?>/caseStudyController/index/<?php echo ucwords($item->case_id); ?>">View</a>
                         </div>
                     </div>
                 </div>
             <?php endforeach;?>
-        <?php else: ?>
-          <h1>No data </h1>
+        
         <?php endif; ?> 
             <!--Update card-->
                
@@ -123,28 +117,27 @@
             <!--Update card-->
             <?php if(!empty($data[1])): ?>
               <?php foreach($data[1] as $item): ?>
-                <div class="injury">
+                <div class="injury" style="margin-left: 45px;">
                   
                     <div class="description">
-                        <div class="col"> Name: <?php echo ucwords($item->username); ?></div>
-                        <div class="col"><span> Injury:  <?php echo ucwords($item->injury); ?></span> </div>
+                        
+                        <div class="col"><span>  Injury:  <?php echo ucwords($item->injury); ?></span> </div>
                         
                     </div>
                
-                    <div class="col"> Name:  <?php echo ucwords($item->full_name); ?></div>
-                    <div class="date"><?php echo ucwords($item->datetime); ?></div>
+                    <div class="col" style="margin-top: 6px;"> Name:  <?php echo ucwords($item->full_name); ?></div>
+                    <div class="date" style="margin-top: 6px;">Datetime: <?php echo ucwords($item->datetime); ?></div>
                 
                     <div class="btn-grp">
                         
-                        <div class="button2">
+                        <div class="button2" style="margin-top: 8px;">
                            
                             <a href="<?php echo BASEURL;?>/caseStudyController/index/<?php echo ucwords($item->case_id); ?>">View</a>
                         </div>
                     </div>
                 </div>
             <?php endforeach;?>
-        <?php else: ?>
-          <h1>No data </h1>
+       
         <?php endif; ?> 
                               
         </div>

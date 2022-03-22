@@ -47,30 +47,7 @@
 
 
     
-<script>
 
-$(document).ready(function(){
-  var max_carts = 1000;
-  var wrapper = $(".dropdown");
-  var add_button = $(".add_cart");
-
-  var x = 1;
-  $(add_button).click(function(e){
-    e.preventDefault();
-    if(x<max_carts){
-      x++;
-      $(wrapper).append('<div><div class="dropdown"><button onclick="myFunction(this)" class="dropbtn"><b> Diet Event <i class="fas fa-angle-down"></i></b></button><div id="myDropdown" class="dropdown-content"><div class="row1"><label for="event-title" class="form-label">Event Title : </label><input type="text" class="form-control" id="event-title" placeholder="Diet Event - 1"></div><div class="row1"><label for="event-desc" class="form-label">Event Description : </label><textarea id="event-desc" class="form-control" name="event-desc" placeholder="Add a description about diet event" style="height:100px"></textarea></div><a href="#" class="remove_field">Cancel</a></div></div>');
-    }
-  });
-
-  $(wrapper).on("click",".remove_field",function(e){
-    e.preventDefault();
-    $(this).parent('div').remove();
-    x--;
-  });
-});
-
-</script>
 
   <div class="container">
     <div class="header-part">
@@ -97,32 +74,124 @@ $(document).ready(function(){
 
 
           <!--Dropdown-->
-          <button class="dropbtn"><b> Diet Event <i class="fas fa-angle-down"></i></b></button>
-                <div class="dropdown">
+         
+                <div class="dropdown" id="dropdown">
                       
                       <div id="myDropdown" class="dropdown-content">
-                        <button class="dropbtn"><b> Diet Event <i class="fas fa-angle-down"></i></b></button>
+                       
                         <div class="row1">
                         <label for="event-title" class="form-label">Event Title : </label>
-                        <input type="text" class="form-control" id="event-title" name="itemheading" placeholder="Diet Event - 1">
+                        <input type="text" class="form-control" id="event-title" name="itemheading1" placeholder="Diet Event - 1">
                         </div>
 
                         <div class="row1">
                         <label for="event-desc" class="form-label">Event Description : </label>
-                        <textarea id="event-desc" class="form-control" name="itemdesc" placeholder="add a description about the diet event" style="height:100px"></textarea>
+                        <textarea id="event-desc" class="form-control" name="itemdesc1" placeholder="add a description about the diet event" style="height:100px"></textarea>
                         </div>
 
                         <div class="row1">
                         <label for="time" class="form-label">Amount : </label>
-                        <input type="text" class="form-control" id="time" name="time"placeholder="Enter in grams">
+                        <input type="text" class="form-control" id="time" name="time1" placeholder="Enter in grams">
                         </div>
-                        
+                   
 
                       </div>
+                      <button type="button" id="toggle1">Add more</button>
                     </div><br>
+                    <div class="dropdown2" style="display: none;" id="dropdown2">
+                      
+                      <div id="myDropdown" class="dropdown-content">
+                               
+                      <div class="row1">
+                        <label for="event-title" class="form-label">Event Title : </label>
+                        <input type="text" class="form-control" id="event-title" name="itemheading2" placeholder="Diet Event - 1">
+                        </div>
+
+                        <div class="row1">
+                        <label for="event-desc" class="form-label">Event Description : </label>
+                        <textarea id="event-desc" class="form-control" name="itemdesc2" placeholder="add a description about the diet event" style="height:100px"></textarea>
+                        </div>
+
+                        <div class="row1">
+                        <label for="time" class="form-label">Amount : </label>
+                        <input type="text" class="form-control" id="time" name="time2" placeholder="Enter in grams">
+                        </div>
+      
+                            </div>
+                            <button type="button" id="toggle2">Add more</button>
+                        </div>
+                        <div class="dropdown3" style="display: none;" id="dropdown3">
+                      
+                      <div id="myDropdown" class="dropdown-content">
+                               
+                      <div class="row1">
+                        <label for="event-title" class="form-label">Event Title : </label>
+                        <input type="text" class="form-control" id="event-title" name="itemheading3" placeholder="Diet Event - 1">
+                        </div>
+
+                        <div class="row1">
+                        <label for="event-desc" class="form-label">Event Description : </label>
+                        <textarea id="event-desc" class="form-control" name="itemdesc3" placeholder="add a description about the diet event" style="height:100px"></textarea>
+                        </div>
+
+                        <div class="row1">
+                        <label for="time" class="form-label">Amount : </label>
+                        <input type="text" class="form-control" id="time" name="time3" placeholder="Enter in grams">
+                        </div>
+      
+                            </div>
+                            <button type="button" id="toggle3">Add more</button>
+                        </div>
+                        <div class="dropdown4" style="display: none;" id="dropdown4">
+                      
+                      <div id="myDropdown" class="dropdown-content">
+                               
+                      <div class="row1">
+                        <label for="event-title" class="form-label">Event Title : </label>
+                        <input type="text" class="form-control" id="event-title" name="itemheading4" placeholder="Diet Event - 1">
+                        </div>
+
+                        <div class="row1">
+                        <label for="event-desc" class="form-label">Event Description : </label>
+                        <textarea id="event-desc" class="form-control" name="itemdesc4" placeholder="add a description about the diet event" style="height:100px"></textarea>
+                        </div>
+
+                        <div class="row1">
+                        <label for="time" class="form-label">Amount : </label>
+                        <input type="text" class="form-control" id="time" name="time4" placeholder="Enter in grams">
+                        </div>
+      
+                            </div>
+                            <button type="button" id="toggle4">Add more</button>
+                        </div>
+                        <div class="dropdown5" style="display: none;" id="dropdown5">
+                      
+                      <div id="myDropdown" class="dropdown-content">
+                               
+                      <div class="row1">
+                        <label for="event-title" class="form-label">Event Title : </label>
+                        <input type="text" class="form-control" id="event-title" name="itemheading5" placeholder="Diet Event - 1">
+                        </div>
+
+                        <div class="row1">
+                        <label for="event-desc" class="form-label">Event Description : </label>
+                        <textarea id="event-desc" class="form-control" name="itemdesc5" placeholder="add a description about the diet event" style="height:100px"></textarea>
+                        </div>
+
+                        <div class="row1">
+                        <label for="time" class="form-label">Amount : </label>
+                        <input type="text" class="form-control" id="time" name="time5" placeholder="Enter in grams">
+                        </div>
+      
+                            </div>
+                        </div>
+               
+                      
+                      
+                             
 
 
-                    <center><button onclick="myFunction(this)" class="add_cart"><b> Add Diet </b></button></center>
+                 
 
 <div class="btnrow">
   <button class="back"><a href="#" onclick="history.go(-1)">Go Back</a></button>  
@@ -135,25 +204,54 @@ $(document).ready(function(){
 </div>
 
 <script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-var myFunction = function(target) {
-   target.parentNode.querySelector('.dropdown-content').classList.toggle("show");
-}
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.contains('show');
-      }
-    }
+const targetDiv = document.getElementById("dropdown");
+const targetDiv2 = document.getElementById("dropdown2");
+const targetDiv3 = document.getElementById("dropdown3");
+const targetDiv4 = document.getElementById("dropdown4");
+const targetDiv5 = document.getElementById("dropdown5");
+const btn = document.getElementById("toggle1");
+const btn2 = document.getElementById("toggle2");
+const btn3 = document.getElementById("toggle3");
+const btn4 = document.getElementById("toggle4");
+btn.onclick = function () {
+  if (targetDiv2.style.display == "none") {
+    targetDiv2.style.display = "block";
+    btn.innerHTML="Cancel";
+  } else {
+    targetDiv2.style.display = "none";
+    btn.innerHTML="Add more";
   }
-}
+};
+btn2.onclick = function () {
+  if (targetDiv3.style.display == "none") {
+    targetDiv3.style.display = "block";
+    btn2.innerHTML="Cancel";
+  } else {
+    targetDiv3.style.display = "none";
+    btn2.innerHTML="Add more";
+  }
+};
+btn3.onclick = function () {
+  if (targetDiv4.style.display == "none") {
+    targetDiv4.style.display = "block";
+    btn3.innerHTML="Cancel";
+  } else {
+    targetDiv4.style.display = "none";
+    btn3.innerHTML="Add more";
+  }
+};
+btn4.onclick = function () {
+  if (targetDiv5.style.display == "none") {
+    targetDiv5.style.display = "block";
+    btn4.innerHTML="Cancel";
+  } else {
+    targetDiv5.style.display = "none";
+    btn4.innerHTML="Add more";
+  }
+};
+
+
 </script>
 
 </body>

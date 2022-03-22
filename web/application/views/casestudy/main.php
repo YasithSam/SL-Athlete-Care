@@ -16,7 +16,7 @@
         </div>
             
                 <div class="profile">
-                    <i class="fas fa-bell"></i>
+                    
                     <button class="btn1" onclick="window.location.href='<?php echo BASEURL;?>/accountController/';"><i class="fa fa-user-circle" aria-hidden="true"></i></button>
                 </div>
         
@@ -84,7 +84,7 @@
                         </div>
                         <div style="clear: both;">
                             <h3 class="alignleft"><b><?php echo($item->name); ?> Update : </b><?php echo($item->heading); ?> </h3>
-                            <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/medicine';">View Update</button>
+                           
                         </div>
                     </div>
 

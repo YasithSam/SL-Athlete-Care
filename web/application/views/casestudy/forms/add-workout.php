@@ -45,30 +45,6 @@
     </div>
 
     
-  <script>
-
-    $(document).ready(function(){
-      var max_carts = 1000;
-      var wrapper = $(".dropdown");
-      var add_button = $(".add_cart");
-  
-      var x = 1;
-      $(add_button).click(function(e){
-        e.preventDefault();
-        if(x<max_carts){
-          x++;
-          $(wrapper).append('<div><div class="dropdown"><button onclick="myFunction(this)" class="dropbtn"><b> Workout Event <i class="fas fa-angle-down"></i></b></button><div id="myDropdown" class="dropdown-content"><div class="row1"><label for="event-title" class="form-label">Event Title : </label><input type="text" class="form-control" id="event-title" placeholder="Workout Event - 1"></div><div class="row1"><label for="event-desc" class="form-label">Event Description : </label><textarea id="event-desc" class="form-control" name="event-desc" placeholder="Lower-body strength training" style="height:100px"></textarea></div><div class="row1"><label for="time" class="form-label">Time Duration : </label><input type="text" class="form-control" id="time" placeholder="30 to 60 minutes"></div></div><a href="#" class="remove_field">Cancel</a></div></div>');
-        }
-      });
-  
-      $(wrapper).on("click",".remove_field",function(e){
-        e.preventDefault();
-        $(this).parent('div').remove();
-        x--;
-      });
-    });
-  
-  </script>
 
 
 
@@ -95,42 +71,155 @@
           </div>  
       
            <div class="row2">
-            <label for="event">Workout Events :</label>
+            <label for="event">Workout Events : can add upto maximum 7 events</label>
            </div>
+             <!--Dropdown-->
+                        
+             <div class="dropdown" id="dropdown">
+                      
+                <div id="myDropdown" class="dropdown-content">
+                         
+                        <div class="row1">
+                        <label for="event-title" class="form-label">Event Title : </label>
+                        <input type="text" class="form-control" id="event-title" name="itemheading1" placeholder="Workout Event - 1">
+                        </div>
+
+                        <div class="row1">
+                        <label for="event-desc" class="form-label">Event Description : </label>
+                        <textarea id="event-desc" class="form-control" name="itemdesc1" placeholder="Lower-body strength training" style="height:100px"></textarea>
+                        </div>
+
+                        <div class="row1">
+                        <label for="time" class="form-label">Time Duration : </label>
+                        <input type="text" class="form-control" id="time" name="time1" placeholder="30 to 60 minutes">
+                        </div>
+                        <div class="row1">
+                        <label for="time" class="form-label">Repetitions : </label>
+                        <input type="text" class="form-control" id="time" name="reps1" placeholder="30 to 60 minutes">
+                        </div>
+
+                      </div>
+                      <button type="button" id="toggle1">Add more</button>
+                </div>
+                  <br>
+                  <div class="dropdown2" style="display: none;" id="dropdown2">
+                      
+                      <div id="myDropdown" class="dropdown-content">
+                               
+                              <div class="row1">
+                              <label for="event-title" class="form-label">Event Title : </label>
+                              <input type="text" class="form-control" id="event-title" name="itemheading2" placeholder="Workout Event - 1">
+                              </div>
+      
+                              <div class="row1">
+                              <label for="event-desc" class="form-label">Event Description : </label>
+                              <textarea id="event-desc" class="form-control" name="itemdesc2" placeholder="Lower-body strength training" style="height:100px"></textarea>
+                              </div>
+      
+                              <div class="row1">
+                              <label for="time" class="form-label">Time Duration : </label>
+                              <input type="text" class="form-control" id="time" name="time2" placeholder="30 to 60 minutes">
+                              </div>
+                              <div class="row1">
+                              <label for="time" class="form-label">Repetitions : </label>
+                              <input type="text" class="form-control" id="time" name="reps2" placeholder="30 to 60 minutes">
+                              </div>
+      
+                            </div>
+                            <button type="button" id="toggle2">Add more</button>
+                        </div>
+                        <div class="dropdown3" style="display: none;" id="dropdown3">
+                      
+                      <div id="myDropdown" class="dropdown-content">
+                               
+                              <div class="row1">
+                              <label for="event-title" class="form-label">Event Title : </label>
+                              <input type="text" class="form-control" id="event-title" name="itemheading3" placeholder="Workout Event - 1">
+                              </div>
+      
+                              <div class="row1">
+                              <label for="event-desc" class="form-label">Event Description : </label>
+                              <textarea id="event-desc" class="form-control" name="itemdesc3" placeholder="Lower-body strength training" style="height:100px"></textarea>
+                              </div>
+      
+                              <div class="row1">
+                              <label for="time" class="form-label">Time Duration : </label>
+                              <input type="text" class="form-control" id="time" name="time3"placeholder="30 to 60 minutes">
+                              </div>
+                              <div class="row1">
+                              <label for="time" class="form-label">Repetitions : </label>
+                              <input type="text" class="form-control" id="time" name="reps3" placeholder="30 to 60 minutes">
+                              </div>
+      
+                            </div>
+                            <button type="button" id="toggle3">Add more</button>
+                        </div>
+                        <div class="dropdown4" style="display: none;" id="dropdown4">
+                      
+                      <div id="myDropdown" class="dropdown-content">
+                               
+                              <div class="row1">
+                              <label for="event-title" class="form-label">Event Title : </label>
+                              <input type="text" class="form-control" id="event-title" name="itemheading4" placeholder="Workout Event - 1">
+                              </div>
+      
+                              <div class="row1">
+                              <label for="event-desc" class="form-label">Event Description : </label>
+                              <textarea id="event-desc" class="form-control" name="itemdesc4" placeholder="Lower-body strength training" style="height:100px"></textarea>
+                              </div>
+      
+                              <div class="row1">
+                              <label for="time" class="form-label">Time Duration : </label>
+                              <input type="text" class="form-control" id="time" name="time4" placeholder="30 to 60 minutes">
+                              </div>
+                              <div class="row1">
+                              <label for="time" class="form-label">Repetitions : </label>
+                              <input type="text" class="form-control" id="time" name="reps4" placeholder="30 to 60 minutes">
+                              </div>
+      
+                            </div>
+                            <button type="button" id="toggle4">Add more</button>
+                        </div>
+                        <div class="dropdown5" style="display: none;" id="dropdown5">
+                      
+                      <div id="myDropdown" class="dropdown-content">
+                               
+                              <div class="row1">
+                              <label for="event-title" class="form-label">Event Title : </label>
+                              <input type="text" class="form-control" id="event-title" name="itemheading5" placeholder="Workout Event - 1">
+                              </div>
+      
+                              <div class="row1">
+                              <label for="event-desc" class="form-label">Event Description : </label>
+                              <textarea id="event-desc" class="form-control" name="itemdesc5" placeholder="Lower-body strength training" style="height:100px"></textarea>
+                              </div>
+      
+                              <div class="row1">
+                              <label for="time" class="form-label">Time Duration : </label>
+                              <input type="text" class="form-control" id="time" name="time5" placeholder="30 to 60 minutes">
+                              </div>
+                              <div class="row1">
+                              <label for="time" class="form-label">Repetitions : </label>
+                              <input type="text" class="form-control" id="time" name="reps5" placeholder="30 to 60 minutes">
+                              </div>
+      
+                            </div>
+                        </div>
+               
+                      
+                      
+                     
+                      
+                   
+
 
 
            
 
-                        <!--Dropdown-->
-                        <button class="dropbtn"><b> Workout Event <i class="fas fa-angle-down"></i></b></button>
-                        <div class="dropdown">
                       
-                        <div id="myDropdown" class="dropdown-content">
-                           
-                          <div class="row1">
-                          <label for="event-title" class="form-label">Event Title : </label>
-                          <input type="text" class="form-control" id="event-title" name="itemheading" placeholder="Workout Event - 1">
-                          </div>
-
-                          <div class="row1">
-                          <label for="event-desc" class="form-label">Event Description : </label>
-                          <textarea id="event-desc" class="form-control" name="itemdesc" placeholder="Lower-body strength training" style="height:100px"></textarea>
-                          </div>
-
-                          <div class="row1">
-                          <label for="time" class="form-label">Time Duration : </label>
-                          <input type="text" class="form-control" id="time" name="time"placeholder="30 to 60 minutes">
-                          </div>
-                          <div class="row1">
-                          <label for="time" class="form-label">Repetitions : </label>
-                          <input type="text" class="form-control" id="time" name="reps" placeholder="30 to 60 minutes">
-                          </div>
-
-                        </div>
-                      </div><br>
   
 
-                      <center><button onclick="myFunction(this)" class="add_cart"><b> Add Workout </b></button></center>
+                
 
 <div class="btnrow">
   <button class="back"><a href="#" onclick="history.go(-1)">Go Back</a></button>  
@@ -145,28 +234,57 @@
 <br> 
 </div>
 
-
 <script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-var myFunction = function(target) {
-   target.parentNode.querySelector('.dropdown-content').classList.toggle("show");
-}
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.contains('show');
-      }
-    }
+const targetDiv = document.getElementById("dropdown");
+const targetDiv2 = document.getElementById("dropdown2");
+const targetDiv3 = document.getElementById("dropdown3");
+const targetDiv4 = document.getElementById("dropdown4");
+const targetDiv5 = document.getElementById("dropdown5");
+const btn = document.getElementById("toggle1");
+const btn2 = document.getElementById("toggle2");
+const btn3 = document.getElementById("toggle3");
+const btn4 = document.getElementById("toggle4");
+btn.onclick = function () {
+  if (targetDiv2.style.display == "none") {
+    targetDiv2.style.display = "block";
+    btn.innerHTML="Cancel";
+  } else {
+    targetDiv2.style.display = "none";
+    btn.innerHTML="Add more";
   }
-}
+};
+btn2.onclick = function () {
+  if (targetDiv3.style.display == "none") {
+    targetDiv3.style.display = "block";
+    btn2.innerHTML="Cancel";
+  } else {
+    targetDiv3.style.display = "none";
+    btn2.innerHTML="Add more";
+  }
+};
+btn3.onclick = function () {
+  if (targetDiv4.style.display == "none") {
+    targetDiv4.style.display = "block";
+    btn3.innerHTML="Cancel";
+  } else {
+    targetDiv4.style.display = "none";
+    btn3.innerHTML="Add more";
+  }
+};
+btn4.onclick = function () {
+  if (targetDiv5.style.display == "none") {
+    targetDiv5.style.display = "block";
+    btn4.innerHTML="Cancel";
+  } else {
+    targetDiv5.style.display = "none";
+    btn4.innerHTML="Add more";
+  }
+};
+
+
 </script>
+
 
 </body>
 </html>
