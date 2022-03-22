@@ -176,13 +176,15 @@ class paramedical extends main{
         $h = $this->input('hospital');
         $p = $this->input('province');
         $d = $this->input('district');
-       
-        if($this->paramedicalModel->updateprofile($u,$e,$h,$p,$d)){
+        $f = $_FILES["image"]["name"];
+        $tempname = $_FILES["image"]["tmp_name"]; 
+        move_uploaded_file($tempname,"../../web/public/assets/dbimages/$f");
+        if($this->paramedicalModel->updateprofile($u,$e,$h,$p,$d,$f)){
             $this->setFlash('updtpro', 'Profile updated!');
             $this->redirect('paramedical/profile');
          }
         else {
-          //$this->view('para/editprofile',$data);
+        $this->view('para/editprofile',$data);
         }
     }
 
