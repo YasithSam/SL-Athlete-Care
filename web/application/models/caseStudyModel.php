@@ -423,44 +423,28 @@ class caseStudyModel extends database
 
     
      public function addworkout($data){  
-        $y=[$data['id'],6];
+        $y=[$data[0]['id'],6];
         
         if($this->Query("INSERT into schedule (case_study_id,type) VALUES (?,?)",$y)){
             if($this->Query("SELECT id FROM schedule where id=(select max(id) from schedule)")){
                 if($this->rowCount() > 0 ){
                     $row = $this->fetch();
                     $id = $row->id;
-                    $x=[$id,$data['title'],$data['description'],0];
+                    $x=[$id,$data[0]['title'],$data[0]['description'],0];
                     if($this->Query("INSERT into workout_schedule (schedule_id,title,description,state) VALUES (?,?,?,?)",$x)){
                         if($this->Query("SELECT id FROM workout_schedule where id=(select max(id) from workout_schedule)")){
                                $row2 = $this->fetch();
                                $id2= $row2->id;
-                               for ($i=0;$i<count($data['itemtitle']);$i++){
-                                   if(empty($data['reps'][$i])){
-                                    $z=[$id2,$data['reps'][$i],$data['itemtitle'][$i],$data['itemdesc'][$i]];
-                                    if($this->Query("INSERT into workout_events (workout_schdule_id,reps,title,description) VALUES (?,?,?,?)",$z)){
-                                       return true;
+                              
+                               for ($i=1;$i<count($data);$i++){
+                                    $z=[$id2,$data[$i]['title'],$data[$i]['description'],$data[$i]['time'],$data[$i]['reps']];
+                                    if($this->Query("INSERT into workout_events (workout_schdule_id,title,description,time,reps) VALUES (?,?,?,?,?)",$z)){
+                                       
                                     }
-                               
-
-                                   }else if(empty($data['time'][$i])){
-                                    $z=[$id2,$data['itemtitle'][$i],$data['itemdesc'][$i],$data['time'][$i]];
-                                    if($this->Query("INSERT into workout_events (workout_schdule_id,title,description,time) VALUES (?,?,?,?)",$z)){
-                                        return true;
-                                     }
-
-                                   }
-                                   else{
-                                    $z=[$id2,$data['reps'][$i],$data['itemtitle'][$i],$data['itemdesc'][$i],$data['time'][$i]];
-                                    if($this->Query("INSERT into workout_events (workout_schdule_id,reps,title,description,time) VALUES (?,?,?,?,?)",$z)){
-                                        return true;
-                                     }
-
-                                   }
-                                  
                                  
 
                                }
+                               return true;
 
                         }
                     }
@@ -475,14 +459,49 @@ class caseStudyModel extends database
            
             return true;
         }
-         $count=count($data['itemheading']);
-         for($i=0;$i<$count;$i++){
-           
-         }
+         
 
 
      }
-     public function adddiet($data){
+     public function adddiet($data){  
+         $y=[$data[0]['id'],5];
+       
+        if($this->Query("INSERT into schedule (case_study_id,type) VALUES (?,?)",$y)){
+            if($this->Query("SELECT id FROM schedule where id=(select max(id) from schedule)")){
+                if($this->rowCount() > 0 ){
+                    $row = $this->fetch();
+                    $id = $row->id;
+                    $x=[$id,$data[0]['title'],$data[0]['description'],0];
+                    if($this->Query("INSERT into diet_schedule (schedule_id,title,description,state) VALUES (?,?,?,?)",$x)){
+                        if($this->Query("SELECT id FROM diet_schedule where id=(select max(id) from diet_schedule)")){
+                               $row2 = $this->fetch();
+                               $id2= $row2->id;
+                              
+                               for ($i=1;$i<count($data);$i++){
+                                    $z=[$id2,$data[$i]['title'],$data[$i]['description'],$data[$i]['time']];
+                                    if($this->Query("INSERT into diet_events (diet_id,title,descritption,amount) VALUES (?,?,?,?)",$z)){
+                                       
+                                    }
+                                 
+
+                               }
+                               return true;
+
+                        }
+                    }
+                    
+                }
+
+
+            }
+
+
+
+           
+            return true;
+        }
+         
+
 
     }
     

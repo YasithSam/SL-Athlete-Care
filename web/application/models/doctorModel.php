@@ -422,8 +422,8 @@ class doctorModel extends database
     public function getArticles($userid){
         if($this->Query("SELECT p.id, p.type, p.heading, p.description,pa.url
                          from post p
-                         inner join post_attachments pa on pa.post_id=p.id
-                         where p.type<? && p.type!=? && p.approval_status=? && p.author_id=?",[7,1,2,$userid])){
+                         left join post_attachments pa on pa.post_id=p.id
+                         where p.author_id=?",[$userid])){
             $x=$this->fetchall();
             return $x;
         }
