@@ -30,10 +30,24 @@ class doctor extends main{
     public function patients(){
         $userId = $this->getSession('userId');
         if($this->getSession('userRole')==2){
-            $data=$this->doctorModel->getPatients($userId);
-            
-            //$data["id"]=("uuid");
-            $this->view('doctor/patients',$data);
+            $data=$this->doctorModel->getPatients();
+           
+           
+            $this->view('doctor/patients',[$data,$data]);
+        }
+        else{
+            $this->view('404');
+        }
+      
+    }
+
+    public function patientsFilter(){
+        $userId = $this->getSession('userId');
+        $p=$this->input('patient');
+        if($this->getSession('userRole')==2){
+            $data=$this->doctorModel->getPatientsFilter($p);
+            $data2=$this->doctorModel->getPatients();
+            $this->view('doctor/patients',[$data2,$data]);
         }
         else{
             $this->view('404');

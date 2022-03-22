@@ -2,6 +2,7 @@
 session_start();
 include "../../web/config/config.php";
 include "../../web/system/classes/database.php";
+
 class AthleteAPI extends database
 {
     public function getUserForum($id){

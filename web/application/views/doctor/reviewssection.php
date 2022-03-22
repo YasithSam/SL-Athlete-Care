@@ -29,9 +29,8 @@
            <table class="content-table">
             <thead>
               <tr>
-                <th class="type">Type</th>
                 <th class="title">Title</th>
-                <th class="desc">Description</th>
+                <th class="desc">View</th>
                 <th class="name">Author Name</th>
                 <th class="btnrow">Approve Review</th>
                 <th class="btnrow">Reject Review</th>
@@ -41,9 +40,18 @@
             <?php if(!empty($data[0])): ?>
             <?php foreach($data[0] as $item): ?>
               <tr>
-                <td><?php echo ucwords($item->type); ?></td>
+              
                 <td><?php echo ucwords($item->heading); ?></td>
-                <td class="longtext"><?php echo ucwords($item->description); ?></td>
+                <td>
+             
+                <?php if($item->type < 7 && $item->type > 1){?>
+                  <a href="<?php echo BASEURL;?>/forumController/articleitem/<?php echo $item->post_id;?>"><button class="button1">View</button></a>
+
+                 <?php } else{?>  
+                   <a href="<?php echo BASEURL;?>/forumController/questionitem/<?php echo $item->post_id;?>"><button class="button1">View</button></a>
+
+                <?php }?>    
+                </td>            
                 <td><?php echo ucwords($item->full_name); ?></td>
                 <!-- <td><input type="button" class="button1" value="Approve"> </td> -->
                 <td><a href="<?php echo BASEURL;?>/doctor/reviewapprove?id=<?php echo($item->id);?>" onclick='return confirm("Approve this review?");'><input type="button" class="button1" value="Approve"></a></td>

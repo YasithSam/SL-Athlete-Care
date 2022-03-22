@@ -111,11 +111,22 @@ class doctorModel extends database
         }
     }
     //////////////////
+    public function getPatientsFilter($p){
+        if($this->Query("SELECT a.uuid,a.full_name,au.phone
+                         from application_user au
+                         inner join athlete_profile a on a.uuid=au.uuid
+                         where au.uuid=?",[$p])){
+            $x=$this->fetchall();
+            return $x;
+
+        }
+    }
+    
     public function getPatients(){
         if($this->Query("SELECT a.uuid,a.full_name,au.phone
                          from application_user au
                          inner join athlete_profile a on a.uuid=au.uuid
-                         where role_id=? ",[4])){
+                         where au.role_id=?",[4])){
             $x=$this->fetchall();
             return $x;
 
@@ -501,7 +512,7 @@ class doctorModel extends database
 
     public function getReviews($userId){
         $m=[];
-        if($this->Query("SELECT p.type, p.heading, p.description, dp.full_name, r.reviewer_id,r.id /*, pa.type pt*/
+        if($this->Query("SELECT p.type, r.post_id, r.comment_id, p.heading, p.description, dp.full_name, r.reviewer_id,r.id /*, pa.type pt*/
                         from reviewers r 
                         inner join post p on r.post_id=p.id
                         inner join doctor_profile dp on dp.uuid=r.reviewer_id

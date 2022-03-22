@@ -24,32 +24,35 @@
 <div class="container">
     
     <div class="title"> Patients Overview </div> 
-    <div class="subtitle"> Page 1 </div>
+    
 
-    <form class="search-btn" action="/action_page.php">
+    <form class="search-btn" action="<?php echo BASEURL;?>/doctor/patientsFilter">
         <!--<input type="text" class="search" placeholder="Search..." name="search">-->
-        <select name="search" id="search" class="search">
+        <select name="patient" id="search" class="search">
             <option value="" disabled selected hidden>Patient</option>
-            <?php foreach($data as $item): ?>
-            <option value="<?php print_r($item->uuid);?>"><?php print_r($item->full_name);?></option>
+            <?php if(!empty($data[0])): ?>
+                      
+            <?php foreach($data[0] as $item): ?>
+            <option value="<?php echo ucwords($item->uuid);?>"><?php echo ucwords($item->full_name);?></option>
             <?php endforeach;?>
+            <?php endif;?>
         </select>
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <input type="submit" class="submitbtn" value="Submit" />
     </form>
         
 <!--Update card-->
-<?php if(!empty($data)): ?>
-<?php foreach($data as $item): ?>
+<?php if(!empty($data[0])): ?>
+<?php foreach($data[1] as $item2): ?>
 
 <div class="injury">
     <img src="../../web/public/assets/img/user.jpg" alt="user" class="user">
     <div class="description">
-        <div class="col1"> Name: &nbsp; <?php echo($item->full_name);?> <br> Phone: &nbsp; <?php echo($item->phone);?> </div>
+        <div class="col1"> Name: &nbsp; <?php echo($item2->full_name);?> <br> Phone: &nbsp; <?php echo($item2->phone);?> </div>
         <!-- <div class="col2"> Injury: &nbsp;   <br> Condition: &nbsp;  </div> -->
     </div>
     <div class="button">
         <div class="date">21/10/2021</div>
-        <a href="<?php echo BASEURL;?>/doctor/athlete/<?php echo $item->uuid;?>">View</a>
+        <a href="<?php echo BASEURL;?>/doctor/athlete/<?php echo $item2->uuid;?>">View</a>
     </div>
 </div>
 <?php endforeach;?>
@@ -57,14 +60,7 @@
         <h1>No data </h1>
     <?php endif; ?> 
 
-<!--buttons-->
-<div class="btn-group">
-    <a href="" class="activebtn" style="margin-right: 10px;">1</a>
-    <a href="" class="btn" style="margin-left: 10px;">2</a>
-    <a href="" class="btn" style="margin-left: 20px;">3</a>
-    <a href="" class="btn" style="margin-left: 20px;">>></a>
-</div>
-<!--end of buttons-->
+
 
 </div>
 </div>

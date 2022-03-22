@@ -80,44 +80,31 @@ class forumController extends main{
 
     }
     public function grid(){
-        if($this->getSession('userRole')!=4){
+        
             $data=$this->forumModel->getArticles();
             $this->view('grid',$data);
-            }
-            else{
-                $this->view('404');
-            } 
-        }
+    }
     public function articleitem($id){
-        if($this->getSession('userRole')==2){
+       
             $data['data']=$this->forumModel->getotherArticles($id);
             $data['active']=$this->forumModel->getArticlesitem($id);
             $this->view('articleitem',$data);
-        }
-        else{
-            $this->view('404');
-        }
+      
     }
 
     public function questionitem($id){
-        if($this->getSession('userRole')==2){
+       
             $data['data']=$this->forumModel->getotherQuetions($id);
             $data['active']=$this->forumModel->getQuetionsitem($id);
             $this->view('questionitem',$data);
-        }
-        else{
-            $this->view('404');
-        }
+       
     }
     public function noticeitem($id){
-            if($this->getSession('userRole')==2){
+            
                 $data['data']=$this->forumModel->getotherNotices($id);
                 $data['active']=$this->forumModel->getNoticeitem($id);
                 $this->view('noticeitem',$data);
-            }
-            else{
-                $this->view('404');
-            }
+            
     }
 
     public function reject($id){
