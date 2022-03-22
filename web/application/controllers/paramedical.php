@@ -189,14 +189,14 @@ class paramedical extends main{
     public function acceptRequest()
     {
         $c=$this->input('id');
-        $z=$this->input('case_study_id');
-        if($this->paramedicalModel->acceptRequest($c)){
-            $this->redirect('paramedical/index?id=1/'.$z);
+        $userid = $this->getSession('userId');
+        if($this->paramedicalModel->acceptRequest($c,$userid)){
+            $this->redirect('paramedical/index');
             }
 
         
         else{
-            $this->redirect('paramedical/index?id=1/'.$z);
+            $this->redirect('paramedical/index');
 
         }   
 

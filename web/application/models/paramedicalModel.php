@@ -32,8 +32,8 @@ class paramedicalModel extends database
         }
     }
 
-    public function acceptRequest($id){
-        if($this->Query("UPDATE paramedical_case_study SET status=1 where case_study_id=?",[$id])){
+    public function acceptRequest($id,$uid){
+        if($this->Query("UPDATE paramedical_case_study SET status=1 where case_study_id=? && paramedical_id=?",[$id,$uid])){
                 $data=$this->fetch();
                 return $data;
             }

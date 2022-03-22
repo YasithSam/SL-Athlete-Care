@@ -46,33 +46,7 @@
 
             <main>
             <div class="popup">
-      <div class="shadow"></div>
-        <div class="inner_popup">
-            <div class="notification_dd">
-                <ul class="notification_ul">
-                    <li class="title">
-                        <p>All Notifications</p>
-                        <p class="close"><i class="fas fa-times" aria-hidden="true"></i></p>
-                    </li> 
-                    <li class="starbucks success">
-                        <div class="notify_icon">
-                            <span class="icon"></span>  
-                        </div>
-                        <div class="notify_data">
-                            <div class="title">
-                                Lorem, ipsum dolor.  
-                            </div>
-                            <div class="sub_title">
-                              Lorem ipsum dolor sit amet consectetur.
-                          </div>
-                        </div>
-                        <div class="notify_status">
-                            <p>Success</p>  
-                        </div>
-                    </li>  
-              </ul>
-          </div>
-      </div>
+      
     </div>
 
 
