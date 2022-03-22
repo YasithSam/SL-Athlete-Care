@@ -45,7 +45,7 @@
           <img src="../../web/public/assets/dbimages/<?php echo($item->url);?>" alt="Avatar" style="width:100%; height:200px;">
           <div class="container">
             <h4><?php echo($item->heading);?></h4> 
-            <p><?php echo($item->description);?></p> 
+         
               <div class="edit">
                 <div class="button">
                     <!-- <a href="<?php echo BASEURL;?>/admin/editnotice"><i class="fas fa-pen icon"></i></a> -->
@@ -86,7 +86,7 @@
         <?php endif; ?> 
     </div>
 
-    <div class="more"><a href="<?php echo BASEURL;?>/forumController/noticeitem"> View All</a></div>
+   
         
             </main>
             </div>

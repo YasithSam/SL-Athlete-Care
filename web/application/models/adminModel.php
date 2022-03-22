@@ -179,7 +179,7 @@ class adminModel extends database
                         from comments c
                         inner join post p on c.post_id=p.id 
                         inner join application_user a on c.user_id=a.uuid
-                        where c.approval=1
+                        where c.approval=0
                         order by c.datetime desc")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -198,13 +198,13 @@ class adminModel extends database
 
     }
     public function commentapprove($id){
-        if($this->Query("UPDATE comments SET approval=2 where id=?",[$id])){
+        if($this->Query("UPDATE comments SET approval=1 where id=?",[$id])){
                 return true;
             }
     }
     public function commentreject($id,$r){
         echo $id;
-        if($this->Query("UPDATE comments SET approval=3, reason='$r' where id=?",[$id])){
+        if($this->Query("UPDATE comments SET approval=-1, reason='$r' where id=?",[$id])){
                 return true;
             }
     }
