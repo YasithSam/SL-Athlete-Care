@@ -47,6 +47,28 @@ class BlogAPI extends database
         }
 
     }
+    public function addCommentD($c,$p)
+    {
+        $i=$_SESSION['userId'];
+        echo($i);
+        $x=[$c,1,$p,$i];
+        if($this->Query("INSERT INTO comments (comment,approve,post_id,user_id) VALUES (?,?,?,?)",$x)){
+            if($this->Query("Select comments from post where id=?",[$p])){
+                $row=$this->fetch();
+                $x=$row->comments;
+                $x+=1;
+                if($this->Query("UPDATE post set comments = ? where id=?",[$x,$p])){
+                    return['status'=>'ok'];
+                }
+            }
+            
+                 
+        }else{
+            echo "noo";
+            return false;
+        }
+
+    }
     public function GetComments($id)
     {
         $c=[];

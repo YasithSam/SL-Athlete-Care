@@ -7,8 +7,82 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
 
 <script src="https://kit.fontawesome.com/4e3a3a38a1.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <?php linkCSS("assets/css/forumItem.css") ?>
+<style>
+
+.comment-form-container {
+	background: #F0F0F0;
+	border: #e0dfdf 1px solid;
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.input-row {
+	margin-bottom: 20px;
+}
+
+.input-field {
+	width: 100%;
+	border-radius: 2px;
+	padding: 10px;
+	border: #e0dfdf 1px solid;
+}
+
+.btn-submit {
+	padding: 10px 20px;
+	background: #333;
+	border: #1d1d1d 1px solid;
+	color: #f0f0f0;
+	font-size: 0.9em;
+	width: 100px;
+	border-radius: 2px;
+    cursor:pointer;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.comment-row {
+	border-bottom: #e0dfdf 1px solid;
+	margin-bottom: 15px;
+	padding: 15px;
+}
+
+.outer-comment {
+	background: #F0F0F0;
+	padding: 20px;
+	border: #dedddd 1px solid;
+}
+
+span.commet-row-label {
+	font-style: italic;
+}
+
+span.posted-by {
+	color: #09F;
+}
+
+.comment-info {
+	font-size: 1.2em;
+}
+.comment-text {
+    margin: 10px 0px;
+}
+.btn-reply {
+    font-size: 0.8em;
+    text-decoration: underline;
+    color: #888787;
+    cursor:pointer;
+}
+#comment-message {
+    margin-left: 20px;
+    color: #189a18;
+    display: none;
+}
+</style>
 <body>
 
 <!--  <header>
@@ -51,39 +125,28 @@
 		
  	  </div>
 
-	   <div class="card">
-		<div class="comments-wrapper">
-			<div class="user-name">
-				<h1>Comments</h1>
-			</div>
-			<!-- <div class="condition">
-				<div class="Comments-box">
-					<a href=""><button class="comments">Add Comment</button></a>
-				</div>
-			</div> -->
-		</div> 
-		
-		<hr style="height:1px;border-width:0;color:gray;background-color:gray">
+	   <div class="comment-form-container" style="margin-top: 10px;">
+        <form id="frm-comment">
+            <h1>Comments</h1>
+			<hr>
+			<br>
+			<input name="id" type="hidden" value=<?php echo $data[0]->id;?>></input>
+			
+            <div class="input-row">
+                <textarea class="input-field" type="text" name="comment"
+                    id="comment" placeholder="Add a Comment">  </textarea>
+            </div>
+            <div>
+                <input type="button" class="btn-submit" id="submitButton"
+                    value="Publish" /><div id="comment-message">Comments Added Successfully!</div>
+            </div>
 
-		<br>
-
-		<div class="container">
-			<form action=" ">
-		  
-				<div class="row">
-				
-				<div class="col-75">
-					<input type="text" id="title" name="title" placeholder="Write a comment...">
-				</div>
-				</div> 
-			</form>
-		</div>
-
-
-			  
-	 </div>
+        </form>
+    </div>
+	<div id="output"></div>
 
  	</div>
+	
 
  	<div class="right-column">
 		 <h1>Similar Post</h1>
@@ -134,6 +197,79 @@
 </main>
 
 </div>
+<script>
+			
+
+            $("#submitButton").click(function () {
+            	   $("#comment-message").css('display', 'none');
+                var str = $("#frm-comment").serialize();
+
+                $.ajax({
+                    url: "http://localhost/SL-Athlete-Care/api/v1/addCommentD.php",
+                    data: str,
+                    type: 'post',
+                    success: function (response)
+                    {
+						console.log(response);
+                        var result = eval('(' + response + ')');
+						
+                        if (response)
+                        {
+							
+                        	$("#comment-message").css('display', 'inline-block');
+                            $("#comment").val("");
+                            $("#id").val("");
+                     	    listComment();
+                        } else
+                        {
+                            alert("Failed to add comments !");
+                            return false;
+                        }
+                    }
+                });
+            });
+			$(document).ready(function () {
+            	   listComment();
+            });
+
+            function listComment() {
+				var t="http://localhost/SL-Athlete-Care/api/v1/getCommentsPostD.php?id="+<?php echo $data[0]->id;?>;
+		
+                $.post(t,
+                        function (data) {
+                               var data = JSON.parse(data);
+							
+                            
+                            var comments = "";
+                            var replies = "";
+                            var item = "";
+                            var results = new Array();
+
+                            var list = $("<ul class='outer-comment'>");
+                            var item = $("<li>").html(comments);
+
+                            for (var i = 0; (i < data.length); i++)
+                            {
+                               
+                                    comments = "<div class='comment-row'>"+
+                                    "<div class='comment-info'><span class='commet-row-label'>from</span> <span class='posted-by'>" + data[i]['username'] + " </span> <span class='posted-at'>" + data[i]['date'] + "</span> <span class='commet-row-label'> Hours Ago</span></div>" + 
+                                    "<div class='comment-text'>" + data[i]['comment'] + "</div>";
+
+                                    var item = $("<li>").html(comments);
+                                    list.append(item);
+                                    var reply_list = $('<ul>');
+                                    item.append(reply_list);
+                                    
+                                
+                            }
+                            $("#output").html(list);
+                        });
+            }
+            
+           
+
+           
+        </script>
 
 
 

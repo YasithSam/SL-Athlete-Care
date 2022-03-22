@@ -93,6 +93,33 @@ class forumModel extends database
         }
     }
 
+    public function getUserForumCommentsD($id){
+        $data=[];
+        if( $this->Query("SELECT f.comment,f.date,u.username from forum_comment f inner join application_user u on f.user_id=u.uuid WHERE f.forum_id=? order by date desc",[$id])){
+            if($this->rowCount()>0){
+                $row = $this->fetchall();
+                foreach ($row as $obj)
+                {
+                    $datetime1 = new DateTime();
+                    $datetime2 = new DateTime($obj->date);
+                    $interval = $datetime1->diff($datetime2);
+                    $intervalFormat=$interval->format('%H');
+                    $obj->date=$intervalFormat;
+                    array_push($data,$obj);
+                     
+                }    
+
+            } else {
+                return ['status' => 'n'];
+            }
+            
+
+        }
+        return $data;
+       
+
+    }
+
     public function getotherNotices($id){
         if($this->Query("SELECT p.id,p.heading,pa.url from post p 
         left join post_attachments pa on p.id=pa.post_id 

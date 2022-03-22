@@ -160,6 +160,32 @@ class AthleteAPI extends database
 
     }
 
+    public function addUserForumCommentD($f,$c){
+        $u=$_SESSION['userId'];
+        $x=[$f,$u,$c];
+        if( $this->Query("INSERT INTO forum_comment (forum_id,user_id,comment) VALUES (?,?,?)",$x)){
+            if($this->rowCount()>0){
+                if($this->Query("Select comment from athlete_reported_injury where id=?",[$f])){
+                    $row=$this->fetch();
+                    $x=$row->comment;
+                    $x+=1;
+                    if($this->Query("UPDATE athlete_reported_injury set comment = ? where id=?",[$x,$f])){       
+                            return true;
+                        
+                    }
+                }
+               
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+
+    }
+
     public function checkUser($username,$phone){
         if( $this->Query("SELECT * FROM application_user WHERE username = ? || phone= ?",[$username,$phone])){
             if($this->rowCount()>0){
