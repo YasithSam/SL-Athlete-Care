@@ -53,7 +53,7 @@
    
   <div class="form-container">
       
-      <form action ="<?php echo BASEURL;?>/caseStudyController/adddietlist/">
+      <form action ="<?php echo BASEURL;?>/caseStudyController/addpostdietlist/">
     
           <div class="row2">
             <label for="title">Diet Title :</label>

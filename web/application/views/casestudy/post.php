@@ -215,10 +215,11 @@ for (var i = 0; i < btns.length; i++) {
 
     <div class="addbtn2">
       <?php if($_SESSION["userRole"]==5):?>         
-          <button class="addbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/adddiet/<?php echo($data[1])?>';">Add New</button>        
-     <?php else: ?>             
+          <button class="addbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/addpostdiet/<?php echo($data[1])?>';">Add New</button>        
+     <?php else: ?>
+      <?php endif;?>             
         <button class="btn_more" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/pdiet/<?php echo($data[1])?>';">More</button>
-     <?php endif;?>
+   
       </div>
 </div>
       <!--end-->
