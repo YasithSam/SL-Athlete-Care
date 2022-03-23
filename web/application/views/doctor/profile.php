@@ -41,11 +41,11 @@
                             <i class="fas fa-camera cam"></i>
                           </div>-->
                       
-                        <div class="updt"><i class="fas fa-user user"></i><h5 style="justify-content: left;">Dr.<?php echo ucwords ($data[0]->full_name) ?> </h5> </div>
-                        <div class="updt"><i class="fas fa-user user"></i><h5> <?php echo ucwords ($data[0]->sex) ?> </h5></div>
+                        <div class="updt"><i class="fas fa-user user"></i> <h5 style="justify-content: left;">Dr.<?php echo ucwords ($data[0]->full_name) ?> </h5> </div>
+                        <div class="updt"><i class="fas fa-user user"></i> <h5> <?php echo ucwords ($data[0]->sex) ?> </h5></div>
                         <div class="updt"><i class="fas fa-map-marker-alt user"></i> <h5> <?php echo ucwords($data[0]->district)?>,<?php echo ucwords($data[0]->province)?> </h5></div>
-                        <div class="updt"><i class="fas fa-at user"></i> <h5> <?php echo($data[0]->email)?> </h5> </div>
-                        <div class="updt"><i class="fas fa-clinic-medical user"></i> <h5> <?php echo ucwords($data[0]->hospital)?> </h5> </div>
+                        <div class="updt"><i class="fas fa-at user"></i><h5> <?php echo($data[0]->email)?> </h5> </div>
+                        <div class="updt"><i class="fas fa-clinic-medical user"></i><h5> <?php echo ucwords($data[0]->hospital)?> </h5> </div>
                         <div class="button" style="justify-content: center;"><a href="<?php echo BASEURL;?>/doctor/editprofile">Edit Profile</a></div>
                       </div>
                       
@@ -69,7 +69,9 @@
                                   <!--card-->
                                 <div class="card">
                                   <i class="fas fa-book-medical user"></i>
-                                  <div class="qual">Case Study : #C00<?php echo($item->case_id);?> <br><p class="txt"><?php echo($item->title);?> - <?php echo($item->fn);?>  </p> </div>
+                                  <div class="qual">Case Study : #C00<?php echo($item->case_id);?> <br><p class="txt">
+                                    <?php echo($item->title);?> - <?php echo($item->fn);?>  </p> </div>
+
                                   <div class="button" > <a href="<?php echo BASEURL;?>/doctor/addparaform/<?php echo($item->case_id);?>" style="font-size:13px">Assign</a></div>
                                 </div>
                                 <?php endforeach;?>

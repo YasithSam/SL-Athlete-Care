@@ -81,7 +81,7 @@ class doctorModel extends database
 
 //Profile
 
-    public function getProfile($id){
+ public function getProfile($id){
         if($this->Query("SELECT uuid,full_name,province,district,sex,email,profile_image_url,hospital,doctor_number 
         from doctor_profile where uuid=?",[$id])){
             $x=$this->fetch();
@@ -93,7 +93,7 @@ class doctorModel extends database
 
 //Profile Update
 
-    public function updateprofile($u,$i,$e,$h,$p,$d){
+ public function updateprofile($u,$i,$e,$h,$p,$d){
         
         if($this->Query("UPDATE doctor_profile set profile_image_url='$i', email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){         
              return true;
@@ -103,7 +103,7 @@ class doctorModel extends database
 
 //CaseStudy
 
-    public function getCaseStudyProfile($id){
+ public function getCaseStudyProfile($id){
         if($this->Query("SELECT a.full_name fn, c.case_id,c.title/* ,pp.full_name pf  */
                         FROM case_study c 
                         inner join athlete_profile a on a.uuid=c.athlete_id 
