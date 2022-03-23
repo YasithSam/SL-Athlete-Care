@@ -509,7 +509,7 @@ public function addpostworkout($data){
  }
 
 
-//Add Diet
+//Add Diet - Pre
 
      public function adddiet($data){  
          $y=[$data[0]['id'],5];
@@ -548,6 +548,46 @@ public function addpostworkout($data){
 
     }
     
+
+//Add Diet - Post
+
+public function addpostdiet($data){  
+    $y=[$data[0]['id'],5];
+  
+   if($this->Query("INSERT into schedule (case_study_id,type) VALUES (?,?)",$y)){
+       if($this->Query("SELECT id FROM schedule where id=(select max(id) from schedule)")){
+           if($this->rowCount() > 0 ){
+               $row = $this->fetch();
+               $id = $row->id;
+               $x=[$id,$data[0]['title'],$data[0]['description'],1];
+               if($this->Query("INSERT into diet_schedule (schedule_id,title,description,state) VALUES (?,?,?,?)",$x)){
+                   if($this->Query("SELECT id FROM diet_schedule where id=(select max(id) from diet_schedule)")){
+                          $row2 = $this->fetch();
+                          $id2= $row2->id;
+                         
+                          for ($i=1;$i<count($data);$i++){
+                               $z=[$id2,$data[$i]['title'],$data[$i]['description'],$data[$i]['time']];
+                               if($this->Query("INSERT into diet_events (diet_id,title,descritption,amount) VALUES (?,?,?,?)",$z)){
+                                  
+                               }
+                            
+
+                          }
+                          return true;
+
+                   }
+               }
+               
+           }
+
+
+       }
+      
+       return true;
+   }
+
+}
+
 
 
 //Medicine

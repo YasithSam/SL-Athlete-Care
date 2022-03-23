@@ -608,7 +608,7 @@ public function addpostworkoutlist($id){
 }
   
 
-//Add Diet Schedule Events
+//Add Diet Schedule Events - Pre
 
     public function adddietlist($id){
         $x=$this->input('id');
@@ -653,7 +653,23 @@ public function addpostworkoutlist($id){
             'time'        => $this->input('time5'),
           
         ];
-        $arr=[$mainData,$item1,$item2,$item3,$item4,$item5];
+
+        $item6 = [
+
+            'title'        => $this->input('itemheading6'),
+            'description'      => $this->input('itemdesc6'),
+            'time'        => $this->input('time6'),
+          
+        ];
+        $item7 = [
+
+            'title'        => $this->input('itemheading7'),
+            'description'      => $this->input('itemdesc7'),
+            'time'        => $this->input('time7'),
+          
+        ];
+
+        $arr=[$mainData,$item1,$item2,$item3,$item4,$item5,$item6,$item7];
         $a=array_filter($arr, function($v){return array_filter($v) != array();});
        
         $data=$this->caseStudyModel->adddiet($a); 
@@ -664,6 +680,78 @@ public function addpostworkoutlist($id){
         $this->view('casestudy/forms/add-diet');
     }
 
+
+//Add Diet Schedule Events - Post
+
+public function addpostdietlist($id){
+    $x=$this->input('id');
+    $mainData = [
+
+        'title'        => $this->input('title'),
+        'description'      => $this->input('description'),
+        'id' => $this->input('id')
+    ];
+    $item1 = [
+
+        'title'        => $this->input('itemheading1'),
+        'description'      => $this->input('itemdesc1'),
+        'time'        => $this->input('time1'),
+   
+        
+    ];
+    $item2 = [
+
+        'title'        => $this->input('itemheading2'),
+        'description'      => $this->input('itemdesc2'),
+        'time'        => $this->input('time2'),
+ 
+    ];
+    $item3 = [
+
+        'title'        => $this->input('itemheading3'),
+        'description'      => $this->input('itemdesc3'),
+        'time'        => $this->input('time3'),
+      
+    ];
+    $item4 = [
+        'title'        => $this->input('itemheading4'),
+        'description'      => $this->input('itemdesc4'),
+        'time'        => $this->input('time4'),
+        
+    ];
+    $item5 = [
+
+        'title'        => $this->input('itemheading5'),
+        'description'      => $this->input('itemdesc5'),
+        'time'        => $this->input('time5'),
+      
+    ];
+
+    $item6 = [
+
+        'title'        => $this->input('itemheading6'),
+        'description'      => $this->input('itemdesc6'),
+        'time'        => $this->input('time6'),
+      
+    ];
+    $item7 = [
+
+        'title'        => $this->input('itemheading7'),
+        'description'      => $this->input('itemdesc7'),
+        'time'        => $this->input('time7'),
+      
+    ];
+
+    $arr=[$mainData,$item1,$item2,$item3,$item4,$item5,$item6,$item7];
+    $a=array_filter($arr, function($v){return array_filter($v) != array();});
+   
+    $data=$this->caseStudyModel->addpostdiet($a); 
+    if($data){
+        $this->redirect('caseStudyController/pdiet/'.$x);     
+    }
+   
+    $this->view('casestudy/forms/add-post-diet');
+}
 
 
     

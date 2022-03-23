@@ -44,11 +44,6 @@
         </button>
     </div>
 
-    
-
-
-
-
 
 
   <div class="container">
@@ -73,6 +68,7 @@
            <div class="row2">
             <label for="event">Workout Events : can add upto maximum 7 events</label>
            </div>
+
              <!--Dropdown-->
                         
              <div class="dropdown" id="dropdown">
@@ -110,20 +106,20 @@
                    id="toggle1">Add more</button>
 
 
-                </div>
+                </div> <br>
 
 
+                <!--Dropdown-->
 
+                <!-- Form - 02 -->
 
-
-                  <br>
                   <div class="dropdown2" style="display: none;" id="dropdown2">
                       
                       <div id="myDropdown" class="dropdown-content">
                                
                               <div class="row1">
                               <label for="event-title" class="form-label">Event Title : </label>
-                              <input type="text" class="form-control" id="event-title" name="itemheading2" placeholder="Workout Event - 1">
+                              <input type="text" class="form-control" id="event-title" name="itemheading2" placeholder="Workout Event - 2">
                               </div>
       
                               <div class="row1">
@@ -151,13 +147,18 @@
                    id="toggle2">Add more</button>
 
                         </div>
-                        <div class="dropdown3" style="display: none;" id="dropdown3">
+
+                    <!--Dropdown-->
+
+                    <!-- Form - 03 -->
+
+                      <div class="dropdown3" style="display: none;" id="dropdown3">
                       
                       <div id="myDropdown" class="dropdown-content">
                                
                               <div class="row1">
                               <label for="event-title" class="form-label">Event Title : </label>
-                              <input type="text" class="form-control" id="event-title" name="itemheading3" placeholder="Workout Event - 1">
+                              <input type="text" class="form-control" id="event-title" name="itemheading3" placeholder="Workout Event - 3">
                               </div>
       
                               <div class="row1">
@@ -185,13 +186,18 @@
                    id="toggle3">Add more</button>
 
                         </div>
-                        <div class="dropdown4" style="display: none;" id="dropdown4">
+
+                      <!--Dropdown-->
+
+                      <!-- Form - 04 -->
+
+                      <div class="dropdown4" style="display: none;" id="dropdown4">
                       
                       <div id="myDropdown" class="dropdown-content">
                                
                               <div class="row1">
                               <label for="event-title" class="form-label">Event Title : </label>
-                              <input type="text" class="form-control" id="event-title" name="itemheading4" placeholder="Workout Event - 1">
+                              <input type="text" class="form-control" id="event-title" name="itemheading4" placeholder="Workout Event - 4">
                               </div>
       
                               <div class="row1">
@@ -219,13 +225,18 @@
                    id="toggle4">Add more</button>
 
                         </div>
-                        <div class="dropdown5" style="display: none;" id="dropdown5">
+
+                    <!--Dropdown-->
+
+                    <!-- Form - 05 -->
+
+                      <div class="dropdown5" style="display: none;" id="dropdown5">
                       
                       <div id="myDropdown" class="dropdown-content">
                                
                               <div class="row1">
                               <label for="event-title" class="form-label">Event Title : </label>
-                              <input type="text" class="form-control" id="event-title" name="itemheading5" placeholder="Workout Event - 1">
+                              <input type="text" class="form-control" id="event-title" name="itemheading5" placeholder="Workout Event - 5">
                               </div>
       
                               <div class="row1">
@@ -245,9 +256,7 @@
                             </div>
 
 
-
-
-                            <button type="button"  style="background: #58a5f0; 
+                  <button type="button"  style="background: #58a5f0; 
                         font-size: 15px;
                         font-weight: 600;
                         padding: 8px;
@@ -257,13 +266,18 @@
                    id="toggle5">Add more</button>
 
                         </div>
-                        <div class="dropdown6" style="display: none;" id="dropdown6">
+
+                    <!--Dropdown-->
+
+                    <!-- Form - 06 -->
+
+                      <div class="dropdown6" style="display: none;" id="dropdown6">
                       
                       <div id="myDropdown" class="dropdown-content">
                                
                               <div class="row1">
                               <label for="event-title" class="form-label">Event Title : </label>
-                              <input type="text" class="form-control" id="event-title" name="itemheading6" placeholder="Workout Event - 1">
+                              <input type="text" class="form-control" id="event-title" name="itemheading6" placeholder="Workout Event - 6">
                               </div>
       
                               <div class="row1">
@@ -283,24 +297,28 @@
                             </div>
 
 
-
-                            <button type="button"  style="background: #58a5f0; 
+                  <button type="button"  style="background: #58a5f0; 
                         font-size: 15px;
                         font-weight: 600;
                         padding: 8px;
                         border-radius: 3px;
                         border: none;
                         cursor: pointer; " 
-                   id="toggle6">Add more</button>
+                   id="toggle6">Add more </button>
 
                         </div>
-                        <div class="dropdown7" style="display: none;" id="dropdown7">
+
+                    <!--Dropdown-->
+
+                    <!-- Form - 07 -->
+
+                      <div class="dropdown7" style="display: none;" id="dropdown7">
                       
                       <div id="myDropdown" class="dropdown-content">
                                
                               <div class="row1">
                               <label for="event-title" class="form-label">Event Title : </label>
-                              <input type="text" class="form-control" id="event-title" name="itemheading7" placeholder="Workout Event - 1">
+                              <input type="text" class="form-control" id="event-title" name="itemheading7" placeholder="Workout Event - 7">
                               </div>
       
                               <div class="row1">
@@ -318,27 +336,8 @@
                               </div>
       
                             </div>
-
-
-
-
-
-                            
+       
                         </div>
-               
-                      
-                      
-                     
-                      
-                   
-
-
-
-           
-
-                      
-  
-
                 
 
 <div class="btnrow">
@@ -347,8 +346,6 @@
 </div>
 
 </form>
-
-
 
 <br>
 <br> 
