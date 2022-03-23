@@ -78,6 +78,9 @@ class doctorModel extends database
 //        }
    // }
 
+
+//Profile
+
     public function getProfile($id){
         if($this->Query("SELECT uuid,full_name,province,district,sex,email,profile_image_url,hospital,doctor_number 
         from doctor_profile where uuid=?",[$id])){
@@ -88,7 +91,8 @@ class doctorModel extends database
     }
 
 
-    //Doctor profile update
+//Profile Update
+
     public function updateprofile($u,$i,$e,$h,$p,$d){
         
         if($this->Query("UPDATE doctor_profile set profile_image_url='$i', email='$e',hospital='$h',province='$p',district='$d' where uuid=?",[$u] )){         
@@ -97,9 +101,10 @@ class doctorModel extends database
     }
 
 
+//CaseStudy
 
     public function getCaseStudyProfile($id){
-        if($this->Query("SELECT a.full_name af,c.case_id,c.title/* ,pp.full_name pf  */
+        if($this->Query("SELECT a.full_name fn, c.case_id,c.title/* ,pp.full_name pf  */
                         FROM case_study c 
                         inner join athlete_profile a on a.uuid=c.athlete_id 
                        /*  left join paramedical_case_study pc on pc.case_study_id=c.case_id
@@ -110,6 +115,7 @@ class doctorModel extends database
 
         }
     }
+    
     //////////////////
     public function getPatients(){
         if($this->Query("SELECT a.uuid,a.full_name,au.phone
