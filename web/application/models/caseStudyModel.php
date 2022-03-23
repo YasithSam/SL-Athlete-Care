@@ -646,7 +646,7 @@ public function addpostdiet($data){
 
     public function getFeedback($id){
         $m=[];
-        if($this->Query("SELECT t.name, f.feedback,f.datetime,f.id FROM feedback f inner join case_study_type t on f.type=t.id where f.case_id=? && f.state=? order by datetime desc",[$id,0])){
+        if($this->Query("SELECT t.name, f.id, f.feedback,f.datetime,f.id FROM feedback f inner join case_study_type t on f.type=t.id where f.case_id=? && f.state=? order by datetime desc",[$id,0])){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;
@@ -672,7 +672,7 @@ public function addpostdiet($data){
 
     public function getPostFeedback($id){
         $m=[];
-        if($this->Query("SELECT t.name, f.feedback,f.datetime FROM feedback f inner join case_study_type t on f.type=t.id where f.case_id=? && f.state=? order by datetime desc",[$id,1])){
+        if($this->Query("SELECT t.name, f.id, f.feedback,f.datetime FROM feedback f inner join case_study_type t on f.type=t.id where f.case_id=? && f.state=? order by datetime desc",[$id,1])){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
                 $i=0;
@@ -728,7 +728,7 @@ public function addpostdiet($data){
     }
 
 
-//Delete Feedback
+//Delete Feedback 
 
 public function deleteFeedback($id)
 {
@@ -742,6 +742,7 @@ public function deleteFeedback($id)
     return false;
 
 }
+
 
 
 //Workout - Pre
