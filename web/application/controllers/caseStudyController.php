@@ -273,7 +273,7 @@ public function dietsingle($id){
     }
     
 
-//Delete Feedback
+//Delete Feedback - Pre
 
 public function deleteFeedback()
 {
@@ -290,6 +290,25 @@ public function deleteFeedback()
     }   
 
 }
+
+//Delete Feedback - Post
+
+public function deletePostFeedback()
+{
+    $id=$this->input('id');
+    $z=$this->input('case_id');
+    if($this->caseStudyModel->deleteFeedback($id)){
+        $this->redirect('caseStudyController/feedback_post/'.$z);
+        }
+
+    
+    else{
+        $this->redirect('caseStudyController/feedback_post/'.$z); 
+
+    }   
+
+}
+
 
 
 //Add Medicine

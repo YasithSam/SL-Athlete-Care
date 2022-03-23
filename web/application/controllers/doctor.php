@@ -130,18 +130,20 @@ class doctor extends main{
             'caseid'       => $result,
             'error'=>''
         ];
-        if(empty($data['nid']) && empty($data['phid'])){
+        
+        /*if(empty($data['nid']) && empty($data['phid'])){
             $data['error']="Couldn't assign paramedical";
-            $this->view('doctor/addPara',$data);
+            $this->view('doctor/addPara',$data); 
 
-        }
+        } */
+        
         if($this->doctorModel->AssignPara($data)){
             $this->setFlash('assign', 'Paramedical user assigned successfully!');
             $this->redirect('doctor/profile');
         }
         else{
-            $data['error']="Couldn't assign paramedical";
-            $this->view('doctor/addPara',$data);         
+          //  $data['error']="Couldn't assign paramedical";
+          //  $this->view('doctor/addPara',$data);         
         }
 
     }

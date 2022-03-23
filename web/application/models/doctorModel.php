@@ -334,34 +334,41 @@ class doctorModel extends database
         }
        
      }
+     
+
      public function AssignPara($data){
-        
+  
+        $d=$_SESSION['userId']; 
         if(empty($data['phid'])){
-            $y=[$data['nid'],$data['caseid']];
-            if($this->Query("INSERT INTO paramedical_case_study (paramedical_id,case_study_id) VALUES (?,?)", $y)){
+            $y=[$data['nid'],$data['caseid'],$d];
+            if($this->Query("INSERT INTO paramedical_case_study (paramedical_id,case_study_id,doctor_id) VALUES (?,?,?)", $y)){
                 return true;
             }
         }
         else if(empty($data['nid'])){
-            $y=[$data['phid'],$data['caseid']];   
-            if($this->Query("INSERT INTO paramedical_case_study (paramedical_id,case_study_id) VALUES (?,?)", $y)){
+       
+            $y=[$data['phid'],$data['caseid'],$d];   
+            if($this->Query("INSERT INTO paramedical_case_study (paramedical_id,case_study_id,doctor_id) VALUES (?,?,?)", $y)){
         
                 return true;
            }
         }
         else{
-            $y=[$data['nid'],$data['caseid']];
-            $x=[$data['phid'],$data['caseid']];
-            if($this->Query("INSERT INTO paramedical_case_study (paramedical_id,case_study_id) VALUES (?,?)", $y)){
-                return true;
-            }
-            if($this->Query("INSERT INTO paramedical_case_study (paramedical_id,case_study_id) VALUES (?,?)", $x)){
-                return true;
-            }
-        }
-        
+          
+            $y=[$data['nid'],$data['caseid'],$d];
+            $x=[$data['phid'],$data['caseid'],$d];
 
-     }
+            if($this->Query("INSERT INTO paramedical_case_study (paramedical_id,case_study_id,doctor_id) VALUES (?,?,?)", $y)){
+                if($this->Query("INSERT INTO paramedical_case_study (paramedical_id,case_study_id,doctor_id) VALUES (?,?,?)", $x)){
+                    return true;
+                }
+            }
+            
+        }
+
+    }
+
+
      public function getAthleteData(){
         if($this->Query("SELECT uuid,username FROM application_user where role_id=?",[4])){    
             if($this->rowCount() > 0 ){
