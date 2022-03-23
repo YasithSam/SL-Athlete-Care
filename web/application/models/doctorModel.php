@@ -459,8 +459,8 @@ class doctorModel extends database
             $type = 6;
             break;
         }
-        $y=[$data['userid'],$type,$data['heading'],$data['content'],0,0,-1]; 
-            if($this->Query("INSERT INTO post (author_id,type,heading,description,likes,comments,approval_status) VALUES (?,?,?,?,?,?,?)",$y)){
+        $y=[$data['userid'],$type,$data['heading'],$data['content'],0,0]; 
+            if($this->Query("INSERT INTO post (author_id,type,heading,description,likes,comments) VALUES (?,?,?,?,?,?)",$y)){
                  return true;
             }
     }

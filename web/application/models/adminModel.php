@@ -127,7 +127,7 @@ class adminModel extends database
                         left join reviewers r on r.post_id=p.id 
                         left join doctor_profile d on d.uuid=r.reviewer_id 
                         inner join post_type pt on p.type=pt.id
-                        where (p.approval_status=1 || p.approval_status=2) && p.type!=1 && p.reject_reported=0 
+                        where (p.approval_status=0 || p.approval_status=1) && p.type!=1 && p.reject_reported=0 
                         order by p.datetime desc ")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -163,13 +163,13 @@ class adminModel extends database
         }
     } 
     public function articleapprove($id){
-        if($this->Query("UPDATE post SET approval_status=2 where id=?",[$id])){
+        if($this->Query("UPDATE post SET approval_status=1 where id=?",[$id])){
                 return true;
             }
     }
     public function articlereject($id,$r){
         echo $id;
-        if($this->Query("UPDATE post SET approval_status=3,  reason=? where id=?",[$r,$id])){
+        if($this->Query("UPDATE post SET approval_status=-1,  reason=? where id=?",[$r,$id])){
                 return true;
             }
     }
