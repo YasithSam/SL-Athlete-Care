@@ -146,7 +146,7 @@ class admin extends main{
         $id=$this->input('id');
         if($this->getSession('userRole')==1){
         if ($this->adminModel->articleapprove($id)){
-          $this->setFlash('approveart', 'Article approved!');
+         /*  $this->setFlash('approveart', 'Article approved!'); */
           $this->redirect('admin/articles');
         } 
         } 
@@ -154,19 +154,7 @@ class admin extends main{
             $this->view('admin/articles');
         }
     }
-    public function articlereject(){
-        $id=$this->input('postid');
-        $r=$this->input('feedback');
-        if($this->getSession('userRole')==1){
-        if ($this->adminModel->articlereject($id,$r)){
-          $this->setFlash('rejecteart', 'Article removed!');
-          $this->redirect('admin/articles');
-        } 
-        } 
-        else{
-            $this->view('admin/articles');
-        }
-    }
+    
 
     public function comments(){
         $userId = $this->getSession('userId');
