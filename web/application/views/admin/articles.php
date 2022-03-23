@@ -83,14 +83,14 @@
                   </td>
             <?php }?>
 
-            <?php if($item->approval_status==2){?>
+            <?php if($item->approval_status==1){?>
               <td style="text-align: center;"><h3 style="font-weight: bold; color: green;">Approved</h3></td>
-            <?php } else if($item->approval_status==1){?>
+            <?php } else if($item->approval_status==0){?>
                 <td style="text-align: center;"><a href="<?php echo BASEURL;?>/admin/articleapprove?id=<?php echo($item->id);?>" onclick='return confirm("Approve this article?");'><input type="button" class="button2" value="Approve"></a></td>
             <?php }?>
-            <?php if($item->approval_status==2){?>
+            <?php if($item->approval_status==1){?>
                 <td style="text-align: center;"><button class="button4">Reject</button></td>
-            <?php } else if($item->approval_status==1){?>
+            <?php } else if($item->approval_status==0){?>
               <td style="text-align: center;"><button class="button3">Reject</button></td>
             <?php }?>
             <?php if($item->is_reported==1){?>
