@@ -33,13 +33,13 @@
               <tr>
                 <th class="type">Type</th>
                 <th class="title">Title</th>
-                <th class="desc">Description</th>
+                <!-- <th class="desc">Description</th> -->
                 <th class="name">Author</th>
                 <!-- <th class="name">Reviewer</th> -->
                 <th class="rname" style="text-align: center;">Reviewer Approval</th>
                 <th class="btnrow">Approve Article</th>
                 <th class="btnrow">Reject Article</th>
-                <th class="btnrow" style="text-align: center;">Reject Reported Article</th>
+                <!-- <th class="btnrow" style="text-align: center;">Reject Reported Article</th> -->
               </tr>
             </thead>
             <tbody>
@@ -48,7 +48,7 @@
               <tr>
                 <td><?php echo ucwords($item->type); ?></td>
                 <td ><?php echo ucwords($item->heading); ?></td>
-                <td class="longtext"><?php echo ucwords($item->description); ?></td>
+                <!-- <td class="longtext"><?php echo ucwords($item->description); ?></td> -->
                 <td><?php echo ucwords($item->username); ?></td>
                <!--  <td><?php echo ucwords($item->full_name); ?></td> -->
                 <?php if($item->approval==2){?>
@@ -93,11 +93,11 @@
             <?php } else if($item->approval_status==0){?>
               <td style="text-align: center;"><button class="button3">Reject</button></td>
             <?php }?>
-            <?php if($item->is_reported==1){?>
+            <!-- <?php if($item->is_reported==1){?>
               <td style="text-align: center;"><button class="button4">Reject</button></td>
             <?php } else if($item->is_reported==2){?>
               <td style="text-align: center;"><button class="button5">Reject</button></td>
-            <?php }?>
+            <?php }?> -->
 
 <!--Feedback Modal 1-->
 <div id="FeedbackModal1" class="fmodal1">       

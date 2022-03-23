@@ -202,11 +202,11 @@ header{
   margin: auto;
  /*  overflow: hidden; */
   background: #ffffff;
-  width: 1410px;
+  /* width: 1410px; */
   height: fit-content;
   padding-top: 0;
-  margin-left: 5px;
-  margin-right: 10px;
+  margin-left: 60px;
+  /* margin-right: 10px; */
   /* overflow-x: scroll; */
   /* padding-left: 30px;
   padding-right: 30px; */
