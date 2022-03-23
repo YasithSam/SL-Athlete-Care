@@ -23,14 +23,11 @@
             All Articles and Questions
        </div>
 
-      <div style="margin-left: 40px; margin-bottom: 10px;">
-
+       <div style="margin-left: 40px; margin-bottom: 10px;">
         <?php $this->flash('approveart', 'alert alert-success') ?>
         <?php $this->flash('rejecteart', 'alert') ?>
       </div>
 
-
-        <div class="wrapper">
            <table class="content-table">
             <thead>
               <tr>
@@ -38,12 +35,11 @@
                 <th class="title">Title</th>
                 <th class="desc">Description</th>
                 <th class="name">Author</th>
-
-                <th class="name">Reviewer</th>
+                <!-- <th class="name">Reviewer</th> -->
                 <th class="rname" style="text-align: center;">Reviewer Approval</th>
                 <th class="btnrow">Approve Article</th>
                 <th class="btnrow">Reject Article</th>
-
+                <th class="btnrow" style="text-align: center;">Reject Reported Article</th>
               </tr>
             </thead>
             <tbody>
@@ -54,7 +50,7 @@
                 <td ><?php echo ucwords($item->heading); ?></td>
                 <td class="longtext"><?php echo ucwords($item->description); ?></td>
                 <td><?php echo ucwords($item->username); ?></td>
-                <td><?php echo ucwords($item->full_name); ?></td>
+               <!--  <td><?php echo ucwords($item->full_name); ?></td> -->
                 <?php if($item->approval==2){?>
                   <td style="text-align: center;"><h3 style="font-weight: bold; color: green;">Approved</h3></td>
                 <?php } else if($item->approval==1){?>
@@ -69,8 +65,8 @@
 
                       <!--  ****************select dropdown list*********************************** -->                   
                           <select name="doctor" id="d">
-                            <?php if(!empty($data[3])): ?>
-                            <?php foreach($data[3] as $item2): ?> 
+                            <?php if(!empty($data[4])): ?>
+                            <?php foreach($data[4] as $item2): ?> 
                                 <option value="<?php echo($item2->uuid);?>"><?php echo($item2->full_name);?></option>
                             <?php endforeach;?>
                             <?php else: ?>
@@ -87,20 +83,31 @@
                   </td>
             <?php }?>
 
-            
-                <td><a href="<?php echo BASEURL;?>/admin/articleapprove?id=<?php echo($item->id);?>" onclick='return confirm("Approve this article?");'><input type="button" class="button2" value="Approve"></a></td>
-                <td><button class="button3">Reject</button></td>
+            <?php if($item->approval_status==2){?>
+              <td style="text-align: center;"><h3 style="font-weight: bold; color: green;">Approved</h3></td>
+            <?php } else if($item->approval_status==1){?>
+                <td style="text-align: center;"><a href="<?php echo BASEURL;?>/admin/articleapprove?id=<?php echo($item->id);?>" onclick='return confirm("Approve this article?");'><input type="button" class="button2" value="Approve"></a></td>
+            <?php }?>
+            <?php if($item->approval_status==2){?>
+                <td style="text-align: center;"><button class="button4">Reject</button></td>
+            <?php } else if($item->approval_status==1){?>
+              <td style="text-align: center;"><button class="button3">Reject</button></td>
+            <?php }?>
+            <?php if($item->is_reported==1){?>
+              <td style="text-align: center;"><button class="button4">Reject</button></td>
+            <?php } else if($item->is_reported==2){?>
+              <td style="text-align: center;"><button class="button5">Reject</button></td>
+            <?php }?>
 
-
-<!--Feedback Modal-->
-<div id="FeedbackModal" class="fmodal">       
+<!--Feedback Modal 1-->
+<div id="FeedbackModal1" class="fmodal1">       
   <div class="mcontainer">
     <div class="header2">
       <h2 class="myheader">Reject the article?</h2>
     </div>
    
   <div class="form-cont">
-    <form action="<?php echo BASEURL;?>/admin/articlereject" method="POST">
+    <form action="http://localhost/SL-Athlete-Care/api/v1/emailRejectArticle.php" method="POST">
   
     <div class="row">
       <div class="col-25">
@@ -113,7 +120,67 @@
     </div>
     <br>
     <div class="row">
-      <button class="fback">Cancel</button>  
+      <button class="fback1">Cancel</button>  
+      <input type="submit" value="Submit">
+    </div>
+    </form>
+    </div>
+    </div>
+</div>
+<!-- Script 1 -->
+<script>
+   // Get the modal
+    var fmodal = document.getElementById('FeedbackModal1');
+
+    // Get the button that opens the modal
+    var btns = document.getElementsByClassName("button3");
+
+    // Get the element that closes the modal
+    var span = document.getElementsByClassName("fback1")[0];
+
+    // When the user clicks the button, open the modal 
+    for (var i = 0; i < btns.length; i++) {
+    btns[i].onclick = function() {
+        fmodal.style.display = "block";
+    }
+    }
+
+    // When the user clicks on N0, close the modal
+    span.onclick = function() {
+     fmodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == fmodal) {
+        fmodal.style.display = "none";
+    }
+    }
+    </script>
+ <!--End modal-->
+
+ <!--Feedback Modal 2-->
+<div id="FeedbackModal2" class="fmodal2">       
+  <div class="mcontainer">
+    <div class="header2">
+      <h2 class="myheader">Reject the article?</h2>
+    </div>
+   
+  <div class="form-cont">
+    <form action="http://localhost/SL-Athlete-Care/api/v1/emailRejectReportedArticle.php" method="POST">
+  
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Reason :</label>
+      </div>
+      <div class="col-75">
+        <textarea id="feedback" required name="feedback" placeholder="Please give reasons for rejection" style="height:120px"></textarea>
+        <input type="hidden" id="postid" name="postid" value="<?php echo($item->id);?>"/>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <button class="fback2">Cancel</button>  
       <input type="submit" value="Submit">
     </div>
     </form>
@@ -128,16 +195,16 @@
               <?php endif; ?> 
             </tbody>
           </table>
-
+<!-- Script 1 -->
 <script>
    // Get the modal
-    var fmodal = document.getElementById('FeedbackModal');
+    var fmodal = document.getElementById('FeedbackModal2');
 
     // Get the button that opens the modal
-    var btns = document.getElementsByClassName("button3");
+    var btns = document.getElementsByClassName("button5");
 
     // Get the element that closes the modal
-    var span = document.getElementsByClassName("fback")[0];
+    var span = document.getElementsByClassName("fback2")[0];
 
     // When the user clicks the button, open the modal 
     for (var i = 0; i < btns.length; i++) {

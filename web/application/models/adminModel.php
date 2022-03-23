@@ -121,12 +121,13 @@ class adminModel extends database
     }
     public function getArticles(){
         $m=[];
-        if($this->Query("SELECT p.id, p.type, heading, description, username, r.approval, d.full_name 
+        if($this->Query("SELECT p.id, pt.type, p.heading, p.description, p.approval_status,p.is_reported, username, r.approval, d.full_name 
                         from post p 
                         inner join application_user au on au.uuid=p.author_id 
                         left join reviewers r on r.post_id=p.id 
                         left join doctor_profile d on d.uuid=r.reviewer_id 
-                        where p.approval_status=-1 && p.type!=1
+                        inner join post_type pt on p.type=pt.id
+                        where (p.approval_status=1 || p.approval_status=2) && p.type!=1 && p.reject_reported=0 
                         order by p.datetime desc ")){
             if($this->rowCount() > 0 ){
                 $row = $this->fetchall();
@@ -162,15 +163,36 @@ class adminModel extends database
         }
     } 
     public function articleapprove($id){
-        if($this->Query("UPDATE post SET approval_status=1 where id=?",[$id])){
+        if($this->Query("UPDATE post SET approval_status=2 where id=?",[$id])){
                 return true;
             }
     }
     public function articlereject($id,$r){
         echo $id;
-        if($this->Query("UPDATE post SET approval_status=0, reason='$r' where id=?",[$id])){
+        if($this->Query("UPDATE post SET approval_status=3,  reason=? where id=?",[$r,$id])){
                 return true;
             }
+    }
+    /* public function reportedarticlereject($id,$r){
+        
+        if($this->Query("UPDATE post SET reject_reported=1, reported_reject_reason=? where id=?",[$r,$id])){
+                return true;
+            }
+    } */
+
+    public function getAuthorEmail($pid){
+        if($this->Query("SELECT d.email from post p left join doctor_profile d on d.uuid = p.author_id where p.id=? ",[$pid])){
+        $data=$this->fetch();
+        return $data;
+        }
+        if($this->Query("SELECT p.email from post p left join paramedical_profile pp on pp.uuid = p.author_id where p.id=? ",[$pid])){
+            $data=$this->fetch();
+            return $data;
+        }
+        /* if($this->Query("SELECT a.email from post p left join doctor_profile d on d.uuid = p.author_id where au.uuid=? ",[$pid])){
+        $data=$this->fetch();
+        return $data;
+        }   */  
     }
     public function getComments(){
         
