@@ -341,13 +341,14 @@ input[type=text], select, textarea {
   background-color: #80c0ff;
   box-shadow: 1px 4px 8px 0 rgba(0,0,0,0.2);
   margin-left: 50px;
-  margin-top: 5px;
+  margin-top: 10px;
   width: 540px;
-  height: 420px;
+  height: 500px;
   box-sizing: border-box;
   border-radius: 4px;
   margin-bottom: 20px;
 }
+
 
 
 .row1 .form-label{
