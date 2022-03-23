@@ -178,7 +178,7 @@ for (var i = 0; i < btns.length; i++) {
         </div>
         <div class="addbtn2">
         <?php if($_SESSION["userRole"]==3):?>         
-          <button class="addbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/addworkout/<?php echo($data[1])?>';">Add New</button>
+          <button class="addbutton" onclick="window.location.href='<?php echo BASEURL;?>/caseStudyController/addpostworkout/<?php echo($data[1])?>';">Add New</button>
         <?php else: ?>             
            
         <?php endif;?>        

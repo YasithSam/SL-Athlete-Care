@@ -58,7 +58,7 @@
 
     <div class="form-container">
       
-      <form action ="<?php echo BASEURL;?>/caseStudyController/addworkoutlist/">
+      <form action ="<?php echo BASEURL;?>/caseStudyController/addpostworkoutlist/">
     
           <div class="row2">
             <label for="title">Workout Title :</label>

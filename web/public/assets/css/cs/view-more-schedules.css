@@ -148,6 +148,7 @@ body{
 /*vertical cards*/
 .container{
     padding-top: 20px;
+    padding-bottom: 50px;
     width: 100%;
     background-color: rgb(255, 255, 255);
     display: grid;

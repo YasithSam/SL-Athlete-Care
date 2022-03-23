@@ -31,7 +31,8 @@ class caseStudyModel extends database
 
     
 
-    //Case Study Report
+
+//Case Study Report
     
     //Case Study Report - getReportDetails
      public function getReportDetails($id){
@@ -403,9 +404,12 @@ class caseStudyModel extends database
     }
 
 
-
 //End Case Study Report Queries
 
+
+
+
+//Updates
 
     public function getUpdates($id){
        if($this->Query("SELECT c.case_id,t.name,u.username,c.datetime,c.heading FROM case_study_records c inner join case_study_type t on c.type_id=t.id inner join application_user u on c.recording_user_id=u.uuid where c.case_id=? order by datetime desc",[$id])){
@@ -414,6 +418,8 @@ class caseStudyModel extends database
          }
      }
 
+//Case study Details Part
+
      public function getCaseStudyDetails($id){
         if($this->Query("SELECT a.full_name,c.title,c.description from case_study c inner join athlete_profile a on c.athlete_id=a.uuid where c.case_id=?",[$id])){
             $data=$this->fetch();
@@ -421,7 +427,9 @@ class caseStudyModel extends database
         }
     }
 
-    
+
+//Add Workout - Pre
+
      public function addworkout($data){  
         $y=[$data[0]['id'],6];
         
@@ -453,16 +461,56 @@ class caseStudyModel extends database
 
 
             }
-
-
-
-           
+ 
             return true;
         }
-         
-
 
      }
+
+
+
+//Add Workout - Post
+
+public function addpostworkout($data){  
+    $y=[$data[0]['id'],6];
+    
+    if($this->Query("INSERT into schedule (case_study_id,type) VALUES (?,?)",$y)){
+        if($this->Query("SELECT id FROM schedule where id=(select max(id) from schedule)")){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetch();
+                $id = $row->id;
+                $x=[$id,$data[0]['title'],$data[0]['description'],1];
+                if($this->Query("INSERT into workout_schedule (schedule_id,title,description,state) VALUES (?,?,?,?)",$x)){
+                    if($this->Query("SELECT id FROM workout_schedule where id=(select max(id) from workout_schedule)")){
+                           $row2 = $this->fetch();
+                           $id2= $row2->id;
+                          
+                           for ($i=1;$i<count($data);$i++){
+                                $z=[$id2,$data[$i]['title'],$data[$i]['description'],$data[$i]['time'],$data[$i]['reps']];
+                                if($this->Query("INSERT into workout_events (workout_schdule_id,title,description,time,reps) VALUES (?,?,?,?,?)",$z)){
+                                   
+                                }
+                             
+
+                           }
+                           return true;
+
+                    }
+                }
+                
+            }
+
+
+        }
+
+        return true;
+    }
+
+ }
+
+
+//Add Diet
+
      public function adddiet($data){  
          $y=[$data[0]['id'],5];
        
@@ -494,17 +542,16 @@ class caseStudyModel extends database
 
 
             }
-
-
-
            
             return true;
         }
-         
-
 
     }
     
+
+
+//Medicine
+
      public function getMedicine($id){
         $m=[];
         if($this->Query("SELECT id,heading,description,datetime FROM case_study_records where type_id=? && case_id=? && state=? order by datetime desc",[1,$id,0])){
@@ -529,6 +576,8 @@ class caseStudyModel extends database
     }
 
 
+//Advice
+
     public function getAdvice($id){
         $m=[];
         if($this->Query("SELECT id, heading,description,datetime FROM case_study_records where type_id=? && case_id=? && state=? order by datetime desc",[2,$id,0])){
@@ -551,7 +600,10 @@ class caseStudyModel extends database
         return $m;
 
     }
-    //Get feedback - Pre 
+
+
+//Get feedback - Pre 
+
     public function getFeedback($id){
         $m=[];
         if($this->Query("SELECT t.name, f.feedback,f.datetime,f.id FROM feedback f inner join case_study_type t on f.type=t.id where f.case_id=? && f.state=? order by datetime desc",[$id,0])){
@@ -576,7 +628,8 @@ class caseStudyModel extends database
     }
 
 
-    //Get feedback - Post
+//Get feedback - Post
+
     public function getPostFeedback($id){
         $m=[];
         if($this->Query("SELECT t.name, f.feedback,f.datetime FROM feedback f inner join case_study_type t on f.type=t.id where f.case_id=? && f.state=? order by datetime desc",[$id,1])){
@@ -604,6 +657,7 @@ class caseStudyModel extends database
   
 
 //Delete Advice
+
     public function deleteAdvice($id)
     {
         if($this->Query("DELETE from case_study_records where id=?",[$id]))
@@ -617,7 +671,9 @@ class caseStudyModel extends database
 
 }
 
+
 //Delete Medicine
+
     public function deleteMedicine($id)
     {
         if($this->Query("DELETE from case_study_records where id=?",[$id]))
@@ -631,7 +687,9 @@ class caseStudyModel extends database
 
     }
 
+
 //Delete Feedback
+
 public function deleteFeedback($id)
 {
     if($this->Query("DELETE from feedback where id=?",[$id]))
@@ -645,7 +703,10 @@ public function deleteFeedback($id)
 
 }
 
-    public function getWorkout($id){
+
+//Workout - Pre
+
+public function getWorkout($id){
         $m=[];
         if($this->Query("SELECT w.id,w.title,w.description FROM workout_schedule w inner join schedule s on w.schedule_id=s.id where s.case_study_id =? && w.state=?",[$id,0])){
             if($this->rowCount() > 0 ){
@@ -668,7 +729,9 @@ public function deleteFeedback($id)
 
     }
 
-    //post workout
+
+
+//Workout - Post
 
     public function getPWorkout($id){
         $m=[];
@@ -693,7 +756,35 @@ public function deleteFeedback($id)
 
     }
 
-    //post diet
+ 
+    
+//Diet - Pre
+
+    public function getDiet($id){
+        $m=[];
+        if($this->Query("SELECT d.id,d.title,d.description FROM diet_schedule d inner join schedule s on d.schedule_id=s.id where s.case_study_id =? && d.state=?",[$id,0])){
+            if($this->rowCount() > 0 ){
+                $row = $this->fetchall();
+                $i=0;
+                foreach ($row as $obj)
+                {
+                    $m[$i]=$obj;
+                    $i++;
+                    
+                }    
+    
+
+            } else {
+                return $m;
+            }
+
+        }
+    return $m;
+
+}
+
+
+//Diet - Post
 
     public function getPDiet($id){
         $m=[];
@@ -719,6 +810,7 @@ public function deleteFeedback($id)
     }
 
 
+//Images - Pre
 
     public function getImages($id){
         $m=[];
@@ -744,7 +836,10 @@ public function deleteFeedback($id)
 
     }
 
-    //Post Images
+
+
+//Images - Post
+
     public function getPostImages($id){
         $m=[];
         if($this->Query("SELECT c.id,c.heading,c.description,a.link FROM case_study_records c left join case_study_attachements a on c.id=a.case_study_record where c.type_id=? && c.case_id=? && c.state=?",[5,$id,1])){
@@ -769,28 +864,9 @@ public function deleteFeedback($id)
 
     }
 
-    public function getDiet($id){
-        $m=[];
-        if($this->Query("SELECT d.id,d.title,d.description FROM diet_schedule d inner join schedule s on d.schedule_id=s.id where s.case_study_id =? && d.state=?",[$id,0])){
-            if($this->rowCount() > 0 ){
-                $row = $this->fetchall();
-                $i=0;
-                foreach ($row as $obj)
-                {
-                    $m[$i]=$obj;
-                    $i++;
-                     
-                }    
-       
+   
 
-            } else {
-                return $m;
-            }
-
-        }
-        return $m;
-
-    }
+//Add Medicine
 
     public function addMedicine($data){
         $x=[$data['id'],1,$data['uid'],$data['heading'],$data['description'],0];
@@ -802,9 +878,9 @@ public function deleteFeedback($id)
     }
   
 
- 
 
 //Add Advice
+
     public function addAdvice($data){
         $x=[$data['id'],2,$data['uid'],$data['heading'],$data['description'],0];
         if($this->Query("INSERT into case_study_records (case_id,type_id,recording_user_id,heading,description,state) VALUES (?,?,?,?,?,?)",$x)){
@@ -813,11 +889,10 @@ public function deleteFeedback($id)
         return false;
 
     }
-
-       
-    
+  
 
 //Add Feedback - Pre
+
     public function addFeedbackPre($data){
         $x=[$data['type'],$data['feedback'],$data['id'],$data['uid'],0];
         if($this->Query("INSERT into feedback (type,feedback,case_id,user_id,state) VALUES (?,?,?,?,?)",$x)){
@@ -829,6 +904,7 @@ public function deleteFeedback($id)
 
 
 //Add Feedback - Post
+
 public function addFeedbackPost($data){
     $x=[$data['type'],$data['feedback'],$data['id'],$data['uid'],1];
     if($this->Query("INSERT into feedback (type,feedback,case_id,user_id,state) VALUES (?,?,?,?,?)",$x)){
@@ -839,7 +915,9 @@ public function addFeedbackPost($data){
 }
 
 
-    public function getDietById($id){
+//Diet Schedule Events
+
+public function getDietById($id){
         $m=[];
         if($this->Query("SELECT e.id,e.title,e.amount,e.descritption, d.title AS htitle,d.description AS hdesc FROM diet_events e inner join diet_schedule d on d.id=e.diet_id where d.id=? ",[$id])){
             if($this->rowCount() > 0 ){
@@ -861,6 +939,10 @@ public function addFeedbackPost($data){
         return $m;
 
     }
+
+
+//Workout Schedule Events  
+  
     public function getWorkoutById($id){
         $m=[];
         if($this->Query("SELECT e.id,e.title,e.description,e.reps,time,d.title AS htitle, d.description AS hdesc FROM workout_events e inner join workout_schedule d on d.id=e.workout_schdule_id where d.id=? ",[$id])){
@@ -883,6 +965,11 @@ public function addFeedbackPost($data){
         return $m;
 
     }
+
+
+
+
+
 
 
 }

@@ -11,12 +11,18 @@ class caseStudyController extends main{
 
     }
 
+
+//Updates
+
     public function index($id){
         $data=$this->caseStudyModel->getUpdates($id);
         $data3=$this->caseStudyModel->getCaseStudyDetails($id);
         $data2=[$data,$id,$data3];
         $this->view("casestudy/main",$data2);      
     }
+
+
+//Pre
 
     public function pre($id){
         $data=$this->caseStudyModel->getMedicine($id);  
@@ -36,8 +42,10 @@ class caseStudyController extends main{
       
         $this->view("casestudy/pre",$dataA);
       
-
     }
+
+
+//Post
 
     public function post($id){
         $data=$this->caseStudyModel->getAdvice($id);  
@@ -60,7 +68,8 @@ class caseStudyController extends main{
      }
 
 
-     //report
+//Report
+
      public function report($id){
         $data1=$this->caseStudyModel->getReportDetails($id);  
         $data2=$this->caseStudyModel->getReportMedicine($id);  
@@ -114,19 +123,121 @@ class caseStudyController extends main{
     public function casestudy(){
         $this->view('doctor/casestudy');
     }
+
+
+
+//Medicine
+
+    public function medicine($id){
+        $data=$this->caseStudyModel->getMedicine($id);
+        $this->view('casestudy/medicine',[$data,$id]);
+
+    }
+
+
+//Advice
+
+public function advices($id){
+    $data3=$this->caseStudyModel->getAdvice($id);
+    $this->view('casestudy/advices',[$data3,$id]);
+
+}
+
+
+//Images - Pre
+
     public function image($id){
       $data2=$this->caseStudyModel->getImages($id);  
       $this->view('casestudy/images',[$data2,$id]);
 
     }
+
+//Images - Post
+
+    public function postimage($id){
+        $data2=$this->caseStudyModel->getPostImages($id);  
+        $this->view('casestudy/postimages',[$data2,$id]);
+
+   }
+
+
+//Workout - Pre
+
+public function workout($id){
+    $data3=$this->caseStudyModel->getWorkout($id); 
+    $this->view('casestudy/workout',[$data3,$id]);
+
+}
+
+
+//Workout - Post
+
+    public function pworkout($id){
+        $data3=$this->caseStudyModel->getPWorkout($id); 
+        $this->view('casestudy/pworkout',[$data3,$id]);
+
+}
+
+
+//Diet - Pre
+
     public function diet($id){
         $data3=$this->caseStudyModel->getDiet($id); 
 
         $this->view('casestudy/diet',[$data3,$id]);
 
     }
+
+
+//Diet - Post
+
+    public function pdiet($id){
+        $data3=$this->caseStudyModel->getPDiet($id); 
+
+        $this->view('casestudy/pdiet',[$data3,$id]);
+
+}
+
+
+//Workout Schedule Events
+
+public function workoutsingle($id){
+    $data3=$this->caseStudyModel->getWorkoutById($id); 
+    $this->view('casestudy/view-workout-schedule',$data3);
+
+}
+
+
+//Diet Schedule Events
+
+public function dietsingle($id){
+    $data=$this->caseStudyModel->getDietById($id); 
+    $this->view('casestudy/view-diet-schedule',$data);
+
+}
+
+
+//Feedback - Pre
+
+    public function feedback($id){
+        $data6=$this->caseStudyModel->getFeedback($id);
+        $this->view('casestudy/feedback',[$data6,$id]);
+
+    }
+
     
+//Feedback - Post
+
+    public function feedback_post($id){
+        $data6=$this->caseStudyModel->getPostFeedback($id);
+        $this->view('casestudy/feedback_post',[$data6,$id]);
+
+    }
+
+ 
+
 //Delete Advice
+
     public function deleteAdvice()
     {
         $x=$this->input('id');
@@ -141,6 +252,7 @@ class caseStudyController extends main{
 
         }   
     }
+
 
 //Delete Medicine
 
@@ -179,37 +291,9 @@ public function deleteFeedback()
 
 }
 
-//post images
 
-    public function postimage($id){
-        $data2=$this->caseStudyModel->getPostImages($id);  
-        $this->view('casestudy/postimages',[$data2,$id]);
+//Add Medicine
 
-     }
-
-//post diet
-
-    public function pdiet($id){
-        $data3=$this->caseStudyModel->getPDiet($id); 
-
-        $this->view('casestudy/pdiet',[$data3,$id]);
-
-    }
-
-//post workout
-
-    public function pworkout($id){
-        $data3=$this->caseStudyModel->getPWorkout($id); 
-        $this->view('casestudy/pworkout',[$data3,$id]);
-
-    }
-
-
-    public function medicine($id){
-        $data=$this->caseStudyModel->getMedicine($id);
-        $this->view('casestudy/medicine',[$data,$id]);
-
-    }
     public function addMedicine($id){
         $uid=$this->getSession('userId');
         $data = [
@@ -230,31 +314,41 @@ public function deleteFeedback()
         else{
             $this->redirect('caseStudyController/pre/'.$id);   
 
-        }
-      
-       
+        }     
 
     }
 
-    //Feedback - Pre
-    public function feedback($id){
-        $data6=$this->caseStudyModel->getFeedback($id);
-        $this->view('casestudy/feedback',[$data6,$id]);
-
-    }
-
-    //Feedback - Post
-    public function feedback_post($id){
-        $data6=$this->caseStudyModel->getPostFeedback($id);
-        $this->view('casestudy/feedback_post',[$data6,$id]);
-
-    }
-
- 
   
+//Add Advice
+
+public function addAdvice($id){
+        
+    $uid=$this->getSession('userId');
+    $data = [
+
+        'heading'        => $this->input('title'),
+        'description'    => $this->input('description'),
+        'id' => $id,
+        'uid'=>$uid
+      
+    ];
+    if(!empty($data['heading']) && !empty($data['description'])){
+        if($this->caseStudyModel->addAdvice($data)){
+            
+            $this->redirect('caseStudyController/advices/'.$id);     
+        }
+
+    } 
+    else{
+        $this->redirect('caseStudyController/post/'.$id);   
+
+    }   
+
+}
 
 
 //Add Feedback - Pre
+
 public function addFeedbackPre($id){
         
     $uid=$this->getSession('userId');
@@ -281,8 +375,8 @@ public function addFeedbackPre($id){
 }
 
 
-
 //Add Feedback - Post
+
 public function addFeedbackPost($id){
         
     $uid=$this->getSession('userId');
@@ -309,33 +403,7 @@ public function addFeedbackPost($id){
 }
 
 
-
-    public function addAdvice($id){
-        
-        $uid=$this->getSession('userId');
-        $data = [
-
-            'heading'        => $this->input('title'),
-            'description'    => $this->input('description'),
-            'id' => $id,
-            'uid'=>$uid
-          
-        ];
-        if(!empty($data['heading']) && !empty($data['description'])){
-            if($this->caseStudyModel->addAdvice($data)){
-                
-                $this->redirect('caseStudyController/advices/'.$id);     
-            }
-
-        } 
-        else{
-            $this->redirect('caseStudyController/post/'.$id);   
-
-        }   
-
-    }
-   
-
+/*Edit Advice*/
 
     public function editAdvices($id){   
         $data = [
@@ -356,37 +424,43 @@ public function addFeedbackPost($id){
 
     }
 
-    public function workout($id){
-        $data3=$this->caseStudyModel->getWorkout($id); 
-        $this->view('casestudy/workout',[$data3,$id]);
 
-    }
-    public function advices($id){
-        $data3=$this->caseStudyModel->getAdvice($id);
-        $this->view('casestudy/advices',[$data3,$id]);
+/*Add Workout - Pre*/
 
-    }
-    
-    public function workoutsingle($id){
-        $data3=$this->caseStudyModel->getWorkoutById($id); 
-        $this->view('casestudy/view-workout-schedule',$data3);
-
-    }
-    public function dietsingle($id){
-        $data=$this->caseStudyModel->getDietById($id); 
-        $this->view('casestudy/view-diet-schedule',$data);
-
-    }
     public function addworkout($id){
 
         $this->view('casestudy/forms/add-workout',$id);
 
     }
 
+
+/*Add Workout - Post*/
+
+    public function addpostworkout($id){
+
+        $this->view('casestudy/forms/add-post-workout',$id);
+
+    }
+
+
+//Add Diet - Pre
+
     public function adddiet($id){
         $this->view('casestudy/forms/add-diet',$id);
 
     }
+
+
+//Add Diet - Post
+
+public function addpostdiet($id){
+    $this->view('casestudy/forms/add-post-diet',$id);
+
+}
+
+
+
+//Add Workout Schedule Events - Pre
 
     public function addworkoutlist($id){
         $x=$this->input('id');
@@ -431,7 +505,24 @@ public function addFeedbackPost($id){
             'time'        => $this->input('time5'),
             'reps'      => $this->input('reps5')
         ];
-        $arr=[$mainData,$item1,$item2,$item3,$item4,$item5];
+
+        $item6 = [
+
+            'title'        => $this->input('itemheading6'),
+            'description'      => $this->input('itemdesc6'),
+            'time'        => $this->input('time6'),
+            'reps'      => $this->input('reps6')
+        ];
+
+        $item7 = [
+
+            'title'        => $this->input('itemheading7'),
+            'description'      => $this->input('itemdesc7'),
+            'time'        => $this->input('time7'),
+            'reps'      => $this->input('reps7')
+        ];
+
+        $arr=[$mainData,$item1,$item2,$item3,$item4,$item5,$item6,$item7];
         $a=array_filter($arr, function($v){return array_filter($v) != array();});
        
         $data=$this->caseStudyModel->addworkout($a); 
@@ -441,6 +532,83 @@ public function addFeedbackPost($id){
         $this->view('casestudy/forms/add-workout');
 
     }
+
+
+//Add Workout Schedule Events - Post
+
+public function addpostworkoutlist($id){
+    $x=$this->input('id');
+    $mainData = [
+
+        'title'        => $this->input('title'),
+        'description'      => $this->input('description'),
+        'id' => $this->input('id')
+    ];
+    $item1 = [
+
+        'title'        => $this->input('itemheading1'),
+        'description'      => $this->input('itemdesc1'),
+        'time'        => $this->input('time1'),
+        'reps'      => $this->input('reps1')
+        
+    ];
+    $item2 = [
+
+        'title'        => $this->input('itemheading2'),
+        'description'      => $this->input('itemdesc2'),
+        'time'        => $this->input('time2'),
+        'reps'      => $this->input('reps2')
+    ];
+    $item3 = [
+
+        'title'        => $this->input('itemheading3'),
+        'description'      => $this->input('itemdesc3'),
+        'time'        => $this->input('time3'),
+        'reps'      => $this->input('reps3')
+    ];
+    $item4 = [
+        'title'        => $this->input('itemheading4'),
+        'description'      => $this->input('itemdesc4'),
+        'time'        => $this->input('time4'),
+        'reps'      => $this->input('reps4')
+    ];
+    $item5 = [
+
+        'title'        => $this->input('itemheading5'),
+        'description'      => $this->input('itemdesc5'),
+        'time'        => $this->input('time5'),
+        'reps'      => $this->input('reps5')
+    ];
+
+    $item6 = [
+
+        'title'        => $this->input('itemheading6'),
+        'description'      => $this->input('itemdesc6'),
+        'time'        => $this->input('time6'),
+        'reps'      => $this->input('reps6')
+    ];
+
+    $item7 = [
+
+        'title'        => $this->input('itemheading7'),
+        'description'      => $this->input('itemdesc7'),
+        'time'        => $this->input('time7'),
+        'reps'      => $this->input('reps7')
+    ];
+
+    $arr=[$mainData,$item1,$item2,$item3,$item4,$item5,$item6,$item7];
+    $a=array_filter($arr, function($v){return array_filter($v) != array();});
+   
+    $data=$this->caseStudyModel->addpostworkout($a); 
+    if($data){
+        $this->redirect('caseStudyController/pworkout/'.$x);     
+    }
+    $this->view('casestudy/forms/add-post-workout');
+
+}
+  
+
+//Add Diet Schedule Events
 
     public function adddietlist($id){
         $x=$this->input('id');
