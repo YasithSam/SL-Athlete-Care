@@ -5,7 +5,7 @@ $db=new accountModel();
 $id=$_REQUEST['id'];
 $data=$db->disableCaseStudy($id);
 $email= new \SendGrid\Mail\Mail();
-$email->setFrom("elimoitsolutions@gmail.com", "Admin User");
+$email->setFrom(//, "Admin User");
 $email->setSubject("Your case study is now disabled!");
 $email->addTo($data->email, "Admin User - SL Athlete Care");
 $email->addContent("text/plain", "Your case study is disabled");
