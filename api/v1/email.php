@@ -23,7 +23,7 @@ $email->addContent(
     "text/html", "<strong>Dear Patient,<br> Your request for the injury has been accepted and please view following details to get to know about the doctor. <br></strong> <ol> <li> Name :".$n."<li> Email: ".$e."</li>"
 );
 
-$sendgrid = new \SendGrid('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');
+$sendgrid = new \SendGrid($apiKey);
 try {
  $response = $sendgrid->send($email);
  
