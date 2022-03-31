@@ -5,9 +5,9 @@ require_once "../../web/vendor/autoload.php";
 require_once "../../web/application/models/AthleteAPI.php";
 $phone=$_REQUEST['phone'];
 $username=$_REQUEST['name'];
-$account_sid = "AC6690c2afb7b6168604e7e4c8f5bd985b";
-$auth_token = "f054fc4e5b222014ee767a9e48923c28";
-$twilio_phone_number = "+18482891989";
+$account_sid = //account id;
+$auth_token = //token;
+$twilio_phone_number = //tel;
 $athlete=new AthleteAPI();
 $athlete->checkUser($username,$phone);
 if($athlete){
