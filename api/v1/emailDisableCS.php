@@ -12,7 +12,7 @@ $email->addContent("text/plain", "Your case study is disabled");
 $email->addContent(
     "text/html", "<strong>Dear Patient,<br> Your case study has been disabled. Please contact administration for more details <br></strong>"
 );
-$sendgrid = new \SendGrid('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');
+$sendgrid = new \SendGrid(//);
 try {
  $response = $sendgrid->send($email);
   header("location:" . BASEURL . "/admin/casestudy?id=1",true,303);
